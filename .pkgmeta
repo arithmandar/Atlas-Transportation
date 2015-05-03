@@ -1,4 +1,4 @@
-package-as: Atlas
+package-as: Atlas_Transportation
 
 manual-changelog:
     filename: Docs/ChangeLog.txt
