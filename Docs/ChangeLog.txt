@@ -8,10 +8,15 @@ Copyright 2011 ~ 2015 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.31.03 (Mar. 01, 2015)
+------------------------
+- Draenor Alliance map updated
+    - added transportation from Lunarfall to Everbloom Wilds
+    - added trabsportation from Lunarfall to Stormshield
+
 v1.31.02 (Mar. 01, 2015)
 ------------------------
 - TOC update to support WoW 6.1
-
 
 v1.31.01 (Nov. 24, 2014)
 -----------------------
