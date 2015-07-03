@@ -8,6 +8,12 @@ Copyright 2011 ~ 2015 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.32.00 (Jul. XX, 2015)
+------------------------
+- TOC update to support WoW 6.2
+- Draenor Alliance / Horde map updated
+    - added taxi nodes in Tanaan Jungle
+
 v1.31.03 (Mar. 01, 2015)
 ------------------------
 - Draenor Alliance map updated
