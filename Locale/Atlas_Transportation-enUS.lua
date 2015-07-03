@@ -59,4 +59,13 @@ if AL then
 	AL["Whispercloud's Balloon"] = "Whispercloud's Balloon";
 	AL["Shado-Pan Rope"] = "Shado-Pan Rope"; -- 66390
 	AL["Require to complete \"Meet the Scout\" quest line first."] = "Require to complete \"Meet the Scout\" quest line first.";
+	-- Temporary place the new taxi nodes here until LibBabbleSubZone get updated
+	AL["Lion's Watch"]  = "Lion's Watch";
+	AL["Vault of the Earth"] = "Vault of the Earth";
+	AL["Malo's Lookout"] = "Malo's Lookout";
+	AL["Aktar's Post"] = "Aktar's Post";
+	AL["Sha'naari Refuge"] = "Sha'naari Refuge";
+	AL["The Iron Front"] = "The Iron Front";
+	AL["Vol'mar"] = "Vol'mar";
+	
 end

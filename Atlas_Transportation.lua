@@ -113,12 +113,12 @@ local myData = {
 		{ WHIT.."44) "..BZ["Stormshield"] };
 		{ "" };
 		{ BLUE..BZ["Tanaan Jungle"] };
-		{ WHIT.."45) "..BZ["Lion's Watch"] };
-		{ WHIT.."46) "..BZ["Vault of the Earth"] };
-		{ WHIT.."47) "..BZ["Malo's Lookout"] };
-		{ WHIT.."48) "..BZ["Aktar's Post"] };
-		{ WHIT.."49) "..BZ["Sha'naari Refuge"] };
-		{ WHIT.."50) "..BZ["The Iron Front"] };
+		{ WHIT.."45) "..AL["Lion's Watch"] };
+		{ WHIT.."46) "..AL["Vault of the Earth"] };
+		{ WHIT.."47) "..AL["Malo's Lookout"] };
+		{ WHIT.."48) "..AL["Aktar's Post"] };
+		{ WHIT.."49) "..AL["Sha'naari Refuge"] };
+		{ WHIT.."50) "..AL["The Iron Front"] };
 	};
 	TransHordeDraenor = {
 		ZoneName = { BZ["Draenor"].." ("..FACTION_HORDE..")" };
@@ -188,12 +188,12 @@ local myData = {
 		{ WHIT.."43) "..BZ["Warspear"] };
 		{ "" };
 		{ BLUE..BZ["Tanaan Jungle"] };
-		{ WHIT.."44) "..BZ["Vol'mar"] };
-		{ WHIT.."45) "..BZ["Vault of the Earth"] };
-		{ WHIT.."46) "..BZ["Malo's Lookout"] };
-		{ WHIT.."47) "..BZ["Aktar's Post"] };
-		{ WHIT.."48) "..BZ["Sha'naari Refuge"] };
-		{ WHIT.."49) "..BZ["The Iron Front"] };
+		{ WHIT.."44) "..AL["Vol'mar"] };
+		{ WHIT.."45) "..AL["Vault of the Earth"] };
+		{ WHIT.."46) "..AL["Malo's Lookout"] };
+		{ WHIT.."47) "..AL["Aktar's Post"] };
+		{ WHIT.."48) "..AL["Sha'naari Refuge"] };
+		{ WHIT.."49) "..AL["The Iron Front"] };
 	};
 	TransAllianceEast = {
 		ZoneName = { BZ["Eastern Kingdoms"].." ("..FACTION_ALLIANCE..")" };
