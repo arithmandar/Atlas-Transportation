@@ -1,4 +1,4 @@
--- $Id: Atlas_Transportation-esES.lua 2274 2015-03-01 07:44:40Z arithmandar $
+-- $Id$
 --[[
 
 	Atlas, a World of Warcraft instance map browser

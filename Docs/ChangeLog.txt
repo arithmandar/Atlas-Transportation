@@ -1,4 +1,4 @@
-$Id: ChangeLog.txt 2275 2015-03-01 07:52:20Z arithmandar $
+$Id$
 Atlas, a World of Warcraft instance map browser
 Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
 Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
