@@ -4,7 +4,7 @@
 	Atlas, a World of Warcraft instance map browser
 	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
 	Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-	Copyright 2011 ~ 2015 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
+	Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 
 	This file is part of Atlas.
 
@@ -113,12 +113,13 @@ local myData = {
 		{ WHIT.."44) "..BZ["Stormshield"] };
 		{ "" };
 		{ BLUE..BZ["Tanaan Jungle"] };
-		{ WHIT.."45) "..BZ["Lion's Watch"] };
-		{ WHIT.."46) "..BZ["Vault of the Earth"] };
+		{ WHIT.."45) "..BZ["The Iron Front"] };
+		{ WHIT.."46) "..BZ["Sha'naari Refuge"] };
 		{ WHIT.."47) "..BZ["Malo's Lookout"] };
-		{ WHIT.."48) "..BZ["Aktar's Post"] };
-		{ WHIT.."49) "..BZ["Sha'naari Refuge"] };
-		{ WHIT.."50) "..BZ["The Iron Front"] };
+		{ WHIT.."48) "..BZ["Lion's Watch"] };
+		{ WHIT.."49) "..BZ["Aktar's Post"] };
+		{ WHIT.."50) "..BZ["Vault of the Earth"] };
+		{ WHIT.."51) "..BZ["Throne of Kil'jaeden"] };
 	};
 	TransHordeDraenor = {
 		ZoneName = { BZ["Draenor"].." ("..FACTION_HORDE..")" };
@@ -188,12 +189,13 @@ local myData = {
 		{ WHIT.."43) "..BZ["Warspear"] };
 		{ "" };
 		{ BLUE..BZ["Tanaan Jungle"] };
-		{ WHIT.."44) "..BZ["Vol'mar"] };
-		{ WHIT.."45) "..BZ["Vault of the Earth"] };
-		{ WHIT.."46) "..BZ["Malo's Lookout"] };
-		{ WHIT.."47) "..BZ["Aktar's Post"] };
-		{ WHIT.."48) "..BZ["Sha'naari Refuge"] };
-		{ WHIT.."49) "..BZ["The Iron Front"] };
+		{ WHIT.."44) "..BZ["The Iron Front"] };
+		{ WHIT.."45) "..BZ["Sha'naari Refuge"] };
+		{ WHIT.."46) "..BZ["Vault of the Earth"] };
+		{ WHIT.."47) "..BZ["Vol'mar"] };
+		{ WHIT.."48) "..BZ["Aktar's Post"] };
+		{ WHIT.."49) "..BZ["Malo's Lookout"] };
+		{ WHIT.."50) "..BZ["Throne of Kil'jaeden"] };
 	};
 	TransAllianceEast = {
 		ZoneName = { BZ["Eastern Kingdoms"].." ("..FACTION_ALLIANCE..")" };
