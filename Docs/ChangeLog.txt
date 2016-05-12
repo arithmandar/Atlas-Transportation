@@ -8,6 +8,12 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.32.02 (May 12, 2016)
+------------------------
+- Removed Axefall from Aliance Draenor map
+- Re-numbering Draenor taxi nodes as Akeeta's Hovel is supposed to be in Shadowmoon Valley
+- Added Draenor maps' taxi node info
+
 v1.32.01 (Apr. 25, 2016)
 ------------------------
 - Re-ordered taxi points in Tanaan Jungle
