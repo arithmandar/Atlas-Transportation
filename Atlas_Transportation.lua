@@ -196,6 +196,26 @@ local myData = {
 		{ WHIT.."49) "..BZ["Malo's Lookout"], 10049 };
 		{ WHIT.."50) "..BZ["Throne of Kil'jaeden"], 10050 };
 	};
+	TransAllianceAshran = {
+		ZoneName = { BZ["Ashran"].." ("..FACTION_ALLIANCE..")" };
+		{ _RED..AL["Taxi Nodes"] };
+		{ WHIT.." A) "..BZ["Stormshield"], 10001 };
+		{ _RED..AL["Portals"] };
+		{ PURP.." B) "..BZ["Lion's Watch"], 10002 };
+		{ PURP.." C) "..BZ["Ironforge"], 10003 };
+		{ PURP.." D) "..BZ["Stormwind City"], 10004 };
+		{ PURP.." E) "..BZ["Darnassus"], 10005 };
+	};
+	TransHordeAshran = {
+		ZoneName = { BZ["Ashran"].." ("..FACTION_HORDE..")" };
+		{ _RED..AL["Taxi Nodes"] };
+		{ WHIT.." A) "..BZ["Warspear"], 10001 };
+		{ _RED..AL["Portals"] };
+		{ PURP.." B) "..BZ["Vol'mar"], 10002 };
+		{ PURP.." C) "..BZ["Thunder Bluff"], 10003 };
+		{ PURP.." D) "..BZ["Undercity"], 10004 };
+		{ PURP.." E) "..BZ["Orgrimmar"], 10005 };
+	};
 	TransAllianceEast = {
 		ZoneName = { BZ["Eastern Kingdoms"].." ("..FACTION_ALLIANCE..")" };
 		{ _RED..BZ["Docks"] };

@@ -139,7 +139,20 @@ local myDB = {
 		{ "49", 10049, 331, 224 }; -- Malo's Lookout
 		{ "50", 10001, 349, 207 }; -- Throne of Kil'jaeden
 	};
---[[
+	TransAllianceAshran = {
+		{ "A", 10001, 153, 331 };
+		{ "B", 10002, 187, 305 };
+		{ "C", 10003, 258, 333 };
+		{ "D", 10004, 306, 299 };
+		{ "E", 10005, 328, 379 };
+	};
+	TransHordeAshran = {
+		{ "A", 10001, 205, 135 };
+		{ "B", 10002, 252, 169 };
+		{ "C", 10003, 240, 98 };
+		{ "D", 10004, 313, 91 };
+		{ "E", 10005, 289, 202 };
+	};--[[
 	TransAllianceEast = {
 		{ "A'", 10001, x, y }; -- Valgarde
 		{ "B'", 10001, x, y }; -- Valiance Keep
@@ -155,17 +168,17 @@ local myDB = {
 		{ "C'", 10001, x, y }; -- Ramkahen
 		{ "D'", 10001, x, y }; -- The Stair of Destiny
 		{ "E'", 10001, x, y }; -- Temple of Earth
-		{ " F'", 10001, x, y }; -- Darkmoon Island
+		{ "F'", 10001, x, y }; -- Darkmoon Island
 		{ "G'", 10001, x, y }; -- Paw'Don Village
-		{ " 1", 10001, x, y }; -- Shattered Sun Staging Area
-		{ " 2", 10001, x, y }; -- Zul'Aman
+		{ "1", 10001, x, y }; -- Shattered Sun Staging Area
+		{ "2", 10001, x, y }; -- Zul'Aman
 		{ "3", 10001, x, y }; -- Acherus: The Ebon Hold
-		{ " 4", 10001, x, y }; -- Light's Hope Chapel
-		{ " 5", 10001, x, y }; -- Eastwall Tower
-		{ " 6", 10001, x, y }; -- Northpass Tower
-		{ " 7", 10001, x, y }; -- Plaguewood Tower
-		{ " 8", 10001, x, y }; -- Light's Shield Tower
-		{ " 9", 10001, x, y }; -- Crown Guard Tower
+		{ "4", 10001, x, y }; -- Light's Hope Chapel
+		{ "5", 10001, x, y }; -- Eastwall Tower
+		{ "6", 10001, x, y }; -- Northpass Tower
+		{ "7", 10001, x, y }; -- Plaguewood Tower
+		{ "8", 10001, x, y }; -- Light's Shield Tower
+		{ "9", 10001, x, y }; -- Crown Guard Tower
 		{ "10", 10001, x, y }; -- Thondroril River
 		{ "11", 10001, x, y }; -- Hearthglen
 		{ "12", 10001, x, y }; -- The Menders' Stead
@@ -609,7 +622,7 @@ local myDB = {
 		
 	};
 	DarkmoonFaire = {
-		{ PURP.." A) "..AL["Portals"].."\n"..INDENT.." -> "..BZ["Elwynn Forest"].."\n"..INDENT.." -> "..BZ["Mulgore"] };
+		{ " A) "..AL["Portals"].."\n"..INDENT.." -> "..BZ["Elwynn Forest"].."\n"..INDENT.." -> "..BZ["Mulgore"] };
 	};
 	TransAlliancePandaria = {
 		{ "A", 10001, x, y }; -- Paw'Don Village

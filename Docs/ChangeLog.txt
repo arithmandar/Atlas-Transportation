@@ -8,6 +8,10 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.32.03 (May 18, 2016)
+------------------------
+- Added Ashran maps
+
 v1.32.02 (May 12, 2016)
 ------------------------
 - Removed Axefall from Aliance Draenor map
