@@ -666,7 +666,7 @@ local myData = {
 		{ PURP.." H') "..BZ["Honeydew Village"]..", "..BZ["The Jade Forest"]..", "..BZ["Pandaria"] };
 		{ PURP.." I') "..BZ["Shattered Landing"]..", "..BZ["Blasted Lands"]..", "..BZ["Eastern Kingdoms"] };
 		{ PURP.." J') "..BZ["Darkmoon Island"] };
-		{ PURP.." K') "..BZ["Glacier Bay"]..", "..BZ["Frostfire Ridge"]..", "..BZ["Draenor"] };
+		{ PURP.." K') "..BZ["Warspear"]..", "..BZ["Ashran"]..", "..BZ["Draenor"] };
 		{ WHIT.." 2) "..BZ["Spirit Rise"]..", "..BZ["Thunder Bluff"]..", "..BZ["Mulgore"] };
 		{ WHIT.." 5) "..BZ["Valley of Spirits"]..", "..BZ["Orgrimmar"]..", "..BZ["Durotar"] };
 		{ "" };
@@ -771,6 +771,31 @@ local myData = {
 		{ _RED..AL["Legend"] };
 		{ PURP.."-- : "..AL["Portal / Waygate Path to the destination"] };
 		{ CYAN.."-- : "..AL["Ship / Zeppelin sailing path to destination"] };	
+	};
+	TransHordeOrgrimmar = {
+		ZoneName = { BZ["Orgrimmar"] };
+		{ _RED..AL["Portals"] };
+		{ PURP.." A) "..BZ["Shattered Landing"]..", "..BZ["Blasted Lands"]..", "..BZ["Eastern Kingdoms"], 10001 };
+		{ GREY..INDENT.."("..BZ["Cleft of Shadow"]..")" };
+		{ PURP.." B) "..BZ["The Stair of Destiny"]..", "..BZ["Hellfire Peninsula"]..", "..BZ["Outland"], 10002 };
+		{ GREY..INDENT.."("..BZ["Cleft of Shadow"].." / "..BZ["Valley of Spirits"]..")" };
+		{ PURP.." C) "..BZ["Hellscream's Grasp"]..", "..BZ["Tol Barad Peninsula"]..", "..BZ["Eastern Kingdoms"], 10003 };
+		{ PURP.." D) "..BZ["Ramkahen"]..", "..BZ["Uldum"], 10004 };
+		{ PURP.." E) "..BZ["Vashj'ir"]..", "..BZ["Eastern Kingdoms"], 10005 };
+		{ PURP.." F) "..BZ["Temple of Earth"]..", "..BZ["Deepholm"], 10006 };
+		{ WHIT.." G) "..BZ["Nordrassil"]..", "..BZ["Mount Hyjal"], 10007 };
+		{ PURP.." H) "..BZ["Dragonmaw Port"]..", "..BZ["Twilight Highlands"]..", "..BZ["Eastern Kingdoms"], 10008 };
+		{ PURP.." I) "..BZ["Honeydew Village"]..", "..BZ["The Jade Forest"]..", "..BZ["Pandaria"], 10009 };
+		{ PURP.." J) "..BZ["Warspear"]..", "..BZ["Ashran"]..", "..BZ["Draenor"], 10010 };
+		{ "" };
+		{ _RED..AL["Zeppelin Towers"] };
+		{ ORNG.." A) "..BZ["Thunder Bluff"]..", "..BZ["Mulgore"], 10011 };
+		{ ORNG.." B) "..BZ["Warsong Hold"]..", "..BZ["Borean Tundra"]..", "..BZ["Northrend"], 10012 };
+		{ ORNG.." C) "..BZ["Undercity"]..", "..BZ["Tirisfal Glades"]..", "..BZ["Eastern Kingdoms"], 10013 };
+		{ ORNG.." D) "..BZ["Grom'gol Base Camp"]..", "..BZ["Northern Stranglethorn"]..", "..BZ["Eastern Kingdoms"], 10014 };
+		{ "" };
+		{ _RED..AL["Taxi Nodes"] };
+		{ WHIT.." 1) "..BZ["Orgrimmar"], 10015 };
 	};
 	TransAllianceOutland = {
 		ZoneName = { BZ["Outland"].." ("..FACTION_ALLIANCE..")" };

@@ -482,6 +482,26 @@ local myDB = {
 		{ "57", 10001, x, y }; -- Schnottz's Landing
 		{ "58", 10001, x, y }; -- Oasis of Vir'sar
 	};
+]]
+	TransHordeOrgrimmar = {
+		{ "A", 10001, 203, 310 }; -- Shattered Landing
+		{ "B", 10002, 104, 350 }; -- The Stair of Destiny
+		{ "B", 10002, 173, 298 }; -- The Stair of Destiny
+		{ "C", 10003, 203, 185 }; -- Hellscream's Grasp
+		{ "D", 10004, 216, 178 }; -- Ramkahen
+		{ "E", 10005, 218, 165 }; -- Vashj'ir
+		{ "F", 10006, 231, 162 }; -- Temple of Earth
+		{ "G", 10007, 235, 175 }; -- Nordrassil
+		{ "H", 10008, 228, 186 }; -- Dragonmaw Port
+		{ "I", 10009, 380, 190 }; -- Honeydew Village
+		{ "J", 10010, 208, 363 }; -- Warspear
+		{ "A", 10011, 168, 321 }; -- Thunder Bluff
+		{ "B", 10012, 182, 310 }; -- Warsong Hold
+		{ "C", 10013, 234, 273 }; -- Undercity
+		{ "D", 10014, 245, 261 }; -- Grom'gol Base Camp
+		{ "1", 10015, 221, 294 }; -- Orgrimmar
+	};
+--[[
 	TransAllianceOutland = {
 		{ "A'", 10001, x, y }; -- Stormwind City
 		{ "B'", 10001, x, y }; -- The Stair of Destiny
