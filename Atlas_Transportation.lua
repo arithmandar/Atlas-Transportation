@@ -773,7 +773,7 @@ local myData = {
 		{ CYAN.."-- : "..AL["Ship / Zeppelin sailing path to destination"] };	
 	};
 	TransHordeOrgrimmar = {
-		ZoneName = { BZ["Orgrimmar"] };
+		ZoneName = { BZ["Orgrimmar"].." ("..FACTION_HORDE..")" };
 		{ _RED..AL["Portals"] };
 		{ PURP.." A) "..BZ["Shattered Landing"]..", "..BZ["Blasted Lands"]..", "..BZ["Eastern Kingdoms"], 10001 };
 		{ GREY..INDENT.."("..BZ["Cleft of Shadow"]..")" };
