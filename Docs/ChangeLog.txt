@@ -8,6 +8,11 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.32.04 (May 25, 2016)
+------------------------
+- Corrected the poral from Stormwind City to Draenor, the destination should be Ashran
+- Added Stormwind City map
+
 v1.32.03 (May 18, 2016)
 ------------------------
 - Added Ashran maps

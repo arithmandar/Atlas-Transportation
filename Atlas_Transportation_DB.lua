@@ -152,7 +152,8 @@ local myDB = {
 		{ "C", 10003, 240, 98 };
 		{ "D", 10004, 313, 91 };
 		{ "E", 10005, 289, 202 };
-	};--[[
+	};
+--[[
 	TransAllianceEast = {
 		{ "A'", 10001, x, y }; -- Valgarde
 		{ "B'", 10001, x, y }; -- Valiance Keep
@@ -240,6 +241,24 @@ local myDB = {
 		{ "68", 10001, x, y }; -- Voldrin's Hold
 		{ "69", 10001, x, y }; -- Darkbreak Cove
 	};
+]]
+	TransAllianceStormwindCity = {
+		{ "A", 10001, 59, 278 }; -- Rut'theran Village
+		{ "B", 10002, 31, 142 }; -- Valiance Keep
+		{ "A", 10003, 231, 422 }; -- The Stair of Destiny
+		{ "B", 10004, 239, 412 }; -- Fuselight-by-the-Sea
+		{ "C", 10005, 364, 109 }; -- Paw'Don Village
+		{ "D", 10006, 394, 115 }; -- Baradin Base Camp
+		{ "E", 10007, 399, 106 }; -- Darkbreak Cove
+		{ "F", 10008, 414, 102 }; -- Highbank
+		{ "G", 10009, 418, 114 }; -- Nordrassil
+		{ "H", 10010, 413, 121 }; -- Ramkahen
+		{ "I", 10011, 401, 124 }; -- Temple of Earth
+		{ "J", 10012, 493, 187 }; -- Stormshield
+		{ "1", 10013, 365, 361 }; -- Stormwind City
+		{ "2", 10014, 353, 187 }; -- Ironforge
+	};
+--[[
 	TransAllianceWest = {
 		{ "A", 10001, x, y }; -- Valaar's Berth
 		{ "A'", 10001, x, y }; -- Stormwind Harbor

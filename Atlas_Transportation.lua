@@ -200,6 +200,7 @@ local myData = {
 		ZoneName = { BZ["Ashran"].." ("..FACTION_ALLIANCE..")" };
 		{ _RED..AL["Taxi Nodes"] };
 		{ WHIT.." A) "..BZ["Stormshield"], 10001 };
+		{ "" };
 		{ _RED..AL["Portals"] };
 		{ PURP.." B) "..BZ["Lion's Watch"], 10002 };
 		{ PURP.." C) "..BZ["Ironforge"], 10003 };
@@ -210,6 +211,7 @@ local myData = {
 		ZoneName = { BZ["Ashran"].." ("..FACTION_HORDE..")" };
 		{ _RED..AL["Taxi Nodes"] };
 		{ WHIT.." A) "..BZ["Warspear"], 10001 };
+		{ "" };
 		{ _RED..AL["Portals"] };
 		{ PURP.." B) "..BZ["Vol'mar"], 10002 };
 		{ PURP.." C) "..BZ["Thunder Bluff"], 10003 };
@@ -235,7 +237,7 @@ local myData = {
 		{ PURP.." C) "..BZ["Highbank"]..", "..BZ["Twilight Highlands"] };
 		{ PURP.." D) "..BZ["Fuselight-by-the-Sea"]..", "..BZ["Badlands"] };
 		{ GREY..INDENT.."("..AL["Transporters by the sea and on the cliff"]..")" };
-		{ PURP.." A') "..BZ["Eventide Landing"]..", "..BZ["Shadowmoon Valley"]..", "..BZ["Draenor"] };
+		{ PURP.." A') "..BZ["Ashran"]..", "..BZ["Draenor"] };
 		{ PURP.." B') "..BZ["Nordrassil"]..", "..BZ["Mount Hyjal"]..", "..BZ["Kalimdor"] };
 		{ PURP.." C') "..BZ["Ramkahen"]..", "..BZ["Uldum"]..", "..BZ["Kalimdor"] };
 		{ PURP.." D') "..BZ["The Stair of Destiny"]..", "..BZ["Hellfire Peninsula"]..", "..BZ["Outland"] };
@@ -366,6 +368,30 @@ local myData = {
 		{ PURP.."-- : "..AL["Portal / Waygate Path to the destination"] };
 		{ CYAN.."-- : "..AL["Ship / Zeppelin sailing path to destination"] };
 		{ GREN.."-- : "..BZ["Deeprun Tram"].." / "..AL["Special transportation"] };
+	};
+	TransAllianceStormwindCity = {
+		ZoneName = { BZ["Stormwind City"].." ("..FACTION_ALLIANCE..")" };
+		{ _RED..BZ["Docks"] };
+		{ ORNG.." A) "..BZ["Rut'theran Village"]..", "..BZ["Teldrassil"]..", "..BZ["Kalimdor"], 10001 };
+		{ ORNG.." B) "..BZ["Valiance Keep"]..", "..BZ["Borean Tundra"]..", "..BZ["Northrend"], 10002 };
+		{ "" };
+		{ _RED..AL["Portals"] };
+		{ PURP.." A) "..BZ["The Stair of Destiny"]..", "..BZ["Hellfire Peninsula"]..", "..BZ["Outland"], 10003 };
+		{ PURP.." B) "..BZ["Fuselight-by-the-Sea"]..", "..BZ["Badlands"], 10004 };
+		{ PURP.." C) "..BZ["Paw'Don Village"]..", "..BZ["The Jade Forest"]..", "..BZ["Pandaria"], 10005 };
+		{ PURP.." D) "..BZ["Baradin Base Camp"]..", "..BZ["Tol Barad Peninsula"], 10006 };
+		{ PURP.." E) "..BZ["Darkbreak Cove"]..", "..BZ["Vashj'ir"], 10007 };
+		{ PURP.." F) "..BZ["Highbank"]..", "..BZ["Twilight Highlands"], 10008 };
+		{ PURP.." G) "..BZ["Nordrassil"]..", "..BZ["Mount Hyjal"]..", "..BZ["Kalimdor"], 10009 };
+		{ PURP.." H) "..BZ["Ramkahen"]..", "..BZ["Uldum"]..", "..BZ["Kalimdor"], 10010 };
+		{ PURP.." I) "..BZ["Temple of Earth"]..", "..BZ["Deepholm"], 10011 };
+		{ PURP.." J) "..BZ["Stormshield"]..", "..BZ["Ashran"]..", "..BZ["Draenor"], 10012 };
+		{ "" };
+		{ _RED..AL["Taxi Nodes"] };
+		{ WHIT.." 1) "..BZ["Stormwind City"], 10013 };
+		{ "" };
+		{ _RED..TRAIN };
+		{ WHIT.." 2) "..BZ["Ironforge"], 10014 };
 	};
 	TransAllianceWest = {
 		ZoneName = { BZ["Kalimdor"].." ("..FACTION_ALLIANCE..")" };
