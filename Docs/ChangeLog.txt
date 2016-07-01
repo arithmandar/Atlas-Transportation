@@ -8,6 +8,18 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.32.06 (Jul. 01, 2016)
+------------------------
+- Minor fixes:
+  - Orgrimmar map: changed portal of Nordrassil in purple text color
+  - Stormwind City map: changed subway's text from TRAIN to DUNGEON_FLOOR_DEEPRUNTRAM1 (Deeprun Tram)
+- Maps revamped:
+  - Both Alliance and Horde's Draenor maps now use faction color for taxi nodes
+- Added Legion - Broken Isles' taxi nodes data and maps
+ (but will be excluded from official package; for now only available in SVN's latest revisions)
+- Translation now being managed on curseforge: http://wow.curseforge.com/addons/atlas-transportation/localization/
+- Added itIT, ptBR, and koKR translation files (placeholder until we get any translation added)
+
 v1.32.05 (May 26, 2016)
 ------------------------
 - Corrected the poral from Orgrimmar City to Draenor, the destination should be Ashran

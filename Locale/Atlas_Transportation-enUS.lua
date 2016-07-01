@@ -25,39 +25,49 @@
 --]]
 
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local AL = AceLocale:NewLocale("Atlas_Transportation", "enUS", true);
--- Localize file must set above to false, for example:
---    local AL = AceLocale:NewLocale("Atlas", "deDE", false);
+local L = AceLocale:NewLocale("Atlas_Transportation", "enUS", true);
 
-if AL then
-	AL["The Bogpaddle Bullet"] = "The Bogpaddle Bullet";
-	AL["Death Knight Only"] = "Death Knight Only";		-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
-	AL["Druid-only"] = "Druid-only";			-- Taxi node in Nighthaven, Moonglade which is only for Druid
-	AL["Legend"] = "Legend";				-- The chart's legend, for example, the purple line means the portal's path
-	AL["Gryphon"] = "Gryphon";
-	AL["Only available after winning the PvP battle"] = "Only available after winning the PvP battle";
-	AL["Orb of Translocation"] = "Orb of Translocation";	-- The Orb in Silvermonn City and Ruins of Lordaeron
-	AL["Portals"] = "Portals";
-	AL["Portal / Waygate Path to the destination"] = "Portal / Waygate Path to the destination";
-	AL["Ship / Zeppelin sailing path to destination"] = "Ship / Zeppelin sailing path to destination";
-	AL["Requires honored faction with Sha'tari Skyguard"] = "Requires honored faction with Sha'tari Skyguard";
-	AL["Seahorse"] = "Seahorse";
-	AL["South of the path along Lake Elune'ara"] = "South of the path along Lake Elune'ara";
-	AL["Special transportation"] = "Special transportation";
-	AL["Taxi Nodes"] = "Taxi Nodes";
-	AL["Transportation Maps"] = "Transportation Maps";
-	AL["Transporter"] = "Transporter";			-- The NPC who can transport you to other place
-	AL["Transporters by the sea and on the cliff"] = "Transporters by the sea and on the cliff"; -- The transporters (machine) can be found at Fuselight-by-the-Sea
-	AL["West of the path to Timbermaw Hold"] = "West of the path to Timbermaw Hold";
-	AL["Wind Rider"] = "Wind Rider";
-	AL["Won't be available once the Battle for Andorhal chain is finished."] = "Won't be available once the Battle for Andorhal chain is finished."; -- After quest "Alas, Andorhal" (27206) is completed.
-	AL["Zeppelin Towers"] = "Zeppelin Towers";
-	AL["Climbing Rope"] = "Climbing Rope";
-	AL["Rappelling Rope"] = "Rappelling Rope";
-	AL["Abandoned Kite"] = "Abandoned Kite";
-	AL["From sea level to ground level"] = "From sea level to ground level";
-	AL["Whispercloud's Balloon"] = "Whispercloud's Balloon";
-	AL["Shado-Pan Rope"] = "Shado-Pan Rope"; -- 66390
-	AL["Require to complete \"Meet the Scout\" quest line first."] = "Require to complete \"Meet the Scout\" quest line first.";
-
+if L then
+--@do-not-package@
+	L["The Bogpaddle Bullet"] = "The Bogpaddle Bullet";
+	L["Death Knight Only"] = "Death Knight Only";		-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
+	L["Druid-only"] = "Druid-only";			-- Taxi node in Nighthaven, Moonglade which is only for Druid
+	L["Legend"] = "Legend";				-- The chart's legend, for example, the purple line means the portal's path
+	L["Gryphon"] = "Gryphon";
+	L["Only available after winning the PvP battle"] = "Only available after winning the PvP battle";
+	L["Orb of Translocation"] = "Orb of Translocation";	-- The Orb in Silvermonn City and Ruins of Lordaeron
+	L["Portals"] = "Portals";
+	L["Portal / Waygate Path to the destination"] = "Portal / Waygate Path to the destination";
+	L["Ship / Zeppelin sailing path to destination"] = "Ship / Zeppelin sailing path to destination";
+	L["Requires honored faction with Sha'tari Skyguard"] = "Requires honored faction with Sha'tari Skyguard";
+	L["Seahorse"] = "Seahorse";
+	L["South of the path along Lake Elune'ara"] = "South of the path along Lake Elune'ara";
+	L["Special transportation"] = "Special transportation";
+	L["Taxi Nodes"] = "Taxi Nodes";
+	L["Transportation Maps"] = "Transportation Maps";
+	L["Transporter"] = "Transporter";			-- The NPC who can transport you to other place
+	L["Transporters by the sea and on the cliff"] = "Transporters by the sea and on the cliff"; -- The transporters (machine) can be found at Fuselight-by-the-Sea
+	L["West of the path to Timbermaw Hold"] = "West of the path to Timbermaw Hold";
+	L["Wind Rider"] = "Wind Rider";
+	L["Won't be available once the Battle for Andorhal chain is finished."] = "Won't be available once the Battle for Andorhal chain is finished."; -- After quest "Alas, Andorhal" (27206) is completed.
+	L["Zeppelin Towers"] = "Zeppelin Towers";
+	L["Climbing Rope"] = "Climbing Rope";
+	L["Rappelling Rope"] = "Rappelling Rope";
+	L["Abandoned Kite"] = "Abandoned Kite";
+	L["From sea level to ground level"] = "From sea level to ground level";
+	L["Whispercloud's Balloon"] = "Whispercloud's Balloon";
+	L["Shado-Pan Rope"] = "Shado-Pan Rope"; -- 66390
+	L["Require to complete \"Meet the Scout\" quest line first."] = "Require to complete \"Meet the Scout\" quest line first.";
+	L["Warning: Drop"] = "Warning: Drop"; -- In Dalaran (Legion - Broken Isles), inside teh Chamber of the Guardian, the portal to Dalaran Crater will drop you in the sky so there is a sign to warn you that
+	L["White"] = "White";
+	L["Red"] = "Red";
+	L["Purple"] = "Purple";
+	L["Green"] = "Green";
+	L["Orange"] = "Orange";
+	L["Blue"] = "Blue";
+	L["Yellow"] = "Yellow";
+	L["Nutral"] = "Nutral";
+	L["Airship"] = "Airship";
+--@end-do-not-package@
+--@localization(locale="enUS", format="lua_additive_table")@
 end

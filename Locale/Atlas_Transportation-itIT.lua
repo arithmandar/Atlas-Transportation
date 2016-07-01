@@ -25,8 +25,8 @@
 --]]
 
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local L = AceLocale:NewLocale("Atlas_Transportation", "frFR", false);
+local L = AceLocale:NewLocale("Atlas_Transportation", "itIT", false);
 
 if L then
---@localization(locale="frFR", format="lua_additive_table")@
+--@localization(locale="itIT", format="lua_additive_table")@
 end

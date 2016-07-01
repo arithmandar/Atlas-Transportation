@@ -25,38 +25,50 @@
 --]]
 
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local AL = AceLocale:NewLocale("Atlas_Transportation", "zhTW", false);
--- Localize file must set above to false, for example:
---    local AL = AceLocale:NewLocale("Atlas", "deDE", false);
+local L = AceLocale:NewLocale("Atlas_Transportation", "zhTW", false);
 
-if AL then
-	AL["The Bogpaddle Bullet"] = "沼槳火箭";
-	AL["Death Knight Only"] = "僅限死亡騎士";	-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
-	AL["Druid-only"] = "僅限德魯伊";		-- Taxi node in Nighthaven, Moonglade which is only for Druid
-	AL["Legend"] = "圖例";				-- The chart's legend, for example, the purple line means the portal's path
-	AL["Gryphon"] = "獅鷲獸";
-	AL["Only available after winning the PvP battle"] = "僅限贏得戰場勝利後";
-	AL["Orb of Translocation"] = "傳送之門";	-- The Orb in Silvermonn City and Ruins of Lordaeron
-	AL["Portals"] = "傳送門";
-	AL["Portal / Waygate Path to the destination"] = "傳送門 / 甬道之門傳往目的地的路徑";
-	AL["Ship / Zeppelin sailing path to destination"] = "船隻 / 飛船航向目的地的路徑";
-	AL["Requires honored faction with Sha'tari Skyguard"] = "需薩塔空防陣營榮譽";
-	AL["Seahorse"] = "海馬";
-	AL["South of the path along Lake Elune'ara"] = "月神湖南方小徑";
-	AL["Special transportation"] = "特殊運輸工具";
-	AL["Taxi Nodes"] = "航行點";
-	AL["Transportation Maps"] = "交通網路地圖";
-	AL["Transporter"] = "輸送者";
-	AL["Transporters by the sea and on the cliff"] = "傳送器位於懸崖上與懸崖下"; -- The transporters (machine) can be found at Fuselight-by-the-Sea
-	AL["West of the path to Timbermaw Hold"] = "往木喉要塞小徑西方";
-	AL["Wind Rider"] = "雙足飛龍";
-	AL["Won't be available once the Battle for Andorhal chain is finished."] = "安多哈爾任務線完成後飛行點將會消失"; -- After quest "Alas, Andorhal" (27206) is completed.
-	AL["Zeppelin Towers"] = "飛船空塔";
-	AL["Climbing Rope"] = "登山繩";
-	AL["Rappelling Rope"] = "垂降繩";
-	AL["Abandoned Kite"] = "被遺棄的鳶";
-	AL["From sea level to ground level"] = "從海平面到地面";
-	AL["Whispercloud's Balloon"] = "雲語的氣球";
-	AL["Shado-Pan Rope"] = "影潘索 "; -- 66390
-	AL["Require to complete \"Meet the Scout\" quest line first."] = "需要先完成“和斥候會面”任務線。";
+if L then
+--@do-not-package@
+	L["The Bogpaddle Bullet"] = "沼槳火箭";
+	L["Death Knight Only"] = "僅限死亡騎士";	-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
+	L["Druid-only"] = "僅限德魯伊";		-- Taxi node in Nighthaven, Moonglade which is only for Druid
+	L["Legend"] = "圖例";				-- The chart's legend, for example, the purple line means the portal's path
+	L["Gryphon"] = "獅鷲獸";
+	L["Only available after winning the PvP battle"] = "僅限贏得戰場勝利後";
+	L["Orb of Translocation"] = "傳送之門";	-- The Orb in Silvermonn City and Ruins of Lordaeron
+	L["Portals"] = "傳送門";
+	L["Portal / Waygate Path to the destination"] = "傳送門 / 甬道之門傳往目的地的路徑";
+	L["Ship / Zeppelin sailing path to destination"] = "船隻 / 飛船航向目的地的路徑";
+	L["Requires honored faction with Sha'tari Skyguard"] = "需薩塔空防陣營榮譽";
+	L["Seahorse"] = "海馬";
+	L["South of the path along Lake Elune'ara"] = "月神湖南方小徑";
+	L["Special transportation"] = "特殊運輸工具";
+	L["Taxi Nodes"] = "航行點";
+	L["Transportation Maps"] = "交通網路地圖";
+	L["Transporter"] = "輸送者";
+	L["Transporters by the sea and on the cliff"] = "傳送器位於懸崖上與懸崖下"; -- The transporters (machine) can be found at Fuselight-by-the-Sea
+	L["West of the path to Timbermaw Hold"] = "往木喉要塞小徑西方";
+	L["Wind Rider"] = "雙足飛龍";
+	L["Won't be available once the Battle for Andorhal chain is finished."] = "安多哈爾任務線完成後飛行點將會消失"; -- After quest "Alas, Andorhal" (27206) is completed.
+	L["Zeppelin Towers"] = "飛船空塔";
+	L["Climbing Rope"] = "登山繩";
+	L["Rappelling Rope"] = "垂降繩";
+	L["Abandoned Kite"] = "被遺棄的鳶";
+	L["From sea level to ground level"] = "從海平面到地面";
+	L["Whispercloud's Balloon"] = "雲語的氣球";
+	L["Shado-Pan Rope"] = "影潘索 "; -- 66390
+	L["Require to complete \"Meet the Scout\" quest line first."] = "需要先完成“和斥候會面”任務線。";
+	--L["Warning: Drop"] = "Warning: Drop"; -- In Dalaran (Legion - Broken Isles), inside teh Chamber of the Guardian, the portal to Dalaran Crater will drop you in the sky so there is a sign to warn you that
+	L["White"] = "白";
+	L["Red"] = "紅";
+	L["Purple"] = "紫";
+	L["Green"] = "綠";
+	L["Orange"] = "橙";
+	L["Blue"] = "藍";
+	L["Yellow"] = "黃";
+	L["Nutral"] = "中立";
+	L["Airship"] = "飛行器";
+--@end-do-not-package@
+--@localization(locale="zhTW", format="lua_additive_table")@
 end
+

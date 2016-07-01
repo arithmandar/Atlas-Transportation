@@ -25,37 +25,38 @@
 --]]
 
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
-local AL = AceLocale:NewLocale("Atlas_Transportation", "deDE", false);
--- Localize file must set above to false, for example:
---    local AL = AceLocale:NewLocale("Atlas", "deDE", false);
+local L = AceLocale:NewLocale("Atlas_Transportation", "deDE", false);
 
-if AL then
-	AL["The Bogpaddle Bullet"] = "Der Kraulsumpfexpress";
-	AL["Death Knight Only"] = "Nur Todesritter";
-	AL["Druid-only"] = "Nur Druiden";
-	AL["Legend"] = "Legende";
-	AL["Gryphon"] = "Greif";
-	AL["Only available after winning the PvP battle"] = "Nur nach Sieg in der PvP Schlacht verfügbar";
-	AL["Orb of Translocation"] = "Translokationskugel";
-	AL["Portals"] = "Portale";
-	AL["Portal / Waygate Path to the destination"] = "Portal / Torpfad zum Ziel";
-	AL["Ship / Zeppelin sailing path to destination"] = "Schiff / Zeppelinpfad zum Ziel";
-	AL["Requires honored faction with Sha'tari Skyguard"] = "Benötigt wohlwollenden Ruf bei Himmelswache der Sha'tari";
-	AL["Seahorse"] = "Seepferdchen";
-	AL["South of the path along Lake Elune'ara"] = "Südlich des Elune'ara Seewegs";
-	AL["Special transportation"] = "Spezielle Beförderungsroute";
-	AL["Taxi Nodes"] = "Flugpunkte";
-	AL["Transportation Maps"] = "Beförderungsrouten";
-	AL["Transporter"] = "Transporter";
-	AL["Transporters by the sea and on the cliff"] = "Transporter übers Meer und am Kliff";
-	AL["West of the path to Timbermaw Hold"] = "Westlich des Weges zur Holzschlundfeste";
-	AL["Wind Rider"] = "Windreiter";
-	AL["Won't be available once the Battle for Andorhal chain is finished."] = "Nicht mehr verfügbar, wenn die Schlacht um Andorhal abgeschlossen ist.";
-	AL["Zeppelin Towers"] = "Zeppelintürme";
-	AL["Climbing Rope"] = "Kletterseil";
-	AL["Rappelling Rope"] = "Abseilstrick";
-	AL["Abandoned Kite"] = "Herrenloser Drachen";
-	AL["From sea level to ground level"] = "Von Meereshöhe auf Grundhöhe";
-	AL["Whispercloud's Balloon"] = "Flüsterwolkes Ballon";
-	AL["Shado-Pan Rope"] = "Seil der Shado-Pan";
+if L then
+--@do-not-package@
+	L["The Bogpaddle Bullet"] = "Der Kraulsumpfexpress";
+	L["Death Knight Only"] = "Nur Todesritter";
+	L["Druid-only"] = "Nur Druiden";
+	L["Legend"] = "Legende";
+	L["Gryphon"] = "Greif";
+	L["Only available after winning the PvP battle"] = "Nur nach Sieg in der PvP Schlacht verfügbar";
+	L["Orb of Translocation"] = "Translokationskugel";
+	L["Portals"] = "Portale";
+	L["Portal / Waygate Path to the destination"] = "Portal / Torpfad zum Ziel";
+	L["Ship / Zeppelin sailing path to destination"] = "Schiff / Zeppelinpfad zum Ziel";
+	L["Requires honored faction with Sha'tari Skyguard"] = "Benötigt wohlwollenden Ruf bei Himmelswache der Sha'tari";
+	L["Seahorse"] = "Seepferdchen";
+	L["South of the path along Lake Elune'ara"] = "Südlich des Elune'ara Seewegs";
+	L["Special transportation"] = "Spezielle Beförderungsroute";
+	L["Taxi Nodes"] = "Flugpunkte";
+	L["Transportation Maps"] = "Beförderungsrouten";
+	L["Transporter"] = "Transporter";
+	L["Transporters by the sea and on the cliff"] = "Transporter übers Meer und am Kliff";
+	L["West of the path to Timbermaw Hold"] = "Westlich des Weges zur Holzschlundfeste";
+	L["Wind Rider"] = "Windreiter";
+	L["Won't be available once the Battle for Andorhal chain is finished."] = "Nicht mehr verfügbar, wenn die Schlacht um Andorhal abgeschlossen ist.";
+	L["Zeppelin Towers"] = "Zeppelintürme";
+	L["Climbing Rope"] = "Kletterseil";
+	L["Rappelling Rope"] = "Abseilstrick";
+	L["Abandoned Kite"] = "Herrenloser Drachen";
+	L["From sea level to ground level"] = "Von Meereshöhe auf Grundhöhe";
+	L["Whispercloud's Balloon"] = "Flüsterwolkes Ballon";
+	L["Shado-Pan Rope"] = "Seil der Shado-Pan";
+--@end-do-not-package@
+--@localization(locale="deDE", format="lua_additive_table")@
 end

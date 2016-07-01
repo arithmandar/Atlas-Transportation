@@ -6,3 +6,6 @@ manual-changelog:
     
 enable-nolib-creation: no
 
+ignore:
+    - Images/TransAllianceBrokenIsles.blp
+    - Images/TransHordeBrokenIsles.blp
