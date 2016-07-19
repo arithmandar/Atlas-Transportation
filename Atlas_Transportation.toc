@@ -1,4 +1,4 @@
-﻿## Interface: 60200
+﻿## Interface: 70000
 #@non-debug@
 ## Title: @localization(locale="enUS", key="Title", namespace="ToC")@
 ## Title-deDE: @localization(locale="deDE", key="Title", namespace="ToC")@
@@ -29,8 +29,8 @@
 ## Notes: Transportation Maps
 ## Notes-zhTW: Atlas 交通網路圖插件，顯示各大陸的海陸空交通節點
 #@end-debug@
-## Version: 1.32.06
-## Author: arith, Dynaletik, dubcat, Resike
+## Version: 1.33.00
+## Author: arith, Dynaletik, dubcat
 ## X-Date: @project-date-iso@
 ## X-Credits: Dan Gilbert, Lothaer
 ## X-Email: atlas.addon at gmail.com

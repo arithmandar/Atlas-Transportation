@@ -8,6 +8,15 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.33.00 (Jul. 19, 2016)
+------------------------
+- Toc updated to support WoW Legion pre-patch (7.0.3)
+- Added LibBabble-Faction lib to replace the faction looking-up with AtlasIngameLocales's GetFactionInfoByID
+- Replace punctuations by using Atlas' localization
+- Translation update:
+  - Simplified Chinese (ananhaid)
+  - German (pas06)
+
 v1.32.06 (Jul. 01, 2016)
 ------------------------
 - Minor fixes:
