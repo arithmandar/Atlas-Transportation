@@ -8,6 +8,14 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.33.01 (Jul. 24, 2016)
+------------------------
+- Enable Broken Isles maps and added nodes' coordinates
+- Added Druid-Only's Emerald Dreamway map;
+  added Druid-Only's portals in Kalimdor, Eastern Kingdoms, and Northrend
+- Translation update:
+  - German (pas06)
+
 v1.33.00 (Jul. 19, 2016)
 ------------------------
 - Toc updated to support WoW Legion pre-patch (7.0.3)
