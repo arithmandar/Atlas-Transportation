@@ -8,3 +8,5 @@ enable-nolib-creation: no
 
 ignore:
     - Images/TransEmeraldDreamway.psd
+    - Images/TransAllianceBrokenIsles.psd
+    - Images/TransHordeBrokenIsles.psd

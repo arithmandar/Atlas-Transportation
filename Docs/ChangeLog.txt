@@ -8,6 +8,12 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.33.02 (Aug. 06, 2016)
+------------------------
+- Revamped Broken Isles maps
+- Added WorldMapID info
+- Added Emerald Dreamway map's coordinates
+
 v1.33.01 (Jul. 24, 2016)
 ------------------------
 - Enable Broken Isles maps and added nodes' coordinates
