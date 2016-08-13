@@ -68,6 +68,8 @@ if L then
 	L["Yellow"] = "Yellow";
 	L["Nutral"] = "Nutral";
 	L["Airship"] = "Airship";
+	L["Wind Rider Master"] = "Wind Rider Master";
+	L["Gryphon Master"] = "Gryphon Master";
 --@end-do-not-package@
 --@localization(locale="enUS", format="lua_additive_table")@
 end

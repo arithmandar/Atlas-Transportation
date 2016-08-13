@@ -8,6 +8,18 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.34.00 (Aug. XX, 2016)
+------------------------
+- Maps revamped:
+  - Stormwind City
+  - Orgrimmar
+- Large size of map added:
+  - Stormwind City
+  - Orgrimmar
+- New translation language added:
+  - Brazilian Portuguese (Markllan)
+- Added faction info to the maps
+
 v1.33.02 (Aug. 06, 2016)
 ------------------------
 - Revamped Broken Isles maps

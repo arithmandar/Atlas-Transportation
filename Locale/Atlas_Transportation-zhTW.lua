@@ -68,6 +68,8 @@ if L then
 	L["Yellow"] = "黃";
 	L["Nutral"] = "中立";
 	L["Airship"] = "飛行器";
+	L["Wind Rider Master"] = "蠍尾獅管理員";
+	L["Gryphon Master"] = "獅鷲獸管理員";
 --@end-do-not-package@
 --@localization(locale="zhTW", format="lua_additive_table")@
 end

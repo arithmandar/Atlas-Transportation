@@ -7,6 +7,6 @@ manual-changelog:
 enable-nolib-creation: no
 
 ignore:
-    - Images/TransEmeraldDreamway.psd
-    - Images/TransAllianceBrokenIsles.psd
-    - Images/TransHordeBrokenIsles.psd
+    - Images/PSD
+    - Images/TransAllianceStormwindCity/PSD
+    - Images/TransHordeOrgrimmar/PSD
