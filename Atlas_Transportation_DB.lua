@@ -252,7 +252,7 @@ local myDB = {
 		{ "J", 10012, 487, 182, 794, 260, "Purple" }; -- Stormshield
 		{ "K", 10013, 441, 169, 736, 240, "Purple" }; -- Dalaran
 		{ "1", 10014, 353, 178, 624, 250, "White" }; -- Ironforge
-		{ "2", 10015, 374, 346, 656, 464, "TaxiAlliance" }; -- Stormwind City
+		{ "2", 10015, 374, 346, 656, 464, "White" }; -- Stormwind City
 	};
 	TransHordeOrgrimmar = {
 		{ "A", 10001, 198, 321, 462, 414, "Purple"}; -- Shattered Landing
@@ -271,7 +271,7 @@ local myDB = {
 		{ "B", 10012, 182, 322, 440, 410, "Orange" }; -- Warsong Hold
 		{ "C", 10013, 224, 292, 492, 375, "Orange" }; -- Undercity
 		{ "D", 10014, 232, 279, 506, 355, "Orange" }; -- Grom'gol Base Camp
-		{ "1", 10015, 212, 308, 481, 393, "TaxiHorde" }; -- Wind Rider Master
+		{ "1", 10015, 212, 308, 481, 393, "White" }; -- Wind Rider Master
 		{ "A", 10017,  17, 362, 226, 463, "Blue" }; -- Northern Barrens
 		{ "B", 10018, 221, 471, 486, 604, "Blue" }; -- Durota
 		{ "C", 10019, 399,  27, 711,  44, "Blue" }; -- Azshara

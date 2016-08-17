@@ -577,7 +577,7 @@ local myData = {
 		{ PURP.." H) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"]..ALC["Comma"]..BZ["Kalimdor"], 10010 };
 		{ PURP.." I) "..BZ["Temple of Earth"]..ALC["Comma"]..BZ["Deepholm"], 10011 };
 		{ PURP.." J) "..BZ["Stormshield"]..ALC["Comma"]..BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"], 10012 };
-		{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Broken Isles"], 10013 };
+		{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Karazhan"], 10013 };
 		{ "" };
 		{ _RED..DUNGEON_FLOOR_DEEPRUNTRAM1 };
 		{ WHIT.." 1) "..BZ["Ironforge"], 10014 };
@@ -1002,7 +1002,7 @@ local myData = {
 		{ PURP.." H) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10008 };
 		{ PURP.." I) "..BZ["Honeydew Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"], 10009 };
 		{ PURP.." J) "..BZ["Warspear"]..ALC["Comma"]..BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"], 10010 };
-		{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Broken Isles"], 10016 };
+		{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Karazhan"], 10016 };
 		{ GREY..INDENT..ALC["L-Parenthesis"]..BZ["Cleft of Shadow"]..ALC["Slash"]..BZ["Valley of Spirits"]..ALC["R-Parenthesis"] };
 		{ "" };
 		{ _RED..L["Zeppelin Towers"] };
