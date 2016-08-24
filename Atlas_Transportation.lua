@@ -45,7 +45,76 @@ local INDENT = "      ";
 
 local myCategory = L["Transportation Maps"];
 
+local CL = {
+	["HUNTER"] 	= "|cffabd473";
+	["WARLOCK"] 	= "|cff8788ee";
+	["PRIEST"] 	= "|cffffffff";
+	["PALADIN"] 	= "|cfff58cba";
+	["MAGE"] 	= "|cff3fc7eb";
+	["ROGUE"] 	= "|cfffff569";
+	["DRUID"] 	= "|cffff7d0a";
+	["SHAMAN"] 	= "|cff0070de";
+	["WARRIOR"] 	= "|cffc79c6e";
+	["DEATHKNIGHT"]	= "|cffc41f3b";
+	["MONK"] 	= "|cff00ff96";
+	["DEMONHUNTER"]	= "|cffa330c9";
+};
+
 local myData = {
+	TransDalaran = {
+		ZoneName = { BZ["Dalaran"] };
+		WorldMapID = { "1014", "10" };
+		{ _RED..L["Class Order Halls"] };
+		{ INDENT..CL["DEMONHUNTER"]..L["Demon Hunter"] };
+		{ INDENT..CL["DEMONHUNTER"].." A) "..L["Illidari Gateway"] };
+		{ "" };
+		{ INDENT..CL["HUNTER"]..L["Hunter"] };
+		{ INDENT..CL["HUNTER"].." A) "..L["Talua <Eagle Keeper>"]..ALC["Hyphen"]..L["Flight to Trueshot Lodge"] };
+		{ "" };
+		{ INDENT..CL["PALADIN"]..L["Paladin"] };
+		{ INDENT..CL["PALADIN"].." A) "..L["Portal to Sanctum of Light"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] };
+		{ INDENT..CL["PALADIN"].." B) "..L["Portal to Sanctum of Light"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] };
+		{ "" };
+		{ INDENT..CL["PRIEST"]..L["Priest"] };
+		{ INDENT..CL["PRIEST"].." A) "..L["Portal to Netherlight Temple"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] };
+		{ INDENT..CL["PRIEST"].." B) "..L["Portal to Netherlight Temple"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] };
+		{ "" };
+		{ INDENT..CL["ROGUE"]..L["Rogue"]..ALC["Hyphen"]..L["Connection to the Hall of Shadows"] };
+		{ INDENT..CL["ROGUE"].." A) "..BZ["Glorious Goods"] };
+		{ INDENT..CL["ROGUE"].." B) "..BZ["One More Glass"] };
+		{ INDENT..CL["ROGUE"].." C) "..BZ["Tanks for Everything"] };
+		{ "" };
+		{ INDENT..CL["SHAMAN"]..L["Shaman"] };
+		{ INDENT..CL["SHAMAN"].." A) "..L["Portal to the Maelstrom"] };
+		{ "" };
+		{ INDENT..CL["WARRIOR"]..L["Warrior"] };
+		{ INDENT..CL["WARRIOR"].." A) "..L["Jump to Skyhold"] };
+		{ "" };
+		{ _RED..L["Taxi Nodes"] };
+		{ INDENT..WHIT.." 1) "..L["Aludane Whitecloud <Flight Master>"] };
+		{ "" };
+		{ _RED..L["Portals"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] };
+		{ INDENT..PURP.."  -> "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
+		{ INDENT..PURP.." <-> "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
+		{ INDENT..PURP.."  -> "..BZ["Shrine of Seven Stars"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] };
+		{ INDENT..PURP.."  -> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] };
+		{ INDENT..PURP.."  -> "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"] };
+		{ "" };
+		{ _RED..L["Portals"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] };
+		{ INDENT..PURP.."  -> "..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
+		{ INDENT..PURP.."  -> "..BZ["Thunder Bluff"]..ALC["Comma"]..BZ["Mulgore"]..ALC["Comma"]..BZ["Kalimdor"] };
+		{ INDENT..PURP.."  -> "..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
+		{ INDENT..PURP.." <-> "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] };
+		{ INDENT..PURP.."  -> "..BZ["Shrine of Two Moons"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] };
+		{ "" };
+		{ _RED..L["Portals"]..NUTL..ALC["L-Parenthesis"]..L["Nutral"]..ALC["R-Parenthesis"] };
+		{ INDENT..PURP.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] };
+		{ INDENT..PURP.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] };
+		{ INDENT..PURP.."  -> "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"]..ALC["Comma"]..BZ["Northrend"] };
+		{ INDENT..PURP.."  -> "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
+		{ INDENT..INDENT.._RED..ALC["L-Parenthesis"]..L["Warning: Drop"]..ALC["R-Parenthesis"] };
+		{ INDENT..PURP.."  -> "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
+	};
 	TransAllianceBrokenIsles = {
 		ZoneName = { BZ["Broken Isles"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] };
 		WorldMapID = "1007";

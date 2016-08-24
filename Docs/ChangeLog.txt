@@ -12,6 +12,7 @@ v1.34.00 (Aug. 31, 2016)
 ------------------------
 - Added class-only taxi nodes in Broken Isles:
   - Hunter, Death Knight
+- Added Dalaran map
 
 v1.33.03 (Aug. 18, 2016)
 ------------------------

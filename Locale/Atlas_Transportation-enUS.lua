@@ -29,30 +29,41 @@ local L = AceLocale:NewLocale("Atlas_Transportation", "enUS", true);
 
 if L then
 	-- Classes
-	L["Death Knight"] = "Death Knight";
-	L["Demon Hunter"] = "Demon Hunter";
-	L["Druid"] = "Druid";
-	L["Hunter"] = "Hunter";
-	L["Mage"] = "Mage";
-	L["Monk"] = "Monk";
-	L["Paladin"] = "Paladin";
-	L["Priest"] = "Priest";
-	L["Rogue"] = "Rogue";
-	L["Shaman"] = "Shaman";
-	L["Warlock"] = "Warlock";
-	L["Warrior"] = "Warrior";
+	L["Death Knight"] 	= "Death Knight";
+	L["Demon Hunter"] 	= "Demon Hunter";
+	L["Druid"] 		= "Druid";
+	L["Hunter"] 		= "Hunter";
+	L["Mage"] 		= "Mage";
+	L["Monk"] 		= "Monk";
+	L["Paladin"] 		= "Paladin";
+	L["Priest"] 		= "Priest";
+	L["Rogue"] 		= "Rogue";
+	L["Shaman"] 		= "Shaman";
+	L["Warlock"] 		= "Warlock";
+	L["Warrior"]		= "Warrior";
 	-- Colors for legend description
-	L["White"] = "White";
-	L["Red"] = "Red";
-	L["Purple"] = "Purple";
-	L["Green"] = "Green";
-	L["Orange"] = "Orange";
-	L["Blue"] = "Blue";
-	L["Yellow"] = "Yellow";
+	L["White"] 	= "White";
+	L["Red"] 	= "Red";
+	L["Purple"] 	= "Purple";
+	L["Green"] 	= "Green";
+	L["Orange"] 	= "Orange";
+	L["Blue"] 	= "Blue";
+	L["Yellow"] 	= "Yellow";
 	-- Class specific nodes
-	L["Druid Only"] = "Druid Only";			-- Taxi node in Nighthaven, Moonglade which is only for Druid
-	L["Death Knight Only"] = "Death Knight Only";		-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
-	L["Hunter Only"] = "Hunter Only";
+	L["Druid Only"] 	= "Druid Only";			-- Taxi node in Nighthaven, Moonglade which is only for Druid
+	L["Death Knight Only"] 	= "Death Knight Only";		-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
+	L["Hunter Only"] 	= "Hunter Only";
+	-- Dalaran
+	L["Class Order Halls"] 			= "Class Order Halls";
+	L["Portal to the Maelstrom"] 		= "Portal to the Maelstrom"; -- Shaman
+	L["Portal to Netherlight Temple"] 	= "Portal to Netherlight Temple"; -- Priest
+	L["Jump to Skyhold"] 			= "Jump to Skyhold"; -- Warrior
+	L["Illidari Gateway"] 			= "Illidari Gateway"; -- Demon Hunter
+	L["Talua <Eagle Keeper>"] 		= "Talua <Eagle Keeper>"; -- NPC of Hunter as flight master in Dalaran's Krasus' Landing
+	L["Flight to Trueshot Lodge"] 		= "Flight to Trueshot Lodge"; -- Hunter
+	L["Portal to Sanctum of Light"] 	= "Portal to Sanctum of Light"; -- Paladin
+	L["Connection to the Hall of Shadows"] 	= "Connection to the Hall of Shadows"; -- Rogue
+	L["Aludane Whitecloud <Flight Master>"] = "Aludane Whitecloud <Flight Master>";
 	-- Others
 	L["The Bogpaddle Bullet"] = "The Bogpaddle Bullet";
 	L["Legend"] = "Legend";				-- The chart's legend, for example, the purple line means the portal's path
