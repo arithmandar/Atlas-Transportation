@@ -86,7 +86,7 @@ local myData = {
 		{ NUTL.."13) "..BZ["Bradensbrook"], 10013 };
 		{ NUTL.."14) "..BZ["Garden of the Moon"], 10014 };
 		{ NUTL.."15) "..BZ["Starsong Refuge"], 10015 };
-		{ GREN.." 1) "..BZ["The Dreamgrove"]..ALC["L-Parenthesis"]..L["Druid-only"]..ALC["R-Parenthesis"], 10100 };
+		{ GREN.." 1) "..BZ["The Dreamgrove"]..ALC["L-Parenthesis"]..L["Druid Only"]..ALC["R-Parenthesis"], 10100 };
 		{ "" };
 		{ BLUE..BZ["Highmountain"] };
 		{ NUTL.."16) "..BZ["Obsidian Overlook"], 10016 };
@@ -100,6 +100,7 @@ local myData = {
 		{ NUTL.."24) "..BZ["The Witchwood"], 10024 };
 		{ NUTL.."25) "..BZ["Prepfoot"], 10025 };
 		{ NUTL.."26) "..BZ["Shipwreck Cove"], 10026 };
+		{ GREN.." 2) "..BZ["Trueshot Lodge"]..ALC["L-Parenthesis"]..L["Hunter Only"]..ALC["R-Parenthesis"], 10101 };
 		{ "" };
 		{ BLUE..BZ["Stormheim"] };
 		{ ALAN.."27) "..BZ["Skyfire Triage Camp"], 10027 };
@@ -117,12 +118,13 @@ local myData = {
 		{ "" };
 		{ BLUE..BZ["Broken Shore"] };
 		{ NUTL.."37) "..BZ["Illidari Camp"], 10037 };
+		{ GREN.." 3) "..BZ["Acherus: The Ebon Hold"]..ALC["L-Parenthesis"]..L["Death Knight Only"]..ALC["R-Parenthesis"], 10102 };
 		{ "" };
 		{ _RED..L["Legend"] };
 		{ PURP..L["Purple"]..ALC["Colon"]..L["Portals"] };
 		{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] };
 		{ ALAN..L["Blue"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_ALLIANCE };
-		{ GREN..L["Green"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Druid-only"] };
+		{ GREN..L["Green"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Druid Only"] };
 	};
 	TransHordeBrokenIsles = {
 		ZoneName = { BZ["Broken Isles"]..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] };
@@ -164,7 +166,7 @@ local myData = {
 		{ NUTL.."13) "..BZ["Bradensbrook"], 10013 };
 		{ NUTL.."14) "..BZ["Garden of the Moon"], 10014 };
 		{ NUTL.."15) "..BZ["Starsong Refuge"], 10015 };
-		{ GREN.." 1) "..BZ["The Dreamgrove"]..ALC["L-Parenthesis"]..L["Druid-only"]..ALC["R-Parenthesis"], 10100 };
+		{ GREN.." 1) "..BZ["The Dreamgrove"]..ALC["L-Parenthesis"]..L["Druid Only"]..ALC["R-Parenthesis"], 10100 };
 		{ "" };
 		{ BLUE..BZ["Highmountain"] };
 		{ NUTL.."16) "..BZ["Obsidian Overlook"], 10016 };
@@ -178,6 +180,7 @@ local myData = {
 		{ NUTL.."24) "..BZ["The Witchwood"], 10024 };
 		{ NUTL.."25) "..BZ["Prepfoot"], 10025 };
 		{ NUTL.."26) "..BZ["Shipwreck Cove"], 10026 };
+		{ GREN.." 2) "..BZ["Trueshot Lodge"]..ALC["L-Parenthesis"]..L["Hunter Only"]..ALC["R-Parenthesis"], 10101 };
 		{ "" };
 		{ BLUE..BZ["Stormheim"] };
 		{ HRDE.."27) "..BZ["Forsaken Foothold"], 10027 };
@@ -195,12 +198,13 @@ local myData = {
 		{ "" };
 		{ BLUE..BZ["Broken Shore"] };
 		{ NUTL.."37) "..BZ["Illidari Camp"], 10037 };
+		{ GREN.." 3) "..BZ["Acherus: The Ebon Hold"]..ALC["L-Parenthesis"]..L["Death Knight Only"]..ALC["R-Parenthesis"], 10102 };
 		{ "" };
 		{ _RED..L["Legend"] };
 		{ PURP..L["Purple"]..ALC["Colon"]..L["Portals"] };
 		{ NUTL..L["White"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] };
 		{ HRDE..L["Red"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_HORDE };
-		{ GREN..L["Green"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Druid-only"] };
+		{ GREN..L["Green"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Druid Only"] };
 	};
 	TransAllianceDraenor = {
 		ZoneName = { BZ["Draenor"]..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] };
@@ -432,7 +436,7 @@ local myData = {
 		{ WHIT.."43) "..BZ["Mage Quarter"]..ALC["Comma"]..BZ["Stormwind"]..ALC["Comma"]..BZ["Elwynn Forest"] };
 		{ WHIT.."61) "..BZ["Shattered Beachhead"]..ALC["Comma"]..BZ["Blasted Lands"] };
 		{ "" };
-		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid-only"] };
+		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid Only"] };
 		{ GREN.." A) "..BZ["Seradane"]..ALC["Comma"]..BZ["The Hinterlands"] };
 		{ GREN.." B) "..BZ["Twilight Grove"]..ALC["Comma"]..BZ["Duskwood"] };
 		{ "" };
@@ -609,7 +613,7 @@ local myData = {
 		{ WHIT.." 3) "..BZ["Rut'theran Village"]..ALC["Comma"]..BZ["Teldrassil"] };
 		{ WHIT.." 5) "..BZ["The Vault of Lights"]..ALC["Comma"]..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"] };
 		{ "" };
-		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid-only"] };
+		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid Only"] };
 		{ GREN.." A) "..BZ["Stormrage Barrow Dens"]..ALC["Comma"]..BZ["Moonglade"] };
 		{ GREN.." B) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"] };
 		{ GREN.." C) "..BZ["Dream Bough"]..ALC["Comma"]..BZ["Feralas"] };
@@ -690,7 +694,7 @@ local myData = {
 		{ BLUE..BZ["Moonglade"] };
 		{ WHIT.."45) "..BZ["Moonglade"] };
 		{ WHIT..INDENT..ALC["L-Parenthesis"]..L["South of the path along Lake Elune'ara"]..ALC["R-Parenthesis"] };
-		{ GREN.."46) "..BZ["Nighthaven"]..ALC["L-Parenthesis"]..L["Druid-only"]..ALC["R-Parenthesis"] };
+		{ GREN.."46) "..BZ["Nighthaven"]..ALC["L-Parenthesis"]..L["Druid Only"]..ALC["R-Parenthesis"] };
 		{ "" };
 		{ BLUE..BZ["Winterspring"] };
 		{ WHIT.."47) "..BZ["Everlook"] };
@@ -736,12 +740,12 @@ local myData = {
 		{ WHIT.."20) "..BZ["Magic Quarter"]..ALC["Comma"]..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"] };
 		{ WHIT.."51) "..BZ["Shattered Landing"]..ALC["Comma"]..BZ["Blasted Lands"] };
 		{ "" };
-		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid-only"] };
+		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid Only"] };
 		{ GREN.." A) "..BZ["Stormrage Barrow Dens"]..ALC["Comma"]..BZ["Moonglade"] };
 		{ GREN.." B) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"] };
 		{ GREN.." C) "..BZ["Dream Bough"]..ALC["Comma"]..BZ["Feralas"] };
 		{ "" };
-		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid-only"] };
+		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid Only"] };
 		{ GREN.." A) "..BZ["Seradane"]..ALC["Comma"]..BZ["The Hinterlands"] };
 		{ GREN.." B) "..BZ["Twilight Grove"]..ALC["Comma"]..BZ["Duskwood"] };
 		{ "" };
@@ -963,7 +967,7 @@ local myData = {
 		{ BLUE..BZ["Moonglade"] };
 		{ WHIT.."48) "..BZ["Moonglade"] };
 		{ WHIT..INDENT..ALC["L-Parenthesis"]..L["West of the path to Timbermaw Hold"]..ALC["R-Parenthesis"] };
-		{ GREN.."49) "..BZ["Nighthaven"]..ALC["L-Parenthesis"]..L["Druid-only"]..ALC["R-Parenthesis"] };
+		{ GREN.."49) "..BZ["Nighthaven"]..ALC["L-Parenthesis"]..L["Druid Only"]..ALC["R-Parenthesis"] };
 		{ "" };
 		{ BLUE..BZ["Winterspring"] };
 		{ WHIT.."50) "..BZ["Everlook"] };
@@ -1142,7 +1146,7 @@ local myData = {
 		{ WHIT.."25) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"] };
 		{ WHIT.."27) "..BZ["K3"]..ALC["Comma"]..BZ["The Storm Peaks"] };
 		{ "" };
-		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid-only"] };
+		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid Only"] };
 		{ GREN.." A) "..BZ["Grizzly Hills"]..GREY.." (50.38, 29.40)" };
 		{ "" };
 		{ _RED..L["Taxi Nodes"] };
@@ -1234,7 +1238,7 @@ local myData = {
 		{ WHIT.."27) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"] };
 		{ WHIT.."28) "..BZ["K3"]..ALC["Comma"]..BZ["The Storm Peaks"] };
 		{ "" };
-		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid-only"] };
+		{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid Only"] };
 		{ GREN.." A) "..BZ["Grizzly Hills"]..GREY.." (50.38, 29.40)" };
 		{ "" };
 		{ _RED..L["Taxi Nodes"] };
@@ -1521,7 +1525,7 @@ local myData = {
 		{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] };
 	};
 	TransEmeraldDreamway = {
-		ZoneName = { BZ["Emerald Dreamway"]..ALC["L-Parenthesis"]..L["Druid-only"]..ALC["R-Parenthesis"] };
+		ZoneName = { BZ["Emerald Dreamway"]..ALC["L-Parenthesis"]..L["Druid Only"]..ALC["R-Parenthesis"] };
 		WorldMapID = "1048";
 		{ _RED..L["Portals"] };
 		{ GREN.." A) "..BZ["The Dreamgrove"]..ALC["Comma"]..BZ["Val'sharah"]..ALC["Comma"]..BZ["Broken Isles"], 10001 };

@@ -28,10 +28,33 @@ local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
 local L = AceLocale:NewLocale("Atlas_Transportation", "enUS", true);
 
 if L then
---@do-not-package@
-	L["The Bogpaddle Bullet"] = "The Bogpaddle Bullet";
+	-- Classes
+	L["Death Knight"] = "Death Knight";
+	L["Demon Hunter"] = "Demon Hunter";
+	L["Druid"] = "Druid";
+	L["Hunter"] = "Hunter";
+	L["Mage"] = "Mage";
+	L["Monk"] = "Monk";
+	L["Paladin"] = "Paladin";
+	L["Priest"] = "Priest";
+	L["Rogue"] = "Rogue";
+	L["Shaman"] = "Shaman";
+	L["Warlock"] = "Warlock";
+	L["Warrior"] = "Warrior";
+	-- Colors for legend description
+	L["White"] = "White";
+	L["Red"] = "Red";
+	L["Purple"] = "Purple";
+	L["Green"] = "Green";
+	L["Orange"] = "Orange";
+	L["Blue"] = "Blue";
+	L["Yellow"] = "Yellow";
+	-- Class specific nodes
+	L["Druid Only"] = "Druid Only";			-- Taxi node in Nighthaven, Moonglade which is only for Druid
 	L["Death Knight Only"] = "Death Knight Only";		-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
-	L["Druid-only"] = "Druid-only";			-- Taxi node in Nighthaven, Moonglade which is only for Druid
+	L["Hunter Only"] = "Hunter Only";
+	-- Others
+	L["The Bogpaddle Bullet"] = "The Bogpaddle Bullet";
 	L["Legend"] = "Legend";				-- The chart's legend, for example, the purple line means the portal's path
 	L["Gryphon"] = "Gryphon";
 	L["Only available after winning the PvP battle"] = "Only available after winning the PvP battle";
@@ -59,17 +82,8 @@ if L then
 	L["Shado-Pan Rope"] = "Shado-Pan Rope"; -- 66390
 	L["Require to complete \"Meet the Scout\" quest line first."] = "Require to complete \"Meet the Scout\" quest line first.";
 	L["Warning: Drop"] = "Warning: Drop"; -- In Dalaran (Legion - Broken Isles), inside teh Chamber of the Guardian, the portal to Dalaran Crater will drop you in the sky so there is a sign to warn you that
-	L["White"] = "White";
-	L["Red"] = "Red";
-	L["Purple"] = "Purple";
-	L["Green"] = "Green";
-	L["Orange"] = "Orange";
-	L["Blue"] = "Blue";
-	L["Yellow"] = "Yellow";
 	L["Nutral"] = "Nutral";
 	L["Airship"] = "Airship";
 	L["Wind Rider Master"] = "Wind Rider Master";
 	L["Gryphon Master"] = "Gryphon Master";
---@end-do-not-package@
---@localization(locale="enUS", format="lua_additive_table")@
 end
