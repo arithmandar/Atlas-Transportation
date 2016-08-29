@@ -28,19 +28,6 @@ local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
 local L = AceLocale:NewLocale("Atlas_Transportation", "enUS", true);
 
 if L then
-	-- Classes
-	L["Death Knight"] 	= "Death Knight";
-	L["Demon Hunter"] 	= "Demon Hunter";
-	L["Druid"] 		= "Druid";
-	L["Hunter"] 		= "Hunter";
-	L["Mage"] 		= "Mage";
-	L["Monk"] 		= "Monk";
-	L["Paladin"] 		= "Paladin";
-	L["Priest"] 		= "Priest";
-	L["Rogue"] 		= "Rogue";
-	L["Shaman"] 		= "Shaman";
-	L["Warlock"] 		= "Warlock";
-	L["Warrior"]		= "Warrior";
 	-- Colors for legend description
 	L["White"] 	= "White";
 	L["Red"] 	= "Red";
