@@ -57,6 +57,7 @@ if L then
 	L["Class Order Halls"] 			= "Class Order Halls";
 	L["Portal to the Maelstrom"] 		= "Portal to the Maelstrom"; -- Shaman
 	L["Portal to Netherlight Temple"] 	= "Portal to Netherlight Temple"; -- Priest
+	L["Portal to Dreadscar Rift"] 		= "Portal to Dreadscar Rift" -- Warlock
 	L["Jump to Skyhold"] 			= "Jump to Skyhold"; -- Warrior
 	L["Illidari Gateway"] 			= "Illidari Gateway"; -- Demon Hunter
 	L["Talua <Eagle Keeper>"] 		= "Talua <Eagle Keeper>"; -- NPC of Hunter as flight master in Dalaran's Krasus' Landing
