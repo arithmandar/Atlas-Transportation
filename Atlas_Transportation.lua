@@ -153,11 +153,13 @@ local myData = {
 		{ NUTL.." 6) "..BZ["Illidari Perch"], 10006 };
 		{ NUTL.." 7) "..BZ["Felblaze Ingress"], 10007 };
 		{ NUTL.." 8) "..BZ["Azurewing Repose"], 10008 };
+		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
 		{ NUTL.." 9) "..BZ["Challiane's Terrace"], 10009 };
 		{ NUTL.."10) "..BZ["Eye of Azshara"], 10010 };
 		{ "" };
 		{ BLUE..BZ["Val'sharah"] };
 		{ NUTL.."11) "..BZ["Lorlathil"], 10011 };
+		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
 		{ NUTL.."12) "..BZ["Gloaming Reef"], 10012 };
 		{ NUTL.."13) "..BZ["Bradensbrook"], 10013 };
 		{ NUTL.."14) "..BZ["Garden of the Moon"], 10014 };
@@ -169,6 +171,7 @@ local myData = {
 		{ NUTL.."17) "..BZ["Ironhorn Enclave"], 10017 };
 		{ NUTL.."18) "..BZ["Sylvan Falls"], 10018 };
 		{ NUTL.."19) "..BZ["Thunder Totem"], 10019 };
+		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
 		{ NUTL.."20) "..BZ["Stonehoof Watch"], 10020 };
 		{ NUTL.."21) "..BZ["Nesingwary"], 10021 };
 		{ NUTL.."22) "..BZ["Skyhorn"], 10022 };
@@ -183,6 +186,7 @@ local myData = {
 		{ ALAN.."28) "..BZ["Lorna's Watch"], 10028 };
 		{ NUTL.."29) "..BZ["Stormtorn Foothills"], 10029 };
 		{ NUTL.."30) "..BZ["Valdisdall"], 10030 };
+		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
 		{ ALAN.."31) "..BZ["Greywatch"], 10031 };
 		{ NUTL.."32) "..BZ["Shield's Rest"], 10032 };
 		{ NUTL.."33) "..BZ["Hafr Fjall"], 10033 };
@@ -190,6 +194,7 @@ local myData = {
 		{ BLUE..BZ["Suramar"] };
 		{ NUTL.."34) "..BZ["Irongrove Retreat"], 10034 };
 		{ NUTL.."35) "..BZ["Meredil"], 10035 };
+		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
 		{ NUTL.."36) "..BZ["Crimson Thicket"], 10036 };
 		{ "" };
 		{ BLUE..BZ["Broken Shore"] };
@@ -200,7 +205,7 @@ local myData = {
 		{ PURP..L["Purple"]..ALC["Colon"]..L["Portals"] };
 		{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] };
 		{ ALAN..L["Blue"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_ALLIANCE };
-		{ GREN..L["Green"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Druid Only"] };
+		{ GREN..L["Green"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Class Specific Only"] };
 	};
 	TransHordeBrokenIsles = {
 		ZoneName = { BZ["Broken Isles"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] };
@@ -233,11 +238,13 @@ local myData = {
 		{ NUTL.." 6) "..BZ["Illidari Perch"], 10006 };
 		{ NUTL.." 7) "..BZ["Felblaze Ingress"], 10007 };
 		{ NUTL.." 8) "..BZ["Azurewing Repose"], 10008 };
+		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
 		{ NUTL.." 9) "..BZ["Challiane's Terrace"], 10009 };
 		{ NUTL.."10) "..BZ["Eye of Azshara"], 10010 };
 		{ "" };
 		{ BLUE..BZ["Val'sharah"] };
 		{ NUTL.."11) "..BZ["Lorlathil"], 10011 };
+		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
 		{ NUTL.."12) "..BZ["Gloaming Reef"], 10012 };
 		{ NUTL.."13) "..BZ["Bradensbrook"], 10013 };
 		{ NUTL.."14) "..BZ["Garden of the Moon"], 10014 };
@@ -249,6 +256,7 @@ local myData = {
 		{ NUTL.."17) "..BZ["Ironhorn Enclave"], 10017 };
 		{ NUTL.."18) "..BZ["Sylvan Falls"], 10018 };
 		{ NUTL.."19) "..BZ["Thunder Totem"], 10019 };
+		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
 		{ NUTL.."20) "..BZ["Stonehoof Watch"], 10020 };
 		{ NUTL.."21) "..BZ["Nesingwary"], 10021 };
 		{ NUTL.."22) "..BZ["Skyhorn"], 10022 };
@@ -263,6 +271,7 @@ local myData = {
 		{ HRDE.."28) "..BZ["Cullen's Post"], 10028 };
 		{ NUTL.."29) "..BZ["Stormtorn Foothills"], 10029 };
 		{ NUTL.."30) "..BZ["Valdisdall"], 10030 };
+		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
 		{ HRDE.."31) "..BZ["Dreadwake's Landing"], 10031 };
 		{ NUTL.."32) "..BZ["Shield's Rest"], 10032 };
 		{ NUTL.."33) "..BZ["Hafr Fjall"], 10033 };
@@ -270,6 +279,7 @@ local myData = {
 		{ BLUE..BZ["Suramar"] };
 		{ NUTL.."34) "..BZ["Irongrove Retreat"], 10034 };
 		{ NUTL.."35) "..BZ["Meredil"], 10035 };
+		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
 		{ NUTL.."36) "..BZ["Crimson Thicket"], 10036 };
 		{ "" };
 		{ BLUE..BZ["Broken Shore"] };
@@ -280,7 +290,7 @@ local myData = {
 		{ PURP..L["Purple"]..ALC["Colon"]..L["Portals"] };
 		{ NUTL..L["White"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] };
 		{ HRDE..L["Red"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_HORDE };
-		{ GREN..L["Green"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Druid Only"] };
+		{ GREN..L["Green"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Class Specific Only"] };
 	};
 	TransAllianceDraenor = {
 		ZoneName = { BZ["Draenor"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] };

@@ -40,6 +40,8 @@ if L then
 	L["Druid Only"] 	= "Druid Only";			-- Taxi node in Nighthaven, Moonglade which is only for Druid
 	L["Death Knight Only"] 	= "Death Knight Only";		-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
 	L["Hunter Only"] 	= "Hunter Only";
+	L["Class Specific Only"] = "Class Specific Only";
+	L["Warrior's landing / jumping point (from or back to Skyhold)"] = "Warrior's landing / jumping point (from or back to Skyhold)";
 	-- Dalaran
 	L["Class Order Halls"] 			= "Class Order Halls";
 	L["Portal to the Maelstrom"] 		= "Portal to the Maelstrom"; -- Shaman

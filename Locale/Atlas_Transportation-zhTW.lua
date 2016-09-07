@@ -30,29 +30,31 @@ local L = AceLocale:NewLocale("Atlas_Transportation", "zhTW", false);
 if L then
 --@do-not-package@
 	-- Colors for legend description
-	L["White"] = "白";
-	L["Red"] = "紅";
-	L["Purple"] = "紫";
-	L["Green"] = "綠";
-	L["Orange"] = "橙";
-	L["Blue"] = "藍";
-	L["Yellow"] = "黃";
+	L["White"] 	= "白";
+	L["Red"] 	= "紅";
+	L["Purple"] 	= "紫";
+	L["Green"] 	= "綠";
+	L["Orange"] 	= "橙";
+	L["Blue"] 	= "藍";
+	L["Yellow"] 	= "黃";
 	-- Class specific nodes
-	L["Druid Only"] = "僅限德魯伊";		-- Taxi node in Nighthaven, Moonglade which is only for Druid
-	L["Death Knight Only"] = "僅限死亡騎士";	-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
+	L["Druid Only"] 	= "僅限德魯伊";		-- Taxi node in Nighthaven, Moonglade which is only for Druid
+	L["Death Knight Only"] 	= "僅限死亡騎士";	-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
 	L["Hunter Only"] 	= "僅限獵人";
+	L["Class Specific Only"] = "僅限特定職業";
+	L["Warrior's landing / jumping point (from or back to Skyhold)"] = "戰士的降落 / 跳躍點 (往返擎天堡)";
 	-- Dalaran
 	L["Class Order Halls"] 			= "職業大廳";
 	L["Portal to the Maelstrom"] 		= "大漩渦傳送門"; -- Shaman
 	L["Portal to Netherlight Temple"] 	= "虛空之光神殿傳送門"; -- Priest
 	L["Portal to Dreadscar Rift"] 		= "懼痕裂隙傳送門" -- Warlock
-	L["Jump to Skyhold"] 			= "跳躍至擎天堡"; -- Warrior
-	--L["Illidari Gateway"] 			= "Illidari Gateway"; -- Demon Hunter
+	L["Jump to Skyhold"] 			= "跳到擎天堡"; -- Warrior
+	L["Illidari Gateway"] 			= "伊利達瑞傳送門"; -- Demon Hunter
 	--L["Talua <Eagle Keeper>"] 		= "Talua <Eagle Keeper>"; -- NPC of Hunter as flight master in Dalaran's Krasus' Landing
 	L["Flight to Trueshot Lodge"] 		= "飛行到神獵廳"; -- Hunter
 	L["Portal to Sanctum of Light"] 	= "聖光會堂傳送門"; -- Paladin
 	L["Connection to the Hall of Shadows"] 	= "通往潛影之廳"; -- Rogue
-	--L["Aludane Whitecloud <Flight Master>"] = "Aludane Whitecloud <Flight Master>";
+	L["Aludane Whitecloud <Flight Master>"] = "艾魯丹·白雲 <飛行管理員>";
 	-- Others
 	L["The Bogpaddle Bullet"] = "沼槳火箭";
 	L["Legend"] = "圖例";				-- The chart's legend, for example, the purple line means the portal's path
@@ -81,7 +83,7 @@ if L then
 	L["Whispercloud's Balloon"] = "雲語的氣球";
 	L["Shado-Pan Rope"] = "影潘索 "; -- 66390
 	L["Require to complete \"Meet the Scout\" quest line first."] = "需要先完成“和斥候會面”任務線。";
-	--L["Warning: Drop"] = "Warning: Drop"; -- In Dalaran (Legion - Broken Isles), inside teh Chamber of the Guardian, the portal to Dalaran Crater will drop you in the sky so there is a sign to warn you that
+	L["Warning: Drop"] = "小心輕放"; -- In Dalaran (Legion - Broken Isles), inside teh Chamber of the Guardian, the portal to Dalaran Crater will drop you in the sky so there is a sign to warn you that
 	L["Nutral"] = "中立";
 	L["Airship"] = "飛行器";
 	L["Wind Rider Master"] = "蠍尾獅管理員";
