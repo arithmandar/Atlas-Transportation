@@ -8,6 +8,13 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.34.02 (Sep. 20, 2016)
+------------------------
+- Added Suramar map to include taxi nodes and teleportation
+- Translation update:
+  - German (pas06)
+  - French (onslaugh2)
+
 v1.34.01 (Sep. 08, 2016)
 ------------------------
 - Added coordinates of Hunter- and Deathknight-only's taxi points to broken isles maps

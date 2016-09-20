@@ -61,6 +61,29 @@ local CL = {
 };
 
 local myData = {
+	TransSuramar = {
+		ZoneName = { BZ["Suramar"] };
+		WorldMapID = "1033";
+		{ _RED..L["Portals"] };
+		{ PURP.." A) "..BZ["Ruins of Elune'eth"]..GREY.." (36.1, 47.2)", 10001 };
+		{ PURP.." B) "..BZ["Tel'anor"]..GREY.." (42.0, 35.2)", 10002 };
+		{ PURP.." C) "..BZ["Falanaar"]..GREY.." (21.9, 29.1)", 10003 };
+		{ INDENT..GREY..ALC["L-Parenthesis"]..BZ["Temple of Fal'adora"]..ALC["R-Parenthesis"].." (40.9, 13.8)" };
+		{ INDENT..GREY..ALC["Entrance"]..ALC["Colon"].."(22.9, 35.8)" };
+		{ PURP.." D) "..BZ["Moonfall Overlook"]..ALC["Comma"]..BZ["Moon Guard Stronghold"]..GREY.." (30.8, 11.0)", 10004 };
+		{ PURP.." E) "..BZ["Felsoul Hold"]..GREY.." (39.1, 76.3)", 10005 };
+		{ INDENT..GREY..ALC["L-Parenthesis"]..BZ["The Fel Breach"]..ALC["R-Parenthesis"].." (54.0, 36.8)" };
+		{ INDENT..GREY..ALC["Entrance"]..ALC["Colon"].."(35.8, 82.1)" };
+		{ PURP.." F) "..BZ["Sanctum of Order"]..GREY.." (43.4, 60.6)", 10006 };
+		{ PURP.." G) "..BZ["Lunastre Estate"]..GREY.." (43.7, 79.2)", 10007 };
+		{ PURP.." H) "..BZ["The Waning Crescent"]..GREY.." (47.7, 81.4)", 10008 };
+		{ PURP.." I) "..BZ["Twilight Vineyards"]..GREY.." (64.0, 60.4)", 10009 };
+		{ "" };
+		{ _RED..L["Taxi Nodes"] };
+		{ NUTL.." 1) "..BZ["Irongrove Retreat"], 10101 };
+		{ NUTL.." 2) "..BZ["Meredil"], 10102 };
+		{ NUTL.." 3) "..BZ["Crimson Thicket"], 10103 };
+	};
 	TransDalaran = {
 		ZoneName = { BZ["Dalaran"] };
 		WorldMapID = "1014";

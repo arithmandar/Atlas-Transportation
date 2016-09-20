@@ -26,6 +26,20 @@
 
 
 local myDB = {
+	TransSuramar = {
+		{ "A", 10001, 155, 248 }; -- Ruins of Elune'eth
+		{ "B", 10002, 209, 175 }; -- Tel'anor
+		{ "C", 10003,  24, 142 }; -- Falanaar
+		{ "D", 10004, 103,  23 }; -- Moonfall Overlook
+		{ "E", 10005, 182, 428 }; -- Felsoul Hold
+		{ "F", 10006, 242, 357 }; -- Sanctum of Order
+		{ "G", 10007, 220, 450 }; -- Lunastre Estate
+		{ "H", 10008, 263, 464 }; -- The Waning Crescent
+		{ "I", 10009, 414, 329 }; -- Twilight Vineyards
+		{ "1", 10101,  58, 156 }; -- Irongrove Retreat
+		{ "2", 10102, 134, 263 }; -- Meredil
+		{ "3", 10103, 414, 216 }; -- Crimson Thicket
+	};
 	TransDalaran = {
 		{ "A", 10014, 184, 279 }; -- Greyfang Enclave
 		{ "B", 10015, 262, 145 }; -- Windrunner's Sanctuary
