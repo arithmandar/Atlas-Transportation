@@ -8,6 +8,10 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.34.03 (Sep. XX, 2016)
+------------------------
+- Added taxi nodes' coordinates to Broken Isles' maps
+
 v1.34.02 (Sep. 20, 2016)
 ------------------------
 - Added Suramar map to include taxi nodes and teleportation
