@@ -163,6 +163,7 @@ local myData = {
 		{ INDENT..GREY.."  -> "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
 		{ INDENT..INDENT.._RED..ALC["L-Parenthesis"]..L["Warning: Drop"]..ALC["R-Parenthesis"] };
 		{ INDENT..GREY.."  -> "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
+		{ PURP.." C) "..L["Portal to Dalaran"]..GREY.." (30.1, 40.7)", 10040 };
 		{ "" };
 		{ _RED..L["Taxi Nodes"] };
 		{ BLUE..BZ["Dalaran"] };

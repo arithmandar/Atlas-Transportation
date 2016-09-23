@@ -61,6 +61,7 @@ local myDB = {
 	TransAllianceBrokenIsles = {
 		{ "A", 10038, 230, 357 }; -- Greyfang Enclave
 		{ "B", 10039, 237, 349 }; -- Chamber of the Guardian
+		{ "C", 10040, 290, 133 }; -- Portal to Dalaran
 		{ "1", 10001, 249, 341 }; -- Krasus' Landing
 		{ "2", 10002, 151, 378 }; -- Watchers' Aerie
 		{ "3", 10003, 144, 363 }; -- Wardens' Redoubt
@@ -80,7 +81,7 @@ local myDB = {
 		{ "17", 10017, 277, 164 }; -- Ironhorn Enclave
 		{ "18", 10018, 210, 126 }; -- Sylvan Falls
 		{ "19", 10019, 244, 116 }; -- Thunder Totem
-		{ "20", 10020, 286, 128 }; -- Stonehoof Watch
+		{ "20", 10020, 283, 121 }; -- Stonehoof Watch
 		{ "21", 10021, 224, 97 }; -- Nesingwary
 		{ "22", 10022, 263, 84 }; -- Skyhorn
 		{ "23", 10023, 191, 68 }; -- Felbane Camp
@@ -105,6 +106,7 @@ local myDB = {
 	TransHordeBrokenIsles = {
 		{ "A", 10038, 239, 336 }; -- Windrunner's Sanctuary
 		{ "B", 10039, 237, 348 }; -- Chamber of the Guardian
+		{ "C", 10040, 290, 133 }; -- Portal to Dalaran
 		{ "1", 10001, 249, 342 }; -- Krasus' Landing
 		{ "2", 10002, 151, 378 }; -- Watchers' Aerie
 		{ "3", 10003, 144, 363 }; -- Wardens' Redoubt
@@ -124,7 +126,7 @@ local myDB = {
 		{ "17", 10017, 277, 164 }; -- Ironhorn Enclave
 		{ "18", 10018, 210, 126 }; -- Sylvan Falls
 		{ "19", 10019, 244, 116 }; -- Thunder Totem
-		{ "20", 10020, 286, 128 }; -- Stonehoof Watch
+		{ "20", 10020, 283, 121 }; -- Stonehoof Watch
 		{ "21", 10021, 224, 97 }; -- Nesingwary
 		{ "22", 10022, 263, 84 }; -- Skyhorn
 		{ "23", 10023, 191, 68 }; -- Felbane Camp

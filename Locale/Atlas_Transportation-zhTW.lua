@@ -56,6 +56,7 @@ if L then
 	L["Connection to the Hall of Shadows"] 	= "通往潛影之廳"; -- Rogue
 	L["Aludane Whitecloud <Flight Master>"] = "艾魯丹·白雲 <飛行管理員>";
 	-- Others
+	L["Portal to Dalaran"] = "到達拉然的傳送門";
 	L["The Bogpaddle Bullet"] = "沼槳火箭";
 	L["Legend"] = "圖例";				-- The chart's legend, for example, the purple line means the portal's path
 	L["Gryphon"] = "獅鷲獸";
