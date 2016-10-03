@@ -69,7 +69,7 @@ local myData = {
 		{ PURP.." B) "..BZ["Tel'anor"]..GREY.." (42.0, 35.2)", 10002 };
 		{ PURP.." C) "..BZ["Falanaar"]..GREY.." (21.9, 29.1)", 10003 };
 		{ INDENT..GREY..ALC["L-Parenthesis"]..BZ["Temple of Fal'adora"]..ALC["R-Parenthesis"].." (40.9, 13.8)" };
-		{ INDENT..GREY..ALC["Entrance"]..ALC["Colon"].."(22.9, 35.8)" };
+		{ INDENT..GREY..ALC["Entrance"]..ALC["Colon"].."(22.9, 35.8 / 20.6, 50.4)" };
 		{ PURP.." D) "..BZ["Moonfall Overlook"]..ALC["Comma"]..BZ["Moon Guard Stronghold"]..GREY.." (30.8, 11.0)", 10004 };
 		{ PURP.." E) "..BZ["Felsoul Hold"]..GREY.." (39.1, 76.3)", 10005 };
 		{ INDENT..GREY..ALC["L-Parenthesis"]..BZ["The Fel Breach"]..ALC["R-Parenthesis"].." (54.0, 36.8)" };
