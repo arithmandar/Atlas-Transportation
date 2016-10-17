@@ -49,7 +49,7 @@ if L then
 	L["Portal to Dreadscar Rift"] 		= "Portal to Dreadscar Rift" -- Warlock
 	L["Jump to Skyhold"] 			= "Jump to Skyhold"; -- Warrior
 	L["Illidari Gateway"] 			= "Illidari Gateway"; -- Demon Hunter
-	L["Talua <Eagle Keeper>"] 		= "Talua <Eagle Keeper>"; -- NPC of Hunter as flight master in Dalaran's Krasus' Landing
+	L["Talua <Eagle Keeper>"] 		= "Talua <Eagle Keeper>"; -- 108868, NPC of Hunter as flight master in Dalaran's Krasus' Landing
 	L["Flight to Trueshot Lodge"] 		= "Flight to Trueshot Lodge"; -- Hunter
 	L["Portal to Sanctum of Light"] 	= "Portal to Sanctum of Light"; -- Paladin
 	L["Connection to the Hall of Shadows"] 	= "Connection to the Hall of Shadows"; -- Rogue

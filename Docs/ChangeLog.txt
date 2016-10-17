@@ -8,6 +8,12 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.34.05 (Oct. 17, 2016)
+------------------------
+- Added Trueshot Lodge's coordinate
+- Translation update:
+  - Traditional Chinese
+
 v1.34.04 (Oct. 03, 2016)
 ------------------------
 - Added Falanaar's 2nd / 3rd entrances' location

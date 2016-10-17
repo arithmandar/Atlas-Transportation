@@ -42,7 +42,7 @@ if L then
 	L["Death Knight Only"] 	= "僅限死亡騎士";	-- Taxi node in Acherus: The Ebon Hold, which is only for Death Knight
 	L["Hunter Only"] 	= "僅限獵人";
 	L["Class Specific Only"] = "僅限特定職業";
-	L["Warrior's landing / jumping point (from or back to Skyhold)"] = "戰士的降落 / 跳躍點 (往返擎天堡)";
+	L["Warrior's landing / jumping point (from or back to Skyhold)"] = "戰士的降落 / 跳躍點（往返擎天堡）";
 	-- Dalaran
 	L["Class Order Halls"] 			= "職業大廳";
 	L["Portal to the Maelstrom"] 		= "大漩渦傳送門"; -- Shaman
@@ -50,7 +50,7 @@ if L then
 	L["Portal to Dreadscar Rift"] 		= "懼痕裂隙傳送門" -- Warlock
 	L["Jump to Skyhold"] 			= "跳到擎天堡"; -- Warrior
 	L["Illidari Gateway"] 			= "伊利達瑞傳送門"; -- Demon Hunter
-	--L["Talua <Eagle Keeper>"] 		= "Talua <Eagle Keeper>"; -- NPC of Hunter as flight master in Dalaran's Krasus' Landing
+	L["Talua <Eagle Keeper>"] 		= "塔陸亞 <飼鷹者>"; -- NPC of Hunter as flight master in Dalaran's Krasus' Landing
 	L["Flight to Trueshot Lodge"] 		= "飛行到神獵廳"; -- Hunter
 	L["Portal to Sanctum of Light"] 	= "聖光會堂傳送門"; -- Paladin
 	L["Connection to the Hall of Shadows"] 	= "通往潛影之廳"; -- Rogue
