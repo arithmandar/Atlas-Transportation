@@ -53,7 +53,7 @@ if L then
 	L["Flight to Trueshot Lodge"] 		= "Flight to Trueshot Lodge"; -- Hunter
 	L["Portal to Sanctum of Light"] 	= "Portal to Sanctum of Light"; -- Paladin
 	L["Connection to the Hall of Shadows"] 	= "Connection to the Hall of Shadows"; -- Rogue
-	L["Aludane Whitecloud <Flight Master>"] = "Aludane Whitecloud <Flight Master>";
+	L["Aludane Whitecloud <Flight Master>"] = "Aludane Whitecloud <Flight Master>"; -- 96813
 	-- Others
 	L["Portal to Dalaran"] = "Portal to Dalaran";
 	L["The Bogpaddle Bullet"] = "The Bogpaddle Bullet";
