@@ -88,4 +88,8 @@ if L then
 	L["Airship"] = "Airship";
 	L["Wind Rider Master"] = "Wind Rider Master";
 	L["Gryphon Master"] = "Gryphon Master";
+	L["Great Eagle"] = "Great Eagle"; -- NPC: 109558
+	L["Requires Eagle Ally Advancement"] = "Requires Eagle Ally Advancement";
+	L["Teleportation Nexus"] = "Teleportation Nexus";
+	L["Requires Teleportation Nexus Advancement"] = "Requires Teleportation Nexus Advancement";
 end

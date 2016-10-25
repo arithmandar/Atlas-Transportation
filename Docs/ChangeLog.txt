@@ -8,6 +8,11 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.35.00 (Oct. XX, 2016)
+------------------------
+- Added Hunter's taxi nodes via the Great Eagle in Broken Isles
+- Added Mage's portals in Broken Isles
+
 v1.34.05 (Oct. 17, 2016)
 ------------------------
 - Added Trueshot Lodge's coordinate

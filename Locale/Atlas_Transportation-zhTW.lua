@@ -89,6 +89,10 @@ if L then
 	L["Airship"] = "飛行器";
 	L["Wind Rider Master"] = "蠍尾獅管理員";
 	L["Gryphon Master"] = "獅鷲獸管理員";
+	L["Great Eagle"] = "巨鷹";
+	L["Requires Eagle Ally Advancement"] = "需要升級飛鷹盟友";
+	L["Teleportation Nexus"] = "傳送網路";
+	L["Requires Teleportation Nexus Advancement"] = "需要升級傳送網路";
 --@end-do-not-package@
 --@localization(locale="zhTW", format="lua_additive_table")@
 end
