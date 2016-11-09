@@ -8,6 +8,14 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.35.01 (Nov. XX, 2016)
+------------------------
+- Map revamped:
+  - Dalaran
+- Remove portal path from Outland to Badlands
+- Remove portal path from Shrine of Two Moons to Ratchet
+- Added the cosmos maps
+
 v1.35.00 (Oct. 27, 2016)
 ------------------------
 - Toc update to support WoW 7.1.0

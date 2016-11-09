@@ -65,6 +65,7 @@ if L then
 	L["Portals"] = "傳送門";
 	L["Portal / Waygate Path to the destination"] = "傳送門 / 甬道之門傳往目的地的路徑";
 	L["Ship / Zeppelin sailing path to destination"] = "船隻 / 飛船航向目的地的路徑";
+	L["Two ways portal"] = "雙向傳送門";
 	L["Requires honored faction with Sha'tari Skyguard"] = "需薩塔空防陣營榮譽";
 	L["Seahorse"] = "海馬";
 	L["South of the path along Lake Elune'ara"] = "月神湖南方小徑";
@@ -93,6 +94,7 @@ if L then
 	L["Requires Eagle Ally Advancement"] = "需要升級飛鷹盟友";
 	L["Teleportation Nexus"] = "傳送網路";
 	L["Requires Teleportation Nexus Advancement"] = "需要升級傳送網路";
+	L["Gleep Chatterswitch"] = "格里坡·恰恰開關"; -- NPC: 71336
 --@end-do-not-package@
 --@localization(locale="zhTW", format="lua_additive_table")@
 end
