@@ -8,7 +8,7 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
-v1.35.01 (Nov. XX, 2016)
+v1.35.01 (Nov. 11, 2016)
 ------------------------
 - Map revamped:
   - Dalaran
