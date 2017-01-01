@@ -8,6 +8,10 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.35.02 (Jan. 01, 2017)
+------------------------
+- Added Evermoon Terrace, this is available after the Waning Crescent is destroyed
+
 v1.35.01 (Nov. 11, 2016)
 ------------------------
 - Map revamped:

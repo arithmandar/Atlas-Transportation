@@ -4,7 +4,7 @@
 	Atlas, a World of Warcraft instance map browser
 	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
 	Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-	Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
+	Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 
 	This file is part of Atlas.
 
@@ -177,6 +177,7 @@ local myData = {
 		{ PURP.." G) "..BZ["Lunastre Estate"]..GREY.." (43.7, 79.2)", 10007 };
 		{ PURP.." H) "..BZ["The Waning Crescent"]..GREY.." (47.7, 81.4)", 10008 };
 		{ PURP.." I) "..BZ["Twilight Vineyards"]..GREY.." (64.0, 60.4)", 10009 };
+		{ PURP.." J) "..BZ["Evermoon Terrace"]..GREY.." (52.0, 78.8)", 10010 };
 		{ "" };
 		{ _RED..L["Taxi Nodes"] };
 		{ NUTL.." 1) "..BZ["Irongrove Retreat"]..GREY.." (25.5, 31.7)", 10101 };
