@@ -8,6 +8,10 @@ Copyright 2011 ~ 2016 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
 = Change Log =
 ==============
 
+v1.36.01 (Jan. 03, 2017)
+------------------------
+- Added Astravar Harbor in Suramar
+
 v1.36.00 (Jan. 01, 2017)
 ------------------------
 - Added Evermoon Terrace, this is available after the Waning Crescent is destroyed

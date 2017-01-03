@@ -178,6 +178,7 @@ local myData = {
 		{ PURP.." H) "..BZ["The Waning Crescent"]..GREY.." (47.7, 81.4)", 10008 };
 		{ PURP.." I) "..BZ["Twilight Vineyards"]..GREY.." (64.0, 60.4)", 10009 };
 		{ PURP.." J) "..BZ["Evermoon Terrace"]..GREY.." (52.0, 78.8)", 10010 };
+		{ PURP.." K) "..BZ["Astravar Harbor"]..GREY.." (54.5, 69.4)", 10011 };
 		{ "" };
 		{ _RED..L["Taxi Nodes"] };
 		{ NUTL.." 1) "..BZ["Irongrove Retreat"]..GREY.." (25.5, 31.7)", 10101 };

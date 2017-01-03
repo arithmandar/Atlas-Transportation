@@ -96,6 +96,7 @@ local myDB = {
 		{ "H", 10008, 263, 464 }; -- The Waning Crescent
 		{ "I", 10009, 414, 329 }; -- Twilight Vineyards
 		{ "J", 10010, 301, 445 }; -- Evermoon Terrace
+		{ "K", 10011, 326, 388 }; -- Astravar Harbor
 		{ "1", 10101,  58, 156 }; -- Irongrove Retreat
 		{ "2", 10102, 134, 263 }; -- Meredil
 		{ "3", 10103, 414, 216 }; -- Crimson Thicket
