@@ -4,7 +4,7 @@
 	Atlas, a World of Warcraft instance map browser
 	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
 	Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-	Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
+	Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 
 	This file is part of Atlas.
 
@@ -184,6 +184,8 @@ local myData = {
 		{ NUTL.." 1) "..BZ["Irongrove Retreat"]..GREY.." (25.5, 31.7)", 10101 };
 		{ NUTL.." 2) "..BZ["Meredil"]..GREY.." (34.4, 49.4)", 10102 };
 		{ NUTL.." 3) "..BZ["Crimson Thicket"]..GREY.." (64.3, 42.0)", 10103 };
+		{ CL["HUNTER"].." 4) "..BZ["Eastern Suramar"]..ALC["L-Parenthesis"]..L["Hunter Only"]..ALC["R-Parenthesis"]..GREY.." (70.2, 71.1)", 10104 };
+		{ CL["HUNTER"].." 5) "..BZ["Western Suramar"]..ALC["L-Parenthesis"]..L["Hunter Only"]..ALC["R-Parenthesis"]..GREY.." (41.3, 82.8)", 10105 };
 	};
 	TransDalaran = {
 		ZoneName = { BZ["Dalaran"] };

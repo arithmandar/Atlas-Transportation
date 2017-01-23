@@ -4,7 +4,7 @@
 	Atlas, a World of Warcraft instance map browser
 	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
 	Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-	Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon@gmail.com>
+	Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 
 	This file is part of Atlas.
 
@@ -100,6 +100,8 @@ local myDB = {
 		{ "1", 10101,  58, 156 }; -- Irongrove Retreat
 		{ "2", 10102, 134, 263 }; -- Meredil
 		{ "3", 10103, 414, 216 }; -- Crimson Thicket
+		{ "4", 10104, 472, 401 }; -- Eastern Suramar
+		{ "5", 10105, 200, 474 }; -- Western Suramar
 	};
 	TransDalaran = {
 		{ "A", 10014, 184, 279 }; -- Greyfang Enclave
