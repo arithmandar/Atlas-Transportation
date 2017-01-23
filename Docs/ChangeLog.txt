@@ -11,6 +11,8 @@ Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 v1.37.00 (Jan. 23, 2017)
 ------------------------
 - Added Hunter's taxi nodes in Suramar
+- Translation update:
+  - Korean (netaras)
 
 v1.36.01 (Jan. 03, 2017)
 ------------------------
