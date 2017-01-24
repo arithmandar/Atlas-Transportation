@@ -54,6 +54,8 @@ if L then
 	L["Portal to Sanctum of Light"] 	= "Portal to Sanctum of Light"; -- Paladin
 	L["Connection to the Hall of Shadows"] 	= "Connection to the Hall of Shadows"; -- Rogue
 	L["Aludane Whitecloud <Flight Master>"] = "Aludane Whitecloud <Flight Master>"; -- 96813
+	-- Achievement Type
+	L["Exploration"]	= "Exploration";
 	-- Others
 	L["Portal to Dalaran"] = "Portal to Dalaran";
 	L["The Bogpaddle Bullet"] = "The Bogpaddle Bullet";

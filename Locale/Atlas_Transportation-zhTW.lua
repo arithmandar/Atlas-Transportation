@@ -55,6 +55,8 @@ if L then
 	L["Portal to Sanctum of Light"] 	= "聖光會堂傳送門"; -- Paladin
 	L["Connection to the Hall of Shadows"] 	= "通往潛影之廳"; -- Rogue
 	L["Aludane Whitecloud <Flight Master>"] = "艾魯丹·白雲 <飛行管理員>";
+	-- Achievement Type
+	L["Exploration"]	= "探索";
 	-- Others
 	L["Portal to Dalaran"] = "到達拉然的傳送門";
 	L["The Bogpaddle Bullet"] = "沼槳火箭";
