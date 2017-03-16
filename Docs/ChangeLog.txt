@@ -8,6 +8,11 @@ Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.38.00 (Mar. 16, 2017)
+------------------------
+- Translation update:
+  - Korean (netaras)
+
 v1.37.01 (Jan. 24, 2017)
 ------------------------
 - Added continent maps' achievements (exploration and missions)
