@@ -1479,7 +1479,7 @@ local myData = {
 		{ "Rock Lover", "ac=5449" };
 		{ "The Glop Family Line", "ac=5446" };
 	};
-	DarkmoonFaire = {
+	TransDarkmoonFaire = {
 		ZoneName = { BZ["Darkmoon Island"] };
 		WorldMapID = "823";
 		{ PURP.." A) "..L["Portals"] };
@@ -2277,6 +2277,7 @@ local myData = {
 		ZoneName = { BZ["Broken Isles"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] };
 		WorldMapID = "1007";
 		Faction = "Alliance";
+		LargeMap = "TransAllianceBrokenIsles";
 		{ _RED..L["Portals"] };
 		{ PURP.." A) "..BZ["Greyfang Enclave"], 10038 };
 		{ INDENT..GREY.."  -> "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
@@ -2355,7 +2356,10 @@ local myData = {
 		{ NUTL.."36) "..BZ["Crimson Thicket"]..GREY.." (64.3, 42.0)", 10036 };
 		{ "" };
 		{ BLUE..BZ["Broken Shore"] };
-		{ NUTL.."37) "..BZ["Illidari Camp"]..GREY.." (49.7, 21.1)", 10037 };
+		{ NUTL.."37) "..BZ["Deliverance Point"]..GREY.." (45.1, 64.0)", 10037 };
+		{ NUTL.."38) "..BZ["Aalgen Point"]..GREY.." (70.7, 47.6)", 10038 };
+--		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
+		{ NUTL.."39) "..BZ["Vengeance Point"]..GREY.." (49.7, 21.1)", 10039 };
 		{ GREN.." 3) "..BZ["Acherus: The Ebon Hold"]..CL["DEATHKNIGHT"]..ALC["L-Parenthesis"]..L["Death Knight Only"]..ALC["R-Parenthesis"], 10102 };
 		{ "" };
 		{ CL["MAGE"]..Atlas_GetClassName("MAGE")..ALC["Hyphen"]..L["Teleportation Nexus"] };
@@ -2438,6 +2442,7 @@ local myData = {
 		ZoneName = { BZ["Broken Isles"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] };
 		WorldMapID = "1007";
 		Faction = "Horde";
+		LargeMap = "TransHordeBrokenIsles";
 		{ _RED..L["Portals"] };
 		{ PURP.." A) "..BZ["Windrunner's Sanctuary"], 10038 };
 		{ INDENT..GREY.." <-> "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] };
@@ -2515,7 +2520,10 @@ local myData = {
 		{ NUTL.."36) "..BZ["Crimson Thicket"]..GREY.." (64.3, 42.0)", 10036 };
 		{ "" };
 		{ BLUE..BZ["Broken Shore"] };
-		{ NUTL.."37) "..BZ["Illidari Camp"]..GREY.." (49.7, 21.1)", 10037 };
+		{ NUTL.."37) "..BZ["Deliverance Point"]..GREY.." (45.1, 64.0)", 10037 };
+		{ NUTL.."38) "..BZ["Aalgen Point"]..GREY.." (70.7, 47.6)", 10038 };
+--		{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] };
+		{ NUTL.."39) "..BZ["Vengeance Point"]..GREY.." (49.7, 21.1)", 10039 };
 		{ GREN.." 3) "..BZ["Acherus: The Ebon Hold"]..ALC["L-Parenthesis"]..L["Death Knight Only"]..ALC["R-Parenthesis"], 10102 };
 		{ "" };
 		{ CL["MAGE"]..Atlas_GetClassName("MAGE")..ALC["Hyphen"]..L["Teleportation Nexus"] };
@@ -2597,14 +2605,15 @@ local myData = {
 	TransSuramar = {
 		ZoneName = { BZ["Suramar"] };
 		WorldMapID = "1033";
+		LargeMap = "TransSuramar";
 		{ _RED..L["Portals"] };
 		{ PURP.." A) "..BZ["Ruins of Elune'eth"]..GREY.." (36.1, 47.2)", 10001 };
 		{ PURP.." B) "..BZ["Tel'anor"]..GREY.." (42.0, 35.2)", 10002 };
-		{ PURP.." C) "..BZ["Falanaar"]..GREY.." (21.9, 29.1)", 10003 };
+		{ PURP.." C) "..BZ["Falanaar"]..GREY.." (21.9, 29.1)".."\n"..ALC["L-Parenthesis"]..BZ["Temple of Fal'adora"]..ALC["R-Parenthesis"].." (40.9, 13.8)".."\n"..ALC["Entrance"]..ALC["Colon"].."(22.9, 35.8 / 20.6, 50.4 / 20.5, 41.9)", 10003 };
 		{ INDENT..GREY..ALC["L-Parenthesis"]..BZ["Temple of Fal'adora"]..ALC["R-Parenthesis"].." (40.9, 13.8)" };
 		{ INDENT..GREY..ALC["Entrance"]..ALC["Colon"].."(22.9, 35.8 / 20.6, 50.4 / 20.5, 41.9)" };
 		{ PURP.." D) "..BZ["Moonfall Overlook"]..ALC["Comma"]..BZ["Moon Guard Stronghold"]..GREY.." (30.8, 11.0)", 10004 };
-		{ PURP.." E) "..BZ["Felsoul Hold"]..GREY.." (39.1, 76.3)", 10005 };
+		{ PURP.." E) "..BZ["Felsoul Hold"]..GREY.." (39.1, 76.3)".."\n"..GREY..ALC["L-Parenthesis"]..BZ["The Fel Breach"]..ALC["R-Parenthesis"].." (54.0, 36.8)".."\n"..GREY..ALC["Entrance"]..ALC["Colon"].."(35.8, 82.1)", 10005 };
 		{ INDENT..GREY..ALC["L-Parenthesis"]..BZ["The Fel Breach"]..ALC["R-Parenthesis"].." (54.0, 36.8)" };
 		{ INDENT..GREY..ALC["Entrance"]..ALC["Colon"].."(35.8, 82.1)" };
 		{ PURP.." F) "..BZ["Sanctum of Order"]..GREY.." (43.4, 60.6)", 10006 };

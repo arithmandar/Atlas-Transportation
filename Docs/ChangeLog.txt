@@ -8,8 +8,11 @@ Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
-v1.38.01 (Mar. xx, 2017)
+v1.38.01 (Mar. 22, 2017)
 ------------------------
+- Updated Broken Isles maps for taxi nodes in the Broken Shore (7.2)
+- Added Broken Isles' large map
+- Added Surarma's large map
 
 v1.38.00 (Mar. 16, 2017)
 ------------------------
