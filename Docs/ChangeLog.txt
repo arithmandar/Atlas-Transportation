@@ -8,6 +8,9 @@ Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.39.02 (Apr. xx, 2017)
+------------------------
+
 v1.39.01 (Mar. 28, 2017)
 ------------------------
 - Fixed node number for Windrunner's Sanctuary, Chamber of the Guardian, 
