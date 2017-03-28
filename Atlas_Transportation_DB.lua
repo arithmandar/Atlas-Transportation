@@ -252,9 +252,9 @@ local myDB = {
 		{ "E", 10005, 289, 202 };
 	};
 	TransAllianceBrokenIsles = {
-		{  "A", 10038, 230, 357, 432, 463, "Purple" }; -- Greyfang Enclave
-		{  "B", 10039, 237, 349, 441, 452, "Purple" }; -- Chamber of the Guardian
-		{  "C", 10040, 290, 133, 512, 170, "Purple" }; -- Portal to Dalaran
+		{  "A", 10040, 230, 357, 432, 463, "Purple" }; -- Greyfang Enclave
+		{  "B", 10041, 237, 349, 441, 452, "Purple" }; -- Chamber of the Guardian
+		{  "C", 10042, 290, 133, 512, 170, "Purple" }; -- Portal to Dalaran
 		{  "1", 10001, 249, 341, 454, 447, "TaxiNeutral" }; -- Krasus' Landing
 		{  "2", 10002, 151, 378, 324, 497, "TaxiNeutral" }; -- Watchers' Aerie
 		{  "3", 10003, 144, 363, 319, 477, "TaxiNeutral" }; -- Wardens' Redoubt
@@ -312,9 +312,9 @@ local myDB = {
 		{  "8", 10308, 275, 130, 489, 168, "HUNTER" }; -- Eastern Highmountain
 	};
 	TransHordeBrokenIsles = {
-		{ "A", 10038, 239, 336, 445, 442, "Purple" }; -- Windrunner's Sanctuary
-		{ "B", 10039, 237, 348, 442, 458, "Purple" }; -- Chamber of the Guardian
-		{  "C", 10040, 290, 133, 512, 170, "Purple" }; -- Portal to Dalaran
+		{ "A", 10040, 239, 336, 445, 442, "Purple" }; -- Windrunner's Sanctuary
+		{ "B", 10041, 237, 348, 442, 458, "Purple" }; -- Chamber of the Guardian
+		{  "C", 10042, 290, 133, 512, 170, "Purple" }; -- Portal to Dalaran
 		{  "1", 10001, 249, 341, 454, 447, "TaxiNeutral" }; -- Krasus' Landing
 		{  "2", 10002, 151, 378, 324, 497, "TaxiNeutral" }; -- Watchers' Aerie
 		{  "3", 10003, 144, 363, 319, 477, "TaxiNeutral" }; -- Wardens' Redoubt

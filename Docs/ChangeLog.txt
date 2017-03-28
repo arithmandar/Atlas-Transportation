@@ -8,6 +8,13 @@ Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.39.01 (Mar. 28, 2017)
+------------------------
+- Fixed node number for Windrunner's Sanctuary, Chamber of the Guardian, 
+  Greyfang Enclave, and Portal to Dalaran in Broken Isles Maps
+- Translation update:
+  - Simplified Chinese (ananhaid)
+
 v1.39.00 (Mar. 27, 2017)
 ------------------------
 - Toc update to support WoW 7.2
