@@ -8,6 +8,9 @@ Copyright 2011 ~ 2017 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.40.01 (Apr. xx, 2017)
+------------------------
+
 v1.40.00 (Apr. 06, 2017)
 ------------------------
 - Added portal information in Deliverance Point, Broken Shore
