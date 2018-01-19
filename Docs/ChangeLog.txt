@@ -8,7 +8,7 @@ Copyright 2011 ~ 2018 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
-v1.43.00 (Jan. 19, 2018)
+v1.43.01 (Jan. 19, 2018)
 ------------------------
 - Fixed to support WoW 7.3.5
 - Translation update:
