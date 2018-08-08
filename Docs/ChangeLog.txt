@@ -8,6 +8,11 @@ Copyright 2011 ~ 2018 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.44.00 (Aug. 09, 2018)
+------------------------
+- ToC update to support WoW 8.0.1
+- MapID convert to uiMapID
+
 v1.43.01 (Jan. 19, 2018)
 ------------------------
 - Fixed to support WoW 7.3.5
