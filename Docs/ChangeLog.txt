@@ -2,11 +2,15 @@ $Id$
 Atlas, a World of Warcraft instance map browser
 Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
 Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-Copyright 2011 ~ 2018 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
+Copyright 2011 ~ 2019 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 
 ==============
 = Change Log =
 ==============
+
+v1.45.00 (Sep. 04, 2019)
+------------------------
+- ToC update to support WoW 8.2.0
 
 v1.44.01 (Dec. 18, 2018)
 ------------------------
