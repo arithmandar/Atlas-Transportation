@@ -4,7 +4,7 @@
 	Atlas, a World of Warcraft instance map browser
 	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
 	Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-	Copyright 2011 ~ 2019 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
+	Copyright 2011 ~ 2020 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 
 	This file is part of Atlas.
 
@@ -2735,6 +2735,26 @@ local myData = {
 		{ GREN.." F) "..BZ["Seradane"]..ALC["Comma"]..BZ["The Hinterlands"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10006 },
 		{ GREN.." G) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"]..ALC["Comma"]..BZ["Kalimdor"], 10007 },
 	},
+	TransArgus = {
+		ZoneName = { BZ["Argus"] },
+		WorldMapID = 905,
+		--Faction = "",
+		--LargeMap = "",
+		{ _RED..L["Vindicaar"] },
+		{ GREN.." 1) "..BZ["Krokuun"], 10001 },
+		{ GREN.." 2) "..BZ["Mac'Aree"], 10002 },
+		{ GREN.." 3) "..BZ["Antoran Wastes"], 10003 },
+		{ "" },
+		{ _RED..L["Teleport Beacon"] },
+		{ NUTL.." 4) "..BZ["Shattered Fields"], 10004 },
+		{ NUTL.." 5) "..BZ["Krokul Hovel"], 10005 },
+		{ NUTL.." 6) "..BZ["Destiny Point"], 10006 },
+		{ NUTL.." 7) "..BZ["Triumvirate's End"], 10007 },
+		{ NUTL.." 8) "..BZ["City Center"], 10008 },
+		{ NUTL.." 9) "..BZ["Conservatory of the Arcane"], 10009 },
+		{ NUTL.."10) "..BZ["The Veiled Den"], 10010 },
+		{ NUTL.."11) "..BZ["Hope's Landing"], 10011 },
+	},
 }
 
 local myDB = {
@@ -3127,7 +3147,19 @@ local myDB = {
 		{ "E", 10005, 196, 359 }, -- Twilight Grove
 		{ "F", 10006, 276, 347 }, -- Seradane
 		{ "G", 10007, 299, 285 }, -- Nordrassil
-	
+	},
+	TransArgus = {
+		{  1, 10001, 465, 431 },
+		{  2, 10002, 241, 274 },
+		{  3, 10003, 131, 297 },
+		{  4, 10004, 376, 377 },
+		{  5, 10005, 446, 390 },
+		{  6, 10006, 479, 335 },
+		{  7, 10007, 248, 248 },
+		{  8, 10008, 220, 191 },
+		{  9, 10009, 291, 132 },
+		{ 10, 10010, 114, 268 },
+		{ 11, 10011, 126, 344 },
 	},
 }
 
