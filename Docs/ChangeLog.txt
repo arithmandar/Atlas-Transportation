@@ -8,6 +8,10 @@ Copyright 2011 ~ 2020 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.47.01 (Jan. 23, 2020)
+------------------------
+- Added BfA transportation maps
+
 v1.47.00 (Jan. 20, 2020)
 ------------------------
 - ToC update to support WoW 8.3.0

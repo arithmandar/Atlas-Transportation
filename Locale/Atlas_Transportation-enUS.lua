@@ -98,4 +98,6 @@ if L then
 	L["Gleep Chatterswitch"] = "Gleep Chatterswitch" -- NPC: 71336
 	L["Vindicaar"] = "Vindicaar"
 	L["Teleport Beacon"] = "Teleport Beacon"
+	L["Boat to Stormwind City"] = "Boat to Stormwind City"
+	L["Boat to Echo Isles, Durotar"] = "Boat to Echo Isles, Durotar"
 end
