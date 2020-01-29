@@ -1108,21 +1108,31 @@ else
 			Faction = "Alliance",
 			LargeMap = "TransAllianceStormwindCity",
 			{ _RED..BZ["Docks"] },
-			{ ORNG.." A) "..BZ["Rut'theran Village"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"], 10001 },
-			{ ORNG.." B) "..BZ["Valiance Keep"]..ALC["Comma"]..BZ["Borean Tundra"]..ALC["Comma"]..BZ["Northrend"], 10002 },
+			{ ORNG.." A) "..BZ["Boralus Harbor"]..ALC["Comma"]..BZ["Tiragarde Sound"]..ALC["Comma"]..BZ["Kul Tiras"], 10001 },
+			{ ORNG.." B) "..BZ["Boralus"]..ALC["Comma"]..BZ["Tiragarde Sound"]..ALC["Comma"]..BZ["Kul Tiras"], 10002 },
 			{ "" },
 			{ _RED..L["Portals"] },
-			{ PURP.." A) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"]..ALC["Comma"]..BZ["Outland"], 10003 },
-			{ PURP.." B) "..BZ["Fuselight-by-the-Sea"]..ALC["Comma"]..BZ["Badlands"], 10004 },
-			{ PURP.." C) "..BZ["Paw'Don Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"], 10005 },
+			{ PURP.." A) "..BZ["Wizard's Sanctum"], 10003 },
+			{ INDENT..GREY.."  -> "..BZ["Stormshield"]..ALC["Comma"]..BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"] },
+			{ INDENT..GREY.."  -> "..BZ["Boralus"]..ALC["Comma"]..BZ["Tiragarde Sound"]..ALC["Comma"]..BZ["Kul Tiras"] },
+			{ INDENT..GREY.."  -> "..BZ["Crumbled Palace"]..ALC["Comma"]..BZ["Azsuna"]..ALC["Comma"]..BZ["Broken Isles"] },
+			{ INDENT..GREY.."  -> "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"]..ALC["Comma"]..BZ["Northrend"] },
+			{ INDENT..GREY.."  -> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..GREY.."  -> "..BZ["Paw'Don Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"] },
+			{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
+			{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
+			
+--			{ PURP.." A) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"]..ALC["Comma"]..BZ["Outland"], 10003 },
+--			{ PURP.." B) "..BZ["Fuselight-by-the-Sea"]..ALC["Comma"]..BZ["Badlands"], 10004 },
+--			{ PURP.." C) "..BZ["Paw'Don Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"], 10005 },
+			{ PURP.." B) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"]..ALC["Comma"]..BZ["Kalimdor"], 10004 },
+			{ PURP.." C) "..BZ["Temple of Earth"]..ALC["Comma"]..BZ["Deepholm"], 10005 },
 			{ PURP.." D) "..BZ["Baradin Base Camp"]..ALC["Comma"]..BZ["Tol Barad Peninsula"], 10006 },
 			{ PURP.." E) "..BZ["Darkbreak Cove"]..ALC["Comma"]..BZ["Vashj'ir"], 10007 },
 			{ PURP.." F) "..BZ["Highbank"]..ALC["Comma"]..BZ["Twilight Highlands"], 10008 },
 			{ PURP.." G) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"]..ALC["Comma"]..BZ["Kalimdor"], 10009 },
-			{ PURP.." H) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"]..ALC["Comma"]..BZ["Kalimdor"], 10010 },
-			{ PURP.." I) "..BZ["Temple of Earth"]..ALC["Comma"]..BZ["Deepholm"], 10011 },
-			{ PURP.." J) "..BZ["Stormshield"]..ALC["Comma"]..BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"], 10012 },
-			{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Broken Isles"], 10013 },
+			{ PURP.." H) "..BZ["Darkshore"]..ALC["Comma"]..BZ["Kalimdor"], 10010 },
+--			{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Broken Isles"], 10013 },
 			{ "" },
 			{ _RED..DUNGEON_FLOOR_DEEPRUNTRAM1 },
 			{ WHIT.." 1) "..BZ["Ironforge"], 10014 },
@@ -3103,19 +3113,21 @@ else
 			{ 27, 10027, 313, 299 }, -- Dalaran
 		},
 		TransAllianceStormwindCity = {
-			{ "A", 10001,  54, 273, 248, 372, "Orange" }, -- Rut'theran Village
+			{ "A", 10001,  54, 273, 248, 372, "Orange" }, -- Boralus
 			{ "B", 10002,  24, 140, 216, 203, "Orange" }, -- Valiance Keep
-			{ "A", 10003, 228, 418, 466, 553, "Purple" }, -- The Stair of Destiny
-			{ "B", 10004, 237, 406, 477, 540, "Purple" }, -- Fuselight-by-the-Sea
-			{ "C", 10005, 358, 103, 635, 155, "Purple" }, -- Paw'Don Village
+--			{ "A", 10003, 228, 418, 466, 553, "Purple" }, -- The Stair of Destiny
+--			{ "B", 10004, 237, 406, 477, 540, "Purple" }, -- Fuselight-by-the-Sea
+--			{ "C", 10005, 358, 103, 635, 155, "Purple" }, -- Paw'Don Village
+			{ "A", 10003, 228, 418, 466, 553, "Purple" }, -- Wizard's Sancrum
+			{ "B", 10004, 411, 119, 699, 181, "Purple" }, -- Ramkahen
+			{ "C", 10005, 399, 120, 686, 182, "Purple" }, -- Temple of Earth
 			{ "D", 10006, 389, 111, 671, 163, "Purple" }, -- Baradin Base Camp
 			{ "E", 10007, 395,  99, 677, 149, "Purple" }, -- Darkbreak Cove
 			{ "F", 10008, 408,  96, 691, 151, "Purple" }, -- Highbank
 			{ "G", 10009, 415, 109, 704, 163, "Purple" }, -- Nordrassil
-			{ "H", 10010, 411, 119, 699, 181, "Purple" }, -- Ramkahen
-			{ "I", 10011, 399, 120, 686, 182, "Purple" }, -- Temple of Earth
-			{ "J", 10012, 487, 182, 794, 260, "Purple" }, -- Stormshield
-			{ "K", 10013, 441, 169, 736, 240, "Purple" }, -- Dalaran
+			{ "H", 10010,  71, 279, 270, 378, "Purple" }, -- Darkshore
+--			{ "J", 10012, 487, 182, 794, 260, "Purple" }, -- Stormshield
+--			{ "K", 10013, 441, 169, 736, 240, "Purple" }, -- Dalaran
 			{ "1", 10014, 353, 178, 624, 250, "White" }, -- Ironforge
 			{ "2", 10015, 374, 346, 656, 464, "White" }, -- Stormwind City
 		},
