@@ -1136,20 +1136,33 @@ else
 			Faction = "Horde",
 			LargeMap = "TransHordeOrgrimmar",
 			{ _RED..L["Portals"] },
-			{ PURP.." A) "..BZ["Shattered Landing"]..ALC["Comma"]..BZ["Blasted Lands"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10001 },
-			{ GREY..INDENT..ALC["L-Parenthesis"]..BZ["Cleft of Shadow"]..ALC["R-Parenthesis"] },
-			{ PURP.." B) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"]..ALC["Comma"]..BZ["Outland"], 10002 },
-			{ GREY..INDENT..ALC["L-Parenthesis"]..BZ["Cleft of Shadow"]..ALC["Slash"]..BZ["Valley of Spirits"]..ALC["R-Parenthesis"] },
+			{ PURP.." A) "..BZ["Pathfinder's Den"], 10001 },
+			{ INDENT..GREY.."  -> "..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
+			{ INDENT..GREY.."  -> "..BZ["Warspear"]..ALC["Comma"]..BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"] },
+			{ INDENT..GREY.."  -> "..BZ["Crumbled Palace"]..ALC["Comma"]..BZ["Azsuna"]..ALC["Comma"]..BZ["Broken Isles"] },
+			{ INDENT..GREY.."  -> "..BZ["Zuldazar"]..ALC["Comma"]..BZ["Zandalar"] }, -- Detailed destination TBD
+			{ INDENT..GREY.."  -> "..BZ["Honeydew Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"] },
+			{ INDENT..GREY.."  -> "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"]..ALC["Comma"]..BZ["Northrend"] },
+			{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..INDENT..GREY..ALC["Lower"] },
+--			{ INDENT..GREY.."  -> "..BZ["Thunder Bluff"]..ALC["Comma"]..BZ["Mulgore"]..ALC["Comma"]..BZ["Kalimdor"] },
+--			{ INDENT..GREY.."  -> "..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+--			{ INDENT..GREY.."  -> "..BZ["Shrine of Two Moons"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
+			-- { PURP.." A) "..BZ["Shattered Landing"]..ALC["Comma"]..BZ["Blasted Lands"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10001 },
+			--{ GREY..INDENT..ALC["L-Parenthesis"]..BZ["Cleft of Shadow"]..ALC["R-Parenthesis"] },
+			--{ PURP.." B) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"]..ALC["Comma"]..BZ["Outland"], 10002 },
+			--{ GREY..INDENT..ALC["L-Parenthesis"]..BZ["Cleft of Shadow"]..ALC["Slash"]..BZ["Valley of Spirits"]..ALC["R-Parenthesis"] },
+			{ PURP.." B) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10002 },
 			{ PURP.." C) "..BZ["Hellscream's Grasp"]..ALC["Comma"]..BZ["Tol Barad Peninsula"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10003 },
 			{ PURP.." D) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"], 10004 },
 			{ PURP.." E) "..BZ["Vashj'ir"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10005 },
 			{ PURP.." F) "..BZ["Temple of Earth"]..ALC["Comma"]..BZ["Deepholm"], 10006 },
 			{ PURP.." G) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"], 10007 },
-			{ PURP.." H) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10008 },
-			{ PURP.." I) "..BZ["Honeydew Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"], 10009 },
-			{ PURP.." J) "..BZ["Warspear"]..ALC["Comma"]..BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"], 10010 },
-			{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Karazhan"], 10016 },
-			{ GREY..INDENT..ALC["L-Parenthesis"]..BZ["Cleft of Shadow"]..ALC["Slash"]..BZ["Valley of Spirits"]..ALC["R-Parenthesis"] },
+			--{ PURP.." I) "..BZ["Honeydew Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"], 10009 },
+			--{ PURP.." J) "..BZ["Warspear"]..ALC["Comma"]..BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"], 10010 },
+			--{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Karazhan"], 10016 },
+			--{ GREY..INDENT..ALC["L-Parenthesis"]..BZ["Cleft of Shadow"]..ALC["Slash"]..BZ["Valley of Spirits"]..ALC["R-Parenthesis"] },
 			{ "" },
 			{ _RED..L["Zeppelin Towers"] },
 			{ ORNG.." A) "..BZ["Thunder Bluff"]..ALC["Comma"]..BZ["Mulgore"], 10011 },
@@ -2776,26 +2789,26 @@ else
 			DungeonLevel = "10",
 			{ _RED..L["Portals"] },
 			{ PURP.." A) "..BZ["Greyfang Enclave"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"], 10014 },
-			{ INDENT..GREY.."  -> "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+--			{ INDENT..GREY.."  -> "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 			{ INDENT..GREY.." <-> "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ INDENT..GREY.."  -> "..BZ["Shrine of Seven Stars"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
-			{ INDENT..GREY.."  -> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ INDENT..GREY.."  -> "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"] },
+--			{ INDENT..GREY.."  -> "..BZ["Shrine of Seven Stars"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
+--			{ INDENT..GREY.."  -> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
+--			{ INDENT..GREY.."  -> "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"] },
 			{ "" },
 			{ PURP.." B) "..BZ["Windrunner's Sanctuary"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"], 10015 },
-			{ INDENT..GREY.."  -> "..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ INDENT..GREY.."  -> "..BZ["Thunder Bluff"]..ALC["Comma"]..BZ["Mulgore"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ INDENT..GREY.."  -> "..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+--			{ INDENT..GREY.."  -> "..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+--			{ INDENT..GREY.."  -> "..BZ["Thunder Bluff"]..ALC["Comma"]..BZ["Mulgore"]..ALC["Comma"]..BZ["Kalimdor"] },
+--			{ INDENT..GREY.."  -> "..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 			{ INDENT..GREY.." <-> "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ INDENT..GREY.."  -> "..BZ["Shrine of Two Moons"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
+--			{ INDENT..GREY.."  -> "..BZ["Shrine of Two Moons"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
 			{ "" },
 			{ PURP.." C) "..BZ["Chamber of the Guardian"]..NUTL..ALC["L-Parenthesis"]..L["Nutral"]..ALC["R-Parenthesis"], 10016 },
-			{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
-			{ INDENT..GREY.."  -> "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"]..ALC["Comma"]..BZ["Northrend"] },
-			{ INDENT..GREY.."  -> "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ INDENT..INDENT.._RED..ALC["L-Parenthesis"]..L["Warning: Drop"]..ALC["R-Parenthesis"] },
-			{ INDENT..GREY.."  -> "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+--			{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
+--			{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
+--			{ INDENT..GREY.."  -> "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"]..ALC["Comma"]..BZ["Northrend"] },
+--			{ INDENT..GREY.."  -> "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+--			{ INDENT..INDENT.._RED..ALC["L-Parenthesis"]..L["Warning: Drop"]..ALC["R-Parenthesis"] },
+--			{ INDENT..GREY.."  -> "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 			{ "" },
 			{ _RED..L["Taxi Nodes"] },
 			{ INDENT..WHIT.." 1) "..L["Aludane Whitecloud <Flight Master>"], 10013 },
@@ -3107,18 +3120,19 @@ else
 			{ "2", 10015, 374, 346, 656, 464, "White" }, -- Stormwind City
 		},
 		TransHordeOrgrimmar = {
-			{ "A", 10001, 198, 321, 462, 414, "Purple"}, -- Shattered Landing
-			{ "B", 10002, 177, 308, 436, 396, "Purple"}, -- The Stair of Destiny
-			{ "B", 10002, 117, 352, 361, 445, "Purple"}, -- The Stair of Destiny
+			{ "A", 10001, 263, 444, 544, 564, "Purple"}, -- Pathfinder's Den
+--			{ "A", 10001, 198, 321, 462, 414, "Purple"}, -- Shattered Landing
+--			{ "B", 10002, 177, 308, 436, 396, "Purple"}, -- The Stair of Destiny
+--			{ "B", 10002, 117, 352, 361, 445, "Purple"}, -- The Stair of Destiny
+			{ "B", 10002, 219, 222, 486, 283, "Purple"}, -- Dragonmaw Port
 			{ "C", 10003, 201, 224, 462, 288, "Purple"}, -- Hellscream's Grasp
 			{ "D", 10004, 209, 215, 475, 280, "Purple"}, -- Ramkahen
 			{ "E", 10005, 211, 202, 476, 264, "Purple"}, -- Vashj'ir
 			{ "F", 10006, 221, 200, 493, 264, "Purple"}, -- Temple of Earth
 			{ "G", 10007, 227, 211, 497, 278, "Purple"}, -- Nordrassil
-			{ "H", 10008, 219, 222, 486, 283, "Purple"}, -- Dragonmaw Port
-			{ "I", 10009, 341, 224, 643, 293, "Purple"}, -- Honeydew Village
-			{ "J", 10010, 198, 362, 463, 461, "Purple"}, -- Warspear
-			{ "K", 10016, 188, 326, 451, 424, "Purple"}, -- Dalaran
+--			{ "I", 10009, 341, 224, 643, 293, "Purple"}, -- Honeydew Village
+--			{ "J", 10010, 198, 362, 463, 461, "Purple"}, -- Warspear
+--			{ "K", 10016, 188, 326, 451, 424, "Purple"}, -- Dalaran
 			{ "A", 10011, 170, 329, 426, 424, "Orange" }, -- Thunder Bluff
 			{ "B", 10012, 182, 322, 440, 410, "Orange" }, -- Warsong Hold
 			{ "C", 10013, 224, 292, 492, 375, "Orange" }, -- Undercity
