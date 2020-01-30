@@ -1155,7 +1155,7 @@ else
 			{ INDENT..GREY.."  -> "..BZ["Honeydew Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"] },
 			{ INDENT..GREY.."  -> "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"]..ALC["Comma"]..BZ["Northrend"] },
 			{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ INDENT..INDENT..GREY..ALC["Lower"] },
+			{ INDENT..INDENT..GREY..ALC["L-Parenthesis"]..ALC["Lower"]..ALC["R-Parenthesis"] },
 --			{ INDENT..GREY.."  -> "..BZ["Thunder Bluff"]..ALC["Comma"]..BZ["Mulgore"]..ALC["Comma"]..BZ["Kalimdor"] },
 --			{ INDENT..GREY.."  -> "..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 --			{ INDENT..GREY.."  -> "..BZ["Shrine of Two Moons"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
@@ -1169,6 +1169,7 @@ else
 			{ PURP.." E) "..BZ["Vashj'ir"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10005 },
 			{ PURP.." F) "..BZ["Temple of Earth"]..ALC["Comma"]..BZ["Deepholm"], 10006 },
 			{ PURP.." G) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"], 10007 },
+			{ PURP.." H) "..BZ["Tirisfal Glades"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10008 },
 			--{ PURP.." I) "..BZ["Honeydew Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"], 10009 },
 			--{ PURP.." J) "..BZ["Warspear"]..ALC["Comma"]..BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"], 10010 },
 			--{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Karazhan"], 10016 },
@@ -1177,8 +1178,9 @@ else
 			{ _RED..L["Zeppelin Towers"] },
 			{ ORNG.." A) "..BZ["Thunder Bluff"]..ALC["Comma"]..BZ["Mulgore"], 10011 },
 			{ ORNG.." B) "..BZ["Warsong Hold"]..ALC["Comma"]..BZ["Borean Tundra"]..ALC["Comma"]..BZ["Northrend"], 10012 },
-			{ ORNG.." C) "..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10013 },
-			{ ORNG.." D) "..BZ["Grom'gol Base Camp"]..ALC["Comma"]..BZ["Northern Stranglethorn"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10014 },
+--			{ ORNG.." C) "..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10013 },
+--			{ INDENT..GREY..ALC["L-Parenthesis"]..COMMUNITY_TYPE_UNAVAILABLE..ALC["R-Parenthesis"] },
+			{ ORNG.." C) "..BZ["Grom'gol Base Camp"]..ALC["Comma"]..BZ["Northern Stranglethorn"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10014 },
 			{ "" },
 			{ _RED..L["Taxi Nodes"] },
 			{ WHIT.." 1) "..L["Wind Rider Master"], 10015 },
@@ -3142,13 +3144,14 @@ else
 			{ "E", 10005, 211, 202, 476, 264, "Purple"}, -- Vashj'ir
 			{ "F", 10006, 221, 200, 493, 264, "Purple"}, -- Temple of Earth
 			{ "G", 10007, 227, 211, 497, 278, "Purple"}, -- Nordrassil
+			{ "H", 10008, 224, 292, 492, 375, "Purple" }, -- Undercity
 --			{ "I", 10009, 341, 224, 643, 293, "Purple"}, -- Honeydew Village
 --			{ "J", 10010, 198, 362, 463, 461, "Purple"}, -- Warspear
 --			{ "K", 10016, 188, 326, 451, 424, "Purple"}, -- Dalaran
 			{ "A", 10011, 170, 329, 426, 424, "Orange" }, -- Thunder Bluff
 			{ "B", 10012, 182, 322, 440, 410, "Orange" }, -- Warsong Hold
-			{ "C", 10013, 224, 292, 492, 375, "Orange" }, -- Undercity
-			{ "D", 10014, 232, 279, 506, 355, "Orange" }, -- Grom'gol Base Camp
+--			{ "C", 10013, 224, 292, 492, 375, "Orange" }, -- Undercity
+			{ "C", 10014, 232, 279, 506, 355, "Orange" }, -- Grom'gol Base Camp
 			{ "1", 10015, 212, 308, 481, 393, "White" }, -- Wind Rider Master
 			{ "A", 10017,  17, 362, 226, 463, "Blue" }, -- Northern Barrens
 			{ "B", 10018, 221, 471, 486, 604, "Blue" }, -- Durota
