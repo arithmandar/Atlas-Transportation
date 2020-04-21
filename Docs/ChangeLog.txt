@@ -8,6 +8,10 @@ Copyright 2011 ~ 2020 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.47.03 (Apr. 21, 2020)
+------------------------
+- Eastern Kingdom map revamped
+
 v1.47.02 (Jan. 30, 2020)
 ------------------------
 - Updated Daralan map's transportation destinations
