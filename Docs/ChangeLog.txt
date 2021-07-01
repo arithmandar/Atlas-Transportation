@@ -8,6 +8,10 @@ Copyright 2011 ~ 2021 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.49.02 (Jul. 01, 2021)
+------------------------
+- Added Ardenweald, Bastion, Maldraxxus, Revendreth
+
 v1.49.01 (Jun. 30, 2021)
 ------------------------
 - ToC update to support WoW 9.1.0
