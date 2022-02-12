@@ -8,6 +8,10 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.49.05 (Feb. 12, 2022)
+------------------------
+- Added BCC's Eastern Kingdoms and Kalimdor mpas
+
 v1.49.04 (Feb. 9, 2022)
 ------------------------
 - Support multiple ToC
