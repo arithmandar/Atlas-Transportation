@@ -8,6 +8,10 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.49.06 (Feb. 13, 2022)
+------------------------
+- Updated Classic and BCC maps to add ship and Zeppelin's sailing path
+
 v1.49.05 (Feb. 12, 2022)
 ------------------------
 - Added BCC's Eastern Kingdoms and Kalimdor mpas
