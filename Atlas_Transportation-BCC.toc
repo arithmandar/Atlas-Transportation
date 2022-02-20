@@ -40,4 +40,4 @@
 
 Locale\Locales.xml
 Core.lua
-Data-Classic.lua
+Data-BCC.lua

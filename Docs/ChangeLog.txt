@@ -12,6 +12,7 @@ v1.49.07 (Feb. 20, 2022)
 ------------------------
 - Added tzxi nodes' coordinates for Ardenweald, Bastion, Maldraxxus, Revendrethmaps
 - Correct the taxi node name in Maldraxxus and added missing node of Renounced Bastille
+- Branch data file into 3, each for specific WoW version.
 
 v1.49.06 (Feb. 13, 2022)
 ------------------------
