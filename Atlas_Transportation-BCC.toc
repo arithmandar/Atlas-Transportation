@@ -39,4 +39,5 @@
 ## RequiredDeps: Atlas
 
 Locale\Locales.xml
-Atlas_Transportation.lua
+Core.lua
+Data-Classic.lua
