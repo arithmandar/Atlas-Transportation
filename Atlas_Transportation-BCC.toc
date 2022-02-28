@@ -39,5 +39,5 @@
 ## RequiredDeps: Atlas
 
 Locale\Locales.xml
-Core.lua
-Data-BCC.lua
+Core\Core.lua
+Core\Data-BCC.lua
