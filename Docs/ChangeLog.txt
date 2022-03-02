@@ -8,6 +8,10 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.50.02 (Mar. 2, 2022)
+------------------------
+- Fine-tuned taxi noeds in Northrend
+
 v1.50.01 (Mar. 1, 2022)
 ------------------------
 - Maps revamp: Northrend
