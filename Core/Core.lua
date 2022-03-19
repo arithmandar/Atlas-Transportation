@@ -29,13 +29,59 @@
 -- Functions
 local _G = getfenv(0)
 -- Libraries
+local UnitFactionGroup = _G.UnitFactionGroup
+local faction = UnitFactionGroup("player")
+
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
 
-private.addon_name = "Atlas_Transportation"
-private.category = "Transportation Maps"
-
 local LibStub = _G.LibStub
+local AceDB = LibStub("AceDB-3.0")
 local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
+local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name)
+local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
+
+addon.Name = FOLDER_NAME
+addon.LocName = select(2, GetAddOnInfo(addon.Name))
+addon.Notes = select(3, GetAddOnInfo(addon.Name))
+
+local function copy_faction_tables(faction)
+	for k, v in pairs(private[faction].maps) do
+		private.data.maps[k] = v
+	end
+	for k, v in pairs(private[faction].coords) do
+		private.data.coords[k] = v
+	end
+end
+
+-- //////////////////////////////////////////////////////////////////////////
+function addon:OnInitialize()
+	self.db = AceDB:New(private.addon_name.."DB", private.constants.defaults, true)
+	
+	private.db = self.db.profile
+
+	self.db.RegisterCallback(self, "OnProfileChanged", "Refresh")
+	self.db.RegisterCallback(self, "OnProfileCopied", "Refresh")
+	self.db.RegisterCallback(self, "OnProfileReset", "Refresh")
+	
+	Atlas:RegisterModuleOptions(addon.Name, private.config.options, addon.LocName)
+	--self:SetupOptions()
+
+	if (private.db.all_faction or faction == "Alliance") then
+		copy_faction_tables("alliance")
+	end
+	if (private.db.all_faction or faction == "Horde") then
+		copy_faction_tables("horde")
+	end
+end
+
+
+function addon:OnEnable()
+	Atlas:RegisterPlugin(private.addon_name, private.data.category, private.data.maps, private.data.coords)
+end
+
+function addon:Refresh()
+
+end

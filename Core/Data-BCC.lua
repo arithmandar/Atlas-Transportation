@@ -48,8 +48,12 @@ else
 	WoWRetail = true
 end
 
-local db = {}
-private.db = db
+local data = {}
+local alliance = {}
+local horde = {}
+private.data = data
+private.alliance = alliance
+private.horde = horde
 
 local BLUE = "|cff6666ff"
 local GREN = "|cff66cc33"
@@ -65,7 +69,7 @@ local HRDE = "|cffda6955" -- Horde's taxi node
 local NUTL = "|cfffee570" -- Nutral taxi node
 local INDENT = "      "
 
-db.category = L[private.category]
+data.category = L[private.category]
 
 local CL = {
 	["HUNTER"] 	= "|cffabd473",
@@ -83,7 +87,7 @@ local CL = {
 }
 
 if (WoWClassicTBC) then
-	db.maps = {
+	alliance.maps = {
 		TransAllianceEast_BCC = {
 			ZoneName = { BZ["Eastern Kingdoms"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 			WorldMapID = 13,
@@ -115,36 +119,6 @@ if (WoWClassicTBC) then
 			{ "" },
 			{ _RED..L["Legend"] },
 			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
-		},
-		TransHordeEast_BCC = {
-			ZoneName = { BZ["Eastern Kingdoms"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
-			WorldMapID = 13,
-			Faction = "Horde",
-			{ BLUE.." A) "..BZ["Orgrimmar"]..ALC["Comma"].._RED..BZ["Durotar"] },
-			{ BLUE.." B) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"] },
-			{ PURP.." A) "..BZ["The Dark Portal"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] };
-			{ };
-			{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"].._RED..BZ["Isle of Quel'Danas"] };
-			{ WHIT.." 2) "..BZ["Silvermoon City"]..ALC["Comma"].._RED..BZ["Eversong Woods"] };
-			{ WHIT.." 3) "..BZ["Tranquillien"]..ALC["Comma"].._RED..BZ["Ghostlands"] };
-			{ WHIT.." 4) "..BZ["Hatchet Hills"]..ALC["Comma"].._RED..BZ["Ghostlands"] };
-			{ WHIT.." 5) "..BZ["Light's Hope Chapel"]..ALC["Comma"].._RED..BZ["Eastern Plaguelands"] },
-			{ WHIT.." 6) "..BZ["Undercity"]..ALC["Comma"].._RED..BZ["Tirisfal Glades"] },
-			{ WHIT.." 7) "..BZ["The Sepulcher"]..ALC["Comma"].._RED..BZ["Silverpine Forest"] },
-			{ WHIT.." 8) "..BZ["Tarren Mill"]..ALC["Comma"].._RED..BZ["Hillsbrad Foothills"] },
-			{ WHIT.." 9) "..BZ["Revantusk Village"]..ALC["Comma"].._RED..BZ["The Hinterlands"] },
-			{ WHIT.."10) "..BZ["Hammerfall"]..ALC["Comma"].._RED..BZ["Arathi Highlands"] },
-			{ WHIT.."11) "..BZ["Thorium Point"]..ALC["Comma"].._RED..BZ["Searing Gorge"] },
-			{ WHIT.."12) "..BZ["Kargath"]..ALC["Comma"].._RED..BZ["Badlands"] },
-			{ WHIT.."13) "..BZ["Flame Crest"]..ALC["Comma"].._RED..BZ["Burning Steppes"] },
-			{ WHIT.."14) "..BZ["Stonard"]..ALC["Comma"].._RED..BZ["Swamp of Sorrows"] },
-			{ WHIT.."15) "..BZ["Grom'gol"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"] },
-			{ WHIT.."16) "..BZ["Booty Bay"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"] },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
-			{ NUTL.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		},
 		TransAllianceWest_BCC = {
 			ZoneName = { BZ["Kalimdor"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
@@ -181,6 +155,66 @@ if (WoWClassicTBC) then
 			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
 			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		},
+		TransAllianceOutland_BCC = {
+			ZoneName = { BZ["Outland"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 101,
+			Faction = "Alliance",
+			{ WHIT.." 1) "..BZ["The Dark Portal"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] },
+			{ WHIT.." 2) "..BZ["Shatter Point"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] },
+			{ WHIT.." 3) "..BZ["Honor Hold"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] },
+			{ WHIT.." 4) "..BZ["Temple of Telhamat"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] },
+			{ WHIT.." 5) "..BZ["Telredor"]..ALC["Comma"].._RED..BZ["Zangarmarsh"] },
+			{ WHIT.." 6) "..BZ["Orebor Harborage"]..ALC["Comma"].._RED..BZ["Zangarmarsh"] },
+			{ WHIT.." 7) "..BZ["Telaar"]..ALC["Comma"].._RED..BZ["Nagrand"] },
+			{ WHIT.." 8) "..BZ["Shattrath City"]..ALC["Comma"].._RED..BZ["Terokkar Forest"] },
+			{ WHIT.." 9) "..BZ["Allerian Stronghold"]..ALC["Comma"].._RED..BZ["Terokkar Forest"] },
+			{ WHIT.."10) "..BZ["Wildhammer Stronghold"]..ALC["Comma"].._RED..BZ["Shadowmoon Valley"] },
+			{ WHIT.."11) "..BZ["Altar of Sha'tar"]..ALC["Comma"].._RED..BZ["Shadowmoon Valley"]..ALC["L-Parenthesis"]..BF["The Aldor"]..ALC["R-Parenthesis"] },
+			{ WHIT.."12) "..BZ["Sanctum of the Stars"]..ALC["Comma"].._RED..BZ["Shadowmoon Valley"]..ALC["L-Parenthesis"]..BF["The Scryers"]..ALC["R-Parenthesis"] },
+			{ WHIT.."13) "..BZ["Sylvanaar"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
+			{ WHIT.."14) "..BZ["Evergrove"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
+			{ WHIT.."15) "..BZ["Toshley's Station"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
+			{ WHIT.."16) "..BZ["Area 52"]..ALC["Comma"].._RED..BZ["Netherstorm"] },
+			{ WHIT.."17) "..BZ["The Stormspire"]..ALC["Comma"].._RED..BZ["Netherstorm"] },
+			{ WHIT.."18) "..BZ["Cosmowrench"]..ALC["Comma"].._RED..BZ["Netherstorm"] },
+			{ GREN.."1') "..BZ["Blackwind Landing"]..ALC["Comma"].._RED..BZ["Terokkar Forest"] },
+			{ GREN.."2') "..BZ["Skyguard Outpost"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
+			{ GREN..INDENT..L["Honored with Sha'tari Skyguard"] },
+		},
+	},
+	alliance.coords = {
+	},
+	horde.maps = {
+		TransHordeEast_BCC = {
+			ZoneName = { BZ["Eastern Kingdoms"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+			WorldMapID = 13,
+			Faction = "Horde",
+			{ BLUE.." A) "..BZ["Orgrimmar"]..ALC["Comma"].._RED..BZ["Durotar"] },
+			{ BLUE.." B) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"] },
+			{ PURP.." A) "..BZ["The Dark Portal"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] };
+			{ };
+			{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"].._RED..BZ["Isle of Quel'Danas"] };
+			{ WHIT.." 2) "..BZ["Silvermoon City"]..ALC["Comma"].._RED..BZ["Eversong Woods"] };
+			{ WHIT.." 3) "..BZ["Tranquillien"]..ALC["Comma"].._RED..BZ["Ghostlands"] };
+			{ WHIT.." 4) "..BZ["Hatchet Hills"]..ALC["Comma"].._RED..BZ["Ghostlands"] };
+			{ WHIT.." 5) "..BZ["Light's Hope Chapel"]..ALC["Comma"].._RED..BZ["Eastern Plaguelands"] },
+			{ WHIT.." 6) "..BZ["Undercity"]..ALC["Comma"].._RED..BZ["Tirisfal Glades"] },
+			{ WHIT.." 7) "..BZ["The Sepulcher"]..ALC["Comma"].._RED..BZ["Silverpine Forest"] },
+			{ WHIT.." 8) "..BZ["Tarren Mill"]..ALC["Comma"].._RED..BZ["Hillsbrad Foothills"] },
+			{ WHIT.." 9) "..BZ["Revantusk Village"]..ALC["Comma"].._RED..BZ["The Hinterlands"] },
+			{ WHIT.."10) "..BZ["Hammerfall"]..ALC["Comma"].._RED..BZ["Arathi Highlands"] },
+			{ WHIT.."11) "..BZ["Thorium Point"]..ALC["Comma"].._RED..BZ["Searing Gorge"] },
+			{ WHIT.."12) "..BZ["Kargath"]..ALC["Comma"].._RED..BZ["Badlands"] },
+			{ WHIT.."13) "..BZ["Flame Crest"]..ALC["Comma"].._RED..BZ["Burning Steppes"] },
+			{ WHIT.."14) "..BZ["Stonard"]..ALC["Comma"].._RED..BZ["Swamp of Sorrows"] },
+			{ WHIT.."15) "..BZ["Grom'gol"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"] },
+			{ WHIT.."16) "..BZ["Booty Bay"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"] },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
+			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
+			{ NUTL.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
+		},
 		TransHordeWest_BCC = {
 			ZoneName = { BZ["Kalimdor"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 			WorldMapID = 12,
@@ -215,32 +249,6 @@ if (WoWClassicTBC) then
 			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 			{ NUTL.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		},
-		TransAllianceOutland_BCC = {
-			ZoneName = { BZ["Outland"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 101,
-			Faction = "Alliance",
-			{ WHIT.." 1) "..BZ["The Dark Portal"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] },
-			{ WHIT.." 2) "..BZ["Shatter Point"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] },
-			{ WHIT.." 3) "..BZ["Honor Hold"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] },
-			{ WHIT.." 4) "..BZ["Temple of Telhamat"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] },
-			{ WHIT.." 5) "..BZ["Telredor"]..ALC["Comma"].._RED..BZ["Zangarmarsh"] },
-			{ WHIT.." 6) "..BZ["Orebor Harborage"]..ALC["Comma"].._RED..BZ["Zangarmarsh"] },
-			{ WHIT.." 7) "..BZ["Telaar"]..ALC["Comma"].._RED..BZ["Nagrand"] },
-			{ WHIT.." 8) "..BZ["Shattrath City"]..ALC["Comma"].._RED..BZ["Terokkar Forest"] },
-			{ WHIT.." 9) "..BZ["Allerian Stronghold"]..ALC["Comma"].._RED..BZ["Terokkar Forest"] },
-			{ WHIT.."10) "..BZ["Wildhammer Stronghold"]..ALC["Comma"].._RED..BZ["Shadowmoon Valley"] },
-			{ WHIT.."11) "..BZ["Altar of Sha'tar"]..ALC["Comma"].._RED..BZ["Shadowmoon Valley"]..ALC["L-Parenthesis"]..BF["The Aldor"]..ALC["R-Parenthesis"] },
-			{ WHIT.."12) "..BZ["Sanctum of the Stars"]..ALC["Comma"].._RED..BZ["Shadowmoon Valley"]..ALC["L-Parenthesis"]..BF["The Scryers"]..ALC["R-Parenthesis"] },
-			{ WHIT.."13) "..BZ["Sylvanaar"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
-			{ WHIT.."14) "..BZ["Evergrove"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
-			{ WHIT.."15) "..BZ["Toshley's Station"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
-			{ WHIT.."16) "..BZ["Area 52"]..ALC["Comma"].._RED..BZ["Netherstorm"] },
-			{ WHIT.."17) "..BZ["The Stormspire"]..ALC["Comma"].._RED..BZ["Netherstorm"] },
-			{ WHIT.."18) "..BZ["Cosmowrench"]..ALC["Comma"].._RED..BZ["Netherstorm"] },
-			{ GREN.."1') "..BZ["Blackwind Landing"]..ALC["Comma"].._RED..BZ["Terokkar Forest"] },
-			{ GREN.."2') "..BZ["Skyguard Outpost"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
-			{ GREN..INDENT..L["Honored with Sha'tari Skyguard"] },
-		},
 		TransHordeOutland_BCC = {
 			ZoneName = { BZ["Outland"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 			WorldMapID = 101,
@@ -267,10 +275,13 @@ if (WoWClassicTBC) then
 			{ GREN.."2') "..BZ["Skyguard Outpost"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
 			{ GREN..INDENT..L["Honored with Sha'tari Skyguard"] },
 		}
+	},
+	horde.coords = {
+	},
+	data.maps = {
 	}
-	db.coords = {
+	data.coords = {
 	}
 end
 
-Atlas:RegisterPlugin(private.addon_name, private.db.category, private.db.maps, private.db.coords)
 

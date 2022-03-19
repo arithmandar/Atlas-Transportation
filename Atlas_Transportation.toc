@@ -37,7 +37,10 @@
 ## X-Website: http://www.atlasmod.com
 ## X-Category: Map
 ## RequiredDeps: Atlas
+## SavedVariables: Atlas_TransportationDB
 
 Locale\Locales.xml
+Core\Constants.lua
 Core\Core.lua
+Core\Config.lua
 Core\Data.lua

@@ -24,14 +24,15 @@
 
 --]]
 local _G = getfenv(0)
-
+-- Libraries
+local string = _G.string
+local format = string.format
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
 local FOLDER_NAME, private = ...
 
 local LibStub = _G.LibStub
-
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
@@ -48,8 +49,12 @@ else
 	WoWRetail = true
 end
 
-local db = {}
-private.db = db
+local data = {}
+local alliance = {}
+local horde = {}
+private.data = data
+private.alliance = alliance
+private.horde = horde
 
 local BLUE = "|cff6666ff"
 local GREN = "|cff66cc33"
@@ -65,7 +70,7 @@ local HRDE = "|cffda6955" -- Horde's taxi node
 local NUTL = "|cfffee570" -- Nutral taxi node
 local INDENT = "      "
 
-db.category = L[private.category]
+data.category = L[private.category]
 
 local CL = {
 	["HUNTER"] 	= "|cffabd473",
@@ -83,7 +88,7 @@ local CL = {
 }
 
 if (WoWRetail) then
-	db.maps = {
+	alliance.maps = {
 		TransAllianceCosmos = {
 			ZoneName = { WORLD..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 			WorldMapID = 947,
@@ -128,55 +133,6 @@ if (WoWRetail) then
 			{ "" },
 			{ BLUE..BZ["Broken Isles"] },
 			{ ORNG.."28) "..BZ["Dalaran"], 10028 },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-			{ ORNG.."-- : "..L["Two ways portal"] },
-			{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
-		},
-		TransHordeCosmos = {
-			ZoneName = { WORLD..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
-			WorldMapID = 947,
-			{ BLUE..BZ["Kalimdor"] },
-			{ ORNG.." 1) "..BZ["Orgrimmar"], 10001 },
-			{ ORNG.." 2) "..BZ["Thunder Bluff"], 10002 },
-			{ WHIT.." 3) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"], 10003 },
-			{ WHIT.." 4) "..BZ["Ratchet"]..ALC["Comma"]..BZ["Northern Barrens"], 10004 },
-			{ WHIT.." 5) "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"], 10005 },
-			{ WHIT.." 6) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"], 10006 },
-			{ "" },
-			{ BLUE..BZ["Eastern Kingdoms"] },
-			{ WHIT.." 7) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"]..BZ["Isle of Quel'Danas"], 10007 },
-			{ ORNG.." 8) "..BZ["Silvermoon City"], 10008 },
-			{ WHIT.." 9) "..BZ["Brill"]..ALC["Comma"]..BZ["Tirisfal Glades"], 10009 },
-			{ ORNG.."10) "..BZ["Undercity"], 10010 },
-			{ WHIT.."11) "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"], 10011 },
-			{ WHIT.."12) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"], 10012 },
-			{ WHIT.."13) "..BZ["Shattered Landing"]..ALC["Comma"]..BZ["Blasted Lands"], 10013 },
-			{ WHIT.."14) "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"], 10014 },
-			{ WHIT.."15) "..BZ["Grom'gol Base Camp"]..ALC["Comma"]..BZ["Northern Stranglethorn"], 10015 },
-			{ WHIT.."16) "..BZ["Booty Bay"]..ALC["Comma"]..BZ["The Cape of Stranglethorn"], 10016 },
-			{ "" },
-			{ BLUE..BZ["Outland"] },
-			{ WHIT.."17) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"], 10017 },
-			{ ORNG.."18) "..BZ["Shattrath City"], 10018 },
-			{ "" },
-			{ BLUE..BZ["Northrend"] },
-			{ WHIT.."19) "..BZ["Warsong Hold"]..ALC["Comma"]..BZ["Borean Tundra"], 10019 },
-			{ WHIT.."20) "..BZ["Vengeance Landing"]..ALC["Comma"]..BZ["Howling Fjord"], 10020 },
-			{ ORNG.."21) "..BZ["Dalaran (Northrend)"], 10021 },
-			{ WHIT.."22) "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"], 10022 },
-			{ "" },
-			{ BLUE..BZ["Pandaria"] },
-			{ WHIT.."23) "..BZ["Honeydew Village"]..ALC["Comma"]..BZ["The Jade Forest"], 10023 },
-			{ ORNG.."24) "..BZ["Shrine of Two Moons"], 10024 },
-			{ "" },
-			{ BLUE..BZ["Draenor"] },
-			{ WHIT.."25) "..BZ["Warspear"]..ALC["Comma"]..BZ["Ashran"], 10025 },
-			{ WHIT.."26) "..BZ["Frostwall Garrison"]..ALC["Comma"]..BZ["Frostfire Ridge"], 10026 },
-			{ "" },
-			{ BLUE..BZ["Broken Isles"] },
-			{ ORNG.."27) "..BZ["Dalaran"], 10027 },
 			{ "" },
 			{ _RED..L["Legend"] },
 			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
@@ -404,206 +360,6 @@ if (WoWRetail) then
 			{ "Sinking into Vashj'ir", "ac=4869" },
 			{ "Visions of Vashj'ir Past", "ac=5452" },
 		},
-		TransHordeEast = {
-			ZoneName = { BZ["Eastern Kingdoms"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
-			WorldMapID = 13,
-			Faction = "Horde",
-			{ _RED..L["Zeppelin Towers"]..ALC["Slash"]..BZ["Docks"] },
-			{ ORNG.." A') "..BZ["Vengeance Landing"]..ALC["Comma"]..BZ["Howling Fjord"]..ALC["Comma"]..BZ["Northrend"] },
-			{ ORNG.." B') "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ ORNG.." C') "..BZ["Ratchet"]..ALC["Comma"]..BZ["Northern Barrens"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ WHIT.."19) "..BZ["Brill"]..ALC["Comma"]..BZ["Tirisfal Glades"] },
-			{ WHIT.."54) "..BZ["Grom'gol Base Camp"]..ALC["Comma"]..BZ["Northern Stranglethorn"] },
-			{ WHIT.."56) "..BZ["Booty Bay"]..ALC["Comma"]..BZ["The Cape of Stranglethorn"] },
-			{ "" },
-			{ _RED..L["Portals"]..ALC["Slash"]..L["Orb of Translocation"] },
-			{ PURP.." A) "..BZ["Hellscream's Grasp"]..ALC["Comma"]..BZ["Tol Barad Peninsula"] },
-			{ PURP.." B) "..BZ["Baradin Hold"]..ALC["Comma"]..BZ["Tol Barad"] },
-			{ GREY..INDENT..ALC["L-Parenthesis"]..L["Only available after winning the PvP battle"]..ALC["R-Parenthesis"] },
-			{ PURP.." C) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"] },
-			{ PURP.." D) "..BZ["Fuselight-by-the-Sea"]..ALC["Comma"]..BZ["Badlands"] },
-			{ GREY..INDENT..ALC["L-Parenthesis"]..L["Transporters by the sea and on the cliff"]..ALC["R-Parenthesis"] },
-			{ PURP.." A') "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"]..ALC["Comma"]..BZ["Outland"] },
-			{ PURP.." B') "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ WHIT.." 3) "..BZ["Sunfury Spire"]..ALC["Comma"]..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"] },
-			{ WHIT.."20) "..BZ["Magic Quarter"]..ALC["Comma"]..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"] },
-			{ WHIT.."51) "..BZ["Shattered Landing"]..ALC["Comma"]..BZ["Blasted Lands"] },
-			{ "" },
-			{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid Only"] },
-			{ GREN.." A) "..BZ["Seradane"]..ALC["Comma"]..BZ["The Hinterlands"] },
-			{ GREN.." B) "..BZ["Twilight Grove"]..ALC["Comma"]..BZ["Duskwood"] },
-			{ "" },
-			{ _RED..L["Taxi Nodes"] },
-			{ BLUE..BZ["Isle of Quel'Danas"] },
-			{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"] },
-			{ "" },
-			{ BLUE..BZ["Eversong Woods"] },
-			{ WHIT.." 2) "..BZ["Falconwing Square"] },
-			{ WHIT.." 3) "..BZ["Silvermoon City"] },
-			{ WHIT.." 4) "..BZ["Fairbreeze Village"] },
-			{ "" },
-			{ BLUE..BZ["Ghostlands"] },
-			{ WHIT.." 5) "..BZ["Tranquillien"] },
-			{ WHIT.." 6) "..BZ["Zul'Aman"] },
-			{ "" },
-			{ BLUE..BZ["Eastern Plaguelands"] },
-			{ GREN.." 7) "..BZ["Acherus: The Ebon Hold"]..ALC["L-Parenthesis"]..L["Death Knight Only"]..ALC["R-Parenthesis"] },
-			{ WHIT.." 8) "..BZ["Light's Hope Chapel"] },
-			{ WHIT.." 9) "..BZ["Northpass Tower"] },
-			{ WHIT.."10) "..BZ["Plaguewood Tower"] },
-			{ WHIT.."11) "..BZ["Eastwall Tower"] },
-			{ WHIT.."12) "..BZ["Light's Shield Tower"] },
-			{ WHIT.."13) "..BZ["Crown Guard Tower"] },
-			{ WHIT.."14) "..BZ["Thondroril River"] },
-			{ "" },
-			{ BLUE..BZ["Western Plaguelands"] },
-			{ WHIT.."15) "..BZ["The Menders' Stead"] },
-			{ WHIT.."16) "..BZ["Hearthglen"] },
-			{ WHIT.."17) "..BZ["Andorhal"] },
-			{ "" },
-			{ BLUE..BZ["Tirisfal Glades"] },
-			{ WHIT.."18) "..BZ["The Bulwark"] },
-			{ WHIT.."19) "..BZ["Brill"] },
-			{ WHIT.."20) "..BZ["Undercity"] },
-			{ "" },
-			{ BLUE..BZ["Silverpine Forest"] },
-			{ WHIT.."21) "..BZ["Forsaken High Command"] },
-			{ WHIT.."22) "..BZ["Forsaken Rear Guard"] },
-			{ WHIT.."23) "..BZ["The Sepulcher"] },
-			{ WHIT.."24) "..BZ["The Forsaken Front"] },
-			{ "" },
-			{ BLUE..BZ["Hillsbrad Foothills"] },
-			{ WHIT.."25) "..BZ["Southpoint Gate"] },
-			{ WHIT.."26) "..BZ["Ruins of Southshore"] },
-			{ WHIT.."27) "..BZ["Eastpoint Tower"] },
-			{ WHIT.."28) "..BZ["Tarren Mill"] },
-			{ WHIT.."29) "..BZ["Strahnbrad"] },
-			{ "" },
-			{ BLUE..BZ["Arathi Highlands"] },
-			{ WHIT.."30) "..BZ["Galen's Fall"] },
-			{ WHIT.."31) "..BZ["Hammerfall"] },
-			{ "" },
-			{ BLUE..BZ["The Hinterlands"] },
-			{ WHIT.."32) "..BZ["Hiri'watha Research Station"] },
-			{ WHIT.."33) "..BZ["Revantusk Village"] },
-			{ "" },
-			{ BLUE..BZ["Twilight Highlands"] },
-			{ WHIT.."34) "..BZ["Vermillion Redoubt"] },
-			{ WHIT.."35) "..BZ["The Gullet"] },
-			{ WHIT.."36) "..BZ["Bloodgulch"] },
-			{ WHIT.."37) "..BZ["The Krazzworks"] },
-			{ WHIT.."38) "..BZ["Dragonmaw Port"] },
-			{ WHIT.."39) "..BZ["Crushblow"] },
-			{ "" },
-			{ BLUE..BZ["Badlands"] },
-			{ WHIT.."40) "..BZ["Fuselight"] },
-			{ WHIT.."41) "..BZ["Bloodwatcher Point"] },
-			{ WHIT.."42) "..BZ["New Kargath"] },
-			{ "" },
-			{ BLUE..BZ["Searing Gorge"] },
-			{ WHIT.."43) "..BZ["Thorium Point"] },
-			{ WHIT.."44) "..BZ["Iron Summit"] },
-			{ "" },
-			{ BLUE..BZ["Burning Steppes"] },
-			{ WHIT.."45) "..BZ["Flame Crest"] },
-			{ WHIT.."46) "..BZ["Chiselgrip"] },
-			{ WHIT.."47) "..BZ["Flamestar Post"] },
-			{ PURP.."48) "..BZ["Terror Wing Path"]..ALC["L-Parenthesis"]..L["The Bogpaddle Bullet"]..ALC["R-Parenthesis"] },
-			{ "" },
-			{ BLUE..BZ["Swamp of Sorrows"] },
-			{ WHIT.."49) "..BZ["Bogpaddle"] },
-			{ WHIT.."50) "..BZ["Stonard"] },
-			{ "" },
-			{ BLUE..BZ["Blasted Lands"] },
-			{ WHIT.."51) "..BZ["Dreadmaul Hold"] },
-			{ WHIT.."52) "..BZ["Shattered Landing"] },
-			{ WHIT.."53) "..BZ["Sunveil Excursion"] },
-			{ "" },
-			{ BLUE..BZ["Northern Stranglethorn"] },
-			{ WHIT.."54) "..BZ["Bambala"] },
-			{ WHIT.."55) "..BZ["Grom'gol Base Camp"] },
-			{ "" },
-			{ BLUE..BZ["The Cape of Stranglethorn"] },
-			{ WHIT.."56) "..BZ["Hardwrench Hideaway"] },
-			{ WHIT.."57) "..BZ["Booty Bay"] },
-			{ "" },
-			{ BLUE..BZ["Vashj'ir"] },
-			{ CYAN.."58) "..BZ["Smuggler's Scar"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["R-Parenthesis"] },
-			{ CYAN.."59) "..BZ["Sandy Beach"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["Slash"]..L["Wind Rider"]..ALC["R-Parenthesis"] },
-			{ CYAN.."60) "..BZ["Silver Tide Hollow"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["R-Parenthesis"] },
-			{ CYAN.."61) "..BZ["Legion's Rest"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["R-Parenthesis"] },
-			{ CYAN.."62) "..BZ["Stygian Bounty"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["Slash"]..L["Wind Rider"]..ALC["R-Parenthesis"] },
-			{ CYAN.."63) "..BZ["Tenebrous Cavern"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["R-Parenthesis"] },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-			{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
-			{ GREN.."-- : "..L["Special transportation"] },
-			{ "" },
-			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-			{ LBLU..L["Exploration"] },
-			{ "Cataclysm Explorer", "ac=4868" },
-			{ "Eastern Kingdoms Explorer", "ac=42" },
-			{ "Explore Arathi Highlands", "ac=761" },
-			{ "Explore Badlands", "ac=765" },
-			{ "Explore Blasted Lands", "ac=766" },
-			{ "Explore Burning Steppes", "ac=775" },
-			{ "Explore Deadwind Pass", "ac=777" },
-			{ "Explore Dun Morogh", "ac=627" },
-			{ "Explore Duskwood", "ac=778" },
-			{ "Explore Eastern Plaguelands", "ac=771" },
-			{ "Explore Elwynn Forest", "ac=776" },
-			{ "Explore Eversong Woods", "ac=859" },
-			{ "Explore Ghostlands", "ac=858" },
-			{ "Explore Hillsbrad Foothills", "ac=772" },
-			{ "Explore Isle of Quel'Danas", "ac=868" },
-			{ "Explore Loch Modan", "ac=779" },
-			{ "Explore Northern Stranglethorn", "ac=781" },
-			{ "Explore Redridge Mountains", "ac=780" },
-			{ "Explore Searing Gorge", "ac=774" },
-			{ "Explore Silverpine Forest", "ac=769" },
-			{ "Explore Swamp of Sorrows", "ac=782" },
-			{ "Explore the Cape of Stranglethorn", "ac=4995" },
-			{ "Explore The Hinterlands", "ac=773" },
-			{ "Explore Tirisfal Glades", "ac=768" },
-			{ "Explore Twilight Highlands", "ac=4866" },
-			{ "Explore Vashj'ir", "ac=4825" },
-			{ "Explore Western Plaguelands", "ac=770" },
-			{ "Explore Westfall", "ac=802" },
-			{ "Explore Wetlands", "ac=841" },
-			{ "From Hell's Heart I Stab at Thee", "ac=4975" },
-			{ "Stood in the Fire", "ac=5518" },
-			{ "Surveying the Damage", "ac=4827" },
-			{ LBLU..QUESTS_LABEL },
-			{ "Arathi Highlands Quests", "ac=4896" },
-			{ "Badlands Quests", "ac=4900" },
-			{ "Blasted Lands Quests", "ac=4909" },
-			{ "Burning Steppes Quests", "ac=4901" },
-			{ "Cape of Stranglethorn Quests", "ac=4905" },
-			{ "Eastern Plaguelands Quests", "ac=4892" },
-			{ "Full Caravan", "ac=5442" },
-			{ "Ghostlands Quests", "ac=4908" },
-			{ "Hillsbrad Foothills Quests", "ac=4895" },
-			{ "Hinterlands Quests", "ac=4897" },
-			{ "Loremaster of Eastern Kingdoms", "ac=1676" },
-			{ "Northern Stranglethorn Quests", "ac=4906" },
-			{ "Ready, Set, Goat!", "ac=5444" },
-			{ "Searing Gorge Quests", "ac=4910" },
-			{ "Silverpine Forest Quests", "ac=4894" },
-			{ "Swamp of Sorrows Quests", "ac=4904" },
-			{ "The Green Hills of Stranglethorn", "ac=940" },
-			{ "Western Plaguelands Quests", "ac=4893" },
-			{ "20,000 Leagues Under the Sea", "ac=5319" },
-			{ "Breaking Out of Tol Barad", "ac=4874" },
-			{ "Consumed by Nightmare", "ac=5451" },
-			{ "Dragonmaw Tour of Duty", "ac=5482" },
-			{ "Fading into Twilight", "ac=5501" },
-			{ "King of the Mountain", "ac=5321" },
-			{ "Loremaster of Cataclysm", "ac=4875" },
-			{ "Round Three. Fight!", "ac=4960" },
-			{ "Sinking into Vashj'ir", "ac=4982" },
-			{ "Visions of Vashj'ir Past", "ac=5452" },
-		},
 		TransAllianceWest = {
 			ZoneName = { BZ["Kalimdor"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 			WorldMapID = 12,
@@ -804,6 +560,1335 @@ if (WoWRetail) then
 			{ "The Molten Front Offensive", "ac=5866" },
 			{ "Unearthing Uldum", "ac=4872" },
 			{ "Veteran of the Molten Front", "ac=5879" },
+		},
+		TransAllianceStormwindCity = {
+			ZoneName = { BZ["Stormwind City"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 84,
+			Faction = "Alliance",
+			LargeMap = "TransAllianceStormwindCity",
+			{ _RED..BZ["Docks"] },
+			{ ORNG.." A) "..BZ["Boralus Harbor"]..ALC["Comma"]..BZ["Tiragarde Sound"]..ALC["Comma"]..BZ["Kul Tiras"], 10001 },
+			{ ORNG.." B) "..BZ["Boralus"]..ALC["Comma"]..BZ["Tiragarde Sound"]..ALC["Comma"]..BZ["Kul Tiras"], 10002 },
+			{ "" },
+			{ _RED..L["Portals"] },
+			{ PURP.." A) "..BZ["Wizard's Sanctum"], 10003 },
+			{ INDENT..GREY.."  -> "..BZ["Stormshield"]..ALC["Comma"]..BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"] },
+			{ INDENT..GREY.."  -> "..BZ["Boralus"]..ALC["Comma"]..BZ["Tiragarde Sound"]..ALC["Comma"]..BZ["Kul Tiras"] },
+			{ INDENT..GREY.."  -> "..BZ["Crumbled Palace"]..ALC["Comma"]..BZ["Azsuna"]..ALC["Comma"]..BZ["Broken Isles"] },
+			{ INDENT..GREY.."  -> "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"]..ALC["Comma"]..BZ["Northrend"] },
+			{ INDENT..GREY.."  -> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..GREY.."  -> "..BZ["Paw'don Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"] },
+			{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
+			{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
+			
+--			{ PURP.." A) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"]..ALC["Comma"]..BZ["Outland"], 10003 },
+--			{ PURP.." B) "..BZ["Fuselight-by-the-Sea"]..ALC["Comma"]..BZ["Badlands"], 10004 },
+--			{ PURP.." C) "..BZ["Paw'don Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"], 10005 },
+			{ PURP.." B) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"]..ALC["Comma"]..BZ["Kalimdor"], 10004 },
+			{ PURP.." C) "..BZ["Temple of Earth"]..ALC["Comma"]..BZ["Deepholm"], 10005 },
+			{ PURP.." D) "..BZ["Baradin Base Camp"]..ALC["Comma"]..BZ["Tol Barad Peninsula"], 10006 },
+			{ PURP.." E) "..BZ["Darkbreak Cove"]..ALC["Comma"]..BZ["Vashj'ir"], 10007 },
+			{ PURP.." F) "..BZ["Highbank"]..ALC["Comma"]..BZ["Twilight Highlands"], 10008 },
+			{ PURP.." G) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"]..ALC["Comma"]..BZ["Kalimdor"], 10009 },
+			{ PURP.." H) "..BZ["Darkshore"]..ALC["Comma"]..BZ["Kalimdor"], 10010 },
+--			{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Broken Isles"], 10013 },
+			{ "" },
+			{ _RED..DUNGEON_FLOOR_DEEPRUNTRAM1 },
+			{ WHIT.." 1) "..BZ["Ironforge"], 10014 },
+			{ "" },
+			{ _RED..L["Taxi Nodes"] },
+			{ WHIT.." 2) "..L["Gryphon Master"], 10015 },
+		},
+		TransAllianceOutland = {
+			ZoneName = { BZ["Outland"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 101,
+			Faction = "Alliance",
+			{ _RED..L["Portals"]..ALC["Slash"]..L["Transporter"] },
+			{ PURP.." A') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ PURP.." B') "..BZ["Sun's Reach Sanctum"]..ALC["Comma"]..BZ["Isle of Quel'Danas"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ PURP.." C') "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ WHIT.." 1) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"] },
+			{ WHIT.." 9) "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"] },
+			{ "" },
+			{ _RED..L["Taxi Nodes"] },
+			{ BLUE..BZ["Hellfire Peninsula"] },
+			{ WHIT.." 1) "..BZ["The Stair of Destiny"] },
+			{ WHIT.." 2) "..BZ["Shatter Point"] },
+			{ WHIT.." 3) "..BZ["Honor Point"] },
+			{ WHIT.." 4) "..BZ["Honor Hold"] },
+			{ WHIT.." 5) "..BZ["Temple of Telhamat"] },
+			{ "" },
+			{ BLUE..BZ["Zangarmarsh"] },
+			{ WHIT.." 6) "..BZ["Telredor"] },
+			{ WHIT.." 7) "..BZ["Orebor Harborage"] },
+			{ "" },
+			{ BLUE..BZ["Nagrand"] },
+			{ WHIT.." 8) "..BZ["Telaar"] },
+			{ "" },
+			{ BLUE..BZ["Terokkar Forest"] },
+			{ WHIT.." 9) "..BZ["Shattrath City"] },
+			{ WHIT.."10) "..BZ["Allerian Stronghold"] },
+			{ GREN.."11) "..BZ["Blackwind Landing"] },
+			{ GREN..INDENT..ALC["L-Parenthesis"]..L["Requires honored faction with Sha'tari Skyguard"]..ALC["R-Parenthesis"] },
+			{ "" },
+			{ BLUE..BZ["Shadowmoon Valley"] },
+			{ WHIT.."12) "..BZ["Wildhammer Stronghold"] },
+			{ GREN.."13) "..BZ["Altar of Sha'tar"]..ALC["L-Parenthesis"]..BF["The Aldor"]..ALC["R-Parenthesis"] },
+			{ GREN.."14) "..BZ["Sanctum of the Stars"]..ALC["L-Parenthesis"]..BF["The Scryers"]..ALC["R-Parenthesis"] },
+			{ "" },
+			{ BLUE..BZ["Blade's Edge Mountains"] },
+			{ WHIT.."15) "..BZ["Sylvanaar"] },
+			{ WHIT.."16) "..BZ["Evergrove"] },
+			{ WHIT.."17) "..BZ["Toshley's Station"] },
+			{ GREN.."18) "..BZ["Skyguard Outpost"] },
+			{ GREN..INDENT..ALC["L-Parenthesis"]..L["Requires honored faction with Sha'tari Skyguard"]..ALC["R-Parenthesis"] },
+			{ "" },
+			{ BLUE..BZ["Netherstorm"] },
+			{ WHIT.."19) "..BZ["Area 52"] },
+			{ WHIT.."20) "..BZ["The Stormspire"] },
+			{ WHIT.."21) "..BZ["Cosmowrench"] },
+			{ "" },
+			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
+			{ LBLU..L["Exploration"] },
+			{ "Bloody Rare", "ac=1312" },
+			{ "Explore Blade's Edge Mountains", "ac=865" },
+			{ "Explore Hellfire Peninsula", "ac=862" },
+			{ "Explore Nagrand", "ac=866" },
+			{ "Explore Netherstorm", "ac=843" },
+			{ "Explore Shadowmoon Valley", "ac=864" },
+			{ "Explore Terokkar Forest", "ac=867" },
+			{ "Explore Zangarmarsh", "ac=863" },
+			{ "Medium Rare", "ac=1311" },
+			{ "Outland Explorer", "ac=44" },
+			{ LBLU..QUESTS_LABEL },
+			{ "Blade's Edge Bomberman", "ac=1276" },
+			{ "Bombs Away", "ac=1275" },
+			{ "Hills Like White Elekk", "ac=939" },
+			{ "Into the Nether", "ac=1194" },
+			{ "Loremaster of Outland", "ac=1262" },
+			{ "Mysteries of the Marsh", "ac=1190" },
+			{ "Nagrand Slam", "ac=1192" },
+			{ "On the Blade's Edge", "ac=1193" },
+			{ "Shadow of the Betrayer", "ac=1195" },
+			{ "Terror of Terokkar", "ac=1191" },
+			{ "To Hellfire and Back", "ac=1189" },
+		},
+		TransAllianceNorthrend = {
+			ZoneName = { BZ["Northrend"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 113,
+			Faction = "Alliance",
+			{ _RED..BZ["Docks"] },
+			{ BLUE.." A') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ BLUE.." B') "..BZ["Menethil Harbor"]..ALC["Comma"]..BZ["Wetlands"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ ALAN.." 1) "..BZ["Valiance Keep"]..ALC["Comma"]..BZ["Borean Tundra"] },
+			{ NUTL.." 5) "..BZ["Unu'pe"]..ALC["Comma"]..BZ["Borean Tundra"] },
+			{ NUTL.." 9) "..BZ["Moa'ki Harbor"]..ALC["Comma"]..BZ["Dragonblight"] },
+			{ NUTL.."14) "..BZ["Kamagua"]..ALC["Comma"]..BZ["Howling Fjord"] },
+			{ ALAN.."15) "..BZ["Valgarde"]..ALC["Comma"]..BZ["Howling Fjord"] },
+			{ "" },
+			{ _RED..L["Portals"]..ALC["Slash"]..BZ["Waygate"] },
+			{ PURP.." A) "..BZ["Waygate"]..ALC["Comma"]..BZ["Sholazar Basin"] },
+			{ PURP.." B) "..BZ["Wintergrasp Fortress"]..ALC["Comma"]..BZ["Wintergrasp"] },
+			{ PURP.." C) "..BZ["Violet Stand"]..ALC["Comma"]..BZ["Crystalsong Forest"] },
+			{ PURP.." D) "..BZ["Garm's Rise"]..ALC["Comma"]..BZ["The Storm Peaks"] },
+			{ PURP.." A') "..BZ["The Shaper's Terrace"]..ALC["Comma"]..BZ["Un'Goro Crater"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ PURP.." B') "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ PURP.." C') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ NUTL.."25) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"] },
+			{ NUTL.."27) "..BZ["K3"]..ALC["Comma"]..BZ["The Storm Peaks"] },
+			{ "" },
+			{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid Only"] },
+			{ GREN.." A) "..BZ["Grizzly Hills"]..GREY.." (50.38, 29.40)" },
+			{ "" },
+			{ _RED..L["Taxi Nodes"] },
+			{ BLUE..BZ["Borean Tundra"] },
+			{ ALAN.." 1) "..BZ["Valiance Keep"] },
+			{ NUTL.." 2) "..BZ["Amber Ledge"] },
+			{ "" },
+			{ BLUE..BZ["Coldarra"] },
+			{ NUTL.." 3) "..BZ["Transitus Shield"] },
+			{ "" },
+			{ BLUE..BZ["Borean Tundra"] },
+			{ ALAN.." 4) "..BZ["Fizzcrank Airstrip"] },
+			{ NUTL.." 5) "..BZ["Unu'pe"] },
+			{ "" },
+			{ BLUE..BZ["Sholazar Basin"] },
+			{ NUTL.." 6) "..BZ["Nesingwary Base Camp"] },
+			{ NUTL.." 7) "..BZ["River's Heart"] },
+			{ "" },
+			{ BLUE..BZ["Dragonblight"] },
+			{ ALAN.." 8) "..BZ["Stars' Rest"] },
+			{ NUTL.." 9) "..BZ["Moa'ki Harbor"] },
+			{ ALAN.."10) "..BZ["Fordragon Hold"] },
+			{ NUTL.."11) "..BZ["Wyrmrest Temple"] },
+			{ ALAN.."12) "..BZ["Wintergarde Keep"] },
+			{ "" },
+			{ BLUE..BZ["Howling Fjord"] },
+			{ ALAN.."13) "..BZ["Westguard Keep"] },
+			{ NUTL.."14) "..BZ["Kamagua"] },
+			{ ALAN.."15) "..BZ["Valgarde"] },
+			{ ALAN.."16) "..BZ["Fort Wildervar"] },
+			{ "" },
+			{ BLUE..BZ["Grizzly Hills"] },
+			{ ALAN.."17) "..BZ["Amberpine Lodge"] },
+			{ ALAN.."18) "..BZ["Westfall Brigade Encampment"] },
+			{ "" },
+			{ BLUE..BZ["Zul'Drak"] },
+			{ NUTL.."19) "..BZ["Gundrak"] },
+			{ NUTL.."20) "..BZ["Zim'Torga"] },
+			{ NUTL.."21) "..BZ["The Argent Stand"] },
+			{ NUTL.."22) "..BZ["Light's Breach"] },
+			{ NUTL.."23) "..BZ["Ebon Watch"] },
+			{ "" },
+			{ BLUE..BZ["Crystalsong Forest"] },
+			{ ALAN.."24) "..BZ["Windrunner's Overlook"] },
+			{ NUTL.."25) "..BZ["Dalaran"] },
+			{ "" },
+			{ BLUE..BZ["The Storm Peaks"] },
+			{ ALAN.."26) "..BZ["Frosthold"] },
+			{ NUTL.."27) "..BZ["K3"] },
+			{ NUTL.."28) "..BZ["Bouldercrag's Refuge"] },
+			{ NUTL.."29) "..BZ["Ulduar"] },
+			{ NUTL.."30) "..BZ["Dun Niffelem"] },
+			{ "" },
+			{ BLUE..BZ["Icecrown"] },
+			{ NUTL.."31) "..BZ["The Argent Vanguard"] },
+			{ NUTL.."32) "..BZ["Crusaders' Pinnacle"] },
+			{ NUTL.."33) "..BZ["Argent Tournament Grounds"] },
+			{ NUTL.."34) "..BZ["The Shadow Vault"] },
+			{ NUTL.."35) "..BZ["Death's Rise"] },
+			{ "" },
+			{ BLUE..BZ["Wintergrasp"] },
+			{ ALAN.."36) "..BZ["Valiance Landing Camp"] },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
+			{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },	
+			{ "" },
+			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
+			{ LBLU..L["Exploration"] },
+			{ "Explore Borean Tundra", "ac=1264" },
+			{ "Explore Crystalsong Forest", "ac=1457" },
+			{ "Explore Dragonblight", "ac=1265" },
+			{ "Explore Grizzly Hills", "ac=1266" },
+			{ "Explore Howling Fjord", "ac=1263" },
+			{ "Explore Icecrown", "ac=1270" },
+			{ "Explore Sholazar Basin", "ac=1268" },
+			{ "Explore Storm Peaks", "ac=1269" },
+			{ "Explore Zul'Drak", "ac=1267" },
+			{ "Frostbitten", "ac=2257" },
+			{ "Higher Learning", "ac=1956" },
+			{ "Northrend Explorer", "ac=45" },
+			{ "Northern Exposure", "ac=2256" },
+			{ LBLU..QUESTS_LABEL },
+			{ "D.E.H.T.A's Little P.I.T.A.", "ac=561" },
+			{ "Fo' Grizzle My Shizzle", "ac=37" },
+			{ "Guru of Drakuru", "ac=1596" },
+			{ "Honorary Frenzyheart", "ac=961" },
+			{ "I've Toured the Fjord", "ac=34" },
+			{ "Icecrown: The Final Goal", "ac=40" },
+			{ "Into the Basin", "ac=39" },
+			{ "Loremaster of Northrend", "ac=41" },
+			{ "Might of Dragonblight", "ac=35" },
+			{ "Mine Sweeper", "ac=1428" },
+			{ "Nothing Boring About Borean", "ac=33" },
+			{ "Rapid Defense", "ac=1277" },
+			{ "Savior of the Oracles", "ac=962" },
+			{ "The Empire of Zul'Drak", "ac=36" },
+			{ "The Snows of Northrend", "ac=938" },
+			{ "The Summit of Storm Peaks", "ac=38" },
+			{ "Veteran of the Wrathgate", "ac=547" },
+		},
+		TransAlliancePandaria = {
+			ZoneName = { BZ["Pandaria"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 424,
+			Faction = "Alliance",
+			{ _RED..L["Portals"] },
+			{ PURP.." A) "..BZ["Paw'don Village"]..ALC["Comma"]..BZ["The Jade Forest"] },
+			{ PURP.." B) "..BZ["Violet Rise"]..ALC["Comma"]..BZ["Isle of Thunder"] },
+			{ PURP.." C) "..BZ["Shan'ze Dao"]..ALC["Comma"]..BZ["Townlong Steppes"] },
+			{ PURP.." D) "..BZ["The Skyfire"]..ALC["Comma"]..BZ["Krasarang Wilds"] },
+			{ PURP.." A') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ PURP.." B') "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ PURP.." C') "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"]..ALC["Comma"]..BZ["Northrend"] },
+			{ PURP.." D') "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ PURP.." E') "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ PURP.." F') "..BZ["Ratchet"]..ALC["Comma"]..BZ["Northern Barrens"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..GREY..ALC["L-Parenthesis"]..L["Gleep Chatterswitch"]..ALC["R-Parenthesis"] },
+			{ PURP.." G') "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
+			{ "" },
+			{ _RED..L["Special transportation"] },
+			{ ORNG.." A) "..BZ["The Arboretum"]..ALC["Comma"]..BZ["The Jade Forest"] },
+			{ INDENT..GREY..L["Abandoned Kite"]..ALC["L-Parenthesis"]..L["From sea level to ground level"]..ALC["R-Parenthesis"] },
+			{ ORNG.." B) "..BZ["Thunder Hold"]..ALC["Comma"]..BZ["The Jade Forest"] },
+			{ INDENT..GREY..L["Abandoned Kite"]..ALC["L-Parenthesis"]..L["From sea level to ground level"]..ALC["R-Parenthesis"] },
+			{ ORNG.." C) "..BZ["Strongarm Airstrip"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Slash"]..BZ["Serenity Falls"] },
+			{ INDENT..GREY..L["Abandoned Kite"]..ALC["L-Parenthesis"]..L["From sea level to ground level"]..ALC["R-Parenthesis"] },
+			{ ORNG.." D) "..BZ["Winds' Edge"]..ALC["Comma"]..BZ["Valley of the Four Winds"]..ALC["Slash"]..BZ["The Deepwild"]..ALC["Comma"]..BZ["Krasarang Wilds"] },
+			{ INDENT..GREY..L["Rappelling Rope"]..ALC["Slash"]..L["Climbing Rope"] },
+			{ ORNG.." E) "..BZ["Whispercloud Rise"]..ALC["Slash"]..BZ["Zouchin Province"]..ALC["Comma"]..BZ["Kun-Lai Summit"] },
+			{ INDENT..GREY..L["Whispercloud's Balloon"] },
+			{ ORNG.." F) "..BZ["Serpent's Spine"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Slash"]..BZ["Terrace of Gurthan"]..ALC["Comma"]..BZ["Dread Wastes"] },
+			{ INDENT..GREY..L["Shado-Pan Rope"] },
+			{ "" },
+			{ _RED..L["Taxi Nodes"] },
+			{ BLUE..BZ["The Jade Forest"] },
+			{ WHIT.." 1) "..BZ["Paw'don Village"] },
+			{ WHIT.." 2) "..BZ["Pearlfin Village"] },
+			{ WHIT.." 3) "..BZ["Serpent's Overlook"] },
+			{ WHIT.." 4) "..BZ["Jade Temple Grounds"] },
+			{ WHIT.." 5) "..BZ["Dawn's Blossom"] },
+			{ WHIT.." 6) "..BZ["The Arboretum"] },
+			{ WHIT.." 7) "..BZ["Tian Monastery"] },
+			{ WHIT.." 8) "..BZ["Emperor's Omen"] },
+			{ WHIT.." 9) "..BZ["Sri-La Village"] },
+			{ "" },
+			{ BLUE..BZ["Valley of the Four Winds"] },
+			{ WHIT.."10) "..BZ["Pang's Stead"] },
+			{ WHIT.."11) "..BZ["Grassy Cline"] },
+			{ WHIT.."12) "..BZ["Halfhill"] },
+			{ WHIT.."13) "..BZ["Stoneplow"] },
+			{ "" },
+			{ BLUE..BZ["Krasarang Wilds"] },
+			{ WHIT.."14) "..BZ["Sentinel Basecamp"] },
+			{ WHIT.."15) "..BZ["Cradle of Chi-Ji"] },
+			{ WHIT.."16) "..BZ["Marista"] },
+			{ WHIT.."17) "..BZ["The Incursion"] },
+			{ WHIT.."18) "..BZ["Zhu's Watch"] },
+			{ WHIT.."19) "..BZ["Lion's Landing"] },
+			{ GREY..INDENT..L["Require to complete \"Meet the Scout\" quest line first."] },
+			{ "" },
+			{ BLUE..BZ["The Veiled Stair"] },
+			{ WHIT.."20) "..BZ["Tavern in the Mists"] },
+			{ "" },
+			{ BLUE..BZ["Kun-Lai Summit"] },
+			{ WHIT.."21) "..BZ["Binan Village"] },
+			{ WHIT.."22) "..BZ["Westwind Rest"] },
+			{ WHIT.."23) "..BZ["Shado-Pan Fallback"] },
+			{ WHIT.."24) "..BZ["Kota Basecamp"] },
+			{ WHIT.."25) "..BZ["Winter's Blossom"] },
+			{ WHIT.."26) "..BZ["One Keg"] },
+			{ WHIT.."27) "..BZ["Temple of the White Tiger"] },
+			{ WHIT.."28) "..BZ["Zouchin Village"] },
+			{ "" },
+			{ BLUE..BZ["Townlong Steppes"] },
+			{ WHIT.."29) "..BZ["Longying Outpost"] },
+			{ WHIT.."30) "..BZ["Gao-Ran Battlefront"] },
+			{ WHIT.."31) "..BZ["Rensai's Watchpost"] },
+			{ WHIT.."32) "..BZ["Shado-Pan Garrison"] },
+			{ "" },
+			{ BLUE..BZ["Dread Wastes"] },
+			{ WHIT.."33) "..BZ["The Sunset Brewgarden"] },
+			{ WHIT.."34) "..BZ["Klaxxi'vess"] },
+			{ WHIT.."35) "..BZ["The Lion's Redoubt"] },
+			{ WHIT.."36) "..BZ["The Briny Muck"] },
+			{ WHIT.."37) "..BZ["Soggy's Gamble"] },
+			{ "" },
+			{ BLUE..BZ["Vale of Eternal Blossoms"] },
+			{ WHIT.."38) "..BZ["Serpent's Spine"] },
+			{ WHIT.."39) "..BZ["Shrine of Seven Stars"] },
+			{ "" },
+			{ BLUE..BZ["Isle of Giants"] },
+			{ WHIT.."40) "..BZ["Beeble's Wreck"] },
+			{ "" },
+			{ BLUE..BZ["Timeless Isle"] },
+			{ WHIT.."41) "..BZ["Tushui Landing"] },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
+			{ "" },
+			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
+			{ LBLU..L["Exploration"] },
+			{ "Explore Jade Forest", "ac=6351" },
+			{ "Explore Krasarang Wilds", "ac=6975" },
+			{ "Explore Kun-Lai Summit", "ac=6976" },
+			{ "Explore Townlong Steppes", "ac=6977" },
+			{ "Explore Vale of Eternal Blossoms", "ac=6979" },
+			{ "Explore Valley of the Four Winds", "ac=6969" },
+			{ "Pandaria Explorer", "ac=6974" },
+			{ "Extreme Treasure Hunter", "ac=8726" },
+			{ "Eyes On The Ground", "ac=8725" },
+			{ "Finders Keepers", "ac=7282" },
+			{ "Fish Tales", "ac=6846" },
+			{ "Fortune of Pandaria", "ac=7995" },
+			{ "Glorious!", "ac=7439" },
+			{ "Gods and Monsters", "ac=8051" },
+			{ "Heart of the Mantid Swarm", "ac=6857" },
+			{ "Hozen in the Mist", "ac=6850" },
+			{ "I'm In Your Base, Killing Your Dudes", "ac=7932" },
+			{ "Is Another Man's Treasure", "ac=7284" },
+			{ "Killing Time", "ac=8712" },
+			{ "Legend of the Brewfathers", "ac=7230" },
+			{ "Legend of the Past", "ac=8723" },
+			{ "Lost and Found", "ac=7281" },
+			{ "One Man's Trash...", "ac=7283" },
+			{ "Pilgrimage", "ac=8724" },
+			{ "Restore Balance", "ac=7381" },
+			{ "Riches of Pandaria", "ac=7997" },
+			{ "Rolo's Riddle", "ac=8730" },
+			{ "Rumbles of Thunder", "ac=8050" },
+			{ "The Dark Heart of the Mogu", "ac=6754" },
+			{ "The Seven Burdens of Shaohao", "ac=6855" },
+			{ "The Song of the Yaungol", "ac=6847" },
+			{ "The Zandalari Prophecy", "ac=8049" },
+			{ "Timeless Champion", "ac=8714" },
+			{ "Timeless Legends", "ac=8784" },
+			{ "Timeless Nutriment", "ac=8722" },
+			{ "Treasure of Pandaria", "ac=7994" },
+			{ "Treasure, Treasure Everywhere", "ac=8729" },
+			{ "Wanderers, Dreamers, and You", "ac=7518" },
+			{ "What Is Worth Fighting For", "ac=6858" },
+			{ "Where There's Pirates, There's Booty", "ac=8727" },
+			{ "Zarhym Altogether", "ac=8743" },
+			{ "Zul'Again", "ac=8078" },
+			{ LBLU..QUESTS_LABEL },
+			{ "A Taste of History", "ac=7318" },
+			{ "A Taste of Things to Come", "ac=7294" },
+			{ "Ain't Lost No More", "ac=7296" },
+			{ "Amber is the Color of My Energy", "ac=7312" },
+			{ "Blue Response", "ac=8112" },
+			{ "Boop", "ac=8118" },
+			{ "Champion of Chi-Ji", "ac=7287" },
+			{ "Collateral Damage", "ac=7323" },
+			{ "Defender of Gods", "ac=7310" },
+			{ "Direhorn in a China Shop", "ac=8120" },
+			{ "Dog Pile", "ac=7320" },
+			{ "Dread Haste Makes Dread Waste", "ac=6540" },
+			{ "Every Day I'm Pand-a-ren", "ac=7285" },
+			{ "Finish Them!", "ac=7286" },
+			{ "Fire in the Yaung-hole!", "ac=7309" },
+			{ "For the Ward!", "ac=8117" },
+			{ "Getting Around with the Shado-Pan", "ac=7298" },
+			{ "Green Acres", "ac=7292" },
+			{ "How To Strain Your Dragon", "ac=7290" },
+			{ "In a Trail of Smoke", "ac=7291" },
+			{ "Isle of Thunder", "ac=8099" },
+			{ "It Was Worth Every Ritual Stone", "ac=8101" },
+			{ "Know Your Role", "ac=7308" },
+			{ "Listen to the Drunk Fish", "ac=7295" },
+			{ "Loner and a Rebel", "ac=7299" },
+			{ "Loremaster of Pandaria", "ac=6541" },
+			{ "Mighty Roamin' Krasaranger", "ac=6535" },
+			{ "One Many Army", "ac=7317" },
+			{ "One Step at a Time", "ac=7324" },
+			{ "One Steppe Forward, Two Steppes Back", "ac=6539" },
+			{ "Operation: Shieldwall Campaign", "ac=7928" },
+			{ "Our Powers Combined", "ac=8119" },
+			{ "Over Their Heads", "ac=7316" },
+			{ "Pay to Slay", "ac=8100" },
+			{ "Platform Hero", "ac=8114" },
+			{ "Proven Strength", "ac=7297" },
+			{ "Rally the Valley", "ac=6301" },
+			{ "Ready for RAAAAIIIIDDD?!?ing", "ac=8107" },
+			{ "Ready for Raiding III", "ac=7319" },
+			{ "Roll Club", "ac=7322" },
+			{ "Savior of Stoneplow", "ac=7502" },
+			{ "Shadow Hopper", "ac=7289" },
+			{ "Silent Assassin", "ac=7307" },
+			{ "Slum It in the Summit", "ac=6537" },
+			{ "Speed Metal", "ac=8115" },
+			{ "Spreading the Warmth", "ac=7321" },
+			{ "Stay Klaxxi", "ac=7313" },
+			{ "Stormbreaker", "ac=8121" },
+			{ "Test Drive", "ac=7314" },
+			{ "The Crumble Bundle", "ac=8105" },
+			{ "The Mogu Below-gu", "ac=8109" },
+			{ "These Mogu Have Gotta Go-gu", "ac=8110" },
+			{ "This Isn't Even My Final Form", "ac=8111" },
+			{ "Thunder Plunder", "ac=8104" },
+			{ "Till the Break of Dawn", "ac=7293" },
+			{ "Upjade Complete", "ac=6300" },
+			{ "When in Ihgaluk, Do as the Skumblade Do", "ac=8108" },
+			{ "Yak Attack", "ac=7288" },
+			{ "You Made Me Bleed My Own Blood", "ac=8116" },
+			{ "Zandalari Library Card", "ac=8212" },
+		},
+		TransAllianceDraenor = {
+			ZoneName = { BZ["Draenor"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 572,
+			Faction = "Alliance",
+			{ _RED..L["Portals"] },
+			{ PURP.." A) "..BZ["Khadgar's Tower"]..ALC["Comma"]..BZ["Talador"], 10052 },
+			{ PURP.." A') "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"], 10053 },
+			{ PURP.." B') "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10054 },
+			{ PURP.." C') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10055 },
+			{ NUTL.."19) "..BZ["Zangarra"]..ALC["Comma"]..BZ["Talador"] },
+			{ "" },
+			{ _RED..L["Taxi Nodes"] },
+			{ BLUE..BZ["Shadowmoon Valley"] },
+			{ ALAN.." 1) "..BZ["Lunarfall"], 10001 },
+			{ NUTL.." 2) "..BZ["Exile's Rise"], 10002 },
+			{ ALAN.." 3) "..BZ["Embaari Village"], 10003 },
+			{ ALAN.." 4) "..BZ["Path of the Light"], 10004 },
+			{ ALAN.." 5) "..BZ["Elodor"], 10005 },
+			{ ALAN.." 6) "..BZ["Tranquil Court"], 10006 },
+			{ ALAN.." 7) "..BZ["The Draakorium"], 10007 },
+			{ ALAN.." 8) "..BZ["Twilight Glade"], 10008 },
+			{ NUTL.." 9) "..BZ["Socrethar's Rise"], 10009 },
+			{ NUTL.."10) "..BZ["Darktide Roost"], 10010 },
+			{ NUTL.."11) "..BZ["Akeeta's Hovel"], 10011 },
+			{ "" },
+			{ BLUE..BZ["Talador"] },
+			{ ALAN.."12) "..BZ["Anchorite's Sojourn"], 10012 },
+			{ NUTL.."13) "..BZ["Terokkar Refuge"], 10013 },
+			{ ALAN.."14) "..BZ["Exarch's Refuge"], 10014 },
+			{ NUTL.."15) "..BZ["Retribution Point"], 10015 },
+			{ NUTL.."16) "..BZ["Shattrath City"], 10016 },
+			{ ALAN.."17) "..BZ["Redemption Rise"], 10017 },
+			{ ALAN.."18) "..BZ["Fort Wrynn"], 10018 },
+			{ NUTL.."19) "..BZ["Zangarra"], 10019 },
+			{ "" },
+			{ BLUE..BZ["Gorgrond"] },
+			{ ALAN.."20) "..BZ["Bastion Rise"], 10020 },
+			{ ALAN.."21) "..BZ["Deeproot"], 10021 },
+			{ ALAN.."22) "..BZ["Highpass"], 10022 },
+			{ ALAN.."23) "..BZ["Wildwood Wash"], 10023 },
+			{ NUTL.."24) "..BZ["Everbloom Wilds"], 10024 },
+			{ NUTL.."25) "..BZ["Everbloom Overlook"], 10025 },
+			{ NUTL.."26) "..BZ["Breaker's Crown"], 10026 },
+			{ NUTL.."27) "..BZ["Skysea Ridge"], 10027 },
+			{ NUTL.."28) "..BZ["Iron Docks"], 10028 },
+			{ "" },
+			{ BLUE..BZ["Spires of Arak"] },
+			{ NUTL.."29) "..BZ["Apexis Excavation"], 10029 },
+			{ ALAN.."30) "..BZ["Southport"], 10030 },
+			{ NUTL.."31) "..BZ["Veil Terokk"], 10031 },
+			{ NUTL.."32) "..BZ["Crow's Crook"], 10032 },
+			{ NUTL.."33) "..BZ["Talon Watch"], 10033 },
+			{ NUTL.."34) "..BZ["Pinchwhistle Gearworks"], 10034 },
+			{ "" },
+			{ BLUE..BZ["Nagrand"] },
+			{ NUTL.."35) "..BZ["The Ring of Trials"], 10035 },
+			{ ALAN.."36) "..BZ["Telaari Station"], 10036 },
+			{ NUTL.."37) "..BZ["Nivek's Overlook"], 10037 },
+			{ ALAN.."38) "..BZ["Yrel's Watch"], 10038 },
+			{ NUTL.."39) "..BZ["Rilzit's Holdfast"], 10039 },
+			{ NUTL.."40) "..BZ["Joz's Rylaks"], 10040 },
+			{ NUTL.."41) "..BZ["Throne of the Elements"], 10041 },
+			{ "" },
+			{ BLUE..BZ["Frostfire Ridge"] },
+			{ ALAN.."42) "..BZ["Iron Siegeworks"], 10042 },
+			{ NUTL.."43) "..BZ["Bloodmaul Slag Mines"], 10043 },
+			{ "" },
+			{ BLUE..BZ["Ashran"] },
+			{ ALAN.."44) "..BZ["Stormshield"], 10044 },
+			{ "" },
+			{ BLUE..BZ["Tanaan Jungle"] },
+			{ ALAN.."45) "..BZ["The Iron Front"], 10045 },
+			{ NUTL.."46) "..BZ["Sha'naari Refuge"], 10046 },
+			{ NUTL.."47) "..BZ["Malo's Lookout"], 10047 },
+			{ ALAN.."48) "..BZ["Lion's Watch"], 10048 },
+			{ NUTL.."49) "..BZ["Aktar's Post"], 10049 },
+			{ NUTL.."50) "..BZ["Vault of the Earth"], 10050 },
+			{ NUTL.."51) "..BZ["Throne of Kil'jaeden"], 10051 },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ PURP..L["Purple"]..ALC["Colon"]..L["Portals"] },
+			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
+			{ ALAN..L["Blue"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_ALLIANCE },
+			{ WHIT..L["White"]..ALC["Colon"]..L["Special transportation"] },
+			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
+			{ CYAN.."-- : "..L["Airship"] },
+			{ "" },
+			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
+			{ LBLU..L["Exploration"] },
+			{ "Explore Frostfire Ridge", "ac=8937" },
+			{ "Explore Gorgrond", "ac=8939" },
+			{ "Explore Nagrand", "ac=8942" },
+			{ "Explore Shadowmoon Valley", "ac=8938" },
+			{ "Explore Spires of Arak", "ac=8941" },
+			{ "Explore Talador", "ac=8940" },
+			{ "Explore Tanaan Jungle", "ac=10260" },
+			{ "Draenor Explorer", "ac=8935" },
+			{ "Draenor Pathfinder", "ac=10018" },
+			{ "Expert Treasure Hunter", "ac=9727" },
+			{ "Gorgrond Monster Hunter", "ac=9400" },
+			{ "Grand Treasure Hunter", "ac=9728" },
+			{ "Hellbane", "ac=10061" },
+			{ "I Came, I Clawed, I Conquered", "ac=10069" },
+			{ "Jungle Hunter", "ac=10259" },
+			{ "Jungle Stalker", "ac=10070" },
+			{ "Jungle Treasure Hunter", "ac=10261" },
+			{ "Jungle Treasure Master", "ac=10262" },
+			{ "Master Treasure Hunter", "ac=10348" },
+			{ "Prove Your Strength", "ac=9402" },
+			{ "Shredder Maniac", "ac=9401" },
+			{ "Treasure Hunter", "ac=9726" },
+			{ LBLU..QUESTS_LABEL },
+			{ "A Demidos of Reality", "ac=9437" },
+			{ "A-VOID-ance", "ac=9433" },
+			{ "Ancient No More", "ac=9678" },
+			{ "Arak Star", "ac=9605" },
+			{ "As I Walk Through the Valley of the Shadow of Moon", "ac=8845" },
+			{ "Between Arak and a Hard Place", "ac=8925" },
+			{ "Bobbing for Orcs", "ac=9635" },
+			{ "Breaker of Chains", "ac=9533" },
+			{ "Broke Back Precipice", "ac=9571" },
+			{ "Buried Treasures", "ac=9548" },
+			{ "Burn It to the Ground", "ac=9667" },
+			{ "By Fire Be... Merged?", "ac=9537" },
+			{ "Chapter I: Call of the Archmage", "ac=9640" },
+			{ "Chapter II: Gul'dan Strikes Back", "ac=9641" },
+			{ "Chapter III: The Foundry Falls", "ac=9642" },
+			{ "Chapter IV: Darkness Incarnate", "ac=10021" },
+			{ "Charged Up", "ac=9634" },
+			{ "Cut off the Head", "ac=9633" },
+			{ "Delectable Ogre Delicacies", "ac=9534" },
+			{ "Don't Let the Tala-door Hit You on the Way Out", "ac=8920" },
+			{ "Draenor's Last Stand", "ac=10068" },
+			{ "Eggs in One Basket", "ac=9612" },
+			{ "Fight the Power", "ac=9655" },
+			{ "Fish Gotta Swim, Birds Gotta Eat", "ac=9613" },
+			{ "Goodness Gracious", "ac=9486" },
+			{ "Heralds of the Legion", "ac=9638" },
+			{ "History of Violence", "ac=9610" },
+			{ "I Want More Talador", "ac=9674" },
+			{ "I Was Framed!", "ac=9483" },
+			{ "In Plain Sight", "ac=9656" },
+			{ "In Pursuit of Gul'dan", "ac=10067" },
+			{ "Iron Wings", "ac=9659" },
+			{ "It's the Stones!", "ac=9436" },
+			{ "King of the Monsters", "ac=9601" },
+			{ "Loremaster of Draenor", "ac=9833" },
+			{ "Make It a Bonus", "ac=9607" },
+			{ "Making the Cut", "ac=9617" },
+			{ "Master Relic Hunter", "ac=9825" },
+			{ "Mean and Green", "ac=9654" },
+			{ "Monster Mash", "ac=9600" },
+			{ "Nagrandeur", "ac=8927" },
+			{ "On the Shadow's Trail", "ac=9528" },
+			{ "One of Us! One of Us!", "ac=9434" },
+			{ "Picky Palate", "ac=9663" },
+			{ "Pillars of Draenor", "ac=9658" },
+			{ "Planned to Fail", "ac=9711" },
+			{ "Poisoning the Well", "ac=9710" },
+			{ "Poor Communication", "ac=9637" },
+			{ "Putting the Gore in Gorgrond", "ac=8923" },
+			{ "Rumble in the Jungle", "ac=10072" },
+			{ "Securing Draenor", "ac=9564" },
+			{ "Shoot For the Moon", "ac=9602" },
+			{ "Slagnarok", "ac=9536" },
+			{ "Take From Them Everything", "ac=9435" },
+			{ "That Was Entirely Unnecessary", "ac=9535" },
+			{ "The Garrison Campaign", "ac=9491" },
+			{ "The Power Is Yours", "ac=9632" },
+			{ "The Song of Silence", "ac=9541" },
+			{ "United We Stand", "ac=9636" },
+			{ "Welcome to Draenor", "ac=8921" },
+			{ "With a Nagrand Cherry On Top", "ac=9615" },
+			{ "Would You Like a Pamphlet?", "ac=9432" },
+			{ "Writing in the Snow", "ac=9530" },
+			{ "You Can't Make a Giant Omelette...", "ac=9479" },
+			{ "You Have Been Rylakinated!", "ac=9481" },
+		},
+		TransAllianceAshran = {
+			ZoneName = { BZ["Ashran"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 622,
+			Faction = "Alliance",
+			{ _RED..L["Taxi Nodes"] },
+			{ WHIT.." A) "..BZ["Stormshield"], 10001 },
+			{ "" },
+			{ _RED..L["Portals"] },
+			{ PURP.." B) "..BZ["Lion's Watch"], 10002 },
+			{ PURP.." C) "..BZ["Ironforge"], 10003 },
+			{ PURP.." D) "..BZ["Stormwind City"], 10004 },
+			{ PURP.." E) "..BZ["Darnassus"], 10005 },
+		},
+		TransAllianceBrokenIsles = {
+			ZoneName = { BZ["Broken Isles"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 619,
+			Faction = "Alliance",
+			LargeMap = "TransAllianceBrokenIsles",
+			{ _RED..L["Portals"] },
+			{ PURP.." A) "..BZ["Greyfang Enclave"], 10040 },
+			{ INDENT..GREY.."  -> "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ INDENT..GREY.." <-> "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ INDENT..GREY.."  -> "..BZ["Shrine of Seven Stars"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
+			{ INDENT..GREY.."  -> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..GREY.."  -> "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ PURP.." B) "..BZ["Chamber of the Guardian"], 10041 },
+			{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
+			{ INDENT..GREY.."  -> "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"]..ALC["Comma"]..BZ["Northrend"] },
+			{ INDENT..GREY.."  -> "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ INDENT..INDENT.._RED..ALC["L-Parenthesis"]..L["Warning: Drop"]..ALC["R-Parenthesis"] },
+			{ INDENT..GREY.."  -> "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ PURP.." C) "..format(ALC["Portal to %s"], BZ["Dalaran"])..GREY.." (30.1, 40.7)", 10042 },
+			{ NUTL.."37) "..BZ["Deliverance Point"]..ALC["Hyphen"].._G["BROKENSHORE_BUILDING_MAGETOWER"]..GREY.." (46.3, 61.9)" },
+			{ INDENT..GREY.."  -> "..BZ["Meredil"]..ALC["Comma"]..BZ["Suramar"] },
+			{ INDENT..GREY.."  -> "..BZ["Valdisdall"]..ALC["Comma"]..BZ["Stormheim"] },
+			{ INDENT..GREY.."  -> "..BZ["Lorlathil"]..ALC["Comma"]..BZ["Val'sharah"] },
+			{ INDENT..GREY.."  -> "..BZ["Crumbled Palace"]..ALC["Comma"]..BZ["Azsuna"] },
+			{ INDENT..GREY.."  -> "..BZ["Thunder Totem"]..ALC["Comma"]..BZ["Highmountain"] },
+			{ "" },
+			{ _RED..L["Taxi Nodes"] },
+			{ BLUE..BZ["Dalaran"] },
+			{ NUTL.." 1) "..BZ["Krasus' Landing"]..GREY.." (69.8, 51.1)", 10001 },
+			{ "" },
+			{ BLUE..BZ["Azsuna"] },
+			{ NUTL.." 2) "..BZ["Watchers' Aerie"]..GREY.." (51.8, 82.1)", 10002 },
+			{ NUTL.." 3) "..BZ["Wardens' Redoubt"]..GREY.." (48.2, 73.8)", 10003 },
+			{ NUTL.." 4) "..BZ["Shackle's Den"]..GREY.." (56.2, 58.9)", 10004 },
+			{ NUTL.." 5) "..BZ["Illidari Stand"]..GREY.." (44.6, 43.8)", 10005 },
+			{ NUTL.." 6) "..BZ["Illidari Perch"]..GREY.." (31.8, 46.3)", 10006 },
+			{ NUTL.." 7) "..BZ["Felblaze Ingress"]..GREY.." (63.8, 28.5)", 10007 },
+			{ NUTL.." 8) "..BZ["Azurewing Repose"]..GREY.." (48.4, 28.0)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10008 },
+			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
+			{ INDENT..INDENT..GREY.." (47.6, 28.1)" },
+			{ NUTL.." 9) "..BZ["Challiane's Terrace"]..GREY.." (40.8, 9.0)", 10009 },
+			{ NUTL.."10) "..BZ["Eye of Azshara"]..GREY.." (38.3, 46.1)", 10010 },
+			{ "" },
+			{ BLUE..BZ["Val'sharah"] },
+			{ NUTL.."11) "..BZ["Lorlathil"]..GREY.." (55.0, 72.5)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10011 },
+			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
+			{ INDENT..INDENT..GREY.." (54.7, 74.9)" },
+			{ NUTL.."12) "..BZ["Gloaming Reef"]..GREY.." (25.9, 66.5)", 10012 },
+			{ NUTL.."13) "..BZ["Bradensbrook"]..GREY.." (42.2, 58.5)", 10013 },
+			{ NUTL.."14) "..BZ["Garden of the Moon"]..GREY.." (56.7, 57.7)", 10014 },
+			{ NUTL.."15) "..BZ["Starsong Refuge"]..GREY.." (69.0, 50.8)", 10015 },
+			{ GREN.." 1) "..BZ["The Dreamgrove"]..CL["DRUID"]..ALC["L-Parenthesis"]..L["Druid Only"]..ALC["R-Parenthesis"]..GREY.." (61.7, 33.9)", 10100 },
+			{ "" },
+			{ BLUE..BZ["Highmountain"] },
+			{ NUTL.."16) "..BZ["Obsidian Overlook"]..GREY.." (47.3, 84.6)", 10016 },
+			{ NUTL.."17) "..BZ["Ironhorn Enclave"]..GREY.." (56.8, 83.9)", 10017 },
+			{ NUTL.."18) "..BZ["Sylvan Falls"]..GREY.." (35.9, 65.9)", 10018 },
+			{ NUTL.."19) "..BZ["Thunder Totem"]..GREY.." (44.9, 38.7)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10019 },
+			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
+			{ INDENT..INDENT..GREY.." (39.8, 42.2)" },
+			{ NUTL.."20) "..BZ["Stonehoof Watch"]..GREY.." (59.2, 65.1)", 10020 },
+			{ NUTL.."21) "..BZ["Nesingwary"]..GREY.." (40.2, 52.7)", 10021 },
+			{ NUTL.."22) "..BZ["Skyhorn"]..GREY.." (52.6, 45.2)", 10022 },
+			{ NUTL.."23) "..BZ["Felbane Camp"]..GREY.." (29.9, 39.3)", 10023 },
+			{ NUTL.."24) "..BZ["The Witchwood"]..GREY.." (38.3, 39.3)", 10024 },
+			{ NUTL.."25) "..BZ["Prepfoot"]..GREY.." (58.0, 28.6)", 10025 },
+			{ NUTL.."26) "..BZ["Shipwreck Cove"]..GREY.." (41.9, 10.4)", 10026 },
+			{ GREN.." 2) "..BZ["Trueshot Lodge"]..CL["HUNTER"]..ALC["L-Parenthesis"]..L["Hunter Only"]..ALC["R-Parenthesis"]..GREY.." (35.7, 27.5)", 10101 },
+			{ "" },
+			{ BLUE..BZ["Stormheim"] },
+			{ ALAN.."27) "..BZ["Skyfire Triage Camp"]..GREY.." (33.6, 50.6)", 10027 },
+			{ ALAN.."28) "..BZ["Lorna's Watch"]..GREY.." (37.4, 64.0)", 10028 },
+			{ NUTL.."29) "..BZ["Stormtorn Foothills"]..GREY.." (52.0, 34.8)", 10029 },
+			{ NUTL.."30) "..BZ["Valdisdall"]..GREY.." (60.7, 50.9)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10030 },
+			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
+			{ INDENT..INDENT..GREY.." (60.2, 52.2)" },
+			{ ALAN.."31) "..BZ["Greywatch"]..GREY.." (72.2, 59.8)", 10031 },
+			{ NUTL.."32) "..BZ["Shield's Rest"]..GREY.." (89.8, 10.7)", 10032 },
+			{ NUTL.."33) "..BZ["Hafr Fjall"]..GREY.." (55.6, 87.5)", 10033 },
+			{ "" },
+			{ BLUE..BZ["Suramar"] },
+			{ NUTL.."34) "..BZ["Irongrove Retreat"]..GREY.." (25.5, 31.7)", 10034 },
+			{ NUTL.."35) "..BZ["Meredil"]..GREY.." (34.4, 49.4)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10035 },
+			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
+			{ INDENT..INDENT..GREY.." (33.1, 48.2)" },
+			{ NUTL.."36) "..BZ["Crimson Thicket"]..GREY.." (64.3, 42.0)", 10036 },
+			{ "" },
+			{ BLUE..BZ["Broken Shore"] },
+			{ NUTL.."37) "..BZ["Deliverance Point"]..GREY.." (45.1, 64.0)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10037 },
+			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
+			{ INDENT..INDENT..GREY.." (44.9, 61.3)" },
+			{ NUTL.."38) "..BZ["Aalgen Point"]..GREY.." (70.7, 47.6)", 10038 },
+			{ NUTL.."39) "..BZ["Vengeance Point"]..GREY.." (49.7, 21.1)", 10039 },
+			{ GREN.." 3) "..BZ["Acherus: The Ebon Hold"]..CL["DEATHKNIGHT"]..ALC["L-Parenthesis"]..L["Death Knight Only"]..ALC["R-Parenthesis"], 10102 },
+			{ "" },
+			{ CL["MAGE"]..Atlas_GetClassName("MAGE")..ALC["Hyphen"]..L["Teleportation Nexus"] },
+			{ INDENT..GREY..ALC["L-Parenthesis"]..L["Requires Teleportation Nexus Advancement"]..ALC["R-Parenthesis"] },
+			{ INDENT..CL["MAGE"].." 1) "..BZ["Ley-Ruins of Zarkhenar"]..GREY.." (57.9, 15.1)", 10201 },
+			{ INDENT..CL["MAGE"].." 2) "..BZ["Sylvan Falls"]..GREY.." (31.4, 63.8)", 10202 },
+			{ INDENT..CL["MAGE"].." 3) "..BZ["Weeping Bluffs"]..GREY.." (52.5, 35.2)", 10203 },
+			{ INDENT..CL["MAGE"].." 4) "..BZ["Temple of Elune"]..GREY.." (33.5, 34.7)", 10204 },
+			{ INDENT..CL["MAGE"].." 5) "..BZ["Meredil"]..GREY.." (33.4, 50.4)", 10205 },
+			{ "" },
+			{ CL["HUNTER"]..Atlas_GetClassName("HUNTER")..ALC["Hyphen"]..L["Great Eagle"] },
+			{ INDENT..GREY..ALC["L-Parenthesis"]..L["Requires Eagle Ally Advancement"]..ALC["R-Parenthesis"] },
+			{ INDENT..CL["HUNTER"].." 1) "..BZ["The Dreamgrove"]..GREY.." (44.1, 15.0)", 10301 },
+			{ INDENT..CL["HUNTER"].." 2) "..BZ["Faronaar"]..GREY.." (25.4, 43.1)", 10302 },
+			{ INDENT..CL["HUNTER"].." 3) "..BZ["Isle of the Watchers"]..GREY.." (51.0, 79.9)", 10303 },
+			{ INDENT..CL["HUNTER"].." 4) "..BZ["Western Suramar"]..GREY.." (41.3, 82.8)", 10304 },
+			{ INDENT..CL["HUNTER"].." 5) "..BZ["Eastern Suramar"]..GREY.." (70.2, 71.1)", 10305 },
+			{ INDENT..CL["HUNTER"].." 6) "..BZ["Thorim's Peak"]..GREY.." (38.1, 79.2)", 10306 },
+			{ INDENT..CL["HUNTER"].." 7) "..BZ["Nastrondir"]..GREY.." (45.9, 35.8)", 10307 },
+			{ INDENT..CL["HUNTER"].." 8) "..BZ["Eastern Highmountain"]..GREY.." (56.7, 67.8)", 10308 },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ PURP..L["Purple"]..ALC["Colon"]..L["Portals"] },
+			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
+			{ ALAN..L["Blue"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_ALLIANCE },
+			{ GREN..L["Green"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Class Specific Only"] },
+			{ "" },
+			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
+			{ LBLU..L["Exploration"] },
+			{ "Explore Azsuna", "ac=10665" },
+			{ "Explore Highmountain", "ac=10667" },
+			{ "Explore Stormheim", "ac=10668" },
+			{ "Explore Suramar", "ac=10669" },
+			{ "Explore Val'sharah", "ac=10666" },
+			{ "Broken Isles Explorer", "ac=11188" },
+			{ "Broken Isles Pathfinder, Part One", "ac=11190" },
+			{ "Adventurer of Azsuna", "ac=11261" },
+			{ "Adventurer of Highmountain", "ac=11264" },
+			{ "Adventurer of Stormheim", "ac=11263" },
+			{ "Adventurer of Suramar", "ac=11265" },
+			{ "Adventurer of Val'sharah", "ac=11262" },
+			{ "Treasures of Azsuna", "ac=11256" },
+			{ "Treasures of Highmountain", "ac=11257" },
+			{ "Treasures of Stormheim", "ac=11259" },
+			{ "Treasures of Suramar", "ac=11260" },
+			{ "Treasures of Val'sharah", "ac=11258" },
+			{ "Going Up", "ac=10627" },
+			{ "Higher Dimensional Learning", "ac=11175" },
+			{ LBLU..QUESTS_LABEL },
+			{ "50 World Quests Completed", "ac=11126" },
+			{ "200 World Quests Completed", "ac=11127" },
+			{ "500 World Quests Completed", "ac=11128" },
+			{ "1000 World Quests Completed", "ac=11129" },
+			{ "2500 World Quests Completed", "ac=11130" },
+			{ "5000 World Quests Completed", "ac=11131" },
+			{ "10,000 World Quests Completed", "ac=11132" },
+			{ "Ain't No Mountain High Enough", "ac=10059" },
+			{ "Azsuna Matata", "ac=10763" },
+			{ "Drum Circle", "ac=10398" },
+			{ "Good Suramaritan", "ac=11124" },
+			{ "Harbinger", "ac=11240" },
+			{ "Hatchling of the Talon", "ac=10774" },
+			{ "Insurrection", "ac=11340" },
+			{ "Leyline Bling", "ac=10756" },
+			{ "Lock, Stock and Two Smoking Goblins", "ac=11232" },
+			{ "Loremaster of Legion", "ac=11157" },
+			{ "Nightfallen But Not Forgotten", "ac=10617" },
+			{ "No Shellfish Endeavor", "ac=11427" },
+			{ "Now You're Thinking With Portals", "ac=11125" },
+			{ "Pillars of Creation", "ac=10877" },
+			{ "Tehd & Marius' Excellent Adventure", "ac=11186" },
+			{ "That's Val'sharah Folks!", "ac=10698" },
+			{ "Variety is the Spice of Life", "ac=11189" },
+			{ "Vrykul Story, Bro", "ac=10790" },
+			{ "What a Ripoff!", "ac=10793" },
+			{ "Why Can't I Hold All This Mana?", "ac=11133" },
+			{ "Zoom!", "ac=10626" },
+		},
+		TransAllianceZandalar = {
+			ZoneName = { BZ["Zandalar"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 875,
+			Faction = "Alliance",
+			{ _RED..L["Taxi Nodes"] },
+			{ BLUE..BZ["Zuldazar"] },
+			{ ALAN.." 1) "..BZ["Xibala"], 	 10001 },
+			{ NUTL.." 2) "..BZ["Seeker's Outpost"], 	10002 },
+			{ ALAN.." 3) "..BZ["Castaway Encampment"], 	10003 },
+			{ NUTL.." 4) "..BZ["Atal'Gral"], 	 	10004 },
+			{ NUTL.." 5) "..BZ["Scaletrader Post"], 	10005 },
+			{ NUTL.." 6) "..BZ["Nesingwary's Gameland"], 	10006 },
+			{ "" },
+			{ BLUE..BZ["Nazmir"] },
+			{ ALAN.." 7) "..BZ["Fort Victory"], 	 10007 },
+			{ ALAN.." 8) "..BZ["Redfield's Watch"], 	 10008 },
+			{ "" },
+			{ BLUE..BZ["Vol'dun"] },
+			{ ALAN.." 9) "..BZ["Tortaka Refuge"], 	 10009 },
+			{ ALAN.."10) "..BZ["Devoted Sanctuary"], 	 10010 },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
+			{ ALAN..L["Blue"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_ALLIANCE },
+		},
+		TransAllianceKulTiras = {
+			ZoneName = { BZ["Kul Tiras"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 876,
+			Faction = "Alliance",
+			--LargeMap = "",
+			{ PURP.." A) "..L["Portals"] },
+			{ PURP..INDENT..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ PURP..INDENT..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ PURP..INDENT..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ "" },
+			{ ALAN.." A) "..L["Boat to Stormwind City"], 10050 },
+			{ "" },
+			{ _RED..L["Taxi Nodes"] },
+			{ BLUE..BZ["Tiragarde Sound"] },
+			{ NUTL.." 1) "..BZ["Castaway Point"], 		 10001 },
+			{ NUTL.." 2) "..BZ["Freehold"], 		 10002 },
+			{ ALAN.." 3) "..BZ["Kennings Lodge"], 		 10003 },
+			{ ALAN.." 4) "..BZ["Vigil Hill"], 		 10004 },
+			{ ALAN.." 5) "..BZ["Bridgeport"], 		 10005 },
+			{ ALAN.." 6) "..BZ["Mariner's Row"], 		 10006 },
+			{ ALAN.." 7) "..BZ["Proudmoore Keep"], 		 10007 },
+			{ ALAN.." 8) "..BZ["Tradewinds Market"], 	 10008 },
+			{ ALAN.." 9) "..BZ["Hatherford"], 		 10009 },
+			{ ALAN.."10) "..BZ["Norwington Estate"], 	 10010 },
+			{ ALAN.."11) "..BZ["Roughneck Camp"], 		 10011 },
+			{ ALAN.."12) "..BZ["Outrigger Post"], 		 10012 },
+			{ "" },
+			{ BLUE..BZ["Stormsong Valley"] },
+			{ ALAN.."13) "..BZ["Shrine of the Storm"], 	 10013 },
+			{ ALAN.."14) "..BZ["Tidecross"], 		 10014 },
+			{ ALAN.."15) "..BZ["Mildenhall Meadery"], 	 10015 },
+			{ ALAN.."16) "..BZ["Brennadam"], 		 10016 },
+			{ ALAN.."17) "..BZ["The Amber Waves"], 		 10017 },
+			{ ALAN.."18) "..BZ["Deadwash"], 		 10018 },
+			{ NUTL.."19) "..BZ["Seekers Vista"], 		 10019 },
+			{ ALAN.."20) "..BZ["Fort Daelin"], 		 10020 },
+			{ ALAN.."21) "..BZ["Millstone Hamlet"], 	 10021 },
+			{ "" },
+			{ BLUE..BZ["Drustvar"] },
+			{ ALAN.."22) "..BZ["Barbthorn Ridge"], 		 10022 },
+			{ ALAN.."23) "..BZ["Fallhaven"], 		 10023 },
+			{ ALAN.."24) "..BZ["Hangman's Point"], 		 10024 },
+			{ ALAN.."25) "..BZ["Fletcher's Hollow"], 	 10025 },
+			{ ALAN.."26) "..BZ["Arom's Stand"], 		 10026 },
+			{ ALAN.."27) "..BZ["Falconhurst"], 		 10027 },
+			{ NUTL.."28) "..BZ["Anyport"], 			 10028 },
+			{ NUTL.."29) "..BZ["Whitegrove Chapel"], 	 10029 },
+			{ ALAN.."30) "..BZ["Watchman's Rise"], 		 10030 },
+			{ "" },
+			{ BLUE..BZ["Mechagon"] },
+			{ ALAN.."31) "..BZ["Overspark Expedition Camp"],  10031 },
+			{ "" },
+			{ BLUE..BZ["Tol Dagor"] },
+			{ ALAN.."32) "..BZ["Tol Dagor"], 	 10032 },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ PURP..L["Purple"]..ALC["Colon"]..L["Portals"] },
+			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
+			{ ALAN..L["Blue"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_ALLIANCE },
+		},
+		TransAllianceNazjatar = {
+			ZoneName = { BZ["Nazjatar"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			WorldMapID = 1355,
+			Faction = "Alliance",
+			--LargeMap = "",
+			{ _RED..L["Taxi Nodes"] },
+			{ NUTL.." 1) "..BZ["Kelya's Grave"], 10001 },
+			{ ALAN.." 2) "..BZ["Orise's Vigil"], 10002 },
+			{ ALAN.." 3) "..BZ["Utama's Stand"], 10004 },
+			{ ALAN.." 4) "..BZ["Mezzamere"], 10003 },
+			{ ALAN.." 5) "..BZ["Wreck of the Old Blanchy"], 10005 },
+		},
+	}
+	alliance.coords = {
+		TransAllianceCosmos = {
+			{  1, 10001, 424, 395 }, -- Stormwind City
+			{  2, 10002, 436, 356 }, -- Ironforge
+			{  3, 10003, 441, 337 }, -- Menethil Harbor
+			{  4, 10004, 496, 351 }, -- Highbank
+			{  5, 10005, 467, 410 }, -- Shattered Beachhead
+			{  6, 10006, 448, 423 }, -- Karazhan
+			{  7, 10007, 420, 451 }, -- Booty Bay
+			{  8, 10008, 424, 300 }, -- Dalaran Crater
+			{  9, 10009, 474, 193 }, -- Shattered Sun Staging Area
+			{ 10, 10010,  60, 219 }, -- Darnassus
+			{ 11, 10011,  77, 232 }, -- Rut'theran Village
+			{ 12, 10012,  24, 256 }, -- The Exodar
+			{ 13, 10013, 131, 268 }, -- Nordrassil
+			{ 14, 10014, 130, 342 }, -- Ratchet
+			{ 15, 10015, 140, 374 }, -- Theramore
+			{ 16, 10016, 136, 422 }, -- Caverns of Time
+			{ 17, 10017,  98, 441 }, -- Ramkahen
+			{ 18, 10018, 464,  91 }, -- The Stair of Destiny
+			{ 19, 10019, 409, 116 }, -- Shattrath City
+			{ 20, 10020, 221, 167 }, -- Valiance Keep
+			{ 21, 10021, 331, 181 }, -- Valgarde
+			{ 22, 10022, 275, 130 }, -- Dalaran (Northrend)
+			{ 23, 10023, 274, 151 }, -- Wyrmrest Temple
+			{ 24, 10024, 296, 466 }, -- Paw'don Village
+			{ 25, 10025, 262, 452 }, -- Shrine of Seven Stars
+			{ 26, 10026, 190,  84 }, -- Stormshield
+			{ 27, 10027, 130, 117 }, -- Lunarfall
+			{ 28, 10028, 314, 299 }, -- Dalaran
+		},
+		TransAllianceStormwindCity = {
+			{ "A", 10001,  54, 273, 248, 372, "Orange" }, -- Boralus
+			{ "B", 10002,  24, 140, 216, 203, "Orange" }, -- Valiance Keep
+--			{ "A", 10003, 228, 418, 466, 553, "Purple" }, -- The Stair of Destiny
+--			{ "B", 10004, 237, 406, 477, 540, "Purple" }, -- Fuselight-by-the-Sea
+--			{ "C", 10005, 358, 103, 635, 155, "Purple" }, -- Paw'don Village
+			{ "A", 10003, 228, 418, 466, 553, "Purple" }, -- Wizard's Sancrum
+			{ "B", 10004, 411, 119, 699, 181, "Purple" }, -- Ramkahen
+			{ "C", 10005, 399, 120, 686, 182, "Purple" }, -- Temple of Earth
+			{ "D", 10006, 389, 111, 671, 163, "Purple" }, -- Baradin Base Camp
+			{ "E", 10007, 395,  99, 677, 149, "Purple" }, -- Darkbreak Cove
+			{ "F", 10008, 408,  96, 691, 151, "Purple" }, -- Highbank
+			{ "G", 10009, 415, 109, 704, 163, "Purple" }, -- Nordrassil
+			{ "H", 10010,  71, 279, 270, 378, "Purple" }, -- Darkshore
+--			{ "J", 10012, 487, 182, 794, 260, "Purple" }, -- Stormshield
+--			{ "K", 10013, 441, 169, 736, 240, "Purple" }, -- Dalaran
+			{ "1", 10014, 353, 178, 624, 250, "White" }, -- Ironforge
+			{ "2", 10015, 374, 346, 656, 464, "White" }, -- Stormwind City
+		},
+		TransAllianceDraenor = {
+			{ "A", 10052, 278, 259 }, -- Khadgar's Tower
+			{ "A'", 10053, 450, 10 }, -- Darnassus
+			{ "B'", 10054, 494, 60 }, -- Ironforge
+			{ "C'", 10055, 493, 136 }, -- Stormwind City
+			{ "1", 10001, 307, 302 }, -- Lunarfall
+			{ "2", 10002, 337, 314 }, -- Exile's Rise
+			{ "3", 10003, 338, 331 }, -- Embaari Village
+			{ "4", 10004, 367, 339 }, -- Path of Light
+			{ "5", 10005, 365, 320 }, -- Elodor
+			{ "6", 10006, 389, 345 }, -- Tranquil Court
+			{ "7", 10007, 365, 356 }, -- The Draakorium
+			{ "8", 10008, 328, 355 }, -- Twilight Glade
+			{ "9", 10009, 337, 382 }, -- Socrethar's Rise
+			{ "10", 10010, 367, 393 }, -- Darktide Roost
+			{ "11", 10011, 288, 337 }, -- Akeeta's Hovel
+			{ "12", 10012, 283, 288 }, -- Anchorite's Sojourn
+			{ "13", 10013, 260, 292 }, -- Terokkar Refuge
+			{ "14", 10014, 229, 305 }, -- Exarch's Refuge
+			{ "15", 10015, 210, 316 }, -- Retribution Point
+			{ "16", 10016, 224, 274 }, -- Shattrath City
+			{ "17", 10017, 245, 251 }, -- Redemption Rise
+			{ "18", 10018, 260, 245 }, -- Fort Wrynn
+			{ "19", 10019, 275, 248 }, -- Zangarra
+			{ "20", 10020, 271, 218 }, -- Bastion Rise
+			{ "21", 10021, 273, 190 }, -- Deeproot
+			{ "22", 10022, 290, 165 }, -- Highpass
+			{ "23", 10023, 317, 155 }, -- Wildwood Wash
+			{ "24", 10024, 299, 139 }, -- Everbloom Wilds
+			{ "25", 10025, 331, 109 }, -- Everbloom Overlook
+			{ "26", 10026, 273, 152 }, -- Breaker's Crown
+			{ "27", 10027, 259, 120 }, -- Skysea Point
+			{ "28", 10028, 266, 95 }, -- Iron Docks
+			{ "29", 10029, 237, 349 }, -- Apexis Excavation
+			{ "30", 10030, 245, 395 }, -- Southport
+			{ "31", 10031, 254, 372 }, -- Veil Terokk
+			{ "32", 10032, 261, 355 }, -- Crow's Crook
+			{ "33", 10033, 284, 370 }, -- Talon Watch
+			{ "34", 10034, 281, 412 }, -- Pinchwhistle Gearworks
+			{ "35", 10035, 171, 258 }, -- The Ring of Trials
+			{ "36", 10036, 136, 278 }, -- Telaari Station
+			{ "37", 10037, 111, 293 }, -- Nivek's Overlook
+			{ "38", 10038, 138, 254 }, -- Yrel's Watch
+			{ "39", 10039, 117, 240 }, -- Rilzit's Holdfast
+			{ "40", 10040, 134, 239 }, -- Joz's Rylaks
+			{ "41", 10041, 155, 237 }, -- Throne of the Elements
+			{ "42", 10042, 243, 187 }, -- Iron Siegeworks
+			{ "43", 10043, 177, 128 }, -- Bloodmaul Slag Mines
+			{ "44", 10044, 431, 242 }, -- Stormshield
+			{ "45", 10045, 279, 233 }, -- The Iron Front
+			{ "46", 10046, 301, 244 }, -- Sha'naari Refuge
+			{ "47", 10047, 335, 249 }, -- Malo's Lookout
+			{ "48", 10048, 353, 240 }, -- Lion's Watch
+			{ "49", 10049, 300, 221 }, -- Aktar's Post
+			{ "50", 10050, 330, 223 }, -- Vault of the Earth
+			{ "51", 10051, 352, 207 }, -- Throne of Kil'jaeden
+		},
+		TransAllianceAshran = {
+			{ "A", 10001, 153, 331 },
+			{ "B", 10002, 187, 305 },
+			{ "C", 10003, 258, 333 },
+			{ "D", 10004, 306, 299 },
+			{ "E", 10005, 328, 379 },
+		},
+		TransAllianceBrokenIsles = {
+			{  "A", 10040, 230, 357, 432, 463, "Purple" }, -- Greyfang Enclave
+			{  "B", 10041, 237, 349, 441, 452, "Purple" }, -- Chamber of the Guardian
+			{  "C", 10042, 290, 133, 512, 170, "Purple" }, -- Portal to Dalaran
+			{  "1", 10001, 249, 341, 454, 447, "TaxiNeutral" }, -- Krasus' Landing
+			{  "2", 10002, 151, 378, 324, 497, "TaxiNeutral" }, -- Watchers' Aerie
+			{  "3", 10003, 144, 363, 319, 477, "TaxiNeutral" }, -- Wardens' Redoubt
+			{  "4", 10004, 165, 336, 348, 439, "TaxiNeutral" }, -- Shackle's Den
+			{  "5", 10005, 130, 303, 297, 398, "TaxiNeutral" }, -- Illidari Stand
+			{  "6", 10006,  98, 314, 255, 413, "TaxiNeutral" }, -- Illidari Perch
+			{  "7", 10007, 191, 275, 380, 358, "TaxiNeutral" }, -- Felblaze Ingress
+			{  "8", 10008, 138, 266, 307, 349, "TaxiNeutral" }, -- Azurewing Repose
+			{  "9", 10009, 116, 238, 279, 307, "TaxiNeutral" }, -- Challiane's Terrace
+			{ "10", 10010, 222, 450, 419, 587, "TaxiNeutral" }, -- Eye of Azshara
+			{ "11", 10011, 147, 197, 327, 260, "TaxiNeutral" }, -- Lorlathil
+			{ "12", 10012,  75, 185, 223, 240, "TaxiNeutral" }, -- Gloaming Reef
+			{ "13", 10013, 117, 175, 280, 226, "TaxiNeutral" }, -- Bradensbrook
+			{ "14", 10014, 149, 177, 327, 226, "TaxiNeutral" }, -- Garden of the Moon
+			{ "15", 10015, 183, 163, 368, 209, "TaxiNeutral" }, -- Starsong Refuge
+			{ "16", 10016, 246, 164, 453, 209, "TaxiNeutral" }, -- Obsidian Overlook
+			{ "17", 10017, 277, 164, 503, 211, "TaxiNeutral" }, -- Ironhorn Enclave
+			{ "18", 10018, 210, 126, 408, 162, "TaxiNeutral" }, -- Sylvan Falls
+			{ "19", 10019, 244, 116, 449, 145, "TaxiNeutral" }, -- Thunder Totem
+			{ "20", 10020, 283, 121, 504, 158, "TaxiNeutral" }, -- Stonehoof Watch
+			{ "21", 10021, 224,  97, 421, 119, "TaxiNeutral" }, -- Nesingwary
+			{ "22", 10022, 263,  84, 479, 106, "TaxiNeutral" }, -- Skyhorn
+			{ "23", 10023, 191,  68, 379,  81, "TaxiNeutral" }, -- Felbane Camp
+			{ "24", 10024, 217,  67, 414,  81, "TaxiNeutral" }, -- The Witchwood
+			{ "25", 10025, 279,  51, 496,  57, "TaxiNeutral" }, -- Prepfoot
+			{ "26", 10026, 228,  12, 429,  17, "TaxiNeutral" }, -- Shipwreck Cove
+			{ "27", 10027, 297, 152, 522, 194, "TaxiAlliance" }, -- Skyfire Triage Camp (A)
+			{ "28", 10028, 318, 176, 542, 227, "TaxiAlliance" }, -- Lorna's Watch (A)
+			{ "29", 10029, 344, 127, 588, 163, "TaxiNeutral" }, -- Stormtorn Foothills
+			{ "30", 10030, 369, 154, 620, 198, "TaxiNeutral" }, -- Valdisdall
+			{ "31", 10031, 404, 171, 664, 219, "TaxiAlliance" }, -- Greywatch (A)
+			{ "32", 10032, 442,  83, 717, 107, "TaxiNeutral" }, -- Shield's Rest
+			{ "33", 10033, 353, 223, 600, 289, "TaxiNeutral" }, -- Hafr Fjall
+			{ "34", 10034, 205, 198, 405, 255, "TaxiNeutral" }, -- Irongrove Retreat
+			{ "35", 10035, 225, 227, 433, 284, "TaxiNeutral" }, -- Meredil
+			{ "36", 10036, 291, 212, 521, 282, "TaxiNeutral" }, -- Crimson Thicket
+			{ "37", 10037, 295, 368, 523, 481, "TaxiNeutral" }, -- Deliverance Point
+			{ "38", 10038, 341, 351, 577, 458, "TaxiNeutral" }, -- Aalgen Point
+			{ "39", 10039, 304, 322, 533, 424, "TaxiNeutral" }, -- Vengeance Point
+			{  "1", 10100, 110, 112, 276, 146, "DRUID" }, -- The Dreamgrove
+			{  "2", 10101, 193,  91, 400, 119, "HUNTER" }, -- Trueshot Lodge
+			{  "3", 10102, 387, 365, 646, 483, "DEATHKNIGHT" }, -- Acherus: The Ebon Hold
+			{  "1", 10201, 169, 245, 350, 321, "MAGE" }, -- Ley-Ruins of Zarkhenar
+			{  "2", 10202, 193, 118, 387, 151, "MAGE" }, -- Sylvan Falls
+			{  "3", 10203, 298, 170, 522, 220, "MAGE" }, -- Weeping Bluffs
+			{  "4", 10204, 139, 172, 313, 219, "MAGE" }, -- Temple of Elune
+			{  "5", 10205, 226, 238, 433, 291, "MAGE" }, -- Meredil
+			{  "1", 10301, 123, 104, 288, 127, "HUNTER" }, -- The Dreamgrove
+			{  "2", 10302,  77, 301, 228, 394, "HUNTER" }, -- Faronaar
+			{  "3", 10303, 156, 371, 332, 484, "HUNTER" }, -- Isle of the Watchers
+			{  "4", 10304, 247, 282, 451, 363, "HUNTER" }, -- Western Suramar
+			{  "5", 10305, 316, 260, 545, 340, "HUNTER" }, -- Eastern Suramar
+			{  "6", 10306, 312, 204, 538, 263, "HUNTER" }, -- Thorim's Peak
+			{  "7", 10307, 333, 131, 572, 165, "HUNTER" }, -- Nastrondir
+			{  "8", 10308, 275, 130, 489, 168, "HUNTER" }, -- Eastern Highmountain
+		},
+	}
+	
+	horde.maps = {
+		TransHordeCosmos = {
+			ZoneName = { WORLD..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+			WorldMapID = 947,
+			{ BLUE..BZ["Kalimdor"] },
+			{ ORNG.." 1) "..BZ["Orgrimmar"], 10001 },
+			{ ORNG.." 2) "..BZ["Thunder Bluff"], 10002 },
+			{ WHIT.." 3) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"], 10003 },
+			{ WHIT.." 4) "..BZ["Ratchet"]..ALC["Comma"]..BZ["Northern Barrens"], 10004 },
+			{ WHIT.." 5) "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"], 10005 },
+			{ WHIT.." 6) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"], 10006 },
+			{ "" },
+			{ BLUE..BZ["Eastern Kingdoms"] },
+			{ WHIT.." 7) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"]..BZ["Isle of Quel'Danas"], 10007 },
+			{ ORNG.." 8) "..BZ["Silvermoon City"], 10008 },
+			{ WHIT.." 9) "..BZ["Brill"]..ALC["Comma"]..BZ["Tirisfal Glades"], 10009 },
+			{ ORNG.."10) "..BZ["Undercity"], 10010 },
+			{ WHIT.."11) "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"], 10011 },
+			{ WHIT.."12) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"], 10012 },
+			{ WHIT.."13) "..BZ["Shattered Landing"]..ALC["Comma"]..BZ["Blasted Lands"], 10013 },
+			{ WHIT.."14) "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"], 10014 },
+			{ WHIT.."15) "..BZ["Grom'gol Base Camp"]..ALC["Comma"]..BZ["Northern Stranglethorn"], 10015 },
+			{ WHIT.."16) "..BZ["Booty Bay"]..ALC["Comma"]..BZ["The Cape of Stranglethorn"], 10016 },
+			{ "" },
+			{ BLUE..BZ["Outland"] },
+			{ WHIT.."17) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"], 10017 },
+			{ ORNG.."18) "..BZ["Shattrath City"], 10018 },
+			{ "" },
+			{ BLUE..BZ["Northrend"] },
+			{ WHIT.."19) "..BZ["Warsong Hold"]..ALC["Comma"]..BZ["Borean Tundra"], 10019 },
+			{ WHIT.."20) "..BZ["Vengeance Landing"]..ALC["Comma"]..BZ["Howling Fjord"], 10020 },
+			{ ORNG.."21) "..BZ["Dalaran (Northrend)"], 10021 },
+			{ WHIT.."22) "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"], 10022 },
+			{ "" },
+			{ BLUE..BZ["Pandaria"] },
+			{ WHIT.."23) "..BZ["Honeydew Village"]..ALC["Comma"]..BZ["The Jade Forest"], 10023 },
+			{ ORNG.."24) "..BZ["Shrine of Two Moons"], 10024 },
+			{ "" },
+			{ BLUE..BZ["Draenor"] },
+			{ WHIT.."25) "..BZ["Warspear"]..ALC["Comma"]..BZ["Ashran"], 10025 },
+			{ WHIT.."26) "..BZ["Frostwall Garrison"]..ALC["Comma"]..BZ["Frostfire Ridge"], 10026 },
+			{ "" },
+			{ BLUE..BZ["Broken Isles"] },
+			{ ORNG.."27) "..BZ["Dalaran"], 10027 },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
+			{ ORNG.."-- : "..L["Two ways portal"] },
+			{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
+		},
+		TransHordeEast = {
+			ZoneName = { BZ["Eastern Kingdoms"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+			WorldMapID = 13,
+			Faction = "Horde",
+			{ _RED..L["Zeppelin Towers"]..ALC["Slash"]..BZ["Docks"] },
+			{ ORNG.." A') "..BZ["Vengeance Landing"]..ALC["Comma"]..BZ["Howling Fjord"]..ALC["Comma"]..BZ["Northrend"] },
+			{ ORNG.." B') "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ ORNG.." C') "..BZ["Ratchet"]..ALC["Comma"]..BZ["Northern Barrens"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ WHIT.."19) "..BZ["Brill"]..ALC["Comma"]..BZ["Tirisfal Glades"] },
+			{ WHIT.."54) "..BZ["Grom'gol Base Camp"]..ALC["Comma"]..BZ["Northern Stranglethorn"] },
+			{ WHIT.."56) "..BZ["Booty Bay"]..ALC["Comma"]..BZ["The Cape of Stranglethorn"] },
+			{ "" },
+			{ _RED..L["Portals"]..ALC["Slash"]..L["Orb of Translocation"] },
+			{ PURP.." A) "..BZ["Hellscream's Grasp"]..ALC["Comma"]..BZ["Tol Barad Peninsula"] },
+			{ PURP.." B) "..BZ["Baradin Hold"]..ALC["Comma"]..BZ["Tol Barad"] },
+			{ GREY..INDENT..ALC["L-Parenthesis"]..L["Only available after winning the PvP battle"]..ALC["R-Parenthesis"] },
+			{ PURP.." C) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"] },
+			{ PURP.." D) "..BZ["Fuselight-by-the-Sea"]..ALC["Comma"]..BZ["Badlands"] },
+			{ GREY..INDENT..ALC["L-Parenthesis"]..L["Transporters by the sea and on the cliff"]..ALC["R-Parenthesis"] },
+			{ PURP.." A') "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"]..ALC["Comma"]..BZ["Outland"] },
+			{ PURP.." B') "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ WHIT.." 3) "..BZ["Sunfury Spire"]..ALC["Comma"]..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"] },
+			{ WHIT.."20) "..BZ["Magic Quarter"]..ALC["Comma"]..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"] },
+			{ WHIT.."51) "..BZ["Shattered Landing"]..ALC["Comma"]..BZ["Blasted Lands"] },
+			{ "" },
+			{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid Only"] },
+			{ GREN.." A) "..BZ["Seradane"]..ALC["Comma"]..BZ["The Hinterlands"] },
+			{ GREN.." B) "..BZ["Twilight Grove"]..ALC["Comma"]..BZ["Duskwood"] },
+			{ "" },
+			{ _RED..L["Taxi Nodes"] },
+			{ BLUE..BZ["Isle of Quel'Danas"] },
+			{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"] },
+			{ "" },
+			{ BLUE..BZ["Eversong Woods"] },
+			{ WHIT.." 2) "..BZ["Falconwing Square"] },
+			{ WHIT.." 3) "..BZ["Silvermoon City"] },
+			{ WHIT.." 4) "..BZ["Fairbreeze Village"] },
+			{ "" },
+			{ BLUE..BZ["Ghostlands"] },
+			{ WHIT.." 5) "..BZ["Tranquillien"] },
+			{ WHIT.." 6) "..BZ["Zul'Aman"] },
+			{ "" },
+			{ BLUE..BZ["Eastern Plaguelands"] },
+			{ GREN.." 7) "..BZ["Acherus: The Ebon Hold"]..ALC["L-Parenthesis"]..L["Death Knight Only"]..ALC["R-Parenthesis"] },
+			{ WHIT.." 8) "..BZ["Light's Hope Chapel"] },
+			{ WHIT.." 9) "..BZ["Northpass Tower"] },
+			{ WHIT.."10) "..BZ["Plaguewood Tower"] },
+			{ WHIT.."11) "..BZ["Eastwall Tower"] },
+			{ WHIT.."12) "..BZ["Light's Shield Tower"] },
+			{ WHIT.."13) "..BZ["Crown Guard Tower"] },
+			{ WHIT.."14) "..BZ["Thondroril River"] },
+			{ "" },
+			{ BLUE..BZ["Western Plaguelands"] },
+			{ WHIT.."15) "..BZ["The Menders' Stead"] },
+			{ WHIT.."16) "..BZ["Hearthglen"] },
+			{ WHIT.."17) "..BZ["Andorhal"] },
+			{ "" },
+			{ BLUE..BZ["Tirisfal Glades"] },
+			{ WHIT.."18) "..BZ["The Bulwark"] },
+			{ WHIT.."19) "..BZ["Brill"] },
+			{ WHIT.."20) "..BZ["Undercity"] },
+			{ "" },
+			{ BLUE..BZ["Silverpine Forest"] },
+			{ WHIT.."21) "..BZ["Forsaken High Command"] },
+			{ WHIT.."22) "..BZ["Forsaken Rear Guard"] },
+			{ WHIT.."23) "..BZ["The Sepulcher"] },
+			{ WHIT.."24) "..BZ["The Forsaken Front"] },
+			{ "" },
+			{ BLUE..BZ["Hillsbrad Foothills"] },
+			{ WHIT.."25) "..BZ["Southpoint Gate"] },
+			{ WHIT.."26) "..BZ["Ruins of Southshore"] },
+			{ WHIT.."27) "..BZ["Eastpoint Tower"] },
+			{ WHIT.."28) "..BZ["Tarren Mill"] },
+			{ WHIT.."29) "..BZ["Strahnbrad"] },
+			{ "" },
+			{ BLUE..BZ["Arathi Highlands"] },
+			{ WHIT.."30) "..BZ["Galen's Fall"] },
+			{ WHIT.."31) "..BZ["Hammerfall"] },
+			{ "" },
+			{ BLUE..BZ["The Hinterlands"] },
+			{ WHIT.."32) "..BZ["Hiri'watha Research Station"] },
+			{ WHIT.."33) "..BZ["Revantusk Village"] },
+			{ "" },
+			{ BLUE..BZ["Twilight Highlands"] },
+			{ WHIT.."34) "..BZ["Vermillion Redoubt"] },
+			{ WHIT.."35) "..BZ["The Gullet"] },
+			{ WHIT.."36) "..BZ["Bloodgulch"] },
+			{ WHIT.."37) "..BZ["The Krazzworks"] },
+			{ WHIT.."38) "..BZ["Dragonmaw Port"] },
+			{ WHIT.."39) "..BZ["Crushblow"] },
+			{ "" },
+			{ BLUE..BZ["Badlands"] },
+			{ WHIT.."40) "..BZ["Fuselight"] },
+			{ WHIT.."41) "..BZ["Bloodwatcher Point"] },
+			{ WHIT.."42) "..BZ["New Kargath"] },
+			{ "" },
+			{ BLUE..BZ["Searing Gorge"] },
+			{ WHIT.."43) "..BZ["Thorium Point"] },
+			{ WHIT.."44) "..BZ["Iron Summit"] },
+			{ "" },
+			{ BLUE..BZ["Burning Steppes"] },
+			{ WHIT.."45) "..BZ["Flame Crest"] },
+			{ WHIT.."46) "..BZ["Chiselgrip"] },
+			{ WHIT.."47) "..BZ["Flamestar Post"] },
+			{ PURP.."48) "..BZ["Terror Wing Path"]..ALC["L-Parenthesis"]..L["The Bogpaddle Bullet"]..ALC["R-Parenthesis"] },
+			{ "" },
+			{ BLUE..BZ["Swamp of Sorrows"] },
+			{ WHIT.."49) "..BZ["Bogpaddle"] },
+			{ WHIT.."50) "..BZ["Stonard"] },
+			{ "" },
+			{ BLUE..BZ["Blasted Lands"] },
+			{ WHIT.."51) "..BZ["Dreadmaul Hold"] },
+			{ WHIT.."52) "..BZ["Shattered Landing"] },
+			{ WHIT.."53) "..BZ["Sunveil Excursion"] },
+			{ "" },
+			{ BLUE..BZ["Northern Stranglethorn"] },
+			{ WHIT.."54) "..BZ["Bambala"] },
+			{ WHIT.."55) "..BZ["Grom'gol Base Camp"] },
+			{ "" },
+			{ BLUE..BZ["The Cape of Stranglethorn"] },
+			{ WHIT.."56) "..BZ["Hardwrench Hideaway"] },
+			{ WHIT.."57) "..BZ["Booty Bay"] },
+			{ "" },
+			{ BLUE..BZ["Vashj'ir"] },
+			{ CYAN.."58) "..BZ["Smuggler's Scar"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["R-Parenthesis"] },
+			{ CYAN.."59) "..BZ["Sandy Beach"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["Slash"]..L["Wind Rider"]..ALC["R-Parenthesis"] },
+			{ CYAN.."60) "..BZ["Silver Tide Hollow"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["R-Parenthesis"] },
+			{ CYAN.."61) "..BZ["Legion's Rest"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["R-Parenthesis"] },
+			{ CYAN.."62) "..BZ["Stygian Bounty"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["Slash"]..L["Wind Rider"]..ALC["R-Parenthesis"] },
+			{ CYAN.."63) "..BZ["Tenebrous Cavern"]..ALC["L-Parenthesis"]..L["Seahorse"]..ALC["R-Parenthesis"] },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
+			{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
+			{ GREN.."-- : "..L["Special transportation"] },
+			{ "" },
+			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
+			{ LBLU..L["Exploration"] },
+			{ "Cataclysm Explorer", "ac=4868" },
+			{ "Eastern Kingdoms Explorer", "ac=42" },
+			{ "Explore Arathi Highlands", "ac=761" },
+			{ "Explore Badlands", "ac=765" },
+			{ "Explore Blasted Lands", "ac=766" },
+			{ "Explore Burning Steppes", "ac=775" },
+			{ "Explore Deadwind Pass", "ac=777" },
+			{ "Explore Dun Morogh", "ac=627" },
+			{ "Explore Duskwood", "ac=778" },
+			{ "Explore Eastern Plaguelands", "ac=771" },
+			{ "Explore Elwynn Forest", "ac=776" },
+			{ "Explore Eversong Woods", "ac=859" },
+			{ "Explore Ghostlands", "ac=858" },
+			{ "Explore Hillsbrad Foothills", "ac=772" },
+			{ "Explore Isle of Quel'Danas", "ac=868" },
+			{ "Explore Loch Modan", "ac=779" },
+			{ "Explore Northern Stranglethorn", "ac=781" },
+			{ "Explore Redridge Mountains", "ac=780" },
+			{ "Explore Searing Gorge", "ac=774" },
+			{ "Explore Silverpine Forest", "ac=769" },
+			{ "Explore Swamp of Sorrows", "ac=782" },
+			{ "Explore the Cape of Stranglethorn", "ac=4995" },
+			{ "Explore The Hinterlands", "ac=773" },
+			{ "Explore Tirisfal Glades", "ac=768" },
+			{ "Explore Twilight Highlands", "ac=4866" },
+			{ "Explore Vashj'ir", "ac=4825" },
+			{ "Explore Western Plaguelands", "ac=770" },
+			{ "Explore Westfall", "ac=802" },
+			{ "Explore Wetlands", "ac=841" },
+			{ "From Hell's Heart I Stab at Thee", "ac=4975" },
+			{ "Stood in the Fire", "ac=5518" },
+			{ "Surveying the Damage", "ac=4827" },
+			{ LBLU..QUESTS_LABEL },
+			{ "Arathi Highlands Quests", "ac=4896" },
+			{ "Badlands Quests", "ac=4900" },
+			{ "Blasted Lands Quests", "ac=4909" },
+			{ "Burning Steppes Quests", "ac=4901" },
+			{ "Cape of Stranglethorn Quests", "ac=4905" },
+			{ "Eastern Plaguelands Quests", "ac=4892" },
+			{ "Full Caravan", "ac=5442" },
+			{ "Ghostlands Quests", "ac=4908" },
+			{ "Hillsbrad Foothills Quests", "ac=4895" },
+			{ "Hinterlands Quests", "ac=4897" },
+			{ "Loremaster of Eastern Kingdoms", "ac=1676" },
+			{ "Northern Stranglethorn Quests", "ac=4906" },
+			{ "Ready, Set, Goat!", "ac=5444" },
+			{ "Searing Gorge Quests", "ac=4910" },
+			{ "Silverpine Forest Quests", "ac=4894" },
+			{ "Swamp of Sorrows Quests", "ac=4904" },
+			{ "The Green Hills of Stranglethorn", "ac=940" },
+			{ "Western Plaguelands Quests", "ac=4893" },
+			{ "20,000 Leagues Under the Sea", "ac=5319" },
+			{ "Breaking Out of Tol Barad", "ac=4874" },
+			{ "Consumed by Nightmare", "ac=5451" },
+			{ "Dragonmaw Tour of Duty", "ac=5482" },
+			{ "Fading into Twilight", "ac=5501" },
+			{ "King of the Mountain", "ac=5321" },
+			{ "Loremaster of Cataclysm", "ac=4875" },
+			{ "Round Three. Fight!", "ac=4960" },
+			{ "Sinking into Vashj'ir", "ac=4982" },
+			{ "Visions of Vashj'ir Past", "ac=5452" },
 		},
 		TransHordeWest = {
 			ZoneName = { BZ["Kalimdor"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
@@ -1011,44 +2096,6 @@ if (WoWRetail) then
 			{ "Unearthing Uldum", "ac=4872" },
 			{ "Veteran of the Molten Front", "ac=5879" },
 		},
-		TransAllianceStormwindCity = {
-			ZoneName = { BZ["Stormwind City"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 84,
-			Faction = "Alliance",
-			LargeMap = "TransAllianceStormwindCity",
-			{ _RED..BZ["Docks"] },
-			{ ORNG.." A) "..BZ["Boralus Harbor"]..ALC["Comma"]..BZ["Tiragarde Sound"]..ALC["Comma"]..BZ["Kul Tiras"], 10001 },
-			{ ORNG.." B) "..BZ["Boralus"]..ALC["Comma"]..BZ["Tiragarde Sound"]..ALC["Comma"]..BZ["Kul Tiras"], 10002 },
-			{ "" },
-			{ _RED..L["Portals"] },
-			{ PURP.." A) "..BZ["Wizard's Sanctum"], 10003 },
-			{ INDENT..GREY.."  -> "..BZ["Stormshield"]..ALC["Comma"]..BZ["Ashran"]..ALC["Comma"]..BZ["Draenor"] },
-			{ INDENT..GREY.."  -> "..BZ["Boralus"]..ALC["Comma"]..BZ["Tiragarde Sound"]..ALC["Comma"]..BZ["Kul Tiras"] },
-			{ INDENT..GREY.."  -> "..BZ["Crumbled Palace"]..ALC["Comma"]..BZ["Azsuna"]..ALC["Comma"]..BZ["Broken Isles"] },
-			{ INDENT..GREY.."  -> "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"]..ALC["Comma"]..BZ["Northrend"] },
-			{ INDENT..GREY.."  -> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ INDENT..GREY.."  -> "..BZ["Paw'don Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"] },
-			{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
-			{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
-			
---			{ PURP.." A) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"]..ALC["Comma"]..BZ["Outland"], 10003 },
---			{ PURP.." B) "..BZ["Fuselight-by-the-Sea"]..ALC["Comma"]..BZ["Badlands"], 10004 },
---			{ PURP.." C) "..BZ["Paw'don Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"], 10005 },
-			{ PURP.." B) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"]..ALC["Comma"]..BZ["Kalimdor"], 10004 },
-			{ PURP.." C) "..BZ["Temple of Earth"]..ALC["Comma"]..BZ["Deepholm"], 10005 },
-			{ PURP.." D) "..BZ["Baradin Base Camp"]..ALC["Comma"]..BZ["Tol Barad Peninsula"], 10006 },
-			{ PURP.." E) "..BZ["Darkbreak Cove"]..ALC["Comma"]..BZ["Vashj'ir"], 10007 },
-			{ PURP.." F) "..BZ["Highbank"]..ALC["Comma"]..BZ["Twilight Highlands"], 10008 },
-			{ PURP.." G) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"]..ALC["Comma"]..BZ["Kalimdor"], 10009 },
-			{ PURP.." H) "..BZ["Darkshore"]..ALC["Comma"]..BZ["Kalimdor"], 10010 },
---			{ PURP.." K) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Broken Isles"], 10013 },
-			{ "" },
-			{ _RED..DUNGEON_FLOOR_DEEPRUNTRAM1 },
-			{ WHIT.." 1) "..BZ["Ironforge"], 10014 },
-			{ "" },
-			{ _RED..L["Taxi Nodes"] },
-			{ WHIT.." 2) "..L["Gryphon Master"], 10015 },
-		},
 		TransHordeOrgrimmar = {
 			ZoneName = { BZ["Orgrimmar"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 			WorldMapID = 85,
@@ -1098,80 +2145,6 @@ if (WoWRetail) then
 			{ BLUE.." A) "..BZ["Northern Barrens"], 10017 },
 			{ BLUE.." B) "..BZ["Durotar"], 10018 },
 			{ BLUE.." C) "..BZ["Azshara"], 10019 },
-		},
-		TransAllianceOutland = {
-			ZoneName = { BZ["Outland"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 101,
-			Faction = "Alliance",
-			{ _RED..L["Portals"]..ALC["Slash"]..L["Transporter"] },
-			{ PURP.." A') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ PURP.." B') "..BZ["Sun's Reach Sanctum"]..ALC["Comma"]..BZ["Isle of Quel'Danas"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ PURP.." C') "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ WHIT.." 1) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"] },
-			{ WHIT.." 9) "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"] },
-			{ "" },
-			{ _RED..L["Taxi Nodes"] },
-			{ BLUE..BZ["Hellfire Peninsula"] },
-			{ WHIT.." 1) "..BZ["The Stair of Destiny"] },
-			{ WHIT.." 2) "..BZ["Shatter Point"] },
-			{ WHIT.." 3) "..BZ["Honor Point"] },
-			{ WHIT.." 4) "..BZ["Honor Hold"] },
-			{ WHIT.." 5) "..BZ["Temple of Telhamat"] },
-			{ "" },
-			{ BLUE..BZ["Zangarmarsh"] },
-			{ WHIT.." 6) "..BZ["Telredor"] },
-			{ WHIT.." 7) "..BZ["Orebor Harborage"] },
-			{ "" },
-			{ BLUE..BZ["Nagrand"] },
-			{ WHIT.." 8) "..BZ["Telaar"] },
-			{ "" },
-			{ BLUE..BZ["Terokkar Forest"] },
-			{ WHIT.." 9) "..BZ["Shattrath City"] },
-			{ WHIT.."10) "..BZ["Allerian Stronghold"] },
-			{ GREN.."11) "..BZ["Blackwind Landing"] },
-			{ GREN..INDENT..ALC["L-Parenthesis"]..L["Requires honored faction with Sha'tari Skyguard"]..ALC["R-Parenthesis"] },
-			{ "" },
-			{ BLUE..BZ["Shadowmoon Valley"] },
-			{ WHIT.."12) "..BZ["Wildhammer Stronghold"] },
-			{ GREN.."13) "..BZ["Altar of Sha'tar"]..ALC["L-Parenthesis"]..BF["The Aldor"]..ALC["R-Parenthesis"] },
-			{ GREN.."14) "..BZ["Sanctum of the Stars"]..ALC["L-Parenthesis"]..BF["The Scryers"]..ALC["R-Parenthesis"] },
-			{ "" },
-			{ BLUE..BZ["Blade's Edge Mountains"] },
-			{ WHIT.."15) "..BZ["Sylvanaar"] },
-			{ WHIT.."16) "..BZ["Evergrove"] },
-			{ WHIT.."17) "..BZ["Toshley's Station"] },
-			{ GREN.."18) "..BZ["Skyguard Outpost"] },
-			{ GREN..INDENT..ALC["L-Parenthesis"]..L["Requires honored faction with Sha'tari Skyguard"]..ALC["R-Parenthesis"] },
-			{ "" },
-			{ BLUE..BZ["Netherstorm"] },
-			{ WHIT.."19) "..BZ["Area 52"] },
-			{ WHIT.."20) "..BZ["The Stormspire"] },
-			{ WHIT.."21) "..BZ["Cosmowrench"] },
-			{ "" },
-			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-			{ LBLU..L["Exploration"] },
-			{ "Bloody Rare", "ac=1312" },
-			{ "Explore Blade's Edge Mountains", "ac=865" },
-			{ "Explore Hellfire Peninsula", "ac=862" },
-			{ "Explore Nagrand", "ac=866" },
-			{ "Explore Netherstorm", "ac=843" },
-			{ "Explore Shadowmoon Valley", "ac=864" },
-			{ "Explore Terokkar Forest", "ac=867" },
-			{ "Explore Zangarmarsh", "ac=863" },
-			{ "Medium Rare", "ac=1311" },
-			{ "Outland Explorer", "ac=44" },
-			{ LBLU..QUESTS_LABEL },
-			{ "Blade's Edge Bomberman", "ac=1276" },
-			{ "Bombs Away", "ac=1275" },
-			{ "Hills Like White Elekk", "ac=939" },
-			{ "Into the Nether", "ac=1194" },
-			{ "Loremaster of Outland", "ac=1262" },
-			{ "Mysteries of the Marsh", "ac=1190" },
-			{ "Nagrand Slam", "ac=1192" },
-			{ "On the Blade's Edge", "ac=1193" },
-			{ "Shadow of the Betrayer", "ac=1195" },
-			{ "Terror of Terokkar", "ac=1191" },
-			{ "To Hellfire and Back", "ac=1189" },
 		},
 		TransHordeOutland = {
 			ZoneName = { BZ["Outland"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
@@ -1245,132 +2218,6 @@ if (WoWRetail) then
 			{ "Shadow of the Betrayer", "ac=1195" },
 			{ "Terror of Terokkar", "ac=1272" },
 			{ "To Hellfire and Back", "ac=1271" },
-		},
-		TransAllianceNorthrend = {
-			ZoneName = { BZ["Northrend"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 113,
-			Faction = "Alliance",
-			{ _RED..BZ["Docks"] },
-			{ BLUE.." A') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ BLUE.." B') "..BZ["Menethil Harbor"]..ALC["Comma"]..BZ["Wetlands"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ ALAN.." 1) "..BZ["Valiance Keep"]..ALC["Comma"]..BZ["Borean Tundra"] },
-			{ NUTL.." 5) "..BZ["Unu'pe"]..ALC["Comma"]..BZ["Borean Tundra"] },
-			{ NUTL.." 9) "..BZ["Moa'ki Harbor"]..ALC["Comma"]..BZ["Dragonblight"] },
-			{ NUTL.."14) "..BZ["Kamagua"]..ALC["Comma"]..BZ["Howling Fjord"] },
-			{ ALAN.."15) "..BZ["Valgarde"]..ALC["Comma"]..BZ["Howling Fjord"] },
-			{ "" },
-			{ _RED..L["Portals"]..ALC["Slash"]..BZ["Waygate"] },
-			{ PURP.." A) "..BZ["Waygate"]..ALC["Comma"]..BZ["Sholazar Basin"] },
-			{ PURP.." B) "..BZ["Wintergrasp Fortress"]..ALC["Comma"]..BZ["Wintergrasp"] },
-			{ PURP.." C) "..BZ["Violet Stand"]..ALC["Comma"]..BZ["Crystalsong Forest"] },
-			{ PURP.." D) "..BZ["Garm's Rise"]..ALC["Comma"]..BZ["The Storm Peaks"] },
-			{ PURP.." A') "..BZ["The Shaper's Terrace"]..ALC["Comma"]..BZ["Un'Goro Crater"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ PURP.." B') "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ PURP.." C') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ NUTL.."25) "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"] },
-			{ NUTL.."27) "..BZ["K3"]..ALC["Comma"]..BZ["The Storm Peaks"] },
-			{ "" },
-			{ _RED..L["Portals"]..ALC["Hyphen"]..L["Druid Only"] },
-			{ GREN.." A) "..BZ["Grizzly Hills"]..GREY.." (50.38, 29.40)" },
-			{ "" },
-			{ _RED..L["Taxi Nodes"] },
-			{ BLUE..BZ["Borean Tundra"] },
-			{ ALAN.." 1) "..BZ["Valiance Keep"] },
-			{ NUTL.." 2) "..BZ["Amber Ledge"] },
-			{ "" },
-			{ BLUE..BZ["Coldarra"] },
-			{ NUTL.." 3) "..BZ["Transitus Shield"] },
-			{ "" },
-			{ BLUE..BZ["Borean Tundra"] },
-			{ ALAN.." 4) "..BZ["Fizzcrank Airstrip"] },
-			{ NUTL.." 5) "..BZ["Unu'pe"] },
-			{ "" },
-			{ BLUE..BZ["Sholazar Basin"] },
-			{ NUTL.." 6) "..BZ["Nesingwary Base Camp"] },
-			{ NUTL.." 7) "..BZ["River's Heart"] },
-			{ "" },
-			{ BLUE..BZ["Dragonblight"] },
-			{ ALAN.." 8) "..BZ["Stars' Rest"] },
-			{ NUTL.." 9) "..BZ["Moa'ki Harbor"] },
-			{ ALAN.."10) "..BZ["Fordragon Hold"] },
-			{ NUTL.."11) "..BZ["Wyrmrest Temple"] },
-			{ ALAN.."12) "..BZ["Wintergarde Keep"] },
-			{ "" },
-			{ BLUE..BZ["Howling Fjord"] },
-			{ ALAN.."13) "..BZ["Westguard Keep"] },
-			{ NUTL.."14) "..BZ["Kamagua"] },
-			{ ALAN.."15) "..BZ["Valgarde"] },
-			{ ALAN.."16) "..BZ["Fort Wildervar"] },
-			{ "" },
-			{ BLUE..BZ["Grizzly Hills"] },
-			{ ALAN.."17) "..BZ["Amberpine Lodge"] },
-			{ ALAN.."18) "..BZ["Westfall Brigade Encampment"] },
-			{ "" },
-			{ BLUE..BZ["Zul'Drak"] },
-			{ NUTL.."19) "..BZ["Gundrak"] },
-			{ NUTL.."20) "..BZ["Zim'Torga"] },
-			{ NUTL.."21) "..BZ["The Argent Stand"] },
-			{ NUTL.."22) "..BZ["Light's Breach"] },
-			{ NUTL.."23) "..BZ["Ebon Watch"] },
-			{ "" },
-			{ BLUE..BZ["Crystalsong Forest"] },
-			{ ALAN.."24) "..BZ["Windrunner's Overlook"] },
-			{ NUTL.."25) "..BZ["Dalaran"] },
-			{ "" },
-			{ BLUE..BZ["The Storm Peaks"] },
-			{ ALAN.."26) "..BZ["Frosthold"] },
-			{ NUTL.."27) "..BZ["K3"] },
-			{ NUTL.."28) "..BZ["Bouldercrag's Refuge"] },
-			{ NUTL.."29) "..BZ["Ulduar"] },
-			{ NUTL.."30) "..BZ["Dun Niffelem"] },
-			{ "" },
-			{ BLUE..BZ["Icecrown"] },
-			{ NUTL.."31) "..BZ["The Argent Vanguard"] },
-			{ NUTL.."32) "..BZ["Crusaders' Pinnacle"] },
-			{ NUTL.."33) "..BZ["Argent Tournament Grounds"] },
-			{ NUTL.."34) "..BZ["The Shadow Vault"] },
-			{ NUTL.."35) "..BZ["Death's Rise"] },
-			{ "" },
-			{ BLUE..BZ["Wintergrasp"] },
-			{ ALAN.."36) "..BZ["Valiance Landing Camp"] },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-			{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },	
-			{ "" },
-			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-			{ LBLU..L["Exploration"] },
-			{ "Explore Borean Tundra", "ac=1264" },
-			{ "Explore Crystalsong Forest", "ac=1457" },
-			{ "Explore Dragonblight", "ac=1265" },
-			{ "Explore Grizzly Hills", "ac=1266" },
-			{ "Explore Howling Fjord", "ac=1263" },
-			{ "Explore Icecrown", "ac=1270" },
-			{ "Explore Sholazar Basin", "ac=1268" },
-			{ "Explore Storm Peaks", "ac=1269" },
-			{ "Explore Zul'Drak", "ac=1267" },
-			{ "Frostbitten", "ac=2257" },
-			{ "Higher Learning", "ac=1956" },
-			{ "Northrend Explorer", "ac=45" },
-			{ "Northern Exposure", "ac=2256" },
-			{ LBLU..QUESTS_LABEL },
-			{ "D.E.H.T.A's Little P.I.T.A.", "ac=561" },
-			{ "Fo' Grizzle My Shizzle", "ac=37" },
-			{ "Guru of Drakuru", "ac=1596" },
-			{ "Honorary Frenzyheart", "ac=961" },
-			{ "I've Toured the Fjord", "ac=34" },
-			{ "Icecrown: The Final Goal", "ac=40" },
-			{ "Into the Basin", "ac=39" },
-			{ "Loremaster of Northrend", "ac=41" },
-			{ "Might of Dragonblight", "ac=35" },
-			{ "Mine Sweeper", "ac=1428" },
-			{ "Nothing Boring About Borean", "ac=33" },
-			{ "Rapid Defense", "ac=1277" },
-			{ "Savior of the Oracles", "ac=962" },
-			{ "The Empire of Zul'Drak", "ac=36" },
-			{ "The Snows of Northrend", "ac=938" },
-			{ "The Summit of Storm Peaks", "ac=38" },
-			{ "Veteran of the Wrathgate", "ac=547" },
 		},
 		TransHordeNorthrend = {
 			ZoneName = { BZ["Northrend"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
@@ -1500,242 +2347,6 @@ if (WoWRetail) then
 			{ "The Snows of Northrend", "ac=938" },
 			{ "The Summit of Storm Peaks", "ac=38" },
 			{ "Veteran of the Wrathgate", "ac=547" },
-		},
-		TransDeepholm = {
-			ZoneName = { BZ["Deepholm"] },
-			WorldMapID = 207,
-			{ _RED..L["Portals"] },
-			{ PURP.." A) "..BZ["Temple of Earth"] },
-			{ PURP.." B) "..BZ["Therazane's Throne"] },
-			{ PURP.." A') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ PURP.." B') "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-			{ "" },
-			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-			{ LBLU..L["Exploration"] },
-			{ "Explore Deepholm", "ac=4864" },
-			{ "Cataclysm Explorer", "ac=4868" },
-			{ LBLU..QUESTS_LABEL },
-			{ "Deep into Deepholm", "ac=4871" },
-			{ "Fungal Frenzy", "ac=5450" },
-			{ "Fungalophobia", "ac=5445" },
-			{ "Loremaster of Cataclysm", "ac=4875" },
-			{ "My Very Own Broodmother", "ac=5447" },
-			{ "Rock Lover", "ac=5449" },
-			{ "The Glop Family Line", "ac=5446" },
-		},
-		TransDarkmoonFaire = {
-			ZoneName = { BZ["Darkmoon Island"] },
-			WorldMapID = 407,
-			{ PURP.." A) "..L["Portals"] },
-			{ PURP..INDENT.." -> "..BZ["Elwynn Forest"] },
-			{ PURP..INDENT.." -> "..BZ["Mulgore"] },
-		},
-		TransAlliancePandaria = {
-			ZoneName = { BZ["Pandaria"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 424,
-			Faction = "Alliance",
-			{ _RED..L["Portals"] },
-			{ PURP.." A) "..BZ["Paw'don Village"]..ALC["Comma"]..BZ["The Jade Forest"] },
-			{ PURP.." B) "..BZ["Violet Rise"]..ALC["Comma"]..BZ["Isle of Thunder"] },
-			{ PURP.." C) "..BZ["Shan'ze Dao"]..ALC["Comma"]..BZ["Townlong Steppes"] },
-			{ PURP.." D) "..BZ["The Skyfire"]..ALC["Comma"]..BZ["Krasarang Wilds"] },
-			{ PURP.." A') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ PURP.." B') "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ PURP.." C') "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"]..ALC["Comma"]..BZ["Northrend"] },
-			{ PURP.." D') "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ PURP.." E') "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ PURP.." F') "..BZ["Ratchet"]..ALC["Comma"]..BZ["Northern Barrens"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ INDENT..GREY..ALC["L-Parenthesis"]..L["Gleep Chatterswitch"]..ALC["R-Parenthesis"] },
-			{ PURP.." G') "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
-			{ "" },
-			{ _RED..L["Special transportation"] },
-			{ ORNG.." A) "..BZ["The Arboretum"]..ALC["Comma"]..BZ["The Jade Forest"] },
-			{ INDENT..GREY..L["Abandoned Kite"]..ALC["L-Parenthesis"]..L["From sea level to ground level"]..ALC["R-Parenthesis"] },
-			{ ORNG.." B) "..BZ["Thunder Hold"]..ALC["Comma"]..BZ["The Jade Forest"] },
-			{ INDENT..GREY..L["Abandoned Kite"]..ALC["L-Parenthesis"]..L["From sea level to ground level"]..ALC["R-Parenthesis"] },
-			{ ORNG.." C) "..BZ["Strongarm Airstrip"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Slash"]..BZ["Serenity Falls"] },
-			{ INDENT..GREY..L["Abandoned Kite"]..ALC["L-Parenthesis"]..L["From sea level to ground level"]..ALC["R-Parenthesis"] },
-			{ ORNG.." D) "..BZ["Winds' Edge"]..ALC["Comma"]..BZ["Valley of the Four Winds"]..ALC["Slash"]..BZ["The Deepwild"]..ALC["Comma"]..BZ["Krasarang Wilds"] },
-			{ INDENT..GREY..L["Rappelling Rope"]..ALC["Slash"]..L["Climbing Rope"] },
-			{ ORNG.." E) "..BZ["Whispercloud Rise"]..ALC["Slash"]..BZ["Zouchin Province"]..ALC["Comma"]..BZ["Kun-Lai Summit"] },
-			{ INDENT..GREY..L["Whispercloud's Balloon"] },
-			{ ORNG.." F) "..BZ["Serpent's Spine"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Slash"]..BZ["Terrace of Gurthan"]..ALC["Comma"]..BZ["Dread Wastes"] },
-			{ INDENT..GREY..L["Shado-Pan Rope"] },
-			{ "" },
-			{ _RED..L["Taxi Nodes"] },
-			{ BLUE..BZ["The Jade Forest"] },
-			{ WHIT.." 1) "..BZ["Paw'don Village"] },
-			{ WHIT.." 2) "..BZ["Pearlfin Village"] },
-			{ WHIT.." 3) "..BZ["Serpent's Overlook"] },
-			{ WHIT.." 4) "..BZ["Jade Temple Grounds"] },
-			{ WHIT.." 5) "..BZ["Dawn's Blossom"] },
-			{ WHIT.." 6) "..BZ["The Arboretum"] },
-			{ WHIT.." 7) "..BZ["Tian Monastery"] },
-			{ WHIT.." 8) "..BZ["Emperor's Omen"] },
-			{ WHIT.." 9) "..BZ["Sri-La Village"] },
-			{ "" },
-			{ BLUE..BZ["Valley of the Four Winds"] },
-			{ WHIT.."10) "..BZ["Pang's Stead"] },
-			{ WHIT.."11) "..BZ["Grassy Cline"] },
-			{ WHIT.."12) "..BZ["Halfhill"] },
-			{ WHIT.."13) "..BZ["Stoneplow"] },
-			{ "" },
-			{ BLUE..BZ["Krasarang Wilds"] },
-			{ WHIT.."14) "..BZ["Sentinel Basecamp"] },
-			{ WHIT.."15) "..BZ["Cradle of Chi-Ji"] },
-			{ WHIT.."16) "..BZ["Marista"] },
-			{ WHIT.."17) "..BZ["The Incursion"] },
-			{ WHIT.."18) "..BZ["Zhu's Watch"] },
-			{ WHIT.."19) "..BZ["Lion's Landing"] },
-			{ GREY..INDENT..L["Require to complete \"Meet the Scout\" quest line first."] },
-			{ "" },
-			{ BLUE..BZ["The Veiled Stair"] },
-			{ WHIT.."20) "..BZ["Tavern in the Mists"] },
-			{ "" },
-			{ BLUE..BZ["Kun-Lai Summit"] },
-			{ WHIT.."21) "..BZ["Binan Village"] },
-			{ WHIT.."22) "..BZ["Westwind Rest"] },
-			{ WHIT.."23) "..BZ["Shado-Pan Fallback"] },
-			{ WHIT.."24) "..BZ["Kota Basecamp"] },
-			{ WHIT.."25) "..BZ["Winter's Blossom"] },
-			{ WHIT.."26) "..BZ["One Keg"] },
-			{ WHIT.."27) "..BZ["Temple of the White Tiger"] },
-			{ WHIT.."28) "..BZ["Zouchin Village"] },
-			{ "" },
-			{ BLUE..BZ["Townlong Steppes"] },
-			{ WHIT.."29) "..BZ["Longying Outpost"] },
-			{ WHIT.."30) "..BZ["Gao-Ran Battlefront"] },
-			{ WHIT.."31) "..BZ["Rensai's Watchpost"] },
-			{ WHIT.."32) "..BZ["Shado-Pan Garrison"] },
-			{ "" },
-			{ BLUE..BZ["Dread Wastes"] },
-			{ WHIT.."33) "..BZ["The Sunset Brewgarden"] },
-			{ WHIT.."34) "..BZ["Klaxxi'vess"] },
-			{ WHIT.."35) "..BZ["The Lion's Redoubt"] },
-			{ WHIT.."36) "..BZ["The Briny Muck"] },
-			{ WHIT.."37) "..BZ["Soggy's Gamble"] },
-			{ "" },
-			{ BLUE..BZ["Vale of Eternal Blossoms"] },
-			{ WHIT.."38) "..BZ["Serpent's Spine"] },
-			{ WHIT.."39) "..BZ["Shrine of Seven Stars"] },
-			{ "" },
-			{ BLUE..BZ["Isle of Giants"] },
-			{ WHIT.."40) "..BZ["Beeble's Wreck"] },
-			{ "" },
-			{ BLUE..BZ["Timeless Isle"] },
-			{ WHIT.."41) "..BZ["Tushui Landing"] },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-			{ "" },
-			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-			{ LBLU..L["Exploration"] },
-			{ "Explore Jade Forest", "ac=6351" },
-			{ "Explore Krasarang Wilds", "ac=6975" },
-			{ "Explore Kun-Lai Summit", "ac=6976" },
-			{ "Explore Townlong Steppes", "ac=6977" },
-			{ "Explore Vale of Eternal Blossoms", "ac=6979" },
-			{ "Explore Valley of the Four Winds", "ac=6969" },
-			{ "Pandaria Explorer", "ac=6974" },
-			{ "Extreme Treasure Hunter", "ac=8726" },
-			{ "Eyes On The Ground", "ac=8725" },
-			{ "Finders Keepers", "ac=7282" },
-			{ "Fish Tales", "ac=6846" },
-			{ "Fortune of Pandaria", "ac=7995" },
-			{ "Glorious!", "ac=7439" },
-			{ "Gods and Monsters", "ac=8051" },
-			{ "Heart of the Mantid Swarm", "ac=6857" },
-			{ "Hozen in the Mist", "ac=6850" },
-			{ "I'm In Your Base, Killing Your Dudes", "ac=7932" },
-			{ "Is Another Man's Treasure", "ac=7284" },
-			{ "Killing Time", "ac=8712" },
-			{ "Legend of the Brewfathers", "ac=7230" },
-			{ "Legend of the Past", "ac=8723" },
-			{ "Lost and Found", "ac=7281" },
-			{ "One Man's Trash...", "ac=7283" },
-			{ "Pilgrimage", "ac=8724" },
-			{ "Restore Balance", "ac=7381" },
-			{ "Riches of Pandaria", "ac=7997" },
-			{ "Rolo's Riddle", "ac=8730" },
-			{ "Rumbles of Thunder", "ac=8050" },
-			{ "The Dark Heart of the Mogu", "ac=6754" },
-			{ "The Seven Burdens of Shaohao", "ac=6855" },
-			{ "The Song of the Yaungol", "ac=6847" },
-			{ "The Zandalari Prophecy", "ac=8049" },
-			{ "Timeless Champion", "ac=8714" },
-			{ "Timeless Legends", "ac=8784" },
-			{ "Timeless Nutriment", "ac=8722" },
-			{ "Treasure of Pandaria", "ac=7994" },
-			{ "Treasure, Treasure Everywhere", "ac=8729" },
-			{ "Wanderers, Dreamers, and You", "ac=7518" },
-			{ "What Is Worth Fighting For", "ac=6858" },
-			{ "Where There's Pirates, There's Booty", "ac=8727" },
-			{ "Zarhym Altogether", "ac=8743" },
-			{ "Zul'Again", "ac=8078" },
-			{ LBLU..QUESTS_LABEL },
-			{ "A Taste of History", "ac=7318" },
-			{ "A Taste of Things to Come", "ac=7294" },
-			{ "Ain't Lost No More", "ac=7296" },
-			{ "Amber is the Color of My Energy", "ac=7312" },
-			{ "Blue Response", "ac=8112" },
-			{ "Boop", "ac=8118" },
-			{ "Champion of Chi-Ji", "ac=7287" },
-			{ "Collateral Damage", "ac=7323" },
-			{ "Defender of Gods", "ac=7310" },
-			{ "Direhorn in a China Shop", "ac=8120" },
-			{ "Dog Pile", "ac=7320" },
-			{ "Dread Haste Makes Dread Waste", "ac=6540" },
-			{ "Every Day I'm Pand-a-ren", "ac=7285" },
-			{ "Finish Them!", "ac=7286" },
-			{ "Fire in the Yaung-hole!", "ac=7309" },
-			{ "For the Ward!", "ac=8117" },
-			{ "Getting Around with the Shado-Pan", "ac=7298" },
-			{ "Green Acres", "ac=7292" },
-			{ "How To Strain Your Dragon", "ac=7290" },
-			{ "In a Trail of Smoke", "ac=7291" },
-			{ "Isle of Thunder", "ac=8099" },
-			{ "It Was Worth Every Ritual Stone", "ac=8101" },
-			{ "Know Your Role", "ac=7308" },
-			{ "Listen to the Drunk Fish", "ac=7295" },
-			{ "Loner and a Rebel", "ac=7299" },
-			{ "Loremaster of Pandaria", "ac=6541" },
-			{ "Mighty Roamin' Krasaranger", "ac=6535" },
-			{ "One Many Army", "ac=7317" },
-			{ "One Step at a Time", "ac=7324" },
-			{ "One Steppe Forward, Two Steppes Back", "ac=6539" },
-			{ "Operation: Shieldwall Campaign", "ac=7928" },
-			{ "Our Powers Combined", "ac=8119" },
-			{ "Over Their Heads", "ac=7316" },
-			{ "Pay to Slay", "ac=8100" },
-			{ "Platform Hero", "ac=8114" },
-			{ "Proven Strength", "ac=7297" },
-			{ "Rally the Valley", "ac=6301" },
-			{ "Ready for RAAAAIIIIDDD?!?ing", "ac=8107" },
-			{ "Ready for Raiding III", "ac=7319" },
-			{ "Roll Club", "ac=7322" },
-			{ "Savior of Stoneplow", "ac=7502" },
-			{ "Shadow Hopper", "ac=7289" },
-			{ "Silent Assassin", "ac=7307" },
-			{ "Slum It in the Summit", "ac=6537" },
-			{ "Speed Metal", "ac=8115" },
-			{ "Spreading the Warmth", "ac=7321" },
-			{ "Stay Klaxxi", "ac=7313" },
-			{ "Stormbreaker", "ac=8121" },
-			{ "Test Drive", "ac=7314" },
-			{ "The Crumble Bundle", "ac=8105" },
-			{ "The Mogu Below-gu", "ac=8109" },
-			{ "These Mogu Have Gotta Go-gu", "ac=8110" },
-			{ "This Isn't Even My Final Form", "ac=8111" },
-			{ "Thunder Plunder", "ac=8104" },
-			{ "Till the Break of Dawn", "ac=7293" },
-			{ "Upjade Complete", "ac=6300" },
-			{ "When in Ihgaluk, Do as the Skumblade Do", "ac=8108" },
-			{ "Yak Attack", "ac=7288" },
-			{ "You Made Me Bleed My Own Blood", "ac=8116" },
-			{ "Zandalari Library Card", "ac=8212" },
 		},
 		TransHordePandaria = {
 			ZoneName = { BZ["Pandaria"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
@@ -1940,184 +2551,6 @@ if (WoWRetail) then
 			{ "You Made Me Bleed My Own Blood", "ac=8116" },
 			{ "Zandalari Library Card", "ac=8212" },
 		},
-		TransAllianceDraenor = {
-			ZoneName = { BZ["Draenor"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 572,
-			Faction = "Alliance",
-			{ _RED..L["Portals"] },
-			{ PURP.." A) "..BZ["Khadgar's Tower"]..ALC["Comma"]..BZ["Talador"], 10052 },
-			{ PURP.." A') "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"], 10053 },
-			{ PURP.." B') "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10054 },
-			{ PURP.." C') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"], 10055 },
-			{ NUTL.."19) "..BZ["Zangarra"]..ALC["Comma"]..BZ["Talador"] },
-			{ "" },
-			{ _RED..L["Taxi Nodes"] },
-			{ BLUE..BZ["Shadowmoon Valley"] },
-			{ ALAN.." 1) "..BZ["Lunarfall"], 10001 },
-			{ NUTL.." 2) "..BZ["Exile's Rise"], 10002 },
-			{ ALAN.." 3) "..BZ["Embaari Village"], 10003 },
-			{ ALAN.." 4) "..BZ["Path of the Light"], 10004 },
-			{ ALAN.." 5) "..BZ["Elodor"], 10005 },
-			{ ALAN.." 6) "..BZ["Tranquil Court"], 10006 },
-			{ ALAN.." 7) "..BZ["The Draakorium"], 10007 },
-			{ ALAN.." 8) "..BZ["Twilight Glade"], 10008 },
-			{ NUTL.." 9) "..BZ["Socrethar's Rise"], 10009 },
-			{ NUTL.."10) "..BZ["Darktide Roost"], 10010 },
-			{ NUTL.."11) "..BZ["Akeeta's Hovel"], 10011 },
-			{ "" },
-			{ BLUE..BZ["Talador"] },
-			{ ALAN.."12) "..BZ["Anchorite's Sojourn"], 10012 },
-			{ NUTL.."13) "..BZ["Terokkar Refuge"], 10013 },
-			{ ALAN.."14) "..BZ["Exarch's Refuge"], 10014 },
-			{ NUTL.."15) "..BZ["Retribution Point"], 10015 },
-			{ NUTL.."16) "..BZ["Shattrath City"], 10016 },
-			{ ALAN.."17) "..BZ["Redemption Rise"], 10017 },
-			{ ALAN.."18) "..BZ["Fort Wrynn"], 10018 },
-			{ NUTL.."19) "..BZ["Zangarra"], 10019 },
-			{ "" },
-			{ BLUE..BZ["Gorgrond"] },
-			{ ALAN.."20) "..BZ["Bastion Rise"], 10020 },
-			{ ALAN.."21) "..BZ["Deeproot"], 10021 },
-			{ ALAN.."22) "..BZ["Highpass"], 10022 },
-			{ ALAN.."23) "..BZ["Wildwood Wash"], 10023 },
-			{ NUTL.."24) "..BZ["Everbloom Wilds"], 10024 },
-			{ NUTL.."25) "..BZ["Everbloom Overlook"], 10025 },
-			{ NUTL.."26) "..BZ["Breaker's Crown"], 10026 },
-			{ NUTL.."27) "..BZ["Skysea Ridge"], 10027 },
-			{ NUTL.."28) "..BZ["Iron Docks"], 10028 },
-			{ "" },
-			{ BLUE..BZ["Spires of Arak"] },
-			{ NUTL.."29) "..BZ["Apexis Excavation"], 10029 },
-			{ ALAN.."30) "..BZ["Southport"], 10030 },
-			{ NUTL.."31) "..BZ["Veil Terokk"], 10031 },
-			{ NUTL.."32) "..BZ["Crow's Crook"], 10032 },
-			{ NUTL.."33) "..BZ["Talon Watch"], 10033 },
-			{ NUTL.."34) "..BZ["Pinchwhistle Gearworks"], 10034 },
-			{ "" },
-			{ BLUE..BZ["Nagrand"] },
-			{ NUTL.."35) "..BZ["The Ring of Trials"], 10035 },
-			{ ALAN.."36) "..BZ["Telaari Station"], 10036 },
-			{ NUTL.."37) "..BZ["Nivek's Overlook"], 10037 },
-			{ ALAN.."38) "..BZ["Yrel's Watch"], 10038 },
-			{ NUTL.."39) "..BZ["Rilzit's Holdfast"], 10039 },
-			{ NUTL.."40) "..BZ["Joz's Rylaks"], 10040 },
-			{ NUTL.."41) "..BZ["Throne of the Elements"], 10041 },
-			{ "" },
-			{ BLUE..BZ["Frostfire Ridge"] },
-			{ ALAN.."42) "..BZ["Iron Siegeworks"], 10042 },
-			{ NUTL.."43) "..BZ["Bloodmaul Slag Mines"], 10043 },
-			{ "" },
-			{ BLUE..BZ["Ashran"] },
-			{ ALAN.."44) "..BZ["Stormshield"], 10044 },
-			{ "" },
-			{ BLUE..BZ["Tanaan Jungle"] },
-			{ ALAN.."45) "..BZ["The Iron Front"], 10045 },
-			{ NUTL.."46) "..BZ["Sha'naari Refuge"], 10046 },
-			{ NUTL.."47) "..BZ["Malo's Lookout"], 10047 },
-			{ ALAN.."48) "..BZ["Lion's Watch"], 10048 },
-			{ NUTL.."49) "..BZ["Aktar's Post"], 10049 },
-			{ NUTL.."50) "..BZ["Vault of the Earth"], 10050 },
-			{ NUTL.."51) "..BZ["Throne of Kil'jaeden"], 10051 },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ PURP..L["Purple"]..ALC["Colon"]..L["Portals"] },
-			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
-			{ ALAN..L["Blue"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_ALLIANCE },
-			{ WHIT..L["White"]..ALC["Colon"]..L["Special transportation"] },
-			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-			{ CYAN.."-- : "..L["Airship"] },
-			{ "" },
-			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-			{ LBLU..L["Exploration"] },
-			{ "Explore Frostfire Ridge", "ac=8937" },
-			{ "Explore Gorgrond", "ac=8939" },
-			{ "Explore Nagrand", "ac=8942" },
-			{ "Explore Shadowmoon Valley", "ac=8938" },
-			{ "Explore Spires of Arak", "ac=8941" },
-			{ "Explore Talador", "ac=8940" },
-			{ "Explore Tanaan Jungle", "ac=10260" },
-			{ "Draenor Explorer", "ac=8935" },
-			{ "Draenor Pathfinder", "ac=10018" },
-			{ "Expert Treasure Hunter", "ac=9727" },
-			{ "Gorgrond Monster Hunter", "ac=9400" },
-			{ "Grand Treasure Hunter", "ac=9728" },
-			{ "Hellbane", "ac=10061" },
-			{ "I Came, I Clawed, I Conquered", "ac=10069" },
-			{ "Jungle Hunter", "ac=10259" },
-			{ "Jungle Stalker", "ac=10070" },
-			{ "Jungle Treasure Hunter", "ac=10261" },
-			{ "Jungle Treasure Master", "ac=10262" },
-			{ "Master Treasure Hunter", "ac=10348" },
-			{ "Prove Your Strength", "ac=9402" },
-			{ "Shredder Maniac", "ac=9401" },
-			{ "Treasure Hunter", "ac=9726" },
-			{ LBLU..QUESTS_LABEL },
-			{ "A Demidos of Reality", "ac=9437" },
-			{ "A-VOID-ance", "ac=9433" },
-			{ "Ancient No More", "ac=9678" },
-			{ "Arak Star", "ac=9605" },
-			{ "As I Walk Through the Valley of the Shadow of Moon", "ac=8845" },
-			{ "Between Arak and a Hard Place", "ac=8925" },
-			{ "Bobbing for Orcs", "ac=9635" },
-			{ "Breaker of Chains", "ac=9533" },
-			{ "Broke Back Precipice", "ac=9571" },
-			{ "Buried Treasures", "ac=9548" },
-			{ "Burn It to the Ground", "ac=9667" },
-			{ "By Fire Be... Merged?", "ac=9537" },
-			{ "Chapter I: Call of the Archmage", "ac=9640" },
-			{ "Chapter II: Gul'dan Strikes Back", "ac=9641" },
-			{ "Chapter III: The Foundry Falls", "ac=9642" },
-			{ "Chapter IV: Darkness Incarnate", "ac=10021" },
-			{ "Charged Up", "ac=9634" },
-			{ "Cut off the Head", "ac=9633" },
-			{ "Delectable Ogre Delicacies", "ac=9534" },
-			{ "Don't Let the Tala-door Hit You on the Way Out", "ac=8920" },
-			{ "Draenor's Last Stand", "ac=10068" },
-			{ "Eggs in One Basket", "ac=9612" },
-			{ "Fight the Power", "ac=9655" },
-			{ "Fish Gotta Swim, Birds Gotta Eat", "ac=9613" },
-			{ "Goodness Gracious", "ac=9486" },
-			{ "Heralds of the Legion", "ac=9638" },
-			{ "History of Violence", "ac=9610" },
-			{ "I Want More Talador", "ac=9674" },
-			{ "I Was Framed!", "ac=9483" },
-			{ "In Plain Sight", "ac=9656" },
-			{ "In Pursuit of Gul'dan", "ac=10067" },
-			{ "Iron Wings", "ac=9659" },
-			{ "It's the Stones!", "ac=9436" },
-			{ "King of the Monsters", "ac=9601" },
-			{ "Loremaster of Draenor", "ac=9833" },
-			{ "Make It a Bonus", "ac=9607" },
-			{ "Making the Cut", "ac=9617" },
-			{ "Master Relic Hunter", "ac=9825" },
-			{ "Mean and Green", "ac=9654" },
-			{ "Monster Mash", "ac=9600" },
-			{ "Nagrandeur", "ac=8927" },
-			{ "On the Shadow's Trail", "ac=9528" },
-			{ "One of Us! One of Us!", "ac=9434" },
-			{ "Picky Palate", "ac=9663" },
-			{ "Pillars of Draenor", "ac=9658" },
-			{ "Planned to Fail", "ac=9711" },
-			{ "Poisoning the Well", "ac=9710" },
-			{ "Poor Communication", "ac=9637" },
-			{ "Putting the Gore in Gorgrond", "ac=8923" },
-			{ "Rumble in the Jungle", "ac=10072" },
-			{ "Securing Draenor", "ac=9564" },
-			{ "Shoot For the Moon", "ac=9602" },
-			{ "Slagnarok", "ac=9536" },
-			{ "Take From Them Everything", "ac=9435" },
-			{ "That Was Entirely Unnecessary", "ac=9535" },
-			{ "The Garrison Campaign", "ac=9491" },
-			{ "The Power Is Yours", "ac=9632" },
-			{ "The Song of Silence", "ac=9541" },
-			{ "United We Stand", "ac=9636" },
-			{ "Welcome to Draenor", "ac=8921" },
-			{ "With a Nagrand Cherry On Top", "ac=9615" },
-			{ "Would You Like a Pamphlet?", "ac=9432" },
-			{ "Writing in the Snow", "ac=9530" },
-			{ "You Can't Make a Giant Omelette...", "ac=9479" },
-			{ "You Have Been Rylakinated!", "ac=9481" },
-		},
 		TransHordeDraenor = {
 			ZoneName = { BZ["Draenor"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 			WorldMapID = 572,
@@ -2294,19 +2727,6 @@ if (WoWRetail) then
 			{ "You Have Been Rylakinated!", "ac=9481" },
 			{ "You'll Get Caught Up In The... Frostfire!", "ac=8671" },
 		},
-		TransAllianceAshran = {
-			ZoneName = { BZ["Ashran"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 622,
-			Faction = "Alliance",
-			{ _RED..L["Taxi Nodes"] },
-			{ WHIT.." A) "..BZ["Stormshield"], 10001 },
-			{ "" },
-			{ _RED..L["Portals"] },
-			{ PURP.." B) "..BZ["Lion's Watch"], 10002 },
-			{ PURP.." C) "..BZ["Ironforge"], 10003 },
-			{ PURP.." D) "..BZ["Stormwind City"], 10004 },
-			{ PURP.." E) "..BZ["Darnassus"], 10005 },
-		},
 		TransHordeAshran = {
 			ZoneName = { BZ["Ashran"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 			WorldMapID = 624,
@@ -2319,178 +2739,6 @@ if (WoWRetail) then
 			{ PURP.." C) "..BZ["Thunder Bluff"], 10003 },
 			{ PURP.." D) "..BZ["Undercity"], 10004 },
 			{ PURP.." E) "..BZ["Orgrimmar"], 10005 },
-		},
-		TransAllianceBrokenIsles = {
-			ZoneName = { BZ["Broken Isles"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 619,
-			Faction = "Alliance",
-			LargeMap = "TransAllianceBrokenIsles",
-			{ _RED..L["Portals"] },
-			{ PURP.." A) "..BZ["Greyfang Enclave"], 10040 },
-			{ INDENT..GREY.."  -> "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ INDENT..GREY.." <-> "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ INDENT..GREY.."  -> "..BZ["Shrine of Seven Stars"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
-			{ INDENT..GREY.."  -> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ INDENT..GREY.."  -> "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ PURP.." B) "..BZ["Chamber of the Guardian"], 10041 },
-			{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
-			{ INDENT..GREY.."  -> "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"]..ALC["Comma"]..BZ["Northrend"] },
-			{ INDENT..GREY.."  -> "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ INDENT..INDENT.._RED..ALC["L-Parenthesis"]..L["Warning: Drop"]..ALC["R-Parenthesis"] },
-			{ INDENT..GREY.."  -> "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ PURP.." C) "..format(ALC["Portal to %s"], BZ["Dalaran"])..GREY.." (30.1, 40.7)", 10042 },
-			{ NUTL.."37) "..BZ["Deliverance Point"]..ALC["Hyphen"].._G["BROKENSHORE_BUILDING_MAGETOWER"]..GREY.." (46.3, 61.9)" },
-			{ INDENT..GREY.."  -> "..BZ["Meredil"]..ALC["Comma"]..BZ["Suramar"] },
-			{ INDENT..GREY.."  -> "..BZ["Valdisdall"]..ALC["Comma"]..BZ["Stormheim"] },
-			{ INDENT..GREY.."  -> "..BZ["Lorlathil"]..ALC["Comma"]..BZ["Val'sharah"] },
-			{ INDENT..GREY.."  -> "..BZ["Crumbled Palace"]..ALC["Comma"]..BZ["Azsuna"] },
-			{ INDENT..GREY.."  -> "..BZ["Thunder Totem"]..ALC["Comma"]..BZ["Highmountain"] },
-			{ "" },
-			{ _RED..L["Taxi Nodes"] },
-			{ BLUE..BZ["Dalaran"] },
-			{ NUTL.." 1) "..BZ["Krasus' Landing"]..GREY.." (69.8, 51.1)", 10001 },
-			{ "" },
-			{ BLUE..BZ["Azsuna"] },
-			{ NUTL.." 2) "..BZ["Watchers' Aerie"]..GREY.." (51.8, 82.1)", 10002 },
-			{ NUTL.." 3) "..BZ["Wardens' Redoubt"]..GREY.." (48.2, 73.8)", 10003 },
-			{ NUTL.." 4) "..BZ["Shackle's Den"]..GREY.." (56.2, 58.9)", 10004 },
-			{ NUTL.." 5) "..BZ["Illidari Stand"]..GREY.." (44.6, 43.8)", 10005 },
-			{ NUTL.." 6) "..BZ["Illidari Perch"]..GREY.." (31.8, 46.3)", 10006 },
-			{ NUTL.." 7) "..BZ["Felblaze Ingress"]..GREY.." (63.8, 28.5)", 10007 },
-			{ NUTL.." 8) "..BZ["Azurewing Repose"]..GREY.." (48.4, 28.0)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10008 },
-			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
-			{ INDENT..INDENT..GREY.." (47.6, 28.1)" },
-			{ NUTL.." 9) "..BZ["Challiane's Terrace"]..GREY.." (40.8, 9.0)", 10009 },
-			{ NUTL.."10) "..BZ["Eye of Azshara"]..GREY.." (38.3, 46.1)", 10010 },
-			{ "" },
-			{ BLUE..BZ["Val'sharah"] },
-			{ NUTL.."11) "..BZ["Lorlathil"]..GREY.." (55.0, 72.5)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10011 },
-			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
-			{ INDENT..INDENT..GREY.." (54.7, 74.9)" },
-			{ NUTL.."12) "..BZ["Gloaming Reef"]..GREY.." (25.9, 66.5)", 10012 },
-			{ NUTL.."13) "..BZ["Bradensbrook"]..GREY.." (42.2, 58.5)", 10013 },
-			{ NUTL.."14) "..BZ["Garden of the Moon"]..GREY.." (56.7, 57.7)", 10014 },
-			{ NUTL.."15) "..BZ["Starsong Refuge"]..GREY.." (69.0, 50.8)", 10015 },
-			{ GREN.." 1) "..BZ["The Dreamgrove"]..CL["DRUID"]..ALC["L-Parenthesis"]..L["Druid Only"]..ALC["R-Parenthesis"]..GREY.." (61.7, 33.9)", 10100 },
-			{ "" },
-			{ BLUE..BZ["Highmountain"] },
-			{ NUTL.."16) "..BZ["Obsidian Overlook"]..GREY.." (47.3, 84.6)", 10016 },
-			{ NUTL.."17) "..BZ["Ironhorn Enclave"]..GREY.." (56.8, 83.9)", 10017 },
-			{ NUTL.."18) "..BZ["Sylvan Falls"]..GREY.." (35.9, 65.9)", 10018 },
-			{ NUTL.."19) "..BZ["Thunder Totem"]..GREY.." (44.9, 38.7)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10019 },
-			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
-			{ INDENT..INDENT..GREY.." (39.8, 42.2)" },
-			{ NUTL.."20) "..BZ["Stonehoof Watch"]..GREY.." (59.2, 65.1)", 10020 },
-			{ NUTL.."21) "..BZ["Nesingwary"]..GREY.." (40.2, 52.7)", 10021 },
-			{ NUTL.."22) "..BZ["Skyhorn"]..GREY.." (52.6, 45.2)", 10022 },
-			{ NUTL.."23) "..BZ["Felbane Camp"]..GREY.." (29.9, 39.3)", 10023 },
-			{ NUTL.."24) "..BZ["The Witchwood"]..GREY.." (38.3, 39.3)", 10024 },
-			{ NUTL.."25) "..BZ["Prepfoot"]..GREY.." (58.0, 28.6)", 10025 },
-			{ NUTL.."26) "..BZ["Shipwreck Cove"]..GREY.." (41.9, 10.4)", 10026 },
-			{ GREN.." 2) "..BZ["Trueshot Lodge"]..CL["HUNTER"]..ALC["L-Parenthesis"]..L["Hunter Only"]..ALC["R-Parenthesis"]..GREY.." (35.7, 27.5)", 10101 },
-			{ "" },
-			{ BLUE..BZ["Stormheim"] },
-			{ ALAN.."27) "..BZ["Skyfire Triage Camp"]..GREY.." (33.6, 50.6)", 10027 },
-			{ ALAN.."28) "..BZ["Lorna's Watch"]..GREY.." (37.4, 64.0)", 10028 },
-			{ NUTL.."29) "..BZ["Stormtorn Foothills"]..GREY.." (52.0, 34.8)", 10029 },
-			{ NUTL.."30) "..BZ["Valdisdall"]..GREY.." (60.7, 50.9)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10030 },
-			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
-			{ INDENT..INDENT..GREY.." (60.2, 52.2)" },
-			{ ALAN.."31) "..BZ["Greywatch"]..GREY.." (72.2, 59.8)", 10031 },
-			{ NUTL.."32) "..BZ["Shield's Rest"]..GREY.." (89.8, 10.7)", 10032 },
-			{ NUTL.."33) "..BZ["Hafr Fjall"]..GREY.." (55.6, 87.5)", 10033 },
-			{ "" },
-			{ BLUE..BZ["Suramar"] },
-			{ NUTL.."34) "..BZ["Irongrove Retreat"]..GREY.." (25.5, 31.7)", 10034 },
-			{ NUTL.."35) "..BZ["Meredil"]..GREY.." (34.4, 49.4)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10035 },
-			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
-			{ INDENT..INDENT..GREY.." (33.1, 48.2)" },
-			{ NUTL.."36) "..BZ["Crimson Thicket"]..GREY.." (64.3, 42.0)", 10036 },
-			{ "" },
-			{ BLUE..BZ["Broken Shore"] },
-			{ NUTL.."37) "..BZ["Deliverance Point"]..GREY.." (45.1, 64.0)".."\n"..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"], 10037 },
-			{ INDENT..CL["WARRIOR"]..L["Warrior's landing / jumping point (from or back to Skyhold)"] },
-			{ INDENT..INDENT..GREY.." (44.9, 61.3)" },
-			{ NUTL.."38) "..BZ["Aalgen Point"]..GREY.." (70.7, 47.6)", 10038 },
-			{ NUTL.."39) "..BZ["Vengeance Point"]..GREY.." (49.7, 21.1)", 10039 },
-			{ GREN.." 3) "..BZ["Acherus: The Ebon Hold"]..CL["DEATHKNIGHT"]..ALC["L-Parenthesis"]..L["Death Knight Only"]..ALC["R-Parenthesis"], 10102 },
-			{ "" },
-			{ CL["MAGE"]..Atlas_GetClassName("MAGE")..ALC["Hyphen"]..L["Teleportation Nexus"] },
-			{ INDENT..GREY..ALC["L-Parenthesis"]..L["Requires Teleportation Nexus Advancement"]..ALC["R-Parenthesis"] },
-			{ INDENT..CL["MAGE"].." 1) "..BZ["Ley-Ruins of Zarkhenar"]..GREY.." (57.9, 15.1)", 10201 },
-			{ INDENT..CL["MAGE"].." 2) "..BZ["Sylvan Falls"]..GREY.." (31.4, 63.8)", 10202 },
-			{ INDENT..CL["MAGE"].." 3) "..BZ["Weeping Bluffs"]..GREY.." (52.5, 35.2)", 10203 },
-			{ INDENT..CL["MAGE"].." 4) "..BZ["Temple of Elune"]..GREY.." (33.5, 34.7)", 10204 },
-			{ INDENT..CL["MAGE"].." 5) "..BZ["Meredil"]..GREY.." (33.4, 50.4)", 10205 },
-			{ "" },
-			{ CL["HUNTER"]..Atlas_GetClassName("HUNTER")..ALC["Hyphen"]..L["Great Eagle"] },
-			{ INDENT..GREY..ALC["L-Parenthesis"]..L["Requires Eagle Ally Advancement"]..ALC["R-Parenthesis"] },
-			{ INDENT..CL["HUNTER"].." 1) "..BZ["The Dreamgrove"]..GREY.." (44.1, 15.0)", 10301 },
-			{ INDENT..CL["HUNTER"].." 2) "..BZ["Faronaar"]..GREY.." (25.4, 43.1)", 10302 },
-			{ INDENT..CL["HUNTER"].." 3) "..BZ["Isle of the Watchers"]..GREY.." (51.0, 79.9)", 10303 },
-			{ INDENT..CL["HUNTER"].." 4) "..BZ["Western Suramar"]..GREY.." (41.3, 82.8)", 10304 },
-			{ INDENT..CL["HUNTER"].." 5) "..BZ["Eastern Suramar"]..GREY.." (70.2, 71.1)", 10305 },
-			{ INDENT..CL["HUNTER"].." 6) "..BZ["Thorim's Peak"]..GREY.." (38.1, 79.2)", 10306 },
-			{ INDENT..CL["HUNTER"].." 7) "..BZ["Nastrondir"]..GREY.." (45.9, 35.8)", 10307 },
-			{ INDENT..CL["HUNTER"].." 8) "..BZ["Eastern Highmountain"]..GREY.." (56.7, 67.8)", 10308 },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ PURP..L["Purple"]..ALC["Colon"]..L["Portals"] },
-			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
-			{ ALAN..L["Blue"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_ALLIANCE },
-			{ GREN..L["Green"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Class Specific Only"] },
-			{ "" },
-			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
-			{ LBLU..L["Exploration"] },
-			{ "Explore Azsuna", "ac=10665" },
-			{ "Explore Highmountain", "ac=10667" },
-			{ "Explore Stormheim", "ac=10668" },
-			{ "Explore Suramar", "ac=10669" },
-			{ "Explore Val'sharah", "ac=10666" },
-			{ "Broken Isles Explorer", "ac=11188" },
-			{ "Broken Isles Pathfinder, Part One", "ac=11190" },
-			{ "Adventurer of Azsuna", "ac=11261" },
-			{ "Adventurer of Highmountain", "ac=11264" },
-			{ "Adventurer of Stormheim", "ac=11263" },
-			{ "Adventurer of Suramar", "ac=11265" },
-			{ "Adventurer of Val'sharah", "ac=11262" },
-			{ "Treasures of Azsuna", "ac=11256" },
-			{ "Treasures of Highmountain", "ac=11257" },
-			{ "Treasures of Stormheim", "ac=11259" },
-			{ "Treasures of Suramar", "ac=11260" },
-			{ "Treasures of Val'sharah", "ac=11258" },
-			{ "Going Up", "ac=10627" },
-			{ "Higher Dimensional Learning", "ac=11175" },
-			{ LBLU..QUESTS_LABEL },
-			{ "50 World Quests Completed", "ac=11126" },
-			{ "200 World Quests Completed", "ac=11127" },
-			{ "500 World Quests Completed", "ac=11128" },
-			{ "1000 World Quests Completed", "ac=11129" },
-			{ "2500 World Quests Completed", "ac=11130" },
-			{ "5000 World Quests Completed", "ac=11131" },
-			{ "10,000 World Quests Completed", "ac=11132" },
-			{ "Ain't No Mountain High Enough", "ac=10059" },
-			{ "Azsuna Matata", "ac=10763" },
-			{ "Drum Circle", "ac=10398" },
-			{ "Good Suramaritan", "ac=11124" },
-			{ "Harbinger", "ac=11240" },
-			{ "Hatchling of the Talon", "ac=10774" },
-			{ "Insurrection", "ac=11340" },
-			{ "Leyline Bling", "ac=10756" },
-			{ "Lock, Stock and Two Smoking Goblins", "ac=11232" },
-			{ "Loremaster of Legion", "ac=11157" },
-			{ "Nightfallen But Not Forgotten", "ac=10617" },
-			{ "No Shellfish Endeavor", "ac=11427" },
-			{ "Now You're Thinking With Portals", "ac=11125" },
-			{ "Pillars of Creation", "ac=10877" },
-			{ "Tehd & Marius' Excellent Adventure", "ac=11186" },
-			{ "That's Val'sharah Folks!", "ac=10698" },
-			{ "Variety is the Spice of Life", "ac=11189" },
-			{ "Vrykul Story, Bro", "ac=10790" },
-			{ "What a Ripoff!", "ac=10793" },
-			{ "Why Can't I Hold All This Mana?", "ac=11133" },
-			{ "Zoom!", "ac=10626" },
 		},
 		TransHordeBrokenIsles = {
 			ZoneName = { BZ["Broken Isles"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
@@ -2664,8 +2912,326 @@ if (WoWRetail) then
 			{ "Why Can't I Hold All This Mana?", "ac=11133" },
 			{ "Zoom!", "ac=10626" },
 		},
+		TransHordeZandalar = {
+			ZoneName = { BZ["Zandalar"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+			WorldMapID = 875,
+			Faction = "Horde",
+			{ _RED..L["Portals"] },
+			{ PURP.." A) "..BZ["Hall of Ancient Paths"], 10040},
+			{ INDENT..GREY.."  -> "..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ INDENT..GREY.."  -> "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..GREY.."  -> "..BZ["Thunder Bluff"]..ALC["Comma"]..BZ["Mulgore"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..GREY.."  -> "..BZ["Magni's Encampment"]..ALC["Comma"]..BZ["Silithus"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..GREY.."  -> "..BZ["Newhome"]..ALC["Comma"]..BZ["Nazjatar"] },
+			{ HRDE.." 1) "..BZ["Port of Zandalar"], 	 10001 },
+			{ INDENT..GREY.."  -> "..BZ["Darkshore"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..GREY.."  -> "..BZ["Arathi Highlands"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ "" },
+			{ _RED..BZ["Docks"] },
+			{ ALAN.." A) "..BZ["Port of Zandalar"], 10050 },
+			{ INDENT..GREY.."  -> "..BZ["Echo Isles"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ INDENT..GREY.."  -> "..BZ["Plunder Harbor"]..ALC["Comma"]..BZ["Tiragarde Sound"]..ALC["Comma"]..BZ["Kul Tiras"] },
+			{ INDENT..GREY.."  -> "..BZ["Anyport"]..ALC["Comma"]..BZ["Drustvar"]..ALC["Comma"]..BZ["Kul Tiras"] },
+			{ INDENT..GREY.."  -> "..BZ["Warfang Hold"]..ALC["Comma"]..BZ["Stormsong Valley"]..ALC["Comma"]..BZ["Kul Tiras"] },
+			{ "" },
+			{ _RED..L["Taxi Nodes"] },
+			{ BLUE..BZ["Zuldazar"] },
+			{ HRDE.." 1) "..BZ["Port of Zandalar"], 	 10001 },
+			{ HRDE.." 2) "..BZ["The Great Seal"],		 10002 },
+			{ HRDE.." 3) "..BZ["Warbeast Kraal"], 		 10003 },
+			{ HRDE.." 4) "..BZ["The Mugambala"], 		 10005 },
+			{ HRDE.." 5) "..BZ["Warport Rastari"], 		 10006 },
+			{ HRDE.." 6) "..BZ["Xibala"], 			 10006 },
+			{ HRDE.." 7) "..BZ["Temple of the Prophet"], 	 10007 },
+			{ NUTL.." 8) "..BZ["Atal'Gral"], 		 10008 },
+			{ NUTL.." 9) "..BZ["Scaletrader Post"], 	 10009 },
+			{ NUTL.."10) "..BZ["Nesingwary's Gameland"], 	 10010 },
+			{ HRDE.."11) "..BZ["Zeb'ahari"], 		 10011 },
+			{ HRDE.."12) "..BZ["The Sliver"], 		 10012 },
+			{ HRDE.."13) "..BZ["Atal'Dazar"], 		 10013 },
+			{ HRDE.."14) "..BZ["Garden of the Loa"], 	 10014 },
+			{ NUTL.."15) "..BZ["Seeker's Outpost"], 	 10015 },
+			{ HRDE.."16) "..BZ["Isle of Fangs"], 		 10016 },
+			{ HRDE.."17) "..BZ["Tusk Isle"], 		 10017 },
+			{ "" },
+			{ BLUE..BZ["Nazmir"] },
+			{ HRDE.."18) "..BZ["Zul'jan"], 		 10018 },
+			{ HRDE.."19) "..BZ["Gloom Hollow"], 	 10019 },
+			{ HRDE.."20) "..BZ["Forlorn Ruins"], 	10020 },
+			{ HRDE.."21) "..BZ["Zo'bal Ruins"], 	10021 },
+			{ "" },
+			{ BLUE..BZ["Vol'dun"] },
+			{ HRDE.."22) "..BZ["Scorched Sands Outpost"], 	 10022 },
+			{ HRDE.."23) "..BZ["Temple of Akunda"], 	 10023 },
+			{ HRDE.."24) "..BZ["Vulpera Hideaway"], 	 10024 },
+			{ HRDE.."25) "..BZ["Goldtusk Inn"], 	 10025 },
+			{ HRDE.."26) "..BZ["Vorrik's Sanctum"], 	 10027 },
+			{ NUTL.."27) "..BZ["Devoted Sanctuary"], 	 10027 },
+			{ NUTL.."28) "..BZ["Tortaka Refuge"], 		 10028 },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
+			{ HRDE..L["Red"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_HORDE },
+		},
+		TransHordeKulTiras = {
+			ZoneName = { BZ["Kul Tiras"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+			WorldMapID = 876,
+			Faction = "Horde",
+			--LargeMap = "",
+			{ _RED..L["Taxi Nodes"] },
+			{ BLUE..BZ["Tiragarde Sound"] },
+			{ NUTL.." 1) "..BZ["Castaway Point"], 	 10001 },
+			{ NUTL.." 2) "..BZ["Freehold"], 	 10002 },
+			{ HRDE.." 3) "..BZ["Waning Glacier"], 	 10003 },
+			{ "" },
+			{ BLUE..BZ["Stormsong Valley"] },
+			{ HRDE.." 4) "..BZ["Ironmaul Overlook"], 	 10004 },
+			{ HRDE.." 5) "..BZ["Shrine of the Storm"], 	 10005 },
+			{ HRDE.." 6) "..BZ["Diretusk Hollow"], 	 10006 },
+			{ NUTL.." 7) "..BZ["Seekers Vista"], 	 10007 },
+			{ "" },
+			{ BLUE..BZ["Drustvar"] },
+			{ HRDE.." 8) "..BZ["Whitegrove Chapel"], 	 10008 },
+			{ HRDE.." 9) "..BZ["Anyport"], 	 10009 },
+			{ "" },
+			{ BLUE..BZ["Mechagon"] },
+			{ HRDE.."10) "..BZ["Prospectus Bay"], 	 10010 },
+			{ "" },
+			{ BLUE..BZ["Tol Dagor"] },
+			{ HRDE.."11) "..BZ["Tol Dagor"], 	 10011 },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
+			{ HRDE..L["Red"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_HORDE },
+		},
+		TransHordeNazjatar = {
+			ZoneName = { BZ["Nazjatar"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+			WorldMapID = 1355,
+			Faction = "Horde",
+			--LargeMap = "",
+			{ _RED..L["Taxi Nodes"] },
+			{ NUTL.." 1) "..BZ["Kelya's Grave"], 10001 },
+			{ HRDE.." 2) "..BZ["Zin'Azshari"], 10002 },
+			{ HRDE.." 3) "..BZ["Ekka's Hideaway"], 10003 },
+			{ HRDE.." 4) "..BZ["Newhome"], 10004 },
+			{ HRDE.." 5) "..BZ["Ashen Strand"], 10005 },
+			{ HRDE.." 6) "..BZ["Wreck of the Hungry Riverbeast"], 10006 },
+		},
+	}
+	horde.coords = {
+		TransHordeCosmos = {
+			{  1, 10001, 135, 307 }, -- Orgrimmar
+			{  2, 10002,  89, 344 }, -- Thunder Bluff
+			{  3, 10003, 128, 267 }, -- Nordrassil
+			{  4, 10004, 127, 343 }, -- Ratchet
+			{  5, 10005, 133, 424 }, -- Caverns of Time
+			{  6, 10006,  95, 441 }, -- Ramkahen
+			{  7, 10007, 473, 191 }, -- Shattered Sun Staging Area
+			{  8, 10008, 478, 228 }, -- Silvermoon City
+			{  9, 10009, 417, 278 }, -- Brill
+			{ 10, 10010, 427, 285 }, -- Undercity
+			{ 11, 10011, 425, 300 }, -- Dalaran Crater
+			{ 12, 10012, 497, 342 }, -- Dragonmaw Port
+			{ 13, 10013, 468, 415 }, -- Shattered Landing
+			{ 14, 10014, 453, 422 }, -- Karazhan
+			{ 15, 10015, 427, 431 }, -- Grom'gol Base Camp
+			{ 16, 10016, 426, 451 }, -- Booty Bay
+			{ 17, 10017, 463,  90 }, -- The Stair of Destiny
+			{ 18, 10018, 409, 114 }, -- Shattrath City
+			{ 19, 10019, 214, 160 }, -- Warsong Hold
+			{ 20, 10020, 341, 173 }, -- Vengeance Landing
+			{ 21, 10021, 274, 130 }, -- Dalaran (Northrend)
+			{ 22, 10022, 276, 152 }, -- Wyrmrest Temple
+			{ 23, 10023, 279, 422 }, -- Honeydew Village
+			{ 24, 10024, 262, 446 }, -- Shrine of Two Moons
+			{ 25, 10025, 190,  73 }, -- Warspear
+			{ 26, 10026,  66,  66 }, -- Frostwall Garrison
+			{ 27, 10027, 313, 299 }, -- Dalaran
+		},
+		TransHordeOrgrimmar = {
+			{ "A", 10001, 263, 444, 544, 564, "Purple"}, -- Pathfinder's Den
+--			{ "A", 10001, 198, 321, 462, 414, "Purple"}, -- Shattered Landing
+--			{ "B", 10002, 177, 308, 436, 396, "Purple"}, -- The Stair of Destiny
+--			{ "B", 10002, 117, 352, 361, 445, "Purple"}, -- The Stair of Destiny
+			{ "B", 10002, 219, 222, 486, 283, "Purple"}, -- Dragonmaw Port
+			{ "C", 10003, 201, 224, 462, 288, "Purple"}, -- Hellscream's Grasp
+			{ "D", 10004, 209, 215, 475, 280, "Purple"}, -- Ramkahen
+			{ "E", 10005, 211, 202, 476, 264, "Purple"}, -- Vashj'ir
+			{ "F", 10006, 221, 200, 493, 264, "Purple"}, -- Temple of Earth
+			{ "G", 10007, 227, 211, 497, 278, "Purple"}, -- Nordrassil
+			{ "H", 10008, 224, 292, 492, 375, "Purple" }, -- Undercity
+--			{ "I", 10009, 341, 224, 643, 293, "Purple"}, -- Honeydew Village
+--			{ "J", 10010, 198, 362, 463, 461, "Purple"}, -- Warspear
+--			{ "K", 10016, 188, 326, 451, 424, "Purple"}, -- Dalaran
+			{ "A", 10011, 170, 329, 426, 424, "Orange" }, -- Thunder Bluff
+			{ "B", 10012, 182, 322, 440, 410, "Orange" }, -- Warsong Hold
+--			{ "C", 10013, 224, 292, 492, 375, "Orange" }, -- Undercity
+			{ "C", 10014, 232, 279, 506, 355, "Orange" }, -- Grom'gol Base Camp
+			{ "1", 10015, 212, 308, 481, 393, "White" }, -- Wind Rider Master
+			{ "A", 10017,  17, 362, 226, 463, "Blue" }, -- Northern Barrens
+			{ "B", 10018, 221, 471, 486, 604, "Blue" }, -- Durota
+			{ "C", 10019, 399,  27, 711,  44, "Blue" }, -- Azshara
+		},
+		TransHordeDraenor = {
+			{ "A", 10051, 283, 260 }, -- Khadgar's Tower
+			{ "A'", 10052, 488, 118 }, -- Orgrimmar
+			{ "B'", 10053, 489, 245 }, -- Thunder Bluff
+			{ "C'", 10054, 378, 4 }, -- Undercity
+			{ "1", 10001, 171, 185 }, -- Frostwall Garrison
+			{ "2", 10002, 120, 170 }, -- Wor'gol
+			{ "3", 10003, 132, 148 }, -- Bladespire Fortress
+			{ "4", 10004, 152, 165 }, -- Stonefang Outpost
+			{ "5", 10005, 138, 116 }, -- Throm'Var
+			{ "6", 10006, 177, 150 }, -- Darkspear's Edge
+			{ "7", 10007, 178, 126 }, -- Bloodmaul Slag Mines
+			{ "8", 10008, 219, 175 }, -- Wolf's Stand
+			{ "9", 10009, 238, 173 }, -- Thunder Pass
+			{ "10", 10010, 259, 208 }, -- Evermorn Springs
+			{ "11", 10011, 274, 219 }, -- Bastion Rise
+			{ "12", 10012, 277, 176 }, -- Beastwatch
+			{ "13", 10013, 272, 151 }, -- Breaker's Crown
+			{ "14", 10014, 259, 119 }, -- Skysea Point
+			{ "15", 10015, 267, 91 }, -- Iron Docks
+			{ "16", 10016, 308, 144 }, -- Everbloom Wilds
+			{ "17", 10017, 331, 107 }, -- Everbloom Overlook
+			{ "18", 10018, 277, 249 }, -- Zangarra
+			{ "19", 10019, 262, 256 }, -- Vol'jin's Pride
+			{ "20", 10020, 250, 233 }, -- Frostwolf Overlook
+			{ "21", 10021, 235, 273 }, -- Durotan's Grasp
+			{ "22", 10022, 219, 275 }, -- Shattrath City
+			{ "23", 10023, 261, 293 }, -- Terokkar Refuge
+			{ "24", 10024, 227, 306 }, -- Exarch's Refuge
+			{ "25", 10025, 212, 315 }, -- Retribution Point
+			{ "26", 10026, 245, 349 }, -- Apexis Excavation
+			{ "27", 10027, 269, 360 }, -- Crow's Crook
+			{ "28", 10028, 242, 375 }, -- Axefall
+			{ "29", 10029, 262, 373 }, -- Veil Terokk
+			{ "30", 10030, 284, 369 }, -- Talon Watch
+			{ "31", 10031, 281, 409 }, -- Pinchwhistle Gearworks
+			{ "32", 10032, 173, 258 }, -- Wor'var
+			{ "33", 10033, 161, 268 }, -- The Ring of Trials
+			{ "34", 10034, 156, 235 }, -- Throne of the Elements
+			{ "35", 10035, 135, 242 }, -- Joz's Rylaks
+			{ "36", 10036, 119, 240 }, -- Rilzit's Holdfast
+			{ "37", 10037, 114, 266 }, -- Riverside Post
+			{ "38", 10038, 113, 294 }, -- Nivek's Overlook
+			{ "39", 10039, 288, 336 }, -- Akeeta's Hovel
+			{ "40", 10040, 343, 312 }, -- Exile's Rise
+			{ "41", 10041, 332, 382 }, -- Socrethar's Rise
+			{ "42", 10042, 366, 392 }, -- Darktide Roost
+			{ "43", 10043, 436, 196 }, -- Warspear
+			{ "44", 10044, 279, 238 }, -- The Iron Front
+			{ "45", 10045, 302, 244 }, -- Sha'naari Refuge
+			{ "46", 10046, 334, 249 }, -- Vault of the Earth
+			{ "47", 10047, 361, 227 }, -- Vol'mar
+			{ "48", 10048, 300, 222 }, -- Aktar's Post
+			{ "49", 10049, 331, 224 }, -- Malo's Lookout
+			{ "50", 10001, 349, 207 }, -- Throne of Kil'jaeden
+		},
+		TransHordeAshran = {
+			{ "A", 10001, 205, 135 },
+			{ "B", 10002, 252, 169 },
+			{ "C", 10003, 240, 98 },
+			{ "D", 10004, 313, 91 },
+			{ "E", 10005, 289, 202 },
+		},
+		TransHordeBrokenIsles = {
+			{ "A", 10040, 239, 336, 445, 442, "Purple" }, -- Windrunner's Sanctuary
+			{ "B", 10041, 237, 348, 442, 458, "Purple" }, -- Chamber of the Guardian
+			{  "C", 10042, 290, 133, 512, 170, "Purple" }, -- Portal to Dalaran
+			{  "1", 10001, 249, 341, 454, 447, "TaxiNeutral" }, -- Krasus' Landing
+			{  "2", 10002, 151, 378, 324, 497, "TaxiNeutral" }, -- Watchers' Aerie
+			{  "3", 10003, 144, 363, 319, 477, "TaxiNeutral" }, -- Wardens' Redoubt
+			{  "4", 10004, 165, 336, 348, 439, "TaxiNeutral" }, -- Shackle's Den
+			{  "5", 10005, 130, 303, 297, 398, "TaxiNeutral" }, -- Illidari Stand
+			{  "6", 10006,  98, 314, 255, 413, "TaxiNeutral" }, -- Illidari Perch
+			{  "7", 10007, 191, 275, 380, 358, "TaxiNeutral" }, -- Felblaze Ingress
+			{  "8", 10008, 138, 266, 307, 349, "TaxiNeutral" }, -- Azurewing Repose
+			{  "9", 10009, 116, 238, 279, 307, "TaxiNeutral" }, -- Challiane's Terrace
+			{ "10", 10010, 222, 450, 419, 587, "TaxiNeutral" }, -- Eye of Azshara
+			{ "11", 10011, 147, 197, 327, 260, "TaxiNeutral" }, -- Lorlathil
+			{ "12", 10012,  75, 185, 223, 240, "TaxiNeutral" }, -- Gloaming Reef
+			{ "13", 10013, 117, 175, 280, 226, "TaxiNeutral" }, -- Bradensbrook
+			{ "14", 10014, 149, 177, 327, 226, "TaxiNeutral" }, -- Garden of the Moon
+			{ "15", 10015, 183, 163, 368, 209, "TaxiNeutral" }, -- Starsong Refuge
+			{ "16", 10016, 246, 164, 453, 209, "TaxiNeutral" }, -- Obsidian Overlook
+			{ "17", 10017, 277, 164, 503, 211, "TaxiNeutral" }, -- Ironhorn Enclave
+			{ "18", 10018, 210, 126, 408, 162, "TaxiNeutral" }, -- Sylvan Falls
+			{ "19", 10019, 244, 116, 449, 145, "TaxiNeutral" }, -- Thunder Totem
+			{ "20", 10020, 283, 121, 504, 158, "TaxiNeutral" }, -- Stonehoof Watch
+			{ "21", 10021, 224,  97, 421, 119, "TaxiNeutral" }, -- Nesingwary
+			{ "22", 10022, 263,  84, 479, 106, "TaxiNeutral" }, -- Skyhorn
+			{ "23", 10023, 191,  68, 379,  81, "TaxiNeutral" }, -- Felbane Camp
+			{ "24", 10024, 217,  67, 414,  81, "TaxiNeutral" }, -- The Witchwood
+			{ "25", 10025, 279,  51, 496,  57, "TaxiNeutral" }, -- Prepfoot
+			{ "26", 10026, 228,  12, 429,  17, "TaxiNeutral" }, -- Shipwreck Cove
+			{ "27", 10027, 311, 122, 535, 153, "TaxiHorde" }, -- Forsaken Foothold (H)
+			{ "28", 10028, 327, 169, 560, 219, "TaxiHorde" }, -- Cullen's Post (H)
+			{ "29", 10029, 344, 127, 588, 163, "TaxiNeutral" }, -- Stormtorn Foothills
+			{ "30", 10030, 369, 154, 620, 198, "TaxiNeutral" }, -- Valdisdall
+			{ "31", 10031, 355, 191, 599, 249, "TaxiHorde" }, -- Dreadwake's Landing (H)
+			{ "32", 10032, 442,  83, 717, 107, "TaxiNeutral" }, -- Shield's Rest
+			{ "33", 10033, 353, 223, 600, 289, "TaxiNeutral" }, -- Hafr Fjall
+			{ "34", 10034, 205, 198, 405, 255, "TaxiNeutral" }, -- Irongrove Retreat
+			{ "35", 10035, 225, 227, 433, 284, "TaxiNeutral" }, -- Meredil
+			{ "36", 10036, 291, 212, 521, 282, "TaxiNeutral" }, -- Crimson Thicket
+			{ "37", 10037, 295, 368, 523, 481, "TaxiNeutral" }, -- Deliverance Point
+			{ "38", 10038, 341, 351, 577, 458, "TaxiNeutral" }, -- Aalgen Point
+			{ "39", 10039, 304, 322, 533, 424, "TaxiNeutral" }, -- Vengeance Point
+			{  "1", 10100, 110, 112, 276, 146, "DRUID" }, -- The Dreamgrove
+			{  "2", 10101, 193,  91, 400, 119, "HUNTER" }, -- Trueshot Lodge
+			{  "3", 10102, 387, 365, 646, 483, "DEATHKNIGHT" }, -- Acherus: The Ebon Hold
+			{  "1", 10201, 169, 245, 350, 321, "MAGE" }, -- Ley-Ruins of Zarkhenar
+			{  "2", 10202, 193, 118, 387, 151, "MAGE" }, -- Sylvan Falls
+			{  "3", 10203, 298, 170, 522, 220, "MAGE" }, -- Weeping Bluffs
+			{  "4", 10204, 139, 172, 313, 219, "MAGE" }, -- Temple of Elune
+			{  "5", 10205, 226, 238, 433, 291, "MAGE" }, -- Meredil
+			{  "1", 10301, 123, 104, 288, 127, "HUNTER" }, -- The Dreamgrove
+			{  "2", 10302,  77, 301, 228, 394, "HUNTER" }, -- Faronaar
+			{  "3", 10303, 156, 371, 332, 484, "HUNTER" }, -- Isle of the Watchers
+			{  "4", 10304, 247, 282, 451, 363, "HUNTER" }, -- Western Suramar
+			{  "5", 10305, 316, 260, 545, 340, "HUNTER" }, -- Eastern Suramar
+			{  "6", 10306, 312, 204, 538, 263, "HUNTER" }, -- Thorim's Peak
+			{  "7", 10307, 333, 131, 572, 165, "HUNTER" }, -- Nastrondir
+			{  "8", 10308, 275, 130, 489, 168, "HUNTER" }, -- Eastern Highmountain
+		},
+	}
+	
+	data.maps = {
+		TransDeepholm = {
+			ZoneName = { BZ["Deepholm"]..NUTL..ALC["L-Parenthesis"]..FACTION_NEUTRAL..ALC["R-Parenthesis"] },
+			WorldMapID = 207,
+			{ _RED..L["Portals"] },
+			{ PURP.." A) "..BZ["Temple of Earth"] },
+			{ PURP.." B) "..BZ["Therazane's Throne"] },
+			{ PURP.." A') "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
+			{ PURP.." B') "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
+			{ "" },
+			{ LBLU..ACHIEVEMENTS..ALC["Colon"] },
+			{ LBLU..L["Exploration"] },
+			{ "Explore Deepholm", "ac=4864" },
+			{ "Cataclysm Explorer", "ac=4868" },
+			{ LBLU..QUESTS_LABEL },
+			{ "Deep into Deepholm", "ac=4871" },
+			{ "Fungal Frenzy", "ac=5450" },
+			{ "Fungalophobia", "ac=5445" },
+			{ "Loremaster of Cataclysm", "ac=4875" },
+			{ "My Very Own Broodmother", "ac=5447" },
+			{ "Rock Lover", "ac=5449" },
+			{ "The Glop Family Line", "ac=5446" },
+		},
+		TransDarkmoonFaire = {
+			ZoneName = { BZ["Darkmoon Island"]..NUTL..ALC["L-Parenthesis"]..FACTION_NEUTRAL..ALC["R-Parenthesis"] },
+			WorldMapID = 407,
+			{ PURP.." A) "..L["Portals"] },
+			{ PURP..INDENT.." -> "..BZ["Elwynn Forest"] },
+			{ PURP..INDENT.." -> "..BZ["Mulgore"] },
+		},
 		TransSuramar = {
-			ZoneName = { BZ["Suramar"] },
+			ZoneName = { BZ["Suramar"]..NUTL..ALC["L-Parenthesis"]..FACTION_NEUTRAL..ALC["R-Parenthesis"] },
 			WorldMapID = 680,
 			LargeMap = "TransSuramar",
 			{ _RED..L["Portals"] },
@@ -2705,7 +3271,7 @@ if (WoWRetail) then
 			{ "Why Can't I Hold All This Mana?", "ac=11133" },
 		},
 		TransDalaran = {
-			ZoneName = { BZ["Dalaran"] },
+			ZoneName = { BZ["Dalaran"]..NUTL..ALC["L-Parenthesis"]..FACTION_NEUTRAL..ALC["R-Parenthesis"] },
 			WorldMapID = 627,
 			DungeonLevel = "10",
 			{ _RED..L["Portals"] },
@@ -2781,7 +3347,7 @@ if (WoWRetail) then
 			{ GREN.." G) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"]..ALC["Comma"]..BZ["Kalimdor"], 10007 },
 		},
 		TransArgus = {
-			ZoneName = { BZ["Argus"] },
+			ZoneName = { BZ["Argus"]..NUTL..ALC["L-Parenthesis"]..FACTION_NEUTRAL..ALC["R-Parenthesis"] },
 			WorldMapID = 905,
 			--Faction = "",
 			--LargeMap = "",
@@ -2800,194 +3366,8 @@ if (WoWRetail) then
 			{ NUTL.."10) "..BZ["The Veiled Den"], 10010 },
 			{ NUTL.."11) "..BZ["Hope's Landing"], 10011 },
 		},
-		TransAllianceZandalar = {
-			ZoneName = { BZ["Zandalar"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 875,
-			Faction = "Alliance",
-			{ _RED..L["Taxi Nodes"] },
-			{ BLUE..BZ["Zuldazar"] },
-			{ ALAN.." 1) "..BZ["Xibala"], 	 10001 },
-			{ NUTL.." 2) "..BZ["Seeker's Outpost"], 	10002 },
-			{ ALAN.." 3) "..BZ["Castaway Encampment"], 	10003 },
-			{ NUTL.." 4) "..BZ["Atal'Gral"], 	 	10004 },
-			{ NUTL.." 5) "..BZ["Scaletrader Post"], 	10005 },
-			{ NUTL.." 6) "..BZ["Nesingwary's Gameland"], 	10006 },
-			{ "" },
-			{ BLUE..BZ["Nazmir"] },
-			{ ALAN.." 7) "..BZ["Fort Victory"], 	 10007 },
-			{ ALAN.." 8) "..BZ["Redfield's Watch"], 	 10008 },
-			{ "" },
-			{ BLUE..BZ["Vol'dun"] },
-			{ ALAN.." 9) "..BZ["Tortaka Refuge"], 	 10009 },
-			{ ALAN.."10) "..BZ["Devoted Sanctuary"], 	 10010 },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
-			{ ALAN..L["Blue"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_ALLIANCE },
-		},
-		TransHordeZandalar = {
-			ZoneName = { BZ["Zandalar"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
-			WorldMapID = 875,
-			Faction = "Horde",
-			{ PURP.." A) "..L["Portals"] },
-			{ "" },
-			{ ALAN.." A) "..L["Boat to Echo Isles, Durotar"], 10050 },
-			{ "" },
-			{ _RED..L["Taxi Nodes"] },
-			{ BLUE..BZ["Zuldazar"] },
-			{ HRDE.." 1) "..BZ["Isle of Fangs"], 		 10001 },
-			{ HRDE.." 2) "..BZ["Tusk Isle"], 		 10002 },
-			{ HRDE.." 3) "..BZ["Xibala"], 			 10003 },
-			{ HRDE.." 4) "..BZ["Warport Rastari"], 		 10004 },
-			{ HRDE.." 5) "..BZ["The Mugambala"], 		 10005 },
-			{ HRDE.." 6) "..BZ["Port of Zandalar"], 	 10006 },
-			{ NUTL.." 7) "..BZ["Seeker's Outpost"], 	 10007 },
-			{ NUTL.." 8) "..BZ["Atal'Gral"], 		 10008 },
-			{ NUTL.." 9) "..BZ["Scaletrader Post"], 	 10009 },
-			{ HRDE.."10) "..BZ["Zeb'ahari"], 		 10010 },
-			{ NUTL.."11) "..BZ["Nesingwary's Gameland"], 	 10011 },
-			{ HRDE.."12) "..BZ["Warbeast Kraal"], 		 10012 },
-			{ HRDE.."13) "..BZ["The Great Seal"],		 10013 },
-			{ HRDE.."14) "..BZ["The Sliver"], 		 10014 },
-			{ HRDE.."15) "..BZ["Temple of the Prophet"], 	 10015 },
-			{ HRDE.."16) "..BZ["Atal'Dazar"], 		 10016 },
-			{ HRDE.."17) "..BZ["Garden of the Loa"], 	 10017 },
-			{ "" },
-			{ BLUE..BZ["Nazmir"] },
-			{ HRDE.."18) "..BZ["Zul'jan"], 		 10018 },
-			{ HRDE.."19) "..BZ["Gloom Hollow"], 	 10019 },
-			{ HRDE.."20) "..BZ["Zo'bal Ruins"], 	 10020 },
-			{ "" },
-			{ BLUE..BZ["Vol'dun"] },
-			{ NUTL.."21) "..BZ["Tortaka Refuge"], 		 10021 },
-			{ NUTL.."22) "..BZ["Devoted Sanctuary"], 	 10022 },
-			{ HRDE.."23) "..BZ["Vorrik's Sanctum"], 	 10023 },
-			{ HRDE.."24) "..BZ["Vulpera Hideaway"], 	 10024 },
-			{ HRDE.."25) "..BZ["Scorched Sands Outpost"], 	 10025 },
-			{ HRDE.."26) "..BZ["Temple of Akunda"], 	 10026 },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
-			{ HRDE..L["Red"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_HORDE },
-		},
-		TransAllianceKulTiras = {
-			ZoneName = { BZ["Kul Tiras"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 876,
-			Faction = "Alliance",
-			--LargeMap = "",
-			{ PURP.." A) "..L["Portals"] },
-			{ PURP..INDENT..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ PURP..INDENT..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-			{ PURP..INDENT..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
-			{ "" },
-			{ ALAN.." A) "..L["Boat to Stormwind City"], 10050 },
-			{ "" },
-			{ _RED..L["Taxi Nodes"] },
-			{ BLUE..BZ["Tiragarde Sound"] },
-			{ NUTL.." 1) "..BZ["Castaway Point"], 		 10001 },
-			{ NUTL.." 2) "..BZ["Freehold"], 		 10002 },
-			{ ALAN.." 3) "..BZ["Kennings Lodge"], 		 10003 },
-			{ ALAN.." 4) "..BZ["Vigil Hill"], 		 10004 },
-			{ ALAN.." 5) "..BZ["Bridgeport"], 		 10005 },
-			{ ALAN.." 6) "..BZ["Mariner's Row"], 		 10006 },
-			{ ALAN.." 7) "..BZ["Proudmoore Keep"], 		 10007 },
-			{ ALAN.." 8) "..BZ["Tradewinds Market"], 	 10008 },
-			{ ALAN.." 9) "..BZ["Hatherford"], 		 10009 },
-			{ ALAN.."10) "..BZ["Norwington Estate"], 	 10010 },
-			{ ALAN.."11) "..BZ["Roughneck Camp"], 		 10011 },
-			{ ALAN.."12) "..BZ["Outrigger Post"], 		 10012 },
-			{ "" },
-			{ BLUE..BZ["Stormsong Valley"] },
-			{ ALAN.."13) "..BZ["Shrine of the Storm"], 	 10013 },
-			{ ALAN.."14) "..BZ["Tidecross"], 		 10014 },
-			{ ALAN.."15) "..BZ["Mildenhall Meadery"], 	 10015 },
-			{ ALAN.."16) "..BZ["Brennadam"], 		 10016 },
-			{ ALAN.."17) "..BZ["The Amber Waves"], 		 10017 },
-			{ ALAN.."18) "..BZ["Deadwash"], 		 10018 },
-			{ NUTL.."19) "..BZ["Seekers Vista"], 		 10019 },
-			{ ALAN.."20) "..BZ["Fort Daelin"], 		 10020 },
-			{ ALAN.."21) "..BZ["Millstone Hamlet"], 	 10021 },
-			{ "" },
-			{ BLUE..BZ["Drustvar"] },
-			{ ALAN.."22) "..BZ["Barbthorn Ridge"], 		 10022 },
-			{ ALAN.."23) "..BZ["Fallhaven"], 		 10023 },
-			{ ALAN.."24) "..BZ["Hangman's Point"], 		 10024 },
-			{ ALAN.."25) "..BZ["Fletcher's Hollow"], 	 10025 },
-			{ ALAN.."26) "..BZ["Arom's Stand"], 		 10026 },
-			{ ALAN.."27) "..BZ["Falconhurst"], 		 10027 },
-			{ NUTL.."28) "..BZ["Anyport"], 			 10028 },
-			{ NUTL.."29) "..BZ["Whitegrove Chapel"], 	 10029 },
-			{ ALAN.."30) "..BZ["Watchman's Rise"], 		 10030 },
-			{ "" },
-			{ BLUE..BZ["Mechagon"] },
-			{ ALAN.."31) "..BZ["Overspark Expedition Camp"],  10031 },
-			{ "" },
-			{ BLUE..BZ["Tol Dagor"] },
-			{ ALAN.."32) "..BZ["Tol Dagor"], 	 10032 },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ PURP..L["Purple"]..ALC["Colon"]..L["Portals"] },
-			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
-			{ ALAN..L["Blue"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_ALLIANCE },
-		},
-		TransHordeKulTiras = {
-			ZoneName = { BZ["Kul Tiras"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
-			WorldMapID = 876,
-			Faction = "Horde",
-			--LargeMap = "",
-			{ _RED..L["Taxi Nodes"] },
-			{ BLUE..BZ["Tiragarde Sound"] },
-			{ NUTL.." 1) "..BZ["Castaway Point"], 	 10001 },
-			{ NUTL.." 2) "..BZ["Freehold"], 	 10002 },
-			{ HRDE.." 3) "..BZ["Waning Glacier"], 	 10003 },
-			{ "" },
-			{ BLUE..BZ["Stormsong Valley"] },
-			{ HRDE.." 4) "..BZ["Ironmaul Overlook"], 	 10004 },
-			{ HRDE.." 5) "..BZ["Shrine of the Storm"], 	 10005 },
-			{ HRDE.." 6) "..BZ["Diretusk Hollow"], 	 10006 },
-			{ NUTL.." 7) "..BZ["Seekers Vista"], 	 10007 },
-			{ "" },
-			{ BLUE..BZ["Drustvar"] },
-			{ HRDE.." 8) "..BZ["Whitegrove Chapel"], 	 10008 },
-			{ HRDE.." 9) "..BZ["Anyport"], 	 10009 },
-			{ "" },
-			{ BLUE..BZ["Mechagon"] },
-			{ HRDE.."10) "..BZ["Prospectus Bay"], 	 10010 },
-			{ "" },
-			{ BLUE..BZ["Tol Dagor"] },
-			{ HRDE.."11) "..BZ["Tol Dagor"], 	 10011 },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
-			{ HRDE..L["Red"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..FACTION_HORDE },
-		},
-		TransAllianceNazjatar = {
-			ZoneName = { BZ["Nazjatar"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
-			WorldMapID = 1355,
-			Faction = "Alliance",
-			--LargeMap = "",
-			{ _RED..L["Taxi Nodes"] },
-			{ NUTL.." 1) "..BZ["Kelya's Grave"], 10001 },
-			{ ALAN.." 2) "..BZ["Orise's Vigil"], 10002 },
-			{ ALAN.." 3) "..BZ["Utama's Stand"], 10004 },
-			{ ALAN.." 4) "..BZ["Mezzamere"], 10003 },
-			{ ALAN.." 5) "..BZ["Wreck of the Old Blanchy"], 10005 },
-		},
-		TransHordeNazjatar = {
-			ZoneName = { BZ["Nazjatar"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
-			WorldMapID = 1355,
-			Faction = "Horde",
-			--LargeMap = "",
-			{ _RED..L["Taxi Nodes"] },
-			{ NUTL.." 1) "..BZ["Kelya's Grave"], 10001 },
-			{ HRDE.." 2) "..BZ["Zin'Azshari"], 10002 },
-			{ HRDE.." 3) "..BZ["Ekka's Hideaway"], 10003 },
-			{ HRDE.." 4) "..BZ["Newhome"], 10004 },
-			{ HRDE.." 5) "..BZ["Ashen Strand"], 10005 },
-			{ HRDE.." 6) "..BZ["Wreck of the Hungry Riverbeast"], 10006 },
-		},
 		TransArdenweald = {
-			ZoneName = { BZ["Ardenweald"] },
+			ZoneName = { BZ["Ardenweald"]..NUTL..ALC["L-Parenthesis"]..FACTION_NEUTRAL..ALC["R-Parenthesis"] },
 			WorldMapID = 1565,
 			--Faction = "",
 			--LargeMap = "",
@@ -3000,7 +3380,7 @@ if (WoWRetail) then
 			{ NUTL.." 7) "..BZ["The Veiled Den"], 10007 },
 		},
 		TransBastion = {
-			ZoneName = { BZ["Bastion"] },
+			ZoneName = { BZ["Bastion"]..NUTL..ALC["L-Parenthesis"]..FACTION_NEUTRAL..ALC["R-Parenthesis"] },
 			WorldMapID = 1569,
 			--Faction = "",
 			--LargeMap = "",
@@ -3010,7 +3390,7 @@ if (WoWRetail) then
 			{ NUTL.." 4) "..BZ["Terrace of the Collectors"], 10004 },
 		},
 		TransMaldraxxus = {
-			ZoneName = { BZ["Maldraxxus"] },
+			ZoneName = { BZ["Maldraxxus"]..NUTL..ALC["L-Parenthesis"]..FACTION_NEUTRAL..ALC["R-Parenthesis"] },
 			WorldMapID = 1689,
 			--Faction = "",
 			--LargeMap = "",
@@ -3023,7 +3403,7 @@ if (WoWRetail) then
 			{ NUTL.." 7) "..BZ["Renounced Bastille"], 10007 },
 		},
 		TransRevendreth = {
-			ZoneName = { BZ["Revendreth"] },
+			ZoneName = { BZ["Revendreth"]..NUTL..ALC["L-Parenthesis"]..FACTION_NEUTRAL..ALC["R-Parenthesis"] },
 			WorldMapID = 1734,
 			--Faction = "",
 			--LargeMap = "",
@@ -3039,356 +3419,7 @@ if (WoWRetail) then
 		},
 	}
 
-	db.coords = {
-		TransAllianceCosmos = {
-			{  1, 10001, 424, 395 }, -- Stormwind City
-			{  2, 10002, 436, 356 }, -- Ironforge
-			{  3, 10003, 441, 337 }, -- Menethil Harbor
-			{  4, 10004, 496, 351 }, -- Highbank
-			{  5, 10005, 467, 410 }, -- Shattered Beachhead
-			{  6, 10006, 448, 423 }, -- Karazhan
-			{  7, 10007, 420, 451 }, -- Booty Bay
-			{  8, 10008, 424, 300 }, -- Dalaran Crater
-			{  9, 10009, 474, 193 }, -- Shattered Sun Staging Area
-			{ 10, 10010,  60, 219 }, -- Darnassus
-			{ 11, 10011,  77, 232 }, -- Rut'theran Village
-			{ 12, 10012,  24, 256 }, -- The Exodar
-			{ 13, 10013, 131, 268 }, -- Nordrassil
-			{ 14, 10014, 130, 342 }, -- Ratchet
-			{ 15, 10015, 140, 374 }, -- Theramore
-			{ 16, 10016, 136, 422 }, -- Caverns of Time
-			{ 17, 10017,  98, 441 }, -- Ramkahen
-			{ 18, 10018, 464,  91 }, -- The Stair of Destiny
-			{ 19, 10019, 409, 116 }, -- Shattrath City
-			{ 20, 10020, 221, 167 }, -- Valiance Keep
-			{ 21, 10021, 331, 181 }, -- Valgarde
-			{ 22, 10022, 275, 130 }, -- Dalaran (Northrend)
-			{ 23, 10023, 274, 151 }, -- Wyrmrest Temple
-			{ 24, 10024, 296, 466 }, -- Paw'don Village
-			{ 25, 10025, 262, 452 }, -- Shrine of Seven Stars
-			{ 26, 10026, 190,  84 }, -- Stormshield
-			{ 27, 10027, 130, 117 }, -- Lunarfall
-			{ 28, 10028, 314, 299 }, -- Dalaran
-		},
-		TransHordeCosmos = {
-			{  1, 10001, 135, 307 }, -- Orgrimmar
-			{  2, 10002,  89, 344 }, -- Thunder Bluff
-			{  3, 10003, 128, 267 }, -- Nordrassil
-			{  4, 10004, 127, 343 }, -- Ratchet
-			{  5, 10005, 133, 424 }, -- Caverns of Time
-			{  6, 10006,  95, 441 }, -- Ramkahen
-			{  7, 10007, 473, 191 }, -- Shattered Sun Staging Area
-			{  8, 10008, 478, 228 }, -- Silvermoon City
-			{  9, 10009, 417, 278 }, -- Brill
-			{ 10, 10010, 427, 285 }, -- Undercity
-			{ 11, 10011, 425, 300 }, -- Dalaran Crater
-			{ 12, 10012, 497, 342 }, -- Dragonmaw Port
-			{ 13, 10013, 468, 415 }, -- Shattered Landing
-			{ 14, 10014, 453, 422 }, -- Karazhan
-			{ 15, 10015, 427, 431 }, -- Grom'gol Base Camp
-			{ 16, 10016, 426, 451 }, -- Booty Bay
-			{ 17, 10017, 463,  90 }, -- The Stair of Destiny
-			{ 18, 10018, 409, 114 }, -- Shattrath City
-			{ 19, 10019, 214, 160 }, -- Warsong Hold
-			{ 20, 10020, 341, 173 }, -- Vengeance Landing
-			{ 21, 10021, 274, 130 }, -- Dalaran (Northrend)
-			{ 22, 10022, 276, 152 }, -- Wyrmrest Temple
-			{ 23, 10023, 279, 422 }, -- Honeydew Village
-			{ 24, 10024, 262, 446 }, -- Shrine of Two Moons
-			{ 25, 10025, 190,  73 }, -- Warspear
-			{ 26, 10026,  66,  66 }, -- Frostwall Garrison
-			{ 27, 10027, 313, 299 }, -- Dalaran
-		},
-		TransAllianceStormwindCity = {
-			{ "A", 10001,  54, 273, 248, 372, "Orange" }, -- Boralus
-			{ "B", 10002,  24, 140, 216, 203, "Orange" }, -- Valiance Keep
---			{ "A", 10003, 228, 418, 466, 553, "Purple" }, -- The Stair of Destiny
---			{ "B", 10004, 237, 406, 477, 540, "Purple" }, -- Fuselight-by-the-Sea
---			{ "C", 10005, 358, 103, 635, 155, "Purple" }, -- Paw'don Village
-			{ "A", 10003, 228, 418, 466, 553, "Purple" }, -- Wizard's Sancrum
-			{ "B", 10004, 411, 119, 699, 181, "Purple" }, -- Ramkahen
-			{ "C", 10005, 399, 120, 686, 182, "Purple" }, -- Temple of Earth
-			{ "D", 10006, 389, 111, 671, 163, "Purple" }, -- Baradin Base Camp
-			{ "E", 10007, 395,  99, 677, 149, "Purple" }, -- Darkbreak Cove
-			{ "F", 10008, 408,  96, 691, 151, "Purple" }, -- Highbank
-			{ "G", 10009, 415, 109, 704, 163, "Purple" }, -- Nordrassil
-			{ "H", 10010,  71, 279, 270, 378, "Purple" }, -- Darkshore
---			{ "J", 10012, 487, 182, 794, 260, "Purple" }, -- Stormshield
---			{ "K", 10013, 441, 169, 736, 240, "Purple" }, -- Dalaran
-			{ "1", 10014, 353, 178, 624, 250, "White" }, -- Ironforge
-			{ "2", 10015, 374, 346, 656, 464, "White" }, -- Stormwind City
-		},
-		TransHordeOrgrimmar = {
-			{ "A", 10001, 263, 444, 544, 564, "Purple"}, -- Pathfinder's Den
---			{ "A", 10001, 198, 321, 462, 414, "Purple"}, -- Shattered Landing
---			{ "B", 10002, 177, 308, 436, 396, "Purple"}, -- The Stair of Destiny
---			{ "B", 10002, 117, 352, 361, 445, "Purple"}, -- The Stair of Destiny
-			{ "B", 10002, 219, 222, 486, 283, "Purple"}, -- Dragonmaw Port
-			{ "C", 10003, 201, 224, 462, 288, "Purple"}, -- Hellscream's Grasp
-			{ "D", 10004, 209, 215, 475, 280, "Purple"}, -- Ramkahen
-			{ "E", 10005, 211, 202, 476, 264, "Purple"}, -- Vashj'ir
-			{ "F", 10006, 221, 200, 493, 264, "Purple"}, -- Temple of Earth
-			{ "G", 10007, 227, 211, 497, 278, "Purple"}, -- Nordrassil
-			{ "H", 10008, 224, 292, 492, 375, "Purple" }, -- Undercity
---			{ "I", 10009, 341, 224, 643, 293, "Purple"}, -- Honeydew Village
---			{ "J", 10010, 198, 362, 463, 461, "Purple"}, -- Warspear
---			{ "K", 10016, 188, 326, 451, 424, "Purple"}, -- Dalaran
-			{ "A", 10011, 170, 329, 426, 424, "Orange" }, -- Thunder Bluff
-			{ "B", 10012, 182, 322, 440, 410, "Orange" }, -- Warsong Hold
---			{ "C", 10013, 224, 292, 492, 375, "Orange" }, -- Undercity
-			{ "C", 10014, 232, 279, 506, 355, "Orange" }, -- Grom'gol Base Camp
-			{ "1", 10015, 212, 308, 481, 393, "White" }, -- Wind Rider Master
-			{ "A", 10017,  17, 362, 226, 463, "Blue" }, -- Northern Barrens
-			{ "B", 10018, 221, 471, 486, 604, "Blue" }, -- Durota
-			{ "C", 10019, 399,  27, 711,  44, "Blue" }, -- Azshara
-		},
-		TransAllianceDraenor = {
-			{ "A", 10052, 278, 259 }, -- Khadgar's Tower
-			{ "A'", 10053, 450, 10 }, -- Darnassus
-			{ "B'", 10054, 494, 60 }, -- Ironforge
-			{ "C'", 10055, 493, 136 }, -- Stormwind City
-			{ "1", 10001, 307, 302 }, -- Lunarfall
-			{ "2", 10002, 337, 314 }, -- Exile's Rise
-			{ "3", 10003, 338, 331 }, -- Embaari Village
-			{ "4", 10004, 367, 339 }, -- Path of Light
-			{ "5", 10005, 365, 320 }, -- Elodor
-			{ "6", 10006, 389, 345 }, -- Tranquil Court
-			{ "7", 10007, 365, 356 }, -- The Draakorium
-			{ "8", 10008, 328, 355 }, -- Twilight Glade
-			{ "9", 10009, 337, 382 }, -- Socrethar's Rise
-			{ "10", 10010, 367, 393 }, -- Darktide Roost
-			{ "11", 10011, 288, 337 }, -- Akeeta's Hovel
-			{ "12", 10012, 283, 288 }, -- Anchorite's Sojourn
-			{ "13", 10013, 260, 292 }, -- Terokkar Refuge
-			{ "14", 10014, 229, 305 }, -- Exarch's Refuge
-			{ "15", 10015, 210, 316 }, -- Retribution Point
-			{ "16", 10016, 224, 274 }, -- Shattrath City
-			{ "17", 10017, 245, 251 }, -- Redemption Rise
-			{ "18", 10018, 260, 245 }, -- Fort Wrynn
-			{ "19", 10019, 275, 248 }, -- Zangarra
-			{ "20", 10020, 271, 218 }, -- Bastion Rise
-			{ "21", 10021, 273, 190 }, -- Deeproot
-			{ "22", 10022, 290, 165 }, -- Highpass
-			{ "23", 10023, 317, 155 }, -- Wildwood Wash
-			{ "24", 10024, 299, 139 }, -- Everbloom Wilds
-			{ "25", 10025, 331, 109 }, -- Everbloom Overlook
-			{ "26", 10026, 273, 152 }, -- Breaker's Crown
-			{ "27", 10027, 259, 120 }, -- Skysea Point
-			{ "28", 10028, 266, 95 }, -- Iron Docks
-			{ "29", 10029, 237, 349 }, -- Apexis Excavation
-			{ "30", 10030, 245, 395 }, -- Southport
-			{ "31", 10031, 254, 372 }, -- Veil Terokk
-			{ "32", 10032, 261, 355 }, -- Crow's Crook
-			{ "33", 10033, 284, 370 }, -- Talon Watch
-			{ "34", 10034, 281, 412 }, -- Pinchwhistle Gearworks
-			{ "35", 10035, 171, 258 }, -- The Ring of Trials
-			{ "36", 10036, 136, 278 }, -- Telaari Station
-			{ "37", 10037, 111, 293 }, -- Nivek's Overlook
-			{ "38", 10038, 138, 254 }, -- Yrel's Watch
-			{ "39", 10039, 117, 240 }, -- Rilzit's Holdfast
-			{ "40", 10040, 134, 239 }, -- Joz's Rylaks
-			{ "41", 10041, 155, 237 }, -- Throne of the Elements
-			{ "42", 10042, 243, 187 }, -- Iron Siegeworks
-			{ "43", 10043, 177, 128 }, -- Bloodmaul Slag Mines
-			{ "44", 10044, 431, 242 }, -- Stormshield
-			{ "45", 10045, 279, 233 }, -- The Iron Front
-			{ "46", 10046, 301, 244 }, -- Sha'naari Refuge
-			{ "47", 10047, 335, 249 }, -- Malo's Lookout
-			{ "48", 10048, 353, 240 }, -- Lion's Watch
-			{ "49", 10049, 300, 221 }, -- Aktar's Post
-			{ "50", 10050, 330, 223 }, -- Vault of the Earth
-			{ "51", 10051, 352, 207 }, -- Throne of Kil'jaeden
-		},
-		TransHordeDraenor = {
-			{ "A", 10051, 283, 260 }, -- Khadgar's Tower
-			{ "A'", 10052, 488, 118 }, -- Orgrimmar
-			{ "B'", 10053, 489, 245 }, -- Thunder Bluff
-			{ "C'", 10054, 378, 4 }, -- Undercity
-			{ "1", 10001, 171, 185 }, -- Frostwall Garrison
-			{ "2", 10002, 120, 170 }, -- Wor'gol
-			{ "3", 10003, 132, 148 }, -- Bladespire Fortress
-			{ "4", 10004, 152, 165 }, -- Stonefang Outpost
-			{ "5", 10005, 138, 116 }, -- Throm'Var
-			{ "6", 10006, 177, 150 }, -- Darkspear's Edge
-			{ "7", 10007, 178, 126 }, -- Bloodmaul Slag Mines
-			{ "8", 10008, 219, 175 }, -- Wolf's Stand
-			{ "9", 10009, 238, 173 }, -- Thunder Pass
-			{ "10", 10010, 259, 208 }, -- Evermorn Springs
-			{ "11", 10011, 274, 219 }, -- Bastion Rise
-			{ "12", 10012, 277, 176 }, -- Beastwatch
-			{ "13", 10013, 272, 151 }, -- Breaker's Crown
-			{ "14", 10014, 259, 119 }, -- Skysea Point
-			{ "15", 10015, 267, 91 }, -- Iron Docks
-			{ "16", 10016, 308, 144 }, -- Everbloom Wilds
-			{ "17", 10017, 331, 107 }, -- Everbloom Overlook
-			{ "18", 10018, 277, 249 }, -- Zangarra
-			{ "19", 10019, 262, 256 }, -- Vol'jin's Pride
-			{ "20", 10020, 250, 233 }, -- Frostwolf Overlook
-			{ "21", 10021, 235, 273 }, -- Durotan's Grasp
-			{ "22", 10022, 219, 275 }, -- Shattrath City
-			{ "23", 10023, 261, 293 }, -- Terokkar Refuge
-			{ "24", 10024, 227, 306 }, -- Exarch's Refuge
-			{ "25", 10025, 212, 315 }, -- Retribution Point
-			{ "26", 10026, 245, 349 }, -- Apexis Excavation
-			{ "27", 10027, 269, 360 }, -- Crow's Crook
-			{ "28", 10028, 242, 375 }, -- Axefall
-			{ "29", 10029, 262, 373 }, -- Veil Terokk
-			{ "30", 10030, 284, 369 }, -- Talon Watch
-			{ "31", 10031, 281, 409 }, -- Pinchwhistle Gearworks
-			{ "32", 10032, 173, 258 }, -- Wor'var
-			{ "33", 10033, 161, 268 }, -- The Ring of Trials
-			{ "34", 10034, 156, 235 }, -- Throne of the Elements
-			{ "35", 10035, 135, 242 }, -- Joz's Rylaks
-			{ "36", 10036, 119, 240 }, -- Rilzit's Holdfast
-			{ "37", 10037, 114, 266 }, -- Riverside Post
-			{ "38", 10038, 113, 294 }, -- Nivek's Overlook
-			{ "39", 10039, 288, 336 }, -- Akeeta's Hovel
-			{ "40", 10040, 343, 312 }, -- Exile's Rise
-			{ "41", 10041, 332, 382 }, -- Socrethar's Rise
-			{ "42", 10042, 366, 392 }, -- Darktide Roost
-			{ "43", 10043, 436, 196 }, -- Warspear
-			{ "44", 10044, 279, 238 }, -- The Iron Front
-			{ "45", 10045, 302, 244 }, -- Sha'naari Refuge
-			{ "46", 10046, 334, 249 }, -- Vault of the Earth
-			{ "47", 10047, 361, 227 }, -- Vol'mar
-			{ "48", 10048, 300, 222 }, -- Aktar's Post
-			{ "49", 10049, 331, 224 }, -- Malo's Lookout
-			{ "50", 10001, 349, 207 }, -- Throne of Kil'jaeden
-		},
-		TransAllianceAshran = {
-			{ "A", 10001, 153, 331 },
-			{ "B", 10002, 187, 305 },
-			{ "C", 10003, 258, 333 },
-			{ "D", 10004, 306, 299 },
-			{ "E", 10005, 328, 379 },
-		},
-		TransHordeAshran = {
-			{ "A", 10001, 205, 135 },
-			{ "B", 10002, 252, 169 },
-			{ "C", 10003, 240, 98 },
-			{ "D", 10004, 313, 91 },
-			{ "E", 10005, 289, 202 },
-		},
-		TransAllianceBrokenIsles = {
-			{  "A", 10040, 230, 357, 432, 463, "Purple" }, -- Greyfang Enclave
-			{  "B", 10041, 237, 349, 441, 452, "Purple" }, -- Chamber of the Guardian
-			{  "C", 10042, 290, 133, 512, 170, "Purple" }, -- Portal to Dalaran
-			{  "1", 10001, 249, 341, 454, 447, "TaxiNeutral" }, -- Krasus' Landing
-			{  "2", 10002, 151, 378, 324, 497, "TaxiNeutral" }, -- Watchers' Aerie
-			{  "3", 10003, 144, 363, 319, 477, "TaxiNeutral" }, -- Wardens' Redoubt
-			{  "4", 10004, 165, 336, 348, 439, "TaxiNeutral" }, -- Shackle's Den
-			{  "5", 10005, 130, 303, 297, 398, "TaxiNeutral" }, -- Illidari Stand
-			{  "6", 10006,  98, 314, 255, 413, "TaxiNeutral" }, -- Illidari Perch
-			{  "7", 10007, 191, 275, 380, 358, "TaxiNeutral" }, -- Felblaze Ingress
-			{  "8", 10008, 138, 266, 307, 349, "TaxiNeutral" }, -- Azurewing Repose
-			{  "9", 10009, 116, 238, 279, 307, "TaxiNeutral" }, -- Challiane's Terrace
-			{ "10", 10010, 222, 450, 419, 587, "TaxiNeutral" }, -- Eye of Azshara
-			{ "11", 10011, 147, 197, 327, 260, "TaxiNeutral" }, -- Lorlathil
-			{ "12", 10012,  75, 185, 223, 240, "TaxiNeutral" }, -- Gloaming Reef
-			{ "13", 10013, 117, 175, 280, 226, "TaxiNeutral" }, -- Bradensbrook
-			{ "14", 10014, 149, 177, 327, 226, "TaxiNeutral" }, -- Garden of the Moon
-			{ "15", 10015, 183, 163, 368, 209, "TaxiNeutral" }, -- Starsong Refuge
-			{ "16", 10016, 246, 164, 453, 209, "TaxiNeutral" }, -- Obsidian Overlook
-			{ "17", 10017, 277, 164, 503, 211, "TaxiNeutral" }, -- Ironhorn Enclave
-			{ "18", 10018, 210, 126, 408, 162, "TaxiNeutral" }, -- Sylvan Falls
-			{ "19", 10019, 244, 116, 449, 145, "TaxiNeutral" }, -- Thunder Totem
-			{ "20", 10020, 283, 121, 504, 158, "TaxiNeutral" }, -- Stonehoof Watch
-			{ "21", 10021, 224,  97, 421, 119, "TaxiNeutral" }, -- Nesingwary
-			{ "22", 10022, 263,  84, 479, 106, "TaxiNeutral" }, -- Skyhorn
-			{ "23", 10023, 191,  68, 379,  81, "TaxiNeutral" }, -- Felbane Camp
-			{ "24", 10024, 217,  67, 414,  81, "TaxiNeutral" }, -- The Witchwood
-			{ "25", 10025, 279,  51, 496,  57, "TaxiNeutral" }, -- Prepfoot
-			{ "26", 10026, 228,  12, 429,  17, "TaxiNeutral" }, -- Shipwreck Cove
-			{ "27", 10027, 297, 152, 522, 194, "TaxiAlliance" }, -- Skyfire Triage Camp (A)
-			{ "28", 10028, 318, 176, 542, 227, "TaxiAlliance" }, -- Lorna's Watch (A)
-			{ "29", 10029, 344, 127, 588, 163, "TaxiNeutral" }, -- Stormtorn Foothills
-			{ "30", 10030, 369, 154, 620, 198, "TaxiNeutral" }, -- Valdisdall
-			{ "31", 10031, 404, 171, 664, 219, "TaxiAlliance" }, -- Greywatch (A)
-			{ "32", 10032, 442,  83, 717, 107, "TaxiNeutral" }, -- Shield's Rest
-			{ "33", 10033, 353, 223, 600, 289, "TaxiNeutral" }, -- Hafr Fjall
-			{ "34", 10034, 205, 198, 405, 255, "TaxiNeutral" }, -- Irongrove Retreat
-			{ "35", 10035, 225, 227, 433, 284, "TaxiNeutral" }, -- Meredil
-			{ "36", 10036, 291, 212, 521, 282, "TaxiNeutral" }, -- Crimson Thicket
-			{ "37", 10037, 295, 368, 523, 481, "TaxiNeutral" }, -- Deliverance Point
-			{ "38", 10038, 341, 351, 577, 458, "TaxiNeutral" }, -- Aalgen Point
-			{ "39", 10039, 304, 322, 533, 424, "TaxiNeutral" }, -- Vengeance Point
-			{  "1", 10100, 110, 112, 276, 146, "DRUID" }, -- The Dreamgrove
-			{  "2", 10101, 193,  91, 400, 119, "HUNTER" }, -- Trueshot Lodge
-			{  "3", 10102, 387, 365, 646, 483, "DEATHKNIGHT" }, -- Acherus: The Ebon Hold
-			{  "1", 10201, 169, 245, 350, 321, "MAGE" }, -- Ley-Ruins of Zarkhenar
-			{  "2", 10202, 193, 118, 387, 151, "MAGE" }, -- Sylvan Falls
-			{  "3", 10203, 298, 170, 522, 220, "MAGE" }, -- Weeping Bluffs
-			{  "4", 10204, 139, 172, 313, 219, "MAGE" }, -- Temple of Elune
-			{  "5", 10205, 226, 238, 433, 291, "MAGE" }, -- Meredil
-			{  "1", 10301, 123, 104, 288, 127, "HUNTER" }, -- The Dreamgrove
-			{  "2", 10302,  77, 301, 228, 394, "HUNTER" }, -- Faronaar
-			{  "3", 10303, 156, 371, 332, 484, "HUNTER" }, -- Isle of the Watchers
-			{  "4", 10304, 247, 282, 451, 363, "HUNTER" }, -- Western Suramar
-			{  "5", 10305, 316, 260, 545, 340, "HUNTER" }, -- Eastern Suramar
-			{  "6", 10306, 312, 204, 538, 263, "HUNTER" }, -- Thorim's Peak
-			{  "7", 10307, 333, 131, 572, 165, "HUNTER" }, -- Nastrondir
-			{  "8", 10308, 275, 130, 489, 168, "HUNTER" }, -- Eastern Highmountain
-		},
-		TransHordeBrokenIsles = {
-			{ "A", 10040, 239, 336, 445, 442, "Purple" }, -- Windrunner's Sanctuary
-			{ "B", 10041, 237, 348, 442, 458, "Purple" }, -- Chamber of the Guardian
-			{  "C", 10042, 290, 133, 512, 170, "Purple" }, -- Portal to Dalaran
-			{  "1", 10001, 249, 341, 454, 447, "TaxiNeutral" }, -- Krasus' Landing
-			{  "2", 10002, 151, 378, 324, 497, "TaxiNeutral" }, -- Watchers' Aerie
-			{  "3", 10003, 144, 363, 319, 477, "TaxiNeutral" }, -- Wardens' Redoubt
-			{  "4", 10004, 165, 336, 348, 439, "TaxiNeutral" }, -- Shackle's Den
-			{  "5", 10005, 130, 303, 297, 398, "TaxiNeutral" }, -- Illidari Stand
-			{  "6", 10006,  98, 314, 255, 413, "TaxiNeutral" }, -- Illidari Perch
-			{  "7", 10007, 191, 275, 380, 358, "TaxiNeutral" }, -- Felblaze Ingress
-			{  "8", 10008, 138, 266, 307, 349, "TaxiNeutral" }, -- Azurewing Repose
-			{  "9", 10009, 116, 238, 279, 307, "TaxiNeutral" }, -- Challiane's Terrace
-			{ "10", 10010, 222, 450, 419, 587, "TaxiNeutral" }, -- Eye of Azshara
-			{ "11", 10011, 147, 197, 327, 260, "TaxiNeutral" }, -- Lorlathil
-			{ "12", 10012,  75, 185, 223, 240, "TaxiNeutral" }, -- Gloaming Reef
-			{ "13", 10013, 117, 175, 280, 226, "TaxiNeutral" }, -- Bradensbrook
-			{ "14", 10014, 149, 177, 327, 226, "TaxiNeutral" }, -- Garden of the Moon
-			{ "15", 10015, 183, 163, 368, 209, "TaxiNeutral" }, -- Starsong Refuge
-			{ "16", 10016, 246, 164, 453, 209, "TaxiNeutral" }, -- Obsidian Overlook
-			{ "17", 10017, 277, 164, 503, 211, "TaxiNeutral" }, -- Ironhorn Enclave
-			{ "18", 10018, 210, 126, 408, 162, "TaxiNeutral" }, -- Sylvan Falls
-			{ "19", 10019, 244, 116, 449, 145, "TaxiNeutral" }, -- Thunder Totem
-			{ "20", 10020, 283, 121, 504, 158, "TaxiNeutral" }, -- Stonehoof Watch
-			{ "21", 10021, 224,  97, 421, 119, "TaxiNeutral" }, -- Nesingwary
-			{ "22", 10022, 263,  84, 479, 106, "TaxiNeutral" }, -- Skyhorn
-			{ "23", 10023, 191,  68, 379,  81, "TaxiNeutral" }, -- Felbane Camp
-			{ "24", 10024, 217,  67, 414,  81, "TaxiNeutral" }, -- The Witchwood
-			{ "25", 10025, 279,  51, 496,  57, "TaxiNeutral" }, -- Prepfoot
-			{ "26", 10026, 228,  12, 429,  17, "TaxiNeutral" }, -- Shipwreck Cove
-			{ "27", 10027, 311, 122, 535, 153, "TaxiHorde" }, -- Forsaken Foothold (H)
-			{ "28", 10028, 327, 169, 560, 219, "TaxiHorde" }, -- Cullen's Post (H)
-			{ "29", 10029, 344, 127, 588, 163, "TaxiNeutral" }, -- Stormtorn Foothills
-			{ "30", 10030, 369, 154, 620, 198, "TaxiNeutral" }, -- Valdisdall
-			{ "31", 10031, 355, 191, 599, 249, "TaxiHorde" }, -- Dreadwake's Landing (H)
-			{ "32", 10032, 442,  83, 717, 107, "TaxiNeutral" }, -- Shield's Rest
-			{ "33", 10033, 353, 223, 600, 289, "TaxiNeutral" }, -- Hafr Fjall
-			{ "34", 10034, 205, 198, 405, 255, "TaxiNeutral" }, -- Irongrove Retreat
-			{ "35", 10035, 225, 227, 433, 284, "TaxiNeutral" }, -- Meredil
-			{ "36", 10036, 291, 212, 521, 282, "TaxiNeutral" }, -- Crimson Thicket
-			{ "37", 10037, 295, 368, 523, 481, "TaxiNeutral" }, -- Deliverance Point
-			{ "38", 10038, 341, 351, 577, 458, "TaxiNeutral" }, -- Aalgen Point
-			{ "39", 10039, 304, 322, 533, 424, "TaxiNeutral" }, -- Vengeance Point
-			{  "1", 10100, 110, 112, 276, 146, "DRUID" }, -- The Dreamgrove
-			{  "2", 10101, 193,  91, 400, 119, "HUNTER" }, -- Trueshot Lodge
-			{  "3", 10102, 387, 365, 646, 483, "DEATHKNIGHT" }, -- Acherus: The Ebon Hold
-			{  "1", 10201, 169, 245, 350, 321, "MAGE" }, -- Ley-Ruins of Zarkhenar
-			{  "2", 10202, 193, 118, 387, 151, "MAGE" }, -- Sylvan Falls
-			{  "3", 10203, 298, 170, 522, 220, "MAGE" }, -- Weeping Bluffs
-			{  "4", 10204, 139, 172, 313, 219, "MAGE" }, -- Temple of Elune
-			{  "5", 10205, 226, 238, 433, 291, "MAGE" }, -- Meredil
-			{  "1", 10301, 123, 104, 288, 127, "HUNTER" }, -- The Dreamgrove
-			{  "2", 10302,  77, 301, 228, 394, "HUNTER" }, -- Faronaar
-			{  "3", 10303, 156, 371, 332, 484, "HUNTER" }, -- Isle of the Watchers
-			{  "4", 10304, 247, 282, 451, 363, "HUNTER" }, -- Western Suramar
-			{  "5", 10305, 316, 260, 545, 340, "HUNTER" }, -- Eastern Suramar
-			{  "6", 10306, 312, 204, 538, 263, "HUNTER" }, -- Thorim's Peak
-			{  "7", 10307, 333, 131, 572, 165, "HUNTER" }, -- Nastrondir
-			{  "8", 10308, 275, 130, 489, 168, "HUNTER" }, -- Eastern Highmountain
-		},
+	data.coords = {
 		TransSuramar = {
 			{ "A", 10001, 155, 248, 288, 292, "Purple" }, -- Ruins of Elune'eth
 			{ "B", 10002, 209, 175, 351, 209, "Purple" }, -- Tel'anor
@@ -3484,5 +3515,5 @@ if (WoWRetail) then
 	}
 end
 
-Atlas:RegisterPlugin(private.addon_name, private.db.category, private.db.maps, private.db.coords)
+--Atlas:RegisterPlugin(private.addon_name, private.data.category, private.data.maps, private.data.coords)
 

@@ -48,8 +48,12 @@ else
 	WoWRetail = true
 end
 
-local db = {}
-private.db = db
+local data = {}
+local alliance = {}
+local horde = {}
+private.data = data
+private.alliance = alliance
+private.horde = horde
 
 local BLUE = "|cff6666ff"
 local GREN = "|cff66cc33"
@@ -65,7 +69,7 @@ local HRDE = "|cffda6955" -- Horde's taxi node
 local NUTL = "|cfffee570" -- Nutral taxi node
 local INDENT = "      "
 
-db.category = L[private.category]
+data.category = L[private.category]
 
 local CL = {
 	["HUNTER"] 	= "|cffabd473",
@@ -83,7 +87,7 @@ local CL = {
 }
 
 if (WoWClassicEra) then
-	db.maps = {
+	alliance.maps = {
 		TransAllianceEast_Classic = {
 			ZoneName = { BZ["Eastern Kingdoms"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 			WorldMapID = 13,
@@ -111,30 +115,6 @@ if (WoWClassicEra) then
 			{ "" },
 			{ _RED..L["Legend"] },
 			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
-		},
-		TransHordeEast_Classic = {
-			ZoneName = { BZ["Eastern Kingdoms"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
-			WorldMapID = 13,
-			Faction = "Horde",
-			{ BLUE.." A) "..BZ["Orgrimmar"]..ALC["Comma"].._RED..BZ["Durotar"] },
-			{ BLUE.." B) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"] },
-			{ };
-			{ WHIT.." 1) "..BZ["Light's Hope Chapel"]..ALC["Comma"].._RED..BZ["Eastern Plaguelands"] },
-			{ WHIT.." 2) "..BZ["Undercity"]..ALC["Comma"].._RED..BZ["Tirisfal Glades"] },
-			{ WHIT.." 3) "..BZ["The Sepulcher"]..ALC["Comma"].._RED..BZ["Silverpine Forest"] },
-			{ WHIT.." 4) "..BZ["Tarren Mill"]..ALC["Comma"].._RED..BZ["Hillsbrad Foothills"] },
-			{ WHIT.." 5) "..BZ["Revantusk Village"]..ALC["Comma"].._RED..BZ["The Hinterlands"] },
-			{ WHIT.." 6) "..BZ["Hammerfall"]..ALC["Comma"].._RED..BZ["Arathi Highlands"] },
-			{ WHIT.." 7) "..BZ["Thorium Point"]..ALC["Comma"].._RED..BZ["Searing Gorge"] },
-			{ WHIT.." 8) "..BZ["Kargath"]..ALC["Comma"].._RED..BZ["Badlands"] },
-			{ WHIT.." 9) "..BZ["Flame Crest"]..ALC["Comma"].._RED..BZ["Burning Steppes"] },
-			{ WHIT.."10) "..BZ["Stonard"]..ALC["Comma"].._RED..BZ["Swamp of Sorrows"] },
-			{ WHIT.."11) "..BZ["Grom'gol"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"] },
-			{ WHIT.."12) "..BZ["Booty Bay"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"] },
-			{ "" },
-			{ _RED..L["Legend"] },
-			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
-			{ NUTL.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		},
 		TransAllianceWest_Classic = {
 			ZoneName = { BZ["Kalimdor"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
@@ -165,6 +145,34 @@ if (WoWClassicEra) then
 			{ _RED..L["Legend"] },
 			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
 			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
+		},
+	},
+	alliance.coords = {
+	},
+	horde.maps = {
+		TransHordeEast_Classic = {
+			ZoneName = { BZ["Eastern Kingdoms"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+			WorldMapID = 13,
+			Faction = "Horde",
+			{ BLUE.." A) "..BZ["Orgrimmar"]..ALC["Comma"].._RED..BZ["Durotar"] },
+			{ BLUE.." B) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"] },
+			{ };
+			{ WHIT.." 1) "..BZ["Light's Hope Chapel"]..ALC["Comma"].._RED..BZ["Eastern Plaguelands"] },
+			{ WHIT.." 2) "..BZ["Undercity"]..ALC["Comma"].._RED..BZ["Tirisfal Glades"] },
+			{ WHIT.." 3) "..BZ["The Sepulcher"]..ALC["Comma"].._RED..BZ["Silverpine Forest"] },
+			{ WHIT.." 4) "..BZ["Tarren Mill"]..ALC["Comma"].._RED..BZ["Hillsbrad Foothills"] },
+			{ WHIT.." 5) "..BZ["Revantusk Village"]..ALC["Comma"].._RED..BZ["The Hinterlands"] },
+			{ WHIT.." 6) "..BZ["Hammerfall"]..ALC["Comma"].._RED..BZ["Arathi Highlands"] },
+			{ WHIT.." 7) "..BZ["Thorium Point"]..ALC["Comma"].._RED..BZ["Searing Gorge"] },
+			{ WHIT.." 8) "..BZ["Kargath"]..ALC["Comma"].._RED..BZ["Badlands"] },
+			{ WHIT.." 9) "..BZ["Flame Crest"]..ALC["Comma"].._RED..BZ["Burning Steppes"] },
+			{ WHIT.."10) "..BZ["Stonard"]..ALC["Comma"].._RED..BZ["Swamp of Sorrows"] },
+			{ WHIT.."11) "..BZ["Grom'gol"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"] },
+			{ WHIT.."12) "..BZ["Booty Bay"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"] },
+			{ "" },
+			{ _RED..L["Legend"] },
+			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
+			{ NUTL.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		},
 		TransHordeWest_Classic = {
 			ZoneName = { BZ["Kalimdor"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
@@ -199,9 +207,13 @@ if (WoWClassicEra) then
 			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 			{ NUTL.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		},
+	},
+	horde.coords = {
+	},
+	data.maps = {
 	}
 
-	db.coords = {
+	data.coords = {
 	}
 end
 

@@ -101,5 +101,7 @@ if L then
 	L["Boat to Stormwind City"] = "Boat to Stormwind City"
 	L["Boat to Echo Isles, Durotar"] = "Boat to Echo Isles, Durotar"
 	L["Honored with Sha'tari Skyguard"] = "Honored with Sha'tari Skyguard"
-	
+	-- Options
+	L["Show %s's transportation maps"] = "Show %s's transportation maps"
+	L["Change will take effect after next login; or type '/reload' command to reload addon"] = "Change will take effect after next login; or type '/reload' command to reload addon"
 end
