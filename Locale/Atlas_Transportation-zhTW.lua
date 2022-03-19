@@ -97,6 +97,14 @@ if L then
 	L["Teleportation Nexus"] = "傳送網路";
 	L["Requires Teleportation Nexus Advancement"] = "需要升級傳送網路";
 	L["Gleep Chatterswitch"] = "格里坡·恰恰開關"; -- NPC: 71336
+	L["Vindicaar"] = "梵迪卡爾"
+	L["Teleport Beacon"] = "光鑄信標傳送點"
+	L["Boat to Stormwind City"] = "行駛到暴風城的航線"
+	L["Boat to Echo Isles, Durotar"] = "行駛到回音群島/杜洛塔的航線"
+	L["Honored with Sha'tari Skyguard"] = "需薩塔空防陣營榮譽"
+	-- Options
+	L["Show %s's transportation maps"] = "顯示%s陣營的交通網路圖"
+	L["Change will take effect after next login; or type '/reload' command to reload addon"] = "變更會在下次登入後生效；或輸入 /reload 指令重新載入插件"
 --@end-do-not-package@
 --@localization(locale="zhTW", format="lua_additive_table")@
 end

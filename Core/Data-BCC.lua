@@ -69,8 +69,6 @@ local HRDE = "|cffda6955" -- Horde's taxi node
 local NUTL = "|cfffee570" -- Nutral taxi node
 local INDENT = "      "
 
-data.category = L[private.category]
-
 local CL = {
 	["HUNTER"] 	= "|cffabd473",
 	["WARLOCK"] 	= "|cff8788ee",
@@ -181,9 +179,9 @@ if (WoWClassicTBC) then
 			{ GREN.."2') "..BZ["Skyguard Outpost"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
 			{ GREN..INDENT..L["Honored with Sha'tari Skyguard"] },
 		},
-	},
+	}
 	alliance.coords = {
-	},
+	}
 	horde.maps = {
 		TransHordeEast_BCC = {
 			ZoneName = { BZ["Eastern Kingdoms"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
@@ -274,10 +272,10 @@ if (WoWClassicTBC) then
 			{ GREN.."1') "..BZ["Blackwind Landing"]..ALC["Comma"].._RED..BZ["Terokkar Forest"] },
 			{ GREN.."2') "..BZ["Skyguard Outpost"]..ALC["Comma"].._RED..BZ["Blade's Edge Mountains"] },
 			{ GREN..INDENT..L["Honored with Sha'tari Skyguard"] },
-		}
-	},
+		},
+	}
 	horde.coords = {
-	},
+	}
 	data.maps = {
 	}
 	data.coords = {

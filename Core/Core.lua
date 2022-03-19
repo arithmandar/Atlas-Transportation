@@ -79,7 +79,7 @@ end
 
 
 function addon:OnEnable()
-	Atlas:RegisterPlugin(private.addon_name, private.data.category, private.data.maps, private.data.coords)
+	Atlas:RegisterPlugin(private.addon_name, L[private.category], private.data.maps, private.data.coords)
 end
 
 function addon:Refresh()

@@ -70,8 +70,6 @@ local HRDE = "|cffda6955" -- Horde's taxi node
 local NUTL = "|cfffee570" -- Nutral taxi node
 local INDENT = "      "
 
-data.category = L[private.category]
-
 local CL = {
 	["HUNTER"] 	= "|cffabd473",
 	["WARLOCK"] 	= "|cff8788ee",
@@ -3515,5 +3513,4 @@ if (WoWRetail) then
 	}
 end
 
---Atlas:RegisterPlugin(private.addon_name, private.data.category, private.data.maps, private.data.coords)
 

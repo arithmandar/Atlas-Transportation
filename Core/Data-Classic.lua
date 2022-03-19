@@ -69,8 +69,6 @@ local HRDE = "|cffda6955" -- Horde's taxi node
 local NUTL = "|cfffee570" -- Nutral taxi node
 local INDENT = "      "
 
-data.category = L[private.category]
-
 local CL = {
 	["HUNTER"] 	= "|cffabd473",
 	["WARLOCK"] 	= "|cff8788ee",
@@ -146,9 +144,9 @@ if (WoWClassicEra) then
 			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
 			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		},
-	},
+	}
 	alliance.coords = {
-	},
+	}
 	horde.maps = {
 		TransHordeEast_Classic = {
 			ZoneName = { BZ["Eastern Kingdoms"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
@@ -207,9 +205,9 @@ if (WoWClassicEra) then
 			{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 			{ NUTL.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		},
-	},
+	}
 	horde.coords = {
-	},
+	}
 	data.maps = {
 	}
 
@@ -217,5 +215,4 @@ if (WoWClassicEra) then
 	}
 end
 
-Atlas:RegisterPlugin(private.addon_name, private.db.category, private.db.maps, private.db.coords)
 
