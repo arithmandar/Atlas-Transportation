@@ -25,9 +25,9 @@ private.config = config
 local function ShowOption()
 	local f
 	if (faction == "Alliance") then
-		f = FACTION_ALLIANCE
-	else
 		f = FACTION_HORDE
+	else
+		f = FACTION_ALLIANCE
 	end
 	
 	return format(L["Show %s's transportation maps"], f)

@@ -8,6 +8,10 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.50.07 (Mar. 23, 2022)
+------------------------
+- Correction on config's expression
+
 v1.50.06 (Mar. 23, 2022)
 ------------------------
 - BCC ToC update to support WoW 2.5.4
