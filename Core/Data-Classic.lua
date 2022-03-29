@@ -89,8 +89,8 @@ if (WoWClassicEra) then
 		TransAllianceCosmos_Classic = {
 			ZoneName = { WORLD..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 			{ BLUE..BZ["Kalimdor"] },
-			{ WHIT.." 1) "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"], 10001 },
-			{ WHIT.." 2) "..BZ["Rut'theran Village"]..ALC["Comma"]..BZ["Teldrassil"], 10002 },
+			{ WHIT.." 1) "..BZ["Darnassus"]..ALC["Comma"].._RED..BZ["Teldrassil"], 10001 },
+			{ WHIT.." 2) "..BZ["Rut'theran Village"]..ALC["Comma"].._RED..BZ["Teldrassil"], 10002 },
 			{ WHIT.." 3) "..BZ["Auberdine"]..ALC["Comma"].._RED..BZ["Darkshore"], 10003 },
 			{ WHIT.." 4) "..BZ["Nighthaven"]..ALC["Comma"].._RED..BZ["Moonglade"], 10004 },
 			{ NUTL.." 5) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"], 10005 },
