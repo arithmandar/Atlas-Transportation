@@ -86,6 +86,29 @@ local CL = {
 
 if (WoWClassicTBC) then
 	alliance.maps = {
+		TransAllianceCosmos_BCC = {
+			ZoneName = { WORLD..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			{ BLUE..BZ["Kalimdor"] },
+			{ WHIT.." 1) "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"], 10001 },
+			{ WHIT.." 2) "..BZ["Rut'theran Village"]..ALC["Comma"]..BZ["Teldrassil"], 10002 },
+			{ WHIT.." 3) "..BZ["Auberdine"]..ALC["Comma"].._RED..BZ["Darkshore"], 10003 },
+			{ WHIT.." 4) "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"], 10004 },
+			{ WHIT.." 5) "..BZ["Nighthaven"]..ALC["Comma"].._RED..BZ["Moonglade"], 10005 },
+			{ NUTL.." 6) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"], 10006 },
+			{ WHIT.." 7) "..BZ["Theramore"]..ALC["Comma"].._RED..BZ["Dustwallow Marsh"], 10007 },
+			{ "" },
+			{ BLUE..BZ["Eastern Kingdoms"] },
+			{ WHIT.." 8) "..BZ["Menethil Harbor"]..ALC["Comma"].._RED..BZ["Wetlands"], 10008 },
+			{ WHIT.." 9) "..BZ["Ironforge"]..ALC["Comma"].._RED..BZ["Dun Morogh"], 10009 },
+			{ WHIT.."10) "..BZ["Stormwind"]..ALC["Comma"].._RED..BZ["Elwynn Forest"], 10010 },
+			{ NUTL.."11) "..BZ["Booty Bay"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"], 10011 },
+			{ WHIT.."12) "..BZ["Shattered Beachhead"]..ALC["Comma"]..BZ["Blasted Lands"], 10012 },
+			{ WHIT.."13) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"]..BZ["Isle of Quel'Danas"], 10013 },
+			{ "" },
+			{ BLUE..BZ["Outland"] },
+			{ WHIT.."14) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"], 10014 },
+			{ NUTL.."15) "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"], 10015 },
+		},
 		TransAllianceEast_BCC = {
 			ZoneName = { BZ["Eastern Kingdoms"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 			WorldMapID = 13,
@@ -181,8 +204,45 @@ if (WoWClassicTBC) then
 		},
 	}
 	alliance.coords = {
+		TransAllianceCosmos_BCC = {
+			{ 1, 10001, 72, 176 },
+			{ 2, 10002, 95, 193 },
+			{ 3, 10003, 102, 223 },
+			{ 4, 10004, 18, 226 },
+			{ 5, 10005, 146, 202 },
+			{ 6, 10006, 163, 334 },
+			{ 7, 10007, 177, 376 },
+			{ 8, 10008, 401, 304 },
+			{ 9, 10009, 395, 322 },
+			{10, 10010, 374, 369 },
+			{11, 10011, 380, 451 },
+			{12, 10012, 434, 412 },
+			{13, 10013, 454, 107 },
+			{14, 10014, 294, 62 },
+			{15, 10015, 256, 82 },
+		},
 	}
 	horde.maps = {
+		TransHordeCosmos_BCC = {
+			ZoneName = { WORLD..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+			{ BLUE..BZ["Kalimdor"] },
+			{ WHIT.." 1) "..BZ["Orgrimmar"]..ALC["Comma"].._RED..BZ["Durotar"], 10001 },
+			{ WHIT.." 2) "..BZ["Thunder Bluff"]..ALC["Comma"].._RED..BZ["Mulgore"], 10002 },
+			{ NUTL.." 3) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"], 10003 },
+			{ WHIT.." 4) "..BZ["Shrine of Remulos"]..ALC["Comma"].._RED..BZ["Moonglade"], 10004 },
+			{ "" },
+			{ BLUE..BZ["Eastern Kingdoms"] },
+			{ WHIT.." 5) "..BZ["Undercity"]..ALC["Comma"].._RED..BZ["Tirisfal Glades"], 10005 },
+			{ WHIT.." 6) "..BZ["Grom'gol"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"], 10006 },
+			{ NUTL.." 7) "..BZ["Booty Bay"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"], 10007 },
+			{ WHIT.." 8) "..BZ["Shattered Beachhead"]..ALC["Comma"]..BZ["Blasted Lands"], 10008 },
+			{ WHIT.." 9) "..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"], 10009 },
+			{ WHIT.."10) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"]..BZ["Isle of Quel'Danas"], 10010 },
+			{ "" },
+			{ BLUE..BZ["Outland"] },
+			{ WHIT.."11) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"], 10011 },
+			{ NUTL.."12) "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"], 10012 },
+		},
 		TransHordeEast_BCC = {
 			ZoneName = { BZ["Eastern Kingdoms"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 			WorldMapID = 13,
@@ -275,6 +335,20 @@ if (WoWClassicTBC) then
 		},
 	}
 	horde.coords = {
+		TransHordeCosmos_BCC = {
+			{ 1, 10001, 173, 288 },
+			{ 2, 10002, 112, 337 },
+			{ 3, 10003, 163, 334 },
+			{ 4, 10004, 146, 202 },
+			{ 5, 10005, 389, 218 },
+			{ 6, 10006, 389, 420 },
+			{ 7, 10007, 382, 451 },
+			{ 8, 10008, 436, 414 },
+			{ 9, 10009, 456, 145 },
+			{10, 10010, 456, 108 },
+			{11, 10014, 294, 62 },
+			{12, 10015, 256, 82 },
+		},
 	}
 	data.maps = {
 	}

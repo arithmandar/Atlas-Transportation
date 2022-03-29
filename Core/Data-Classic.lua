@@ -86,6 +86,22 @@ local CL = {
 
 if (WoWClassicEra) then
 	alliance.maps = {
+		TransAllianceCosmos_Classic = {
+			ZoneName = { WORLD..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
+			{ BLUE..BZ["Kalimdor"] },
+			{ WHIT.." 1) "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"], 10001 },
+			{ WHIT.." 2) "..BZ["Rut'theran Village"]..ALC["Comma"]..BZ["Teldrassil"], 10002 },
+			{ WHIT.." 3) "..BZ["Auberdine"]..ALC["Comma"].._RED..BZ["Darkshore"], 10003 },
+			{ WHIT.." 4) "..BZ["Nighthaven"]..ALC["Comma"].._RED..BZ["Moonglade"], 10004 },
+			{ NUTL.." 5) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"], 10005 },
+			{ WHIT.." 6) "..BZ["Theramore"]..ALC["Comma"].._RED..BZ["Dustwallow Marsh"], 10006 },
+			{ "" },
+			{ BLUE..BZ["Eastern Kingdoms"] },
+			{ WHIT.." 7) "..BZ["Menethil Harbor"]..ALC["Comma"].._RED..BZ["Wetlands"], 10007 },
+			{ WHIT.." 8) "..BZ["Ironforge"]..ALC["Comma"].._RED..BZ["Dun Morogh"], 10008 },
+			{ WHIT.." 9) "..BZ["Stormwind"]..ALC["Comma"].._RED..BZ["Elwynn Forest"], 10009 },
+			{ NUTL.."10) "..BZ["Booty Bay"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"], 10010 },
+		},
 		TransAllianceEast_Classic = {
 			ZoneName = { BZ["Eastern Kingdoms"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 			WorldMapID = 13,
@@ -146,8 +162,34 @@ if (WoWClassicEra) then
 		},
 	}
 	alliance.coords = {
+		TransAllianceCosmos_Classic = {
+			{ 1, 10001, 32, 101 },
+			{ 2, 10002, 52, 123 },
+			{ 3, 10003, 61, 146 },
+			{ 4, 10004, 106, 132 },
+			{ 5, 10005, 116, 256 },
+			{ 6, 10006, 135, 300 },
+			{ 7, 10007, 400, 277 },
+			{ 8, 10008, 404, 248 },
+			{ 9, 10009, 303, 304 },
+			{10, 10010, 388, 373 },
+		},
 	}
+	
 	horde.maps = {
+		TransHordeCosmos_Classic = {
+			ZoneName = { WORLD..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
+			{ BLUE..BZ["Kalimdor"] },
+			{ WHIT.." 1) "..BZ["Orgrimmar"]..ALC["Comma"].._RED..BZ["Durotar"], 10001 },
+			{ WHIT.." 2) "..BZ["Thunder Bluff"]..ALC["Comma"].._RED..BZ["Mulgore"], 10002 },
+			{ NUTL.." 3) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"], 10003 },
+			{ WHIT.." 7) "..BZ["Shrine of Remulos"]..ALC["Comma"].._RED..BZ["Moonglade"], 10007 },
+			{ "" },
+			{ BLUE..BZ["Eastern Kingdoms"] },
+			{ WHIT.." 4) "..BZ["Undercity"]..ALC["Comma"].._RED..BZ["Tirisfal Glades"], 10004 },
+			{ WHIT.." 5) "..BZ["Grom'gol"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"], 10005 },
+			{ NUTL.." 6) "..BZ["Booty Bay"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"], 10006 },
+		},
 		TransHordeEast_Classic = {
 			ZoneName = { BZ["Eastern Kingdoms"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 			WorldMapID = 13,
@@ -207,7 +249,17 @@ if (WoWClassicEra) then
 		},
 	}
 	horde.coords = {
+		TransHordeCosmos_Classic = {
+			{ 1, 10001, 133, 216 },
+			{ 2, 10002, 65, 261 },
+			{ 3, 10003, 120, 261 },
+			{ 4, 10004, 388, 150 },
+			{ 5, 10005, 392, 346 },
+			{ 6, 10006, 386, 373 },
+			{ 7, 10007, 107, 130 },
+		},
 	}
+	
 	data.maps = {
 	}
 
