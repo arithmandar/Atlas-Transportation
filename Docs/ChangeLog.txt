@@ -8,6 +8,10 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.50.09 (Apr. 05, 2022)
+------------------------
+- Added Horde's taxi node - Swiftwind Post in Drustvar
+
 v1.50.08 (Mar. 29, 2022)
 ------------------------
 - Added cosmos maps for Classic and BCC
