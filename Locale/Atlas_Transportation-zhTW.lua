@@ -103,6 +103,7 @@ if L then
 	L["Boat to Echo Isles, Durotar"] = "行駛到回音群島/杜洛塔的航線"
 	L["Honored with Sha'tari Skyguard"] = "需薩塔空防陣營榮譽"
 	-- Options
+	L["Return to Zuldazar"] = "返回贊達拉"
 	L["Show %s's transportation maps"] = "顯示%s陣營的交通網路圖"
 	L["Change will take effect after next login; or type '/reload' command to reload addon"] = "變更會在下次登入後生效；或輸入 /reload 指令重新載入插件"
 --@end-do-not-package@
