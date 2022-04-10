@@ -27,6 +27,7 @@ local _G = getfenv(0)
 -- Libraries
 local string = _G.string
 local format = string.format
+local C_QuestLog = _G.C_QuestLog
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
@@ -84,6 +85,22 @@ local CL = {
 	["MONK"] 	= "|cff00ff96",
 	["DEMONHUNTER"]	= "|cffa330c9",
 }
+
+local function ISQ(quest_id)
+	local str = ""
+	local isCompleted = false
+	if (not quest_id) then return str end
+	
+	isCompleted = C_QuestLog.IsQuestFlaggedCompleted(quest_id)
+	
+	if (isCompleted) then
+		str = "" 
+	else
+		str = GREY..ALC["L-Parenthesis"]..UNAVAILABLE..ALC["R-Parenthesis"]
+	end
+	
+	return str
+end
 
 if (WoWRetail) then
 	alliance.maps = {
@@ -2978,37 +2995,43 @@ if (WoWRetail) then
 			Faction = "Horde",
 			--LargeMap = "",
 			{ _RED..BZ["Docks"]..ALC["Hyphen"]..L["Return to Zuldazar"] },
-			{ HRDE.." 3) "..BZ["Plunder Harbor"], 	 10003 },
-			{ HRDE.." 6) "..BZ["Warfang Hold"], 	 10006 },
-			{ NUTL.."11) "..BZ["Anyport"], 	 10011 },
-			{ HRDE.."14) "..BZ["Prospectus Bay"], 	 10014 },
+			{ HRDE.." 3) "..BZ["Plunder Harbor"]..ISQ(54961), 	 10003 },
+			{ HRDE.." 8) "..BZ["Warfang Hold"]..ISQ(55052), 	 10008 },
+			{ NUTL.."16) "..BZ["Anyport"]..ISQ(51224), 	 10016 },
+			{ HRDE.."21) "..BZ["Prospectus Bay"]..ISQ(55652), 	 10021 },
 			{ "" },
 			{ _RED..L["Taxi Nodes"] },
 			{ BLUE..BZ["Tiragarde Sound"] },
 			{ NUTL.." 1) "..BZ["Castaway Point"], 	 10001 },
 			{ NUTL.." 2) "..BZ["Freehold"], 	 10002 },
-			{ HRDE.." 3) "..BZ["Plunder Harbor"], 	 10003 },
-			{ HRDE.." 4) "..BZ["Timberfell Outpost"], 	 10004 },
+			{ HRDE.." 3) "..BZ["Plunder Harbor"]..ISQ(54961), 	 10003 },
+			{ HRDE.." 4) "..BZ["Timberfell Outpost"]..ISQ(51591), 	 10004 },
 			{ HRDE.." 5) "..BZ["Waning Glacier"], 	 10005 },
+			{ HRDE.." 6) "..BZ["Stonefist Watch"]..ISQ(52222), 	 10006 },
+			{ HRDE.." 7) "..BZ["Wolf's Den"]..ISQ(52127), 	 10007 },
 			{ "" },
 			{ BLUE..BZ["Stormsong Valley"] },
-			{ HRDE.." 6) "..BZ["Warfang Hold"], 	 10006 },
-			{ HRDE.." 7) "..BZ["Diretusk Hollow"], 	 10007 },
-			{ NUTL.." 8) "..BZ["Seekers Vista"], 	 10008 },
-			{ HRDE.." 9) "..BZ["Ironmaul Overlook"], 	 10009 },
-			{ HRDE.."10) "..BZ["Shrine of the Storm"], 	 10010 },
+			{ HRDE.." 8) "..BZ["Warfang Hold"]..ISQ(55052), 	 10008 },
+			{ NUTL.." 9) "..BZ["Seekers Vista"], 	 10009 },
+			{ HRDE.."10) "..BZ["Diretusk Hollow"], 	 10010 },
+			{ HRDE.."11) "..BZ["Ironmaul Overlook"], 	 10011 },
+			{ HRDE.."12) "..BZ["Shrine of the Storm"], 	 10012 },
+			{ HRDE.."13) "..BZ["Windfall Cavern"]..ISQ(52320), 	 10013 },
+			{ HRDE.."14) "..BZ["Hillcrest Pasture"]..ISQ(52479), 	 10014 },
+			{ HRDE.."15) "..BZ["Stonetusk Watch"]..ISQ(52777), 	 10015 },
 			{ "" },
 			{ BLUE..BZ["Drustvar"] },
-			{ NUTL.."11) "..BZ["Anyport"], 	 10011 },
-			{ NUTL.."12) "..BZ["Whitegrove Chapel"], 	 10012 },
-			{ HRDE.."13) "..BZ["Krazzlefrazz Outpost"], 	 10013 },
-			{ HRDE.."14) "..BZ["Swiftwind Post"], 	 10014 },
+			{ NUTL.."15) "..BZ["Anyport"], 	 10016 },
+			{ NUTL.."17) "..BZ["Whitegrove Chapel"], 	 10017 },
+			{ HRDE.."18) "..BZ["Krazzlefrazz Outpost"]..ISQ(51234), 	 10018 },
+			{ HRDE.."19) "..BZ["Mudfisher Cove"]..ISQ(52314), 	 10019 },
+			{ HRDE.."20) "..BZ["Swiftwind Post"]..ISQ(52276), 	 10020 },
 			{ "" },
 			{ BLUE..BZ["Mechagon"] },
-			{ HRDE.."15) "..BZ["Prospectus Bay"], 	 10015 },
+			{ HRDE.."21) "..BZ["Prospectus Bay"]..ISQ(55652), 	 10021 },
 			{ "" },
 			{ BLUE..BZ["Tol Dagor"] },
-			{ HRDE.."16) "..BZ["Tol Dagor"], 	 10016 },
+			{ HRDE.."22) "..BZ["Tol Dagor"], 	 10022 },
 			{ "" },
 			{ _RED..L["Legend"] },
 			{ NUTL..L["Yellow"]..ALC["Colon"]..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },

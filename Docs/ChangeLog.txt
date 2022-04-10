@@ -8,6 +8,17 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.50.10 (Apr. 10, 2022)
+------------------------
+- Added horde's taxi nodes in Kul Tiras introduced with Horde War Campaign
+  - Stonefist Watch
+  - Wolf's Den
+  - Windfall Cavern
+  - Hillcrest Pasture
+  - Stonetusk Watch
+  - Mudfisher Cove
+  - Swiftwind Post
+
 v1.50.09 (Apr. 05, 2022)
 ------------------------
 - Added Horde's taxi node - Swiftwind Post in Drustvar
