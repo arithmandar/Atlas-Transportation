@@ -8,6 +8,18 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.51.01 (Jul. 26, 2022)
+------------------------
+- Added taxi noodes in Zandalar for Alliance's faction:
+ - Deadwood Cove
+ - Veiled Grotto
+ - Mugamba Overlook
+ - Verdant Hollow
+ - Mistvine Ledge
+ - Grimwatt's Crash
+ - Vulture's Nest
+ - Shatterstone Harbor
+
 v1.51.00 (Jul. 24, 2022)
 ------------------------
 - Retail ToC update to support WoW 9.2.5
