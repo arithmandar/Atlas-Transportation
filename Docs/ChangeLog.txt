@@ -8,6 +8,10 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.51.02 (Jul. 27, 2022)
+------------------------
+- Updated quest ID to get taxi nodes in Zandalar for Alliance's faction
+
 v1.51.01 (Jul. 26, 2022)
 ------------------------
 - Added taxi noodes in Zandalar for Alliance's faction:
