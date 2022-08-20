@@ -8,6 +8,10 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.51.04 (Aug. 20, 2022)
+------------------------
+- Added support for WOLTKC 3.4.0
+
 v1.51.03 (Aug. 17, 2022)
 ------------------------
 - Toc update to support WoW 9.2.7
