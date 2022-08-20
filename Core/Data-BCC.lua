@@ -103,10 +103,10 @@ alliance.maps = {
 		ZoneName = { BZ["Eastern Kingdoms"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 		WorldMapID = 13,
 		Faction = "Alliance",
-		{ BLUE.." A) "..BZ["Auberdine"]..ALC["Comma"].._RED..BZ["Darkshore"] };
-		{ BLUE.." B) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"] };
-		{ BLUE.." C) "..BZ["Theramore Isle"]..ALC["Comma"].._RED..BZ["Dustwallow Marsh"] };
-		{ PURP.." A) "..BZ["The Dark Portal"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"] };
+		{ BLUE.." A) "..BZ["Auberdine"]..ALC["Comma"].._RED..BZ["Darkshore"]..ALC["Comma"]..BZ["Kalimdor"] };
+		{ BLUE.." B) "..BZ["Ratchet"]..ALC["Comma"].._RED..BZ["The Barrens"]..ALC["Comma"]..BZ["Kalimdor"] };
+		{ BLUE.." C) "..BZ["Theramore Isle"]..ALC["Comma"].._RED..BZ["Dustwallow Marsh"]..ALC["Comma"]..BZ["Kalimdor"] };
+		{ PURP.." A) "..BZ["The Dark Portal"]..ALC["Comma"].._RED..BZ["Hellfire Peninsula"]..ALC["Comma"]..BZ["Outland"] };
 		{ };
 		{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"].._RED..BZ["Isle of Quel'Danas"] };
 		{ WHIT.." 2) "..BZ["Hatchet Hills"]..ALC["Comma"].._RED..BZ["Ghostlands"] };
@@ -135,9 +135,8 @@ alliance.maps = {
 		ZoneName = { BZ["Kalimdor"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 		WorldMapID = 12,
 		Faction = "Alliance",
-		{ BLUE.." A) "..BZ["Menethil Harbor"]..", ".._RED..BZ["Wetlands"] };
-		{ BLUE.." B) "..BZ["Stormwind City"]..", ".._RED..BZ["Elwynn Forest"] };
-		{ BLUE.." C) "..BZ["Booty Bay"]..", ".._RED..BZ["Stranglethorn Vale"] };
+		{ BLUE.." A) "..BZ["Menethil Harbor"]..ALC["Comma"].._RED..BZ["Wetlands"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
+		{ BLUE.." B) "..BZ["Booty Bay"]..ALC["Comma"].._RED..BZ["Stranglethorn Vale"]..ALC["Comma"]..BZ["Eastern Kingdoms"] };
 		{ };
 		{ WHIT.." 1) "..BZ["Rut'theran Village"]..ALC["Comma"].._RED..BZ["Teldrassil"] },
 		{ WHIT.." 2) "..BZ["Nighthaven"]..ALC["Comma"].._RED..BZ["Moonglade"]..GREN..ALC["L-Parenthesis"]..L["Druid Only"]..ALC["R-Parenthesis"] };
