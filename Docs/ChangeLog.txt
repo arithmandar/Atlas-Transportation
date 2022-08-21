@@ -8,9 +8,13 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.51.06 (Aug. xx, 2022)
+------------------------
+- Added WOLTKC maps' achievements
+
 v1.51.05 (Aug. 21, 2022)
 ------------------------
-- Fixed WORTKC's Ship / Zeppelin route path
+- Fixed WOLTKC's Ship / Zeppelin route path
 - Fixed BCC Alliance sailing path, Auberdine's path should be to Menethil Harbor, not Stornwind City
 - Pandaria map revamp
 
