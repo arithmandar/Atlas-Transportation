@@ -12,6 +12,9 @@ v1.51.06 (Aug. xx, 2022)
 ------------------------
 - Added WOLTKC maps' achievements
 - Retail East / West maps revamp
+- Fixed horde Kalimor map's routing path, remove path between Everlook and Orgrimmar; added below path:
+  - Everlook and Valormok
+  - Valormok and Thunder Bluff
 
 v1.51.05 (Aug. 21, 2022)
 ------------------------
