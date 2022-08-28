@@ -1214,18 +1214,8 @@ alliance.maps = {
 		LargeMap = "TransAllianceBrokenIsles",
 		{ _RED..L["Portals"] },
 		{ PURP.." A) "..BZ["Greyfang Enclave"], 10040 },
-		{ INDENT..GREY.."  -> "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 		{ INDENT..GREY.." <-> "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-		{ INDENT..GREY.."  -> "..BZ["Shrine of Seven Stars"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
-		{ INDENT..GREY.."  -> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
-		{ INDENT..GREY.."  -> "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"] },
 		{ PURP.." B) "..BZ["Chamber of the Guardian"], 10041 },
-		{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
-		{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
-		{ INDENT..GREY.."  -> "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"]..ALC["Comma"]..BZ["Northrend"] },
-		{ INDENT..GREY.."  -> "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-		{ INDENT..INDENT.._RED..ALC["L-Parenthesis"]..L["Warning: Drop"]..ALC["R-Parenthesis"] },
-		{ INDENT..GREY.."  -> "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 		{ PURP.." C) "..format(ALC["Portal to %s"], BZ["Dalaran"])..GREY.." (30.1, 40.7)", 10042 },
 		{ NUTL.."37) "..BZ["Deliverance Point"]..ALC["Hyphen"].._G["BROKENSHORE_BUILDING_MAGETOWER"]..GREY.." (46.3, 61.9)" },
 		{ INDENT..GREY.."  -> "..BZ["Meredil"]..ALC["Comma"]..BZ["Suramar"] },
@@ -2775,17 +2765,7 @@ horde.maps = {
 		{ _RED..L["Portals"] },
 		{ PURP.." A) "..BZ["Windrunner's Sanctuary"], 10040 },
 		{ INDENT..GREY.." <-> "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
-		{ INDENT..GREY.."  -> "..BZ["Thunder Bluff"]..ALC["Comma"]..BZ["Mulgore"]..ALC["Comma"]..BZ["Kalimdor"] },
-		{ INDENT..GREY.."  -> "..BZ["Shrine of Two Moons"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
-		{ INDENT..GREY.."  -> "..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-		{ INDENT..GREY.."  -> "..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 		{ PURP.." B) "..BZ["Chamber of the Guardian"], 10041 },
-		{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
-		{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
-		{ INDENT..GREY.."  -> "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"]..ALC["Comma"]..BZ["Northrend"] },
-		{ INDENT..GREY.."  -> "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
-		{ INDENT..INDENT.._RED..ALC["L-Parenthesis"]..L["Warning: Drop"]..ALC["R-Parenthesis"] },
-		{ INDENT..GREY.."  -> "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 		{ PURP.." C) "..format(ALC["Portal to %s"], BZ["Dalaran"])..GREY.." (30.1, 40.7)", 10042 },
 		{ NUTL.."37) "..BZ["Deliverance Point"]..ALC["Hyphen"].._G["BROKENSHORE_BUILDING_MAGETOWER"]..GREY.." (46.3, 61.9)" },
 		{ INDENT..GREY.."  -> "..BZ["Meredil"]..ALC["Comma"]..BZ["Suramar"] },
@@ -3331,26 +3311,12 @@ data.maps = {
 		DungeonLevel = "10",
 		{ _RED..L["Portals"] },
 		{ PURP.." A) "..BZ["Greyfang Enclave"]..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"], 10014 },
---			{ INDENT..GREY.."  -> "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 		{ INDENT..GREY.." <-> "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
---			{ INDENT..GREY.."  -> "..BZ["Shrine of Seven Stars"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
---			{ INDENT..GREY.."  -> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
---			{ INDENT..GREY.."  -> "..BZ["Darnassus"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"] },
 		{ "" },
 		{ PURP.." B) "..BZ["Windrunner's Sanctuary"]..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"], 10015 },
---			{ INDENT..GREY.."  -> "..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
---			{ INDENT..GREY.."  -> "..BZ["Thunder Bluff"]..ALC["Comma"]..BZ["Mulgore"]..ALC["Comma"]..BZ["Kalimdor"] },
---			{ INDENT..GREY.."  -> "..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 		{ INDENT..GREY.." <-> "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
---			{ INDENT..GREY.."  -> "..BZ["Shrine of Two Moons"]..ALC["Comma"]..BZ["Vale of Eternal Blossoms"]..ALC["Comma"]..BZ["Pandaria"] },
 		{ "" },
 		{ PURP.." C) "..BZ["Chamber of the Guardian"]..NUTL..ALC["L-Parenthesis"]..L["Nutral"]..ALC["R-Parenthesis"], 10016 },
---			{ INDENT..GREY.."  -> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"] },
---			{ INDENT..GREY.."  -> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"] },
---			{ INDENT..GREY.."  -> "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"]..ALC["Comma"]..BZ["Northrend"] },
---			{ INDENT..GREY.."  -> "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
---			{ INDENT..INDENT.._RED..ALC["L-Parenthesis"]..L["Warning: Drop"]..ALC["R-Parenthesis"] },
---			{ INDENT..GREY.."  -> "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 		{ "" },
 		{ _RED..L["Taxi Nodes"] },
 		{ INDENT..WHIT.." 1) "..L["Aludane Whitecloud <Flight Master>"], 10013 },
@@ -3494,22 +3460,22 @@ data.coords = {
 		{ "5", 10105, 200, 474, 349, 543, "TaxiNeutral" }, -- Western Suramar
 	},
 	TransDalaran = {
-		{ "A", 10014, 184, 279 }, -- Greyfang Enclave
-		{ "B", 10015, 262, 145 }, -- Windrunner's Sanctuary
-		{ "C", 10016, 234, 221 }, -- Chamber of the Guardian
-		{ "1", 10013, 335, 232 }, -- Aludane Whitecloud <Flight Master>
-		{ "A", 10001, 463, 288 }, -- Illidari Gateway
-		{ "A", 10002, 345, 200 }, -- Talua <Eagle Keeper>
-		{ "A", 10003, 288, 113 }, -- Portal to Sanctum of Light
-		{ "B", 10004, 152, 294 }, -- Portal to Sanctum of Light
-		{ "A", 10005, 296, 125 }, -- Portal to Netherlight Temple
-		{ "B", 10006, 188, 254 }, -- Portal to Netherlight Temple
-		{ "A", 10007, 242, 292 }, -- Glorious Goods
-		{ "B", 10008, 256, 174 }, -- One More Glass
-		{ "C", 10009, 210, 162 }, -- Tanks for Everything
-		{ "A", 10010, 319, 222 }, -- Portal to the Maelstrom
-		{ "A", 10011, 155, 204 }, -- Portal to Dreadscar Rift
-		{ "A", 10012, 354, 217 }, -- Jump to Skyhold
+		{ "A", 10014, 184, 294 }, -- Greyfang Enclave
+		{ "B", 10015, 262, 160 }, -- Windrunner's Sanctuary
+		{ "C", 10016, 234, 236 }, -- Chamber of the Guardian
+		{ "1", 10013, 335, 247 }, -- Aludane Whitecloud <Flight Master>
+		{ "A", 10001, 463, 303 }, -- Illidari Gateway
+		{ "A", 10002, 345, 215 }, -- Talua <Eagle Keeper>
+		{ "A", 10003, 288, 128 }, -- Portal to Sanctum of Light
+		{ "B", 10004, 152, 309 }, -- Portal to Sanctum of Light
+		{ "A", 10005, 296, 140 }, -- Portal to Netherlight Temple
+		{ "B", 10006, 188, 269 }, -- Portal to Netherlight Temple
+		{ "A", 10007, 242, 307 }, -- Glorious Goods
+		{ "B", 10008, 256, 189 }, -- One More Glass
+		{ "C", 10009, 210, 177 }, -- Tanks for Everything
+		{ "A", 10010, 319, 237 }, -- Portal to the Maelstrom
+		{ "A", 10011, 155, 219 }, -- Portal to Dreadscar Rift
+		{ "A", 10012, 354, 232 }, -- Jump to Skyhold
 	},
 	TransEmeraldDreamway = {
 		{ "A", 10001, 234, 147 }, -- The Dreamgrove
