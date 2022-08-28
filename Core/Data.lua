@@ -1448,7 +1448,7 @@ alliance.maps = {
 		{ ALAN.."27) "..BZ["Falconhurst"], 		 10027 },
 		{ NUTL.."28) "..BZ["Anyport"], 			 10028 },
 		{ NUTL.."29) "..BZ["Whitegrove Chapel"], 	 10029 },
-		{ ALAN.."30) "..BZ["Watchman's Rise"], 		 10030 },
+		{ ALAN.."30) "..BZ["Watchman's Rise"]..ISQ(50003), 		 10030 },
 		{ "" },
 		{ BLUE..BZ["Mechagon"] },
 		{ ALAN.."31) "..BZ["Overspark Expedition Camp"],  10031 },
