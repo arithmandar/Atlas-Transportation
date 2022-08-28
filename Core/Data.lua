@@ -1481,7 +1481,8 @@ alliance.maps = {
 		{ ALAN.." 2) "..BZ["Orise's Vigil"], 10002 },
 		{ ALAN.." 3) "..BZ["Utama's Stand"], 10004 },
 		{ ALAN.." 4) "..BZ["Mezzamere"], 10003 },
-		{ ALAN.." 5) "..BZ["Wreck of the Old Blanchy"], 10005 },
+		{ ALAN.." 5) "..BZ["Ashen Strand"], 10005 },
+		{ ALAN.." 6) "..BZ["Wreck of the Old Blanchy"], 10005 },
 	},
 }
 alliance.coords = {

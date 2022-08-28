@@ -15,6 +15,10 @@ v1.51.06 (Aug. xx, 2022)
 - Fixed horde Kalimor map's routing path, remove path between Everlook and Orgrimmar; added below path:
   - Everlook and Valormok
   - Valormok and Thunder Bluff
+- Alliance Nazjatar revision
+  - Fixed position of Wreck of the Old Blanchy
+  - Enhance the numbers's display so that it's more obserable
+  - Added Ashen Strand
 
 v1.51.05 (Aug. 21, 2022)
 ------------------------
