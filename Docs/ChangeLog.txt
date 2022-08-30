@@ -8,7 +8,7 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
-v1.51.06 (Aug. xx, 2022)
+v1.51.06 (Aug. 30, 2022)
 ------------------------
 - Added WOLTKC maps' achievements
 - Retail East / West maps revamp
