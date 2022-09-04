@@ -1671,49 +1671,55 @@ horde.maps = {
 		ZoneName = { WORLD..HRDE..ALC["L-Parenthesis"]..FACTION_HORDE..ALC["R-Parenthesis"] },
 		WorldMapID = 947,
 		{ BLUE..BZ["Kalimdor"] },
-		{ ORNG.." 1) "..BZ["Orgrimmar"], 10001 },
-		{ ORNG.." 2) "..BZ["Thunder Bluff"], 10002 },
-		{ WHIT.." 3) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"], 10003 },
-		{ WHIT.." 4) "..BZ["Ratchet"]..ALC["Comma"]..BZ["Northern Barrens"], 10004 },
-		{ WHIT.." 5) "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"], 10005 },
-		{ WHIT.." 6) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"], 10006 },
+		{ HRDE.." 1) "..BZ["Orgrimmar"], 10001 },
+		{ NUTL.." 2) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"], 10002 },
+		{ HRDE.." 3) "..BZ["Darkshore"], 10003 },
+		{ NUTL.." 4) "..BZ["Ratchet"]..ALC["Comma"]..BZ["Northern Barrens"], 10004 },
+		{ HRDE.." 5) "..BZ["Thunder Bluff"], 10005 },
+		{ PURP.." B) "..BZ["The Shaper's Terrace"]..ALC["Comma"]..BZ["Un'Goro Crater"], 20002 },
+		{ PURP.." C) "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"], 20003 },
+		{ PURP.." D) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"], 20004 },
+		{ PURP.." E) "..BZ["Magni's Encampment"]..ALC["Comma"]..BZ["Silithus: The Wound"], 20005 },
 		{ "" },
 		{ BLUE..BZ["Eastern Kingdoms"] },
-		{ WHIT.." 7) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"]..BZ["Isle of Quel'Danas"], 10007 },
-		{ ORNG.." 8) "..BZ["Silvermoon City"], 10008 },
-		{ WHIT.." 9) "..BZ["Brill"]..ALC["Comma"]..BZ["Tirisfal Glades"], 10009 },
-		{ ORNG.."10) "..BZ["Undercity"], 10010 },
-		{ WHIT.."11) "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"], 10011 },
-		{ WHIT.."12) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"], 10012 },
-		{ WHIT.."13) "..BZ["Shattered Landing"]..ALC["Comma"]..BZ["Blasted Lands"], 10013 },
-		{ WHIT.."14) "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"], 10014 },
-		{ WHIT.."15) "..BZ["Grom'gol Base Camp"]..ALC["Comma"]..BZ["Northern Stranglethorn"], 10015 },
-		{ WHIT.."16) "..BZ["Booty Bay"]..ALC["Comma"]..BZ["The Cape of Stranglethorn"], 10016 },
+		{ HRDE.." 6) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"]..BZ["Isle of Quel'Danas"], 10006 },
+		{ HRDE.." 7) "..BZ["Silvermoon City"], 10007 },
+		{ HRDE.." 8) "..BZ["Undercity"]..ALC["Slash"]..BZ["Brill"]..ALC["Comma"]..BZ["Tirisfal Glades"], 10008 },
+		{ HRDE.." 9) "..BZ["Arathi Highlands"], 10009 },
+		{ HRDE.."10) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"], 10010 },
+		{ HRDE.."11) "..BZ["Grom'gol Base Camp"]..ALC["Comma"]..BZ["Northern Stranglethorn"], 10011 },
+		{ HRDE.."12) "..BZ["Booty Bay"]..ALC["Comma"]..BZ["The Cape of Stranglethorn"], 10012 },
 		{ "" },
 		{ BLUE..BZ["Outland"] },
-		{ WHIT.."17) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"], 10017 },
-		{ ORNG.."18) "..BZ["Shattrath City"], 10018 },
+		{ NUTL.."13) "..BZ["Shattrath City"], 10013 },
 		{ "" },
 		{ BLUE..BZ["Northrend"] },
-		{ WHIT.."19) "..BZ["Warsong Hold"]..ALC["Comma"]..BZ["Borean Tundra"], 10019 },
-		{ WHIT.."20) "..BZ["Vengeance Landing"]..ALC["Comma"]..BZ["Howling Fjord"], 10020 },
-		{ ORNG.."21) "..BZ["Dalaran (Northrend)"], 10021 },
-		{ WHIT.."22) "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"], 10022 },
+		{ HRDE.."14) "..BZ["Warsong Hold"]..ALC["Comma"]..BZ["Borean Tundra"], 10014 },
+		{ HRDE.."15) "..BZ["Vengeance Landing"]..ALC["Comma"]..BZ["Howling Fjord"], 10015 },
+		{ NUTL.."16) "..BZ["Dalaran (Northrend)"]..ALC["Comma"]..BZ["Crystalsong Forest"], 10016 },
+		{ PURP.." A) "..BZ["Sholazar Basin"], 20001 },
 		{ "" },
 		{ BLUE..BZ["Pandaria"] },
-		{ WHIT.."23) "..BZ["Honeydew Village"]..ALC["Comma"]..BZ["The Jade Forest"], 10023 },
-		{ ORNG.."24) "..BZ["Shrine of Two Moons"], 10024 },
+		{ HRDE.."17) "..BZ["Honeydew Village"]..ALC["Comma"]..BZ["The Jade Forest"], 10017 },
+		{ HRDE.."18) "..BZ["Shrine of Two Moons"], 10018 },
 		{ "" },
 		{ BLUE..BZ["Draenor"] },
-		{ WHIT.."25) "..BZ["Warspear"]..ALC["Comma"]..BZ["Ashran"], 10025 },
-		{ WHIT.."26) "..BZ["Frostwall Garrison"]..ALC["Comma"]..BZ["Frostfire Ridge"], 10026 },
+		{ HRDE.."19) "..BZ["Warspear"]..ALC["Comma"]..BZ["Ashran"], 10019 },
+		{ HRDE.."20) "..BZ["Vol'mar"]..ALC["Comma"]..BZ["Tanaan Jungle"], 10020 },
 		{ "" },
 		{ BLUE..BZ["Broken Isles"] },
-		{ ORNG.."27) "..BZ["Dalaran"], 10027 },
+		{ NUTL.."21) "..BZ["Crumbled Palace"]..ALC["Comma"]..BZ["Azsuna"], 10021 },
+		{ NUTL.."22) "..BZ["Dalaran"], 10022 },
+		{ "" },
+		{ BLUE..BZ["Zandalar"]..ALC["Slash"]..BZ["Kul Tiras"] },
+		{ HRDE.."23) "..BZ["Port of Zandalar"]..ALC["Slash"]..BZ["Dazar'alor"]..ALC["Comma"]..BZ["Zuldazar"], 10023 },
+		{ HRDE.."24) "..BZ["Plunder Harbor"]..ALC["Comma"]..BZ["Tiragarde Sound"], 10024 },
+		{ HRDE.."25) "..BZ["Warfang Hold"]..ALC["Comma"]..BZ["Stormsong Valley"], 10025 },
+		{ HRDE.."26) "..BZ["Krazzlefrazz Outpost"]..ALC["Comma"]..BZ["Drustvar"], 10026 },
+		{ HRDE.."27) "..BZ["Prospectus Bay"]..ALC["Comma"]..BZ["Mechagon"], 10027 },
 		{ "" },
 		{ _RED..L["Legend"] },
 		{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-		{ ORNG.."-- : "..L["Two ways portal"] },
 		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 	},
 	TransHordeEast = {
@@ -1732,11 +1738,10 @@ horde.maps = {
 		{ PURP.." A) "..BZ["Hellscream's Grasp"]..ALC["Comma"]..BZ["Tol Barad Peninsula"] },
 		{ PURP.." B) "..BZ["Baradin Hold"]..ALC["Comma"]..BZ["Tol Barad"] },
 		{ GREY..INDENT..ALC["L-Parenthesis"]..L["Only available after winning the PvP battle"]..ALC["R-Parenthesis"] },
-		{ PURP.." C) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"] },
-		{ PURP.." D) "..BZ["Fuselight-by-the-Sea"]..ALC["Comma"]..BZ["Badlands"] },
-		{ GREY..INDENT..ALC["L-Parenthesis"]..L["Transporters by the sea and on the cliff"]..ALC["R-Parenthesis"] },
-		{ PURP.." A') "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"]..ALC["Comma"]..BZ["Outland"] },
-		{ PURP.." B') "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
+		{ HRDE.."39) "..BZ["Dragonmaw Port"]..ALC["Comma"]..BZ["Twilight Highlands"] },
+		{ PURP.." C) "..BZ["Arathi Highlands"] },
+		{ PURP.." A') "..BZ["Orgrimmar"]..ALC["Comma"]..BZ["Durotar"]..ALC["Comma"]..BZ["Kalimdor"] },
+		{ PURP.." B') "..BZ["Dazar'alor"]..ALC["Comma"]..BZ["Zuldazar"]..ALC["Comma"]..BZ["Zandalar"] },
 		{ HRDE.." 3) "..BZ["Sunfury Spire"]..ALC["Comma"]..BZ["Silvermoon City"]..ALC["Comma"]..BZ["Eversong Woods"] },
 		{ HRDE.."20) "..BZ["Magic Quarter"]..ALC["Comma"]..BZ["Undercity"]..ALC["Comma"]..BZ["Tirisfal Glades"] },
 		{ HRDE.."51) "..BZ["Shattered Landing"]..ALC["Comma"]..BZ["Blasted Lands"] },
@@ -3061,33 +3066,38 @@ horde.maps = {
 }
 horde.coords = {
 	TransHordeCosmos = {
-		{  1, 10001, 135, 307 }, -- Orgrimmar
-		{  2, 10002,  89, 344 }, -- Thunder Bluff
-		{  3, 10003, 128, 267 }, -- Nordrassil
-		{  4, 10004, 127, 343 }, -- Ratchet
-		{  5, 10005, 133, 424 }, -- Caverns of Time
-		{  6, 10006,  95, 441 }, -- Ramkahen
-		{  7, 10007, 473, 191 }, -- Shattered Sun Staging Area
-		{  8, 10008, 478, 228 }, -- Silvermoon City
-		{  9, 10009, 417, 278 }, -- Brill
-		{ 10, 10010, 427, 285 }, -- Undercity
-		{ 11, 10011, 425, 300 }, -- Dalaran Crater
-		{ 12, 10012, 497, 342 }, -- Dragonmaw Port
-		{ 13, 10013, 468, 415 }, -- Shattered Landing
-		{ 14, 10014, 453, 422 }, -- Karazhan
-		{ 15, 10015, 427, 431 }, -- Grom'gol Base Camp
-		{ 16, 10016, 426, 451 }, -- Booty Bay
-		{ 17, 10017, 463,  90 }, -- The Stair of Destiny
-		{ 18, 10018, 409, 114 }, -- Shattrath City
-		{ 19, 10019, 214, 160 }, -- Warsong Hold
-		{ 20, 10020, 341, 173 }, -- Vengeance Landing
-		{ 21, 10021, 274, 130 }, -- Dalaran (Northrend)
-		{ 22, 10022, 276, 152 }, -- Wyrmrest Temple
-		{ 23, 10023, 279, 422 }, -- Honeydew Village
-		{ 24, 10024, 262, 446 }, -- Shrine of Two Moons
-		{ 25, 10025, 190,  73 }, -- Warspear
-		{ 26, 10026,  66,  66 }, -- Frostwall Garrison
-		{ 27, 10027, 313, 299 }, -- Dalaran
+		{  1, 10001, 100, 262 }, -- Orgrimmar
+		{  2, 10002,  88, 229 }, -- Nordrassil
+		{  3, 10003,  58, 219 }, -- Darkshore
+		{  4, 10004,  88, 277 }, -- Ratchet
+		{  5, 10005,  61, 284 }, -- Thunder Bluff
+		{ "B", 20002,  73, 325 }, -- The Shaper's Terrace
+		{ "C", 20003,  97, 344 }, -- Caverns of Time
+		{ "D", 20004,  67, 357 }, -- Ramkahen
+		{ "E", 20005,  49, 334 }, -- Magni's Encampment
+		{  6, 10006, 481, 157 }, -- Shattered Sun Staging Area
+		{  7, 10007, 481, 179 }, -- Silvermoon City
+		{  8, 10008, 438, 226 }, -- Undercity / Brill
+		{  9, 10009, 468, 256 }, -- Arathi Highlands
+		{ 10, 10010, 494, 278 }, -- Dragonmaw Port
+		{ 11, 10011, 440, 355 }, -- Grom'gol Base Camp
+		{ 12, 10012, 435, 374 }, -- Booty Bay
+		{ 13, 10013,  42,  90 }, -- Shattrath City
+		{ 14, 10014, 234,  95 }, -- Warsong Hold
+		{ 15, 10015, 352, 105 }, -- Vengeance Landing
+		{ 16, 10016, 295,  66 }, -- Dalaran (Northrend)
+		{ "A", 20001, 244,  72 }, -- Wyrmrest Temple
+		{ 17, 10017, 208, 412 }, -- Honeydew Village
+		{ 18, 10018, 191, 426 }, -- Shrine of Two Moons
+		{ 19, 10019, 445, 429 }, -- Warspear
+		{ 20, 10020, 428, 436 }, -- Vol'mar
+		{ 21, 10021, 229, 227 }, -- Crumbled Palace
+		{ 22, 10022, 248, 236 }, -- Dalaran
+		{ 23, 10023, 256, 339 }, -- Port of Zandalar
+		{ 24, 10024, 365, 265 }, -- Plunder Harbor
+		{ 25, 10025, 350, 229 }, -- Warfang Hold
+		{ 26, 10026, 329, 261 }, -- Krazzlefrazz Outpost
+		{ 27, 10027, 313, 239 }, -- Prospectus Bay
 	},
 	TransHordeOrgrimmar = {
 		{ "A", 10001, 263, 444, 544, 564, "Purple"}, -- Pathfinder's Den
