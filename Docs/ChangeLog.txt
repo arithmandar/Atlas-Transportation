@@ -8,6 +8,11 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.51.08 (Sep. 04, 2022)
+------------------------
+- Fixed Stormwind docks' destination info
+- Foxed Ashran's portal destination info
+
 v1.51.07 (Sep. 04, 2022)
 ------------------------
 - Map revamp: Retail Alliance's / Horde's Cosmos map
