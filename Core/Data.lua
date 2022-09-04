@@ -98,50 +98,57 @@ alliance.maps = {
 		ZoneName = { WORLD..ALAN..ALC["L-Parenthesis"]..FACTION_ALLIANCE..ALC["R-Parenthesis"] },
 		WorldMapID = 947,
 		{ BLUE..BZ["Eastern Kingdoms"] },
-		{ ORNG.." 1) "..BZ["Stormwind City"].."\n<--> "..BZ["Ironforge"].."\n<--> "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"].."\n<--> "..BZ["Highbank"]..ALC["Comma"]..BZ["Twilight Highlands"].."\n<--> "..BZ["Shattered Beachhead"]..ALC["Comma"]..BZ["Blasted Lands"].."\n<--> "..BZ["Paw'don Village"]..ALC["Comma"]..BZ["The Jade Forest"].."\n --> "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"].."\n<--> "..BZ["Rut'theran Village"]..ALC["Comma"]..BZ["Teldrassil"].."\n<--> "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"].."\n<--> "..BZ["Valiance Keep"]..ALC["Comma"]..BZ["Borean Tundra"].."\n<--> "..BZ["Dalaran"].."\n<--> "..BZ["Stormshield"]..ALC["Comma"]..BZ["Ashran"], 10001 },
-		{ ORNG.." 2) "..BZ["Ironforge"], 10002 },
-		{ WHIT.." 3) "..BZ["Menethil Harbor"]..ALC["Comma"]..BZ["Wetlands"], 10003 },
-		{ WHIT.." 4) "..BZ["Highbank"]..ALC["Comma"]..BZ["Twilight Highlands"], 10004 },
-		{ WHIT.." 5) "..BZ["Shattered Beachhead"]..ALC["Comma"]..BZ["Blasted Lands"], 10005 },
-		{ WHIT.." 6) "..BZ["Karazhan"]..ALC["Comma"]..BZ["Deadwind Pass"], 10006 },
-		{ WHIT.." 7) "..BZ["Booty Bay"]..ALC["Comma"]..BZ["The Cape of Stranglethorn"], 10007 },
-		{ WHIT.." 8) "..BZ["Dalaran Crater"]..ALC["Comma"]..BZ["Hillsbrad Foothills"], 10008 },
-		{ WHIT.." 9) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"]..BZ["Isle of Quel'Danas"], 10009 },
+		{ ALAN.." 1) "..BZ["Stormwind City"]..ALC["Slash"]..BZ["Stormwind Harbor"].."\n<--> "..BZ["Ironforge"]..ALC["Comma"]..BZ["Eastern Kingdoms"].."\n<--> "..BZ["Highbank"]..ALC["Comma"]..BZ["Twilight Highlands"]..ALC["Comma"]..BZ["Eastern Kingdoms"].."\n<--> "..BZ["Paw'don Village"]..ALC["Comma"]..BZ["The Jade Forest"]..ALC["Comma"]..BZ["Pandaria"].."\n --> "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"]..ALC["Comma"]..BZ["Kalimdor"].."\n<--> "..BZ["Rut'theran Village"]..ALC["Comma"]..BZ["Teldrassil"]..ALC["Comma"]..BZ["Kalimdor"].."\n<--> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"].."\n<--> "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"]..ALC["Comma"]..BZ["Kalimdor"].."\n<--> "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"]..ALC["Comma"]..BZ["Kalimdor"].."\n<--> "..BZ["Valiance Keep"]..ALC["Comma"]..BZ["Borean Tundra"]..ALC["Comma"]..BZ["Northrend"].."\n<--> "..BZ["Dalaran"]..ALC["Comma"]..BZ["Crystalsong Forest"]..ALC["Comma"]..BZ["Northrend"].."\n<--> "..BZ["Shattrath City"]..ALC["Comma"]..BZ["Terokkar Forest"]..ALC["Comma"]..BZ["Outland"].."\n<--> "..BZ["Stormshield"]..ALC["Comma"]..BZ["Ashran"], 10001 },
+		{ ALAN.." 2) "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"], 10002 },
+		{ ALAN.." 3) "..BZ["Menethil Harbor"]..ALC["Comma"]..BZ["Wetlands"], 10003 },
+		{ ALAN.." 4) "..BZ["Booty Bay"]..ALC["Comma"]..BZ["The Cape of Stranglethorn"], 10004 },
+		{ ALAN.." 5) "..BZ["Highbank"]..ALC["Comma"]..BZ["Twilight Highlands"], 10005 },
+		{ ALAN.." 6) "..BZ["Arathi Highlands"], 10006 },
+		{ ALAN.." 7) "..BZ["Shattered Sun Staging Area"]..ALC["Comma"]..BZ["Isle of Quel'Danas"], 10007 },
 		{ "" },
 		{ BLUE..BZ["Kalimdor"] },
-		{ ORNG.."10) "..BZ["Darnassus"], 10010 },
-		{ WHIT.."11) "..BZ["Rut'theran Village"]..ALC["Comma"]..BZ["Teldrassil"], 10011 },
-		{ ORNG.."12) "..BZ["The Exodar"], 10012 },
-		{ WHIT.."13) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"], 10013 },
-		{ WHIT.."14) "..BZ["Ratchet"]..ALC["Comma"]..BZ["Northern Barrens"], 10014 },
-		{ WHIT.."15) "..BZ["Theramore"]..ALC["Comma"]..BZ["Dustwallow Marsh"], 10015 },
-		{ WHIT.."16) "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"], 10016 },
-		{ WHIT.."17) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"], 10017 },
+		{ ALAN.." 8) "..BZ["Darnassus"], 10008 },
+		{ ALAN.." 9) "..BZ["Rut'theran Village"]..ALC["Comma"]..BZ["Teldrassil"], 10009 },
+		{ ALAN.."10) "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"], 10010 },
+		{ ALAN.."11) "..BZ["Darkshore"], 10011 },
+		{ NUTL.."12) "..BZ["Nordrassil"]..ALC["Comma"]..BZ["Mount Hyjal"], 10012 },
+		{ NUTL.."13) "..BZ["Ratchet"]..ALC["Comma"]..BZ["Northern Barrens"], 10013 },
+		{ ALAN.."14) "..BZ["Theramore"]..ALC["Comma"]..BZ["Dustwallow Marsh"], 10014 },
+		{ PURP.." B) "..BZ["The Shaper's Terrace"]..ALC["Comma"]..BZ["Un'Goro Crater"], 20002 },
+		{ PURP.." C) "..BZ["Caverns of Time"]..ALC["Comma"]..BZ["Tanaris"], 20003 },
+		{ PURP.." D) "..BZ["Ramkahen"]..ALC["Comma"]..BZ["Uldum"], 20004 },
+		{ PURP.." E) "..BZ["Magni's Encampment"]..ALC["Comma"]..BZ["Silithus: The Wound"], 20005 },
 		{ "" },
 		{ BLUE..BZ["Outland"] },
-		{ WHIT.."18) "..BZ["The Stair of Destiny"]..ALC["Comma"]..BZ["Hellfire Peninsula"], 10018 },
-		{ ORNG.."19) "..BZ["Shattrath City"], 10019 },
+		{ NUTL.."15) "..BZ["Shattrath City"], 10015 },
 		{ "" },
 		{ BLUE..BZ["Northrend"] },
-		{ WHIT.."20) "..BZ["Valiance Keep"]..ALC["Comma"]..BZ["Borean Tundra"], 10020 },
-		{ WHIT.."21) "..BZ["Valgarde"]..ALC["Comma"]..BZ["Howling Fjord"], 10021 },
-		{ ORNG.."22) "..BZ["Dalaran (Northrend)"], 10022 },
-		{ WHIT.."23) "..BZ["Wyrmrest Temple"]..ALC["Comma"]..BZ["Dragonblight"], 10023 },
+		{ ALAN.."16) "..BZ["Valiance Keep"]..ALC["Comma"]..BZ["Borean Tundra"], 10016 },
+		{ ALAN.."17) "..BZ["Valgarde"]..ALC["Comma"]..BZ["Howling Fjord"], 10017 },
+		{ NUTL.."18) "..BZ["Dalaran (Northrend)"]..ALC["Comma"]..BZ["Crystalsong Forest"], 10018 },
+		{ PURP.." A) "..BZ["Sholazar Basin"], 20001 },
 		{ "" },
 		{ BLUE..BZ["Pandaria"] },
-		{ WHIT.."24) "..BZ["Paw'don Village"]..ALC["Comma"]..BZ["The Jade Forest"], 10024 },
-		{ ORNG.."25) "..BZ["Shrine of Seven Stars"], 10025 },
+		{ ALAN.."19) "..BZ["Paw'don Village"]..ALC["Comma"]..BZ["The Jade Forest"], 10019 },
+		{ ALAN.."20) "..BZ["Shrine of Seven Stars"], 10020 },
 		{ "" },
 		{ BLUE..BZ["Draenor"] },
-		{ WHIT.."26) "..BZ["Stormshield"]..ALC["Comma"]..BZ["Ashran"], 10026 },
-		{ WHIT.."27) "..BZ["Lunarfall"]..ALC["Comma"]..BZ["Shadowmoon Valley"], 10027 },
+		{ ALAN.."21) "..BZ["Stormshield"]..ALC["Comma"]..BZ["Ashran"], 10021 },
+		{ ALAN.."22) "..BZ["Lion's Watch"]..ALC["Comma"]..BZ["Tanaan Jungle"], 10022 },
 		{ "" },
 		{ BLUE..BZ["Broken Isles"] },
-		{ ORNG.."28) "..BZ["Dalaran"], 10028 },
+		{ NUTL.."23) "..BZ["Crumbled Palace"]..ALC["Comma"]..BZ["Azsuna"], 10023 },
+		{ NUTL.."24) "..BZ["Dalaran"], 10024 },
+		{ "" },
+		{ BLUE..BZ["Kul Tiras"]..ALC["Slash"]..BZ["Zandalar"] },
+		{ ALAN.."25) "..BZ["Boralus Harbor"]..ALC["Comma"]..BZ["Tiragarde Sound"].."\n<--> "..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"].."\n --> "..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"].."\n --> "..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"].."\n<--> "..BZ["Magni's Encampment"]..ALC["Comma"]..BZ["Silithus: The Wound"]..ALC["Comma"]..BZ["Kalimdor"].."\n<--> "..BZ["Mezzamere"]..ALC["Comma"]..BZ["Nazjatar"].."\n --> "..BZ["Arathi Highlands"]..ALC["Comma"]..BZ["Eastern Kingdoms"].."\n --> "..BZ["Darkshore"]..ALC["Comma"]..BZ["Kalimdor"], 10025 },
+		{ ALAN.."26) "..BZ["Xibala"]..ALC["Comma"]..BZ["Zuldazar"], 10026 },
+		{ ALAN.."27) "..BZ["Shatterstone Harbor"]..ALC["Comma"]..BZ["Vol'dun"], 10027 },
+		{ ALAN.."28) "..BZ["Fort Victory"]..ALC["Comma"]..BZ["Nazmir"], 10028 },
+		{ ALAN.."29) "..BZ["Overspark Expedition Camp"]..ALC["Comma"]..BZ["Mechagon"], 10029 },
 		{ "" },
 		{ _RED..L["Legend"] },
 		{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-		{ ORNG.."-- : "..L["Two ways portal"] },
 		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 	},
 	TransAllianceEast = {
@@ -1410,6 +1417,8 @@ alliance.maps = {
 		{ PURP..INDENT..BZ["Stormwind City"]..ALC["Comma"]..BZ["Elwynn Forest"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 		{ PURP..INDENT..BZ["Ironforge"]..ALC["Comma"]..BZ["Dun Morogh"]..ALC["Comma"]..BZ["Eastern Kingdoms"] },
 		{ PURP..INDENT..BZ["The Exodar"]..ALC["Comma"]..BZ["Azuremyst Isle"]..ALC["Comma"]..BZ["Kalimdor"] },
+		{ PURP..INDENT..BZ["Mezzamere"]..ALC["Comma"]..BZ["Nazjatar"] },
+		{ PURP..INDENT..BZ["Magni's Encampment"]..ALC["Comma"]..BZ["Silithus: The Wound"]..ALC["Comma"]..BZ["Kalimdor"] },
 		{ "" },
 		{ ALAN.." A) "..L["Boat to Stormwind City"], 10050 },
 		{ "" },
@@ -1477,34 +1486,40 @@ alliance.maps = {
 }
 alliance.coords = {
 	TransAllianceCosmos = {
-		{  1, 10001, 424, 395 }, -- Stormwind City
-		{  2, 10002, 436, 356 }, -- Ironforge
-		{  3, 10003, 441, 337 }, -- Menethil Harbor
-		{  4, 10004, 496, 351 }, -- Highbank
-		{  5, 10005, 467, 410 }, -- Shattered Beachhead
-		{  6, 10006, 448, 423 }, -- Karazhan
-		{  7, 10007, 420, 451 }, -- Booty Bay
-		{  8, 10008, 424, 300 }, -- Dalaran Crater
-		{  9, 10009, 474, 193 }, -- Shattered Sun Staging Area
-		{ 10, 10010,  60, 219 }, -- Darnassus
-		{ 11, 10011,  77, 232 }, -- Rut'theran Village
-		{ 12, 10012,  24, 256 }, -- The Exodar
-		{ 13, 10013, 131, 268 }, -- Nordrassil
-		{ 14, 10014, 130, 342 }, -- Ratchet
-		{ 15, 10015, 140, 374 }, -- Theramore
-		{ 16, 10016, 136, 422 }, -- Caverns of Time
-		{ 17, 10017,  98, 441 }, -- Ramkahen
-		{ 18, 10018, 464,  91 }, -- The Stair of Destiny
-		{ 19, 10019, 409, 116 }, -- Shattrath City
-		{ 20, 10020, 221, 167 }, -- Valiance Keep
-		{ 21, 10021, 331, 181 }, -- Valgarde
-		{ 22, 10022, 275, 130 }, -- Dalaran (Northrend)
-		{ 23, 10023, 274, 151 }, -- Wyrmrest Temple
-		{ 24, 10024, 296, 466 }, -- Paw'don Village
-		{ 25, 10025, 262, 452 }, -- Shrine of Seven Stars
-		{ 26, 10026, 190,  84 }, -- Stormshield
-		{ 27, 10027, 130, 117 }, -- Lunarfall
-		{ 28, 10028, 314, 299 }, -- Dalaran
+		{  1, 10001, 432, 323 }, -- Stormwind City
+		{  2, 10002, 449, 288 }, -- Ironforge
+		{  3, 10003, 449, 275 }, -- Menethil Harbor
+		{  4, 10004, 436, 373 }, -- Booty Bay
+		{  5, 10005, 494, 287 }, -- Highbank
+		{  6, 10006, 457, 257 }, -- Arathi Highlands
+		{  7, 10007, 480, 156 }, -- Shattered Sun Staging Area
+		{  8, 10008,  37, 185 }, -- Darnassus
+		{  9, 10009,  50, 198 }, -- Rut'theran Village
+		{ 10, 10010,   9, 224 }, -- The Exodar
+		{ 11, 10011,  58, 216 }, -- Darkshore
+		{ 12, 10012,  88, 229 }, -- Nordrassil
+		{ 13, 10013,  88, 277 }, -- Ratchet
+		{ 14, 10014,  99, 309 }, -- Theramore
+		{ "B", 20002,  73, 325 }, -- The Shaper's Terrace
+		{ "C", 20003,  97, 344 }, -- Caverns of Time
+		{ "D", 20004,  67, 357 }, -- Ramkahen
+		{ "E", 20005,  49, 334 }, -- Magni's Encampment
+		{ 15, 10015,  42,  91 }, -- Shattrath City
+		{ 16, 10016, 248, 100 }, -- Valiance Keep
+		{ 17, 10017, 340, 116 }, -- Valgarde
+		{ 18, 10018, 295,  66 }, -- Dalaran (Northrend)
+		{ "A", 20001, 244,  72 }, -- Wyrmrest Temple
+		{ 19, 10019, 223, 450 }, -- Paw'don Village
+		{ 20, 10020, 195, 433 }, -- Shrine of Seven Stars
+		{ 21, 10021, 445, 439 }, -- Stormshield
+		{ 22, 10022, 423, 462 }, -- Lion's Watch
+		{ 23, 10023, 229, 227 }, -- Crumbled Palace
+		{ 24, 10024, 248, 236 }, -- Dalaran
+		{ 25, 10025, 356, 257 }, -- Boralus Harbor
+		{ 26, 10026, 237, 348 }, -- Xibala
+		{ 27, 10027, 222, 293 }, -- Shatterstone Harbor
+		{ 28, 10028, 262, 301 }, -- Fort Victory
+		{ 29, 10029, 315, 241 }, -- Overspark Expedition Camp
 	},
 	TransAllianceStormwindCity = {
 		{ "A", 10001,  54, 273, 248, 372, "Orange" }, -- Boralus
