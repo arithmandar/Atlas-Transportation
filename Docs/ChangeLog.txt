@@ -8,6 +8,10 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.52.00 (Nov. 06, 2022)
+------------------------
+- Toc update to support WoW 10.0.0
+
 v1.51.08 (Sep. 04, 2022)
 ------------------------
 - Fixed Stormwind docks' destination info
