@@ -101,6 +101,7 @@ if L then
 	L["Boat to Stormwind City"] = "Boat to Stormwind City"
 	L["Boat to Echo Isles, Durotar"] = "Boat to Echo Isles, Durotar"
 	L["Honored with Sha'tari Skyguard"] = "Honored with Sha'tari Skyguard"
+	L["Zeppelin to Orgrimmar"] = "Zeppelin to Orgrimmar"
 	-- Options
 	L["Return to Zuldazar"] = "Return to Zuldazar"
 	L["Show %s's transportation maps"] = "Show %s's transportation maps"

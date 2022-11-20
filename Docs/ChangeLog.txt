@@ -8,6 +8,11 @@ Copyright 2011 ~ 2022 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 = Change Log =
 ==============
 
+v1.52.01 (Nov. 20, 2022)
+------------------------
+- Toc update to support WoW 10.0.2
+- Added Dragon Isles
+
 v1.52.00 (Nov. 06, 2022)
 ------------------------
 - Toc update to support WoW 10.0.0
