@@ -10,7 +10,7 @@ Copyright 2011 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
 
 v1.52.03 (Mar. 28, 2022)
 ------------------------
-- Re-packaging
+- Re-packaging 
 
 v1.52.02 (Mar. 20, 2023)
 ------------------------
