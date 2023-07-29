@@ -1,4 +1,4 @@
-﻿## Interface: 100007
+﻿## Interface: 100105
 #@non-debug@
 ## Title: @localization(locale="enUS", key="Title", namespace="ToC")@
 ## Title-deDE: @localization(locale="deDE", key="Title", namespace="ToC")@
@@ -38,6 +38,7 @@
 ## X-Category: Map
 ## RequiredDeps: Atlas
 ## SavedVariables: Atlas_TransportationDB
+## IconTexture: Interface\WorldMap\WorldMap-Icon
 
 Locale\Locales.xml
 Core\Constants.lua
