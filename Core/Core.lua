@@ -4,7 +4,7 @@
 	Atlas, a World of Warcraft instance map browser
 	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
 	Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-	Copyright 2011 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
+	Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
 
 	This file is part of Atlas.
 
@@ -30,8 +30,9 @@
 local _G = getfenv(0)
 -- Libraries
 local UnitFactionGroup = _G.UnitFactionGroup
-local faction = UnitFactionGroup("player")
-
+local factionGroup = UnitFactionGroup("player")
+local C_AddOns = _G.C_AddOns
+local GetAddOnInfo = C_AddOns.GetAddOnInfo
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
@@ -44,8 +45,10 @@ local addon = LibStub("AceAddon-3.0"):NewAddon(private.addon_name)
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 
 addon.Name = FOLDER_NAME
-addon.LocName = select(2, GetAddOnInfo(addon.Name))
-addon.Notes = select(3, GetAddOnInfo(addon.Name))
+local _, locname, notes = GetAddOnInfo(addon.Name)
+addon.LocName = locname
+addon.Notes = notes
+
 
 local function copy_faction_tables(faction)
 	for k, v in pairs(private[faction].maps) do
@@ -69,10 +72,10 @@ function addon:OnInitialize()
 	Atlas:RegisterModuleOptions(addon.Name, private.config.options, addon.LocName)
 	--self:SetupOptions()
 
-	if (private.db.all_faction or faction == "Alliance") then
+	if (private.db.all_faction or factionGroup == "Alliance") then
 		copy_faction_tables("alliance")
 	end
-	if (private.db.all_faction or faction == "Horde") then
+	if (private.db.all_faction or factionGroup == "Horde") then
 		copy_faction_tables("horde")
 	end
 end

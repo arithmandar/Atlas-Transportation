@@ -4,7 +4,7 @@
 	Atlas, a World of Warcraft instance map browser
 	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
 	Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-	Copyright 2011 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
+	Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
 
 	This file is part of Atlas.
 
@@ -28,10 +28,24 @@ local _G = getfenv(0)
 local string = _G.string
 local format = string.format
 local C_QuestLog = _G.C_QuestLog
+local IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
+local GetBuildInfo = _G.GetBuildInfo
+
+-- Area IDs for the mainline version of World of Warcraft. Source is from AreaID table.
+local _, _, _, interfaceVersion = GetBuildInfo()
+local projectID = WOW_PROJECT_ID
+local PROJECT_MAINLINE = WOW_PROJECT_MAINLINE
+-- Beta-only fallback:
+-- Replace these bounds with values verified from the actual Forever client.
+local isForeverBeta = projectID == PROJECT_MAINLINE and interfaceVersion >= 10000 and interfaceVersion < 20000
+local isRetail = projectID == PROJECT_MAINLINE and not isForeverBeta
+
+if not isRetail then return end
+
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
-local FOLDER_NAME, private = ...
+local _, private = ...
 
 local LibStub = _G.LibStub
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
@@ -81,7 +95,7 @@ local function ISQ(quest_id)
 	local isCompleted = false
 	if (not quest_id) then return str end
 	
-	isCompleted = C_QuestLog.IsQuestFlaggedCompleted(quest_id)
+	isCompleted = IsQuestFlaggedCompleted(quest_id)
 	
 	if (isCompleted) then
 		str = "" 
@@ -1386,7 +1400,7 @@ alliance.maps = {
 		{ ALAN.." 6) "..BZ["Xibala"]..ISQ(51418),  10006 },
 		{ ALAN.." 7) "..BZ["Veiled Grotto"]..ISQ(52801), 10007 },
 		{ ALAN.." 8) "..BZ["Mugamba Overlook"]..ISQ(52851), 10008 },
-		{ ALAN.." 9) "..BZ["Verdant Hollow"]..ISQ(52886), 10009 },
+		{ ALAN.." 9) "..BZ["Verdant Hollow"]..ISQ(52888), 10009 },
 		{ ALAN.."10) "..BZ["Mistvine Ledge"]..ISQ(52962), 10010 },
 		{ "" },
 		{ BLUE..BZ["Nazmir"] },
@@ -3395,7 +3409,7 @@ data.maps = {
 		--LargeMap = "",
 		{ _RED..L["Vindicaar"] },
 		{ GREN.." 1) "..BZ["Krokuun"], 10001 },
-		{ GREN.." 2) "..BZ["Mac'Aree"], 10002 },
+		{ GREN.." 2) "..BZ["Eredath"], 10002 },
 		{ GREN.." 3) "..BZ["Antoran Wastes"], 10003 },
 		{ "" },
 		{ _RED..L["Teleport Beacon"] },

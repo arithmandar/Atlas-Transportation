@@ -4,7 +4,7 @@
 	Atlas, a World of Warcraft instance map browser
 	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
 	Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-	Copyright 2011 ~ 2023 - Arith Hsu, Atlas Team <atlas.addon at gmail.com>
+	Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
 
 	This file is part of Atlas.
 
@@ -24,7 +24,11 @@
 
 --]]
 local _G = getfenv(0)
-
+-- Area table for WoW Anniversary Classic TBC. Source is from AreaID table.
+local projectID = WOW_PROJECT_ID
+local PROJECT_TBC = WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+local isAnniversaryTBC = PROJECT_TBC ~= nil and projectID == PROJECT_TBC
+if not isAnniversaryTBC then return end
 -- ----------------------------------------------------------------------------
 -- AddOn namespace.
 -- ----------------------------------------------------------------------------
