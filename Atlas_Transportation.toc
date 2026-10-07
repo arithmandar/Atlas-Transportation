@@ -1,4 +1,4 @@
-﻿## Interface: 11509, 20506, 50504, 120100
+﻿## Interface: 11509, 16001, 20506, 50504, 120100
 ## Title: Atlas Transportation
 ## Notes: Transportation route maps for Atlas.
 ## Title-deDE: Atlas Transport
@@ -23,8 +23,9 @@
 ## Notes-zhTW: Atlas 的交通路線地圖。
 ## Version: @project-version@
 ## Author: arith
-## X-Date: @project-date-iso@
-## X-Credits: Dan Gilbert, Lothaer, Dynaletik, dubcat
+## IconTexture: Interface\WorldMap\WorldMap-Icon
+## RequiredDeps: Atlas
+## SavedVariables: Atlas_TransportationDB
 ## Category: Map
 ## Category-deDE: Karte
 ## Category-esES: Mapa
@@ -37,9 +38,11 @@
 ## Category-zhCN: 地图
 ## Category-zhTW: 地圖
 ## X-Category: Map
-## RequiredDeps: Atlas
-## SavedVariables: Atlas_TransportationDB
-## IconTexture: Interface\WorldMap\WorldMap-Icon
+## X-Credits: Dan Gilbert, Lothaer, Dynaletik, dubcat
+## X-Date: @project-date-iso@
+## X-Website: https://www.curseforge.com/wow/addons/atlas-transportation
+## X-Curse-Project-ID: 32832
+## X-WoWI-ID: 20401
 
 Locale\Locales.xml
 Core\Constants.lua

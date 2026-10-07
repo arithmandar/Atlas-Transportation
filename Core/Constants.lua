@@ -1,43 +1,43 @@
--- $Id$
---[[
-
-	Atlas, a World of Warcraft instance map browser
-	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
-	Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-	Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
-
-	This file is part of Atlas.
-
-	Atlas is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
-
-	Atlas is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with Atlas; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
---]]
 -----------------------------------------------------------------------
--- Upvalued Lua API.
+-- Constants
 -----------------------------------------------------------------------
--- Functions
-
--- Libraries
--- ----------------------------------------------------------------------------
--- AddOn namespace.
--- ----------------------------------------------------------------------------
 local _, private = ...
 private.addon_name = "Atlas_Transportation"
 private.category = "Transportation Maps"
 
 local constants = {}
 private.constants = constants
+
+constants.colors = {
+	labels = {
+		BLUE = "|cff6666ff", -- usually for informational text like entrance, connection
+		GREN = "|cff66cc33", -- NPCs
+		_RED = "|cffcc3333",
+		ORNG = "|cffcc9933",
+		PURP = "|cff9900ff", -- transportation nodes
+		WHIT = "|cffffffff", -- encounters
+		LBLU = "|cff33cccc",
+		CYAN = "|cff00ffff",
+		GREY = "|cff999999",
+		ALAN = "|cff7babe0", -- Alliance's taxi node
+		HRDE = "|cffda6955", -- Horde's taxi node
+		NUTL = "|cfffee570", -- Nutral taxi node
+	},
+	classes = {
+		["HUNTER"] 	= "|cffabd473",
+		["WARLOCK"] 	= "|cff8788ee",
+		["PRIEST"] 	= "|cffffffff",
+		["PALADIN"] 	= "|cfff58cba",
+		["MAGE"] 	= "|cff3fc7eb",
+		["ROGUE"] 	= "|cfffff569",
+		["DRUID"] 	= "|cffff7d0a",
+		["SHAMAN"] 	= "|cff0070de",
+		["WARRIOR"] 	= "|cffc79c6e",
+		["DEATHKNIGHT"]	= "|cffc41f3b",
+		["MONK"] 	= "|cff00ff96",
+		["DEMONHUNTER"]	= "|cffa330c9",
+	},
+}
 
 constants.defaults = {
 	profile = {
