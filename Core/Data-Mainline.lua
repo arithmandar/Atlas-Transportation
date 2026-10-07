@@ -1,58 +1,26 @@
--- $Id$
---[[
-
-	Atlas, a World of Warcraft instance map browser
-	Copyright 2005 ~ 2010 - Dan Gilbert <dan.b.gilbert@gmail.com>
-	Copyright 2010 - Lothaer <lothayer@gmail.com>, Atlas Team
-	Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
-
-	This file is part of Atlas.
-
-	Atlas is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 2 of the License, or
-	(at your option) any later version.
-
-	Atlas is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with Atlas; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
---]]
+-----------------------------------------------------------------------
+-- Data for the mainline version of World of Warcraft.
+-----------------------------------------------------------------------
 local _G = getfenv(0)
--- Libraries
+local _, private = ...
+local LibStub = _G.LibStub
+local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
+
+local Client = Atlas.Client
+
+if not Client.isRetail then
+	return
+end
+
 local string = _G.string
 local format = string.format
 local C_QuestLog = _G.C_QuestLog
 local IsQuestFlaggedCompleted = C_QuestLog.IsQuestFlaggedCompleted
-local GetBuildInfo = _G.GetBuildInfo
 
--- Area IDs for the mainline version of World of Warcraft. Source is from AreaID table.
-local _, _, _, interfaceVersion = GetBuildInfo()
-local projectID = WOW_PROJECT_ID
-local PROJECT_MAINLINE = WOW_PROJECT_MAINLINE
--- Beta-only fallback:
--- Replace these bounds with values verified from the actual Forever client.
-local isForeverBeta = projectID == PROJECT_MAINLINE and interfaceVersion >= 10000 and interfaceVersion < 20000
-local isRetail = projectID == PROJECT_MAINLINE and not isForeverBeta
-
-if not isRetail then return end
-
--- ----------------------------------------------------------------------------
--- AddOn namespace.
--- ----------------------------------------------------------------------------
-local _, private = ...
-
-local LibStub = _G.LibStub
 local BZ = Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
 local BF = Atlas_GetLocaleLibBabble("LibBabble-Faction-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale(private.addon_name)
 local ALC = LibStub("AceLocale-3.0"):GetLocale("Atlas")
-local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 
 local data = {}
 local alliance = {}
@@ -61,33 +29,37 @@ private.data = data
 private.alliance = alliance
 private.horde = horde
 
-local BLUE = "|cff6666ff"
-local GREN = "|cff66cc33"
-local _RED = "|cffcc3333"
-local ORNG = "|cffcc9933"
-local PURP = "|cff9900ff"
-local WHIT = "|cffffffff"
-local LBLU = "|cff33cccc"
-local CYAN = "|cff00ffff"
-local GREY = "|cff999999"
-local ALAN = "|cff7babe0" -- Alliance's taxi node
-local HRDE = "|cffda6955" -- Horde's taxi node
-local NUTL = "|cfffee570" -- Nutral taxi node
+local constants = private.constants
+local labelcolors = constants.colors.labels
+local classcolors = constants.colors.classes
+
+local BLUE = labelcolors.BLUE
+local GREN = labelcolors.GREN
+local _RED = labelcolors._RED
+local ORNG = labelcolors.ORNG
+local PURP = labelcolors.PURP
+local WHIT = labelcolors.WHIT
+local LBLU = labelcolors.LBLU
+local CYAN = labelcolors.CYAN
+local GREY = labelcolors.GREY
+local ALAN = labelcolors.ALAN -- Alliance's taxi node
+local HRDE = labelcolors.HRDE -- Horde's taxi node
+local NUTL = labelcolors.NUTL -- Nutral taxi node
 local INDENT = "      "
 
 local CL = {
-	["HUNTER"] 	= "|cffabd473",
-	["WARLOCK"] 	= "|cff8788ee",
-	["PRIEST"] 	= "|cffffffff",
-	["PALADIN"] 	= "|cfff58cba",
-	["MAGE"] 	= "|cff3fc7eb",
-	["ROGUE"] 	= "|cfffff569",
-	["DRUID"] 	= "|cffff7d0a",
-	["SHAMAN"] 	= "|cff0070de",
-	["WARRIOR"] 	= "|cffc79c6e",
-	["DEATHKNIGHT"]	= "|cffc41f3b",
-	["MONK"] 	= "|cff00ff96",
-	["DEMONHUNTER"]	= "|cffa330c9",
+	["HUNTER"] 		= classcolors["HUNTER"],
+	["WARLOCK"] 	= classcolors["WARLOCK"],
+	["PRIEST"] 		= classcolors["PRIEST"],
+	["PALADIN"] 	= classcolors["PALADIN"],
+	["MAGE"] 		= classcolors["MAGE"],
+	["ROGUE"] 		= classcolors["ROGUE"],
+	["DRUID"] 		= classcolors["DRUID"],
+	["SHAMAN"] 		= classcolors["SHAMAN"],
+	["WARRIOR"] 	= classcolors["WARRIOR"],
+	["DEATHKNIGHT"]	= classcolors["DEATHKNIGHT"],
+	["MONK"] 		= classcolors["MONK"],
+	["DEMONHUNTER"]	= classcolors["DEMONHUNTER"],
 }
 
 local function ISQ(quest_id)
