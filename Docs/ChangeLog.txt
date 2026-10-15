@@ -7,6 +7,14 @@ Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
 = Change Log =
 ==============
 
+v1.54.01 (Oct. 15, 2026)
+------------------------
+- Added Zereth Mortis maps and coordinates
+- Draenor maps revamped
+- Dragon Isles:
+  - Added taxi nodes at Morqut Village and Bel'ameth
+- Added Zaralek Cavern maps and coordinates
+
 v1.54.00 (Oct. 15, 2026)
 ------------------------
 - ToC update to support WoW 12.1.5

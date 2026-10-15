@@ -98,15 +98,15 @@ local function ISQ(quest_id)
 	local str = ""
 	local isCompleted = false
 	if (not quest_id) then return str end
-	
+
 	isCompleted = IsQuestFlaggedCompleted(quest_id)
-	
+
 	if (isCompleted) then
 		str = ""
 	else
 		str = GREY..L_PAREN..UNAVAILABLE..R_PAREN
 	end
-	
+
 	return str
 end
 
@@ -528,7 +528,7 @@ alliance.maps = {
 		{ "" },
 		{ _RED..L["Legend"] },
 		{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },	
+		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..COLON },
 		{ LBLU..L["Exploration"] },
@@ -802,7 +802,7 @@ alliance.maps = {
 		{ "" },
 		{ _RED..L["Legend"] },
 		{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },	
+		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..COLON },
 		{ LBLU..L["Exploration"] },
@@ -1037,7 +1037,7 @@ alliance.maps = {
 		{ "You Made Me Bleed My Own Blood", "ac=8116" },
 		{ "Zandalari Library Card", "ac=8212" },
 	},
-	TransAllianceDraenor = {
+	TransAllianceDraenor_Details = {
 		ZoneName = { BZ["Draenor"]..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN },
 		WorldMapID = 572,
 		Faction = "Alliance",
@@ -1893,7 +1893,7 @@ horde.maps = {
 		{ "" },
 		{ _RED..L["Legend"] },
 		{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },	
+		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..COLON },
 		{ LBLU..L["Exploration"] },
@@ -2187,7 +2187,7 @@ horde.maps = {
 		{ "" },
 		{ _RED..L["Legend"] },
 		{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
-		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },	
+		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
 		{ "" },
 		{ LBLU..ACHIEVEMENTS..COLON },
 		{ LBLU..L["Exploration"] },
@@ -2303,7 +2303,7 @@ horde.maps = {
 		{ NUTL.."37) "..BZ["Soggy's Gamble"], 20037 },
 		{ "" },
 		{ BLUE..BZ["Vale of Eternal Blossoms"] },
-		{ NUTL.."38) "..BZ["Serpent's Spine"], 20038 },    
+		{ NUTL.."38) "..BZ["Serpent's Spine"], 20038 },
 		{ HRDE.."39) "..BZ["Shrine of Two Moons"], 20039 },
 		{ "" },
 		{ BLUE..BZ["Isle of Giants"] },
@@ -2421,7 +2421,7 @@ horde.maps = {
 		{ "You Made Me Bleed My Own Blood", "ac=8116" },
 		{ "Zandalari Library Card", "ac=8212" },
 	},
-	TransHordeDraenor = {
+	TransHordeDraenor_Details = {
 		ZoneName = { BZ["Draenor"]..HRDE..L_PAREN..FACTION_HORDE..R_PAREN },
 		WorldMapID = 572,
 		Faction = "Horde",
@@ -3111,55 +3111,61 @@ data.maps = {
 		{ PURP.." A) "..BZ["Valdrakken"], 20001},
 		{ "" },
 		{ _RED..BZ["Docks"]..ALC["Hyphen"]..L["Boat to Stormwind City"]..SLASH..L["Zeppelin to Orgrimmar"] },
-		{ WHIT.." 1) "..BZ["Wild Coast"], 20002 }, 
+		{ WHIT.." 1) "..BZ["Wild Coast"], 20002 },
 		{ "" },
 		{ _RED..L["Taxi Nodes"] },
 		{ BLUE..BZ["Thaldraszus"] },
-		{ NUTL.." 1) "..BZ["Veiled Ossuary"], 10001 }, 
-		{ NUTL.." 2) "..BZ["Vault of the Incarnates"], 10002 }, 
-		{ NUTL.." 3) "..BZ["Algeth'era"], 10003 }, 
-		{ NUTL.." 4) "..BZ["Valdrakken"], 10004 }, 
-		{ NUTL.." 5) "..BZ["Gelikyr Post"], 10005 }, 
-		{ NUTL.." 6) "..BZ["Garden Shrine"], 10006 }, 
-		{ NUTL.." 7) "..BZ["Shifting Sands"], 10007 }, 
-		{ NUTL.." 8) "..BZ["Temporal Conflux"], 10008 }, 
+		{ NUTL.." 1) "..BZ["Veiled Ossuary"], 10001 },
+		{ NUTL.." 2) "..BZ["Vault of the Incarnates"], 10002 },
+		{ NUTL.." 3) "..BZ["Algeth'era"], 10003 },
+		{ NUTL.." 4) "..BZ["Valdrakken"], 10004 },
+		{ NUTL.." 5) "..BZ["Gelikyr Post"], 10005 },
+		{ NUTL.." 6) "..BZ["Garden Shrine"], 10006 },
+		{ NUTL.." 7) "..BZ["Shifting Sands"], 10007 },
+		{ NUTL.." 8) "..BZ["Temporal Conflux"], 10008 },
 		-- TBD: Eon's Fringe, Waygate, Quesi: 71165
 		{ "" },
 		{ BLUE..BZ["The Azure Span"] },
-		{ NUTL.." 9) "..BZ["Theron's Watch"], 10009 }, 
-		{ NUTL.."10) "..BZ["Rhonin's Shield"], 10010 }, 
-		{ NUTL.."11) "..BZ["Camp Nowhere"], 10011 }, 
-		{ NUTL.."12) "..BZ["Cobalt Assembly"], 10012 }, 
-		{ NUTL.."13) "..BZ["Camp Antonidas"], 10013 }, 
-		{ NUTL.."14) "..BZ["Azure Archives"], 10014 }, 
-		{ NUTL.."15) "..BZ["Three-Falls Lookout"], 10015 }, 
-		{ NUTL.."16) "..BZ["Iskaara"], 10016 }, 
+		{ NUTL.." 9) "..BZ["Theron's Watch"], 10009 },
+		{ NUTL.."10) "..BZ["Rhonin's Shield"], 10010 },
+		{ NUTL.."11) "..BZ["Camp Nowhere"], 10011 },
+		{ NUTL.."12) "..BZ["Cobalt Assembly"], 10012 },
+		{ NUTL.."13) "..BZ["Camp Antonidas"], 10013 },
+		{ NUTL.."14) "..BZ["Azure Archives"], 10014 },
+		{ NUTL.."15) "..BZ["Three-Falls Lookout"], 10015 },
+		{ NUTL.."16) "..BZ["Iskaara"], 10016 },
 		-- TBD: Vakthros, Waygate, Quest: 66009
 		{ "" },
 		{ BLUE..BZ["Ohn'ahran Plains"] },
-		{ NUTL.."17) "..BZ["Forkriver Crossing"], 10017 }, 
-		{ NUTL.."18) "..BZ["Ohn'iri Springs"], 10018 }, 
-		{ NUTL.."19) "..BZ["Pinewood Post"], 10019 }, 
-		{ NUTL.."20) "..BZ["Teerakai"], 10020 }, 
-		{ NUTL.."21) "..BZ["Shady Sanctuary"], 10021 }, 
-		{ NUTL.."22) "..BZ["Rusza'thar Reach"], 10022 }, 
-		{ NUTL.."23) "..BZ["Maruukai"], 10023 }, 
-		{ NUTL.."24) "..BZ["Broadhoof Outpost"], 10024 }, 
-		{ NUTL.."25) "..BZ["Timberstep Outpost"], 10025 }, 
-		{ NUTL.."26) "..BZ["Emberwatch"], 10026 }, 
+		{ NUTL.."17) "..BZ["Forkriver Crossing"], 10017 },
+		{ NUTL.."18) "..BZ["Ohn'iri Springs"], 10018 },
+		{ NUTL.."19) "..BZ["Pinewood Post"], 10019 },
+		{ NUTL.."20) "..BZ["Teerakai"], 10020 },
+		{ NUTL.."21) "..BZ["Shady Sanctuary"], 10021 },
+		{ NUTL.."22) "..BZ["Rusza'thar Reach"], 10022 },
+		{ NUTL.."23) "..BZ["Maruukai"], 10023 },
+		{ NUTL.."24) "..BZ["Broadhoof Outpost"], 10024 },
+		{ NUTL.."25) "..BZ["Timberstep Outpost"], 10025 },
+		{ NUTL.."26) "..BZ["Emberwatch"], 10026 },
 		{ "" },
 		{ BLUE..BZ["The Waking Shores"] },
-		{ NUTL.."27) "..BZ["Dragonscale Basecamp"], 10027 }, 
-		{ NUTL.."28) "..BZ["Apex Observatory"], 10028 }, 
-		{ NUTL.."29) "..BZ["Uktulut Outpost"], 10029 }, 
-		{ NUTL.."30) "..BZ["Ruby Life Pools"], 10030 }, 
-		{ NUTL.."31) "..BZ["Obsidian Bulwark"], 10031 }, 
-		{ NUTL.."32) "..BZ["Obsidian Throne"], 10032 }, 
-		{ NUTL.."33) "..BZ["Skytop Observatory"], 10033 }, 
-		{ NUTL.."34) "..BZ["Life Vault Ruins"], 10034 }, 
-		{ NUTL.."35) "..BZ["Wingrest Embassy"], 10035 }, 
-		{ NUTL.."36) "..BZ["Uktulut Backwater"], 10036 }, 
-		{ NUTL.."37) "..BZ["Uktulut Pier"], 10037 }, 
+		{ NUTL.."27) "..BZ["Dragonscale Basecamp"], 10027 },
+		{ NUTL.."28) "..BZ["Apex Observatory"], 10028 },
+		{ NUTL.."29) "..BZ["Uktulut Outpost"], 10029 },
+		{ NUTL.."30) "..BZ["Ruby Life Pools"], 10030 },
+		{ NUTL.."31) "..BZ["Obsidian Bulwark"], 10031 },
+		{ NUTL.."32) "..BZ["Obsidian Throne"], 10032 },
+		{ NUTL.."33) "..BZ["Skytop Observatory"], 10033 },
+		{ NUTL.."34) "..BZ["Life Vault Ruins"], 10034 },
+		{ NUTL.."35) "..BZ["Wingrest Embassy"], 10035 },
+		{ NUTL.."36) "..BZ["Uktulut Backwater"], 10036 },
+		{ NUTL.."37) "..BZ["Uktulut Pier"], 10037 },
+		{ "" },
+		{ BLUE..BZ["The Forbidden Reach"] },
+		{ NUTL.."38) "..BZ["Morqut Village"], 10038 },
+		{ "" },
+		{ BLUE..BZ["Amirdrassil"] },
+		{ NUTL.."39) "..BZ["Bel'ameth"], 10039 },
 		--TBD: Ruby Lifeshrine
 		--Rebuff Lookout ??
 		--Skytop Lookout (QD) ??
@@ -3167,4 +3173,23 @@ data.maps = {
 		{ "" },
 		{ "" },
 	},
+	ZaralekCavern = {
+		ZoneName = { BZ["Zaralek Cavern"]..NUTL..L_PAREN..FACTION_NEUTRAL..R_PAREN },
+		WorldMapID = 1971,
+		{ _RED..L["Taxi Nodes"] },
+		{ NUTL.."1) "..BZ["Dragonscale Basecamp"], 10001 },
+		{ NUTL.."2) "..BZ["Loamm"], 10002 },
+		{ NUTL.."3) "..BZ["Obsidian Rest"], 10003 },
+	},
+	ZerethMortis = {
+		ZoneName = { BZ["Zereth Mortis"]..NUTL..L_PAREN..FACTION_NEUTRAL..R_PAREN },
+		WorldMapID = 1970,
+		{ _RED..L["Taxi Nodes"] },
+		{ NUTL.."1) "..BZ["Zovaal's Grasp"], 10001 },
+		{ NUTL.."2) "..BZ["Sepulcher Of The First Ones"], 10002 },
+	},
+	--[[
+	KhazAlgar = {
+
+	},]]
 }
