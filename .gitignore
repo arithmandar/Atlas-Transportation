@@ -1,7 +1,8 @@
 .vscode
 
 # ignore png and lua files under PSD folder
-PSD/*.png
-PSD/*.lua
-PSD/*.jpg
-PSD/*.jpeg
+**/PSD/*.png
+**/PSD/*.lua
+**/PSD/*.jpg
+**/PSD/*.jpeg
+**/PSD/_Footage
