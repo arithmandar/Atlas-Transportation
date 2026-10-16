@@ -7,6 +7,12 @@ Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
 = Change Log =
 ==============
 
+v1.54.02 (Oct. 16, 2026)
+------------------------
+- Outland map revamped
+- Revise the taxi node "Refugee Camp" in Ardenweald to "Heart of the Forest"
+- Added Shadowlands map
+
 v1.54.01 (Oct. 15, 2026)
 ------------------------
 - Added Zereth Mortis maps and coordinates
