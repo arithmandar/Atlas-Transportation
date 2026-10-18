@@ -3174,6 +3174,16 @@ data.maps = {
 		{ NUTL.."24) "..BZ["Darkhaven"], 10024 },
 		{ NUTL.."25) "..BZ["Halls of Atonement"], 10025 },
 		{ NUTL.."26) "..BZ["Pridefall Hamlet"], 10026 },
+		{ "" },
+		{ LBLU..ACHIEVEMENTS..COLON },
+		{ LBLU..L["Exploration"] },
+		{ "Explore Revendreth", "ac=14306" },
+		{ "Explore Korthia", "ac=15053" },
+		{ "Explore Bastion", "ac=14303" },
+		{ "Explore The Maw", "ac=14663" },
+		{ "Explore Maldraxxus", "ac=14305" },
+		{ "Explore Ardenweald", "ac=14304" },
+		{ "Explore Zereth Mortis", "ac=15224" },
 	},
 	-- =======================================
 	-- Dragon Isles
@@ -3255,6 +3265,15 @@ data.maps = {
 		--Skytop Lookout (QD) ??
 		--Rubyscale Outpost ??
 		{ "" },
+		{ LBLU..ACHIEVEMENTS..COLON },
+		{ LBLU..L["Exploration"] },
+		{ "Explore Zaralek Cavern", "ac=17766" },
+		{ "Explore the Waking Shores", "ac=16400" },
+		{ "Famliar Skies", "ac=16452" },
+		{ "Explore the Ohn'ahran Plains", "ac=16457" },
+		{ "Explore the Emerald Dream", "ac=19309" },
+		{ "Explore the Azure Span", "ac=16460" },
+		{ "Explore the Forbidden Reach", "ac=17534" },
 		{ "" },
 	},
 	ZaralekCavern = {
@@ -3316,6 +3335,15 @@ data.maps = {
 		{ NUTL.."31) "..BZ["Shadow Point"], 10031 },
 		{ NUTL.."32) "..BZ["Overlook Zo'Shuul"], 10032 },
 		{ NUTL.."33) "..BZ["Hosaas Rest"], 10033 },
+		{ "" },
+		{ LBLU..ACHIEVEMENTS..COLON },
+		{ LBLU..L["Exploration"] },
+		{ "Explore Hallowfall", "ac=40826" },
+		{ "Explore K'aresh", "ac=42740" },
+		{ "Explore the Isle of Dorn", "ac=40831" },
+		{ "Explore Azj-Kahet", "ac=40822" },
+		{ "Explore Undermine", "ac=41587" },
+		{ "" },
 	},
 }
 
