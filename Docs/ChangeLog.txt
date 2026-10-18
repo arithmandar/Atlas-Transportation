@@ -7,6 +7,10 @@ Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
 = Change Log =
 ==============
 
+v1.54.04 (Oct. 19, 2026)
+------------------------
+- Update Dragon Isles map
+
 v1.54.03 (Oct. 18, 2026)
 ------------------------
 - Mainline

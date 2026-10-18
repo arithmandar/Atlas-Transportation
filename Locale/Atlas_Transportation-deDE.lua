@@ -81,4 +81,7 @@ if L then
 	L["Return to Zuldazar"] = "Kehre nach Zuldazar zurück"
 	L["Show %s's transportation maps"] = "Zeigt die Transportkarten von %s an"
 	L["Change will take effect after next login; or type '/reload' command to reload addon"] = "Die Änderung wird nach der nächsten Anmeldung wirksam; oder gib den Befehl '/reload' ein, um das Addon neu zu laden"
+	-- Misc
+	L["Only available for Alliance"] = "Nur für die Allianz verfügbar"
+	L["Only available for Horde"] = "Nur für die Horde verfügbar"
 end
