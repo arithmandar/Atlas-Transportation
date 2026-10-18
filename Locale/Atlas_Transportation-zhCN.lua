@@ -85,4 +85,7 @@ if L then
 	-- L["Return to Zuldazar"] = "Return to Zuldazar"
 	-- L["Show %s's transportation maps"] = "Show %s's transportation maps"
 	-- L["Change will take effect after next login; or type '/reload' command to reload addon"] = "Change will take effect after next login; or type '/reload' command to reload addon"
+	-- Misc
+	L["Only available for Alliance"] = "仅限联盟使用"
+	L["Only available for Horde"] = "仅限部落使用"
 end

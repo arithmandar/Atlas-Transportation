@@ -3193,19 +3193,7 @@ data.maps = {
 		WorldMapID = 1978,
 		{ _RED..L["Portals"] },
 		{ PURP.." A) "..BZ["Valdrakken"], 20001},
-		{ isAlliance and 
-			INDENT..GREY..HYPHEN..BZ["Stormwind City"]..COMMA..BZ["Elwynn Forest"]..COMMA..BZ["Eastern Kingdoms"] 
-			or
-			INDENT..GREY..HYPHEN..BZ["Orgrimmar"]..COMMA..BZ["Durotar"]..COMMA..BZ["Kalimdor"] },
-		{ INDENT..GREY..HYPHEN..BZ["Badlands"]..COMMA..BZ["Eastern Kingdoms"] },
-		{ INDENT..GREY..HYPHEN..BZ["The Emerald Dream"] },
-		-- Bel'ameth portals for alliance only are inserted after this table
-		{ isAlliance and 
-			_RED..BZ["Docks"]..ALC["Hyphen"]..L["Boat to Stormwind City"]
-			or
-			_RED..BZ["Docks"]..ALC["Hyphen"]..L["Zeppelin to Orgrimmar"]
-		},
-		{ WHIT.." 1) "..BZ["Wild Coast"], 20002 },
+		{ PURP.." B) "..BZ["Ancient Bough"]..COMMA..BZ["Ohn'ahran Plains"]..GREY.." (18.2, 52.6)", 20002 },
 		{ "" },
 		{ _RED..L["Taxi Nodes"] },
 		{ BLUE..BZ["Thaldraszus"] },
@@ -3259,7 +3247,7 @@ data.maps = {
 		{ NUTL.."38) "..BZ["Morqut Village"], 10038 },
 		{ "" },
 		{ BLUE..BZ["Amirdrassil"] },
-		{ NUTL.."39) "..BZ["Bel'ameth"], 10039 },
+		{ NUTL.."39) "..BZ["Bel'ameth"]..ALAN..L_PAREN..L["Only available for Alliance"]..R_PAREN, 10039 },
 		--TBD: Ruby Lifeshrine
 		--Rebuff Lookout ??
 		--Skytop Lookout (QD) ??
@@ -3347,17 +3335,41 @@ data.maps = {
 	},
 }
 
-if isAlliance then
-	local belameth = {
-		{ NUTL.."39) "..BZ["Bel'ameth"] },
-		{ INDENT..GREY..HYPHEN..BZ["Stormwind City"]..COMMA..BZ["Elwynn Forest"]..COMMA..BZ["Eastern Kingdoms"] },
-		{ INDENT..GREY..HYPHEN..BZ["Darkshore"]..COMMA..BZ["Kalimdor"] },
-		{ INDENT..GREY..HYPHEN..BZ["Mount Hyjal"]..COMMA..BZ["Kalimdor"] },
-		{ INDENT..GREY..HYPHEN..BZ["Lorlathil"]..COMMA..BZ["Val'sharah"] },
-		{ "" },
-	}
-	-- 5 entries precede it: Portals header, Valdrakken, 2 portal lines, Emerald Dream
+local function addBelamethEntries()
+	local belameth = {}
+	if isAlliance then
+		belameth = {
+			{ PURP.." C) "..BZ["Bel'ameth"]..GREY.." (55.5, 63.6)", 20003 },
+			{ INDENT..GREY..HYPHEN..BZ["Stormwind City"]..COMMA..BZ["Elwynn Forest"]..COMMA..BZ["Eastern Kingdoms"] },
+			{ INDENT..GREY..HYPHEN..BZ["Darkshore"]..COMMA..BZ["Kalimdor"] },
+			{ INDENT..GREY..HYPHEN..BZ["Mount Hyjal"]..COMMA..BZ["Kalimdor"] },
+			{ INDENT..GREY..HYPHEN..BZ["Lorlathil"]..COMMA..BZ["Val'sharah"] },
+			{ PURP.." A') "..BZ["Stormwind City"]..COMMA..BZ["Elwynn Forest"]..COMMA..BZ["Eastern Kingdoms"], 20004 },
+			{ PURP.." B') "..BZ["Badlands"]..COMMA..BZ["Eastern Kingdoms"], 20005 },
+			{ PURP.." C') "..BZ["The Emerald Dream"], 20006 },
+			{ "" },
+			{ _RED..BZ["Docks"] },
+			{ ORNG.." A) "..BZ["Wild Coast"]..GREY.." (82.2, 30.8)", 30001 },
+			{ ORNG.." B) "..BZ["Belanaar"]..COMMA..BZ["Amirdrassil"]..GREY.." (49.1, 1.4)", 30002 },
+			{ ORNG.." A') "..BZ["Stormglen Village"]..COMMA..BZ["Ruins of Gilneas"]..GREY.." (63.6, 96.6)", 30003 }
+		}
+	else
+		belameth = {
+			{ PURP.." C) "..BZ["Bel'ameth"]..ALAN..L_PAREN..L["Only available for Alliance"]..R_PAREN, 20003 },
+			{ PURP.." A') "..BZ["Orgrimmar"]..COMMA..BZ["Durotar"]..COMMA..BZ["Kalimdor"], 20004 },
+			{ PURP.." B') "..BZ["Badlands"]..COMMA..BZ["Eastern Kingdoms"], 20005 },
+			{ PURP.." C') "..BZ["The Emerald Dream"], 20006 },
+			{ "" },
+			{ _RED..BZ["Docks"] },
+			{ ORNG.." A) "..BZ["Wild Coast"]..GREY.." (81.4, 27.7)", 30001 },
+			{ ORNG.." B) "..BZ["Belanaar"]..COMMA..BZ["Amirdrassil"]..GREY.." (49.1, 1.4)", 30002 },
+			{ ORNG.." A') "..BZ["Stormglen Village"]..COMMA..BZ["Ruins of Gilneas"]..GREY.." (63.6, 96.6)", 30003 }
+		}
+	end
 	for i, entry in ipairs(belameth) do
-		table.insert(data.maps.TransDragonIsles, 5 + i, entry)
+		table.insert(data.maps.TransDragonIsles, 3 + i, entry)
 	end
 end
+
+addBelamethEntries()
+

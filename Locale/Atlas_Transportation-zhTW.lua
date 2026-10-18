@@ -82,5 +82,8 @@ if L then
 	L["Return to Zuldazar"] = "返回贊達拉"
 	L["Show %s's transportation maps"] = "顯示%s陣營的交通網路圖"
 	L["Change will take effect after next login; or type '/reload' command to reload addon"] = "變更會在下次登入後生效；或輸入 /reload 指令重新載入插件"
+	-- Misc
+	L["Only available for Alliance"] = "僅限聯盟使用"
+	L["Only available for Horde"] = "僅限部落使用"
 end
 
