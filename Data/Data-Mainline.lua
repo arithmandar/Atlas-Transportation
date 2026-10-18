@@ -95,9 +95,7 @@ local UPPER = ALC["Upper"]
 local CONNECTION = ALC["Connection"]
 local RARE = ALC["Rare"]
 local RANDOM = ALC["Random"]
-
-local STORMWIND_PORTAL = PURP.." B') "..BZ["Stormwind City"]..COMMA..BZ["Elwynn Forest"]..COMMA..BZ["Eastern Kingdoms"]
-local ORGRIMMAR_PORTAL = PURP.." B') "..BZ["Orgrimmar"]..COMMA..BZ["Durotar"]..COMMA..BZ["Kalimdor"]
+local HYPHEN = ALC["Hyphen"]
 
 -- local function to check if a quest is completed and return a formatted string
 local function ISQ(quest_id)
@@ -1241,9 +1239,10 @@ alliance.maps = {
 		LargeMap = "TransAllianceBrokenIsles",
 		{ _RED..L["Portals"] },
 		{ PURP.." A) "..BZ["Greyfang Enclave"], 10040 },
-		{ INDENT..GREY.." <-> "..BZ["Stormwind City"]..COMMA..BZ["Elwynn Forest"]..COMMA..BZ["Eastern Kingdoms"] },
 		{ PURP.." B) "..BZ["Chamber of the Guardian"], 10041 },
 		{ PURP.." C) "..format(ALC["Portal to %s"], BZ["Dalaran"])..GREY.." (30.1, 40.7)", 10042 },
+		{ PURP.." D) "..BZ["Crumbled Palace"]..COMMA..BZ["Azsuna"]..GREY.." (46.7, 41.3)", 10043 },
+		{ PURP.." A') "..BZ["Stormwind City"]..COMMA..BZ["Elwynn Forest"]..COMMA..BZ["Eastern Kingdoms"], 10044 },
 		{ NUTL.."37) "..BZ["Deliverance Point"]..ALC["Hyphen"].._G["BROKENSHORE_BUILDING_MAGETOWER"]..GREY.." (46.3, 61.9)" },
 		{ INDENT..GREY.."  -> "..BZ["Meredil"]..COMMA..BZ["Suramar"] },
 		{ INDENT..GREY.."  -> "..BZ["Valdisdall"]..COMMA..BZ["Stormheim"] },
@@ -2623,9 +2622,11 @@ horde.maps = {
 		LargeMap = "TransHordeBrokenIsles",
 		{ _RED..L["Portals"] },
 		{ PURP.." A) "..BZ["Windrunner's Sanctuary"], 10040 },
-		{ INDENT..GREY.." <-> "..BZ["Orgrimmar"]..COMMA..BZ["Durotar"]..COMMA..BZ["Kalimdor"] },
 		{ PURP.." B) "..BZ["Chamber of the Guardian"], 10041 },
 		{ PURP.." C) "..format(ALC["Portal to %s"], BZ["Dalaran"])..GREY.." (30.1, 40.7)", 10042 },
+		{ PURP.." D) "..BZ["Suramar"]..GREY.." (58.3, 86.9)", 10043 },
+		{ PURP.." E) "..BZ["Crumbled Palace"]..COMMA..BZ["Azsuna"]..GREY.." (46.7, 41.3)", 10044 },
+		{ PURP.." A') "..BZ["Orgrimmar"]..COMMA..BZ["Durotar"]..COMMA..BZ["Kalimdor"], 10045 },
 		{ NUTL.."37) "..BZ["Deliverance Point"]..ALC["Hyphen"].._G["BROKENSHORE_BUILDING_MAGETOWER"]..GREY.." (46.3, 61.9)" },
 		{ INDENT..GREY.."  -> "..BZ["Meredil"]..COMMA..BZ["Suramar"] },
 		{ INDENT..GREY.."  -> "..BZ["Valdisdall"]..COMMA..BZ["Stormheim"] },
@@ -3116,6 +3117,10 @@ data.maps = {
 	ZerethMortis = {
 		ZoneName = { BZ["Zereth Mortis"]..COMMA..BZ["Shadowlands"]..NUTL..L_PAREN..FACTION_NEUTRAL..R_PAREN },
 		WorldMapID = 1970,
+		{ _RED..L["Portals"] },
+		{ PURP.." A) "..BZ["Haven"], 20001 },
+		{ PURP.." A') "..BZ["Oribos"], 20002 },
+		{ "" },
 		{ _RED..L["Taxi Nodes"] },
 		{ NUTL.."1) "..BZ["Zovaal's Grasp"], 10001 },
 		{ NUTL.."2) "..BZ["Sepulcher Of The First Ones"], 10002 },
@@ -3126,7 +3131,12 @@ data.maps = {
 		{ _RED..L["Portals"] },
 		{ PURP.." A) "..BZ["Oribos"], 20001 },
 		{ PURP.." A') "..BZ["Haven"]..COMMA..BZ["Zereth Mortis"], 20002 },
-		{ isAlliance and STORMWIND_PORTAL or ORGRIMMAR_PORTAL, 20003 },
+		{ isAlliance and 
+			PURP.." B') "..BZ["Stormwind City"]..COMMA..BZ["Elwynn Forest"]..COMMA..BZ["Eastern Kingdoms"] 
+			or 
+			PURP.." B') "..BZ["Orgrimmar"]..COMMA..BZ["Durotar"]..COMMA..BZ["Kalimdor"], 
+			20003 
+		},
 		{ PURP.. " B) "..BZ["Ve'nari's Refuge"]..COMMA..BZ["The Maw"], 20004 },
 		{ PURP.. " C) "..BZ["Korthia"], 20005 },
 		{ "" },
@@ -3173,8 +3183,18 @@ data.maps = {
 		WorldMapID = 1978,
 		{ _RED..L["Portals"] },
 		{ PURP.." A) "..BZ["Valdrakken"], 20001},
-		{ "" },
-		{ _RED..BZ["Docks"]..ALC["Hyphen"]..L["Boat to Stormwind City"]..SLASH..L["Zeppelin to Orgrimmar"] },
+		{ isAlliance and 
+			INDENT..GREY..HYPHEN..BZ["Stormwind City"]..COMMA..BZ["Elwynn Forest"]..COMMA..BZ["Eastern Kingdoms"] 
+			or
+			INDENT..GREY..HYPHEN..BZ["Orgrimmar"]..COMMA..BZ["Durotar"]..COMMA..BZ["Kalimdor"] },
+		{ INDENT..GREY..HYPHEN..BZ["Badlands"]..COMMA..BZ["Eastern Kingdoms"] },
+		{ INDENT..GREY..HYPHEN..BZ["The Emerald Dream"] },
+		-- Bel'ameth portals for alliance only are inserted after this table
+		{ isAlliance and 
+			_RED..BZ["Docks"]..ALC["Hyphen"]..L["Boat to Stormwind City"]
+			or
+			_RED..BZ["Docks"]..ALC["Hyphen"]..L["Zeppelin to Orgrimmar"]
+		},
 		{ WHIT.." 1) "..BZ["Wild Coast"], 20002 },
 		{ "" },
 		{ _RED..L["Taxi Nodes"] },
@@ -3238,15 +3258,78 @@ data.maps = {
 		{ "" },
 	},
 	ZaralekCavern = {
-		ZoneName = { BZ["Zaralek Cavern"]..NUTL..L_PAREN..FACTION_NEUTRAL..R_PAREN },
-		WorldMapID = 1971,
+		ZoneName = { BZ["Zaralek Cavern"]..COMMA..BZ["Dragon Isles"]..NUTL..L_PAREN..FACTION_NEUTRAL..R_PAREN },
+		WorldMapID = 2133,
 		{ _RED..L["Taxi Nodes"] },
 		{ NUTL.."1) "..BZ["Dragonscale Basecamp"], 10001 },
 		{ NUTL.."2) "..BZ["Loamm"], 10002 },
 		{ NUTL.."3) "..BZ["Obsidian Rest"], 10003 },
 	},
-	--[[
 	KhazAlgar = {
-
-	},]]
+		ZoneName = { BZ["Khaz Algar"]..NUTL..L_PAREN..FACTION_NEUTRAL..R_PAREN },
+		WorldMapID = 2274,
+		{ _RED..L["Portals"] },
+		{ "" },
+		{ _RED..L["Taxi Nodes"] },
+		{ BLUE..BZ["Isle of Dorn"] },
+		{ NUTL.." 1) "..BZ["Dornogal"], 10001 },
+		{ NUTL.." 2) "..BZ["Freywold Village"], 10002 },
+		{ NUTL.." 3) "..BZ["Durgaz Cabin"], 10003 },
+		{ NUTL.." 4) "..BZ["Rambleshire"], 10004 },
+		{ "" },
+		{ BLUE..BZ["The Ringing Deeps"] },
+		{ NUTL.." 5) "..BZ["Opportunity Point"], 10005 },
+		{ NUTL.." 6) "..BZ["Camp Murroch"], 10006 },
+		{ NUTL.." 7) "..BZ["Gundargaz"], 10007 },
+		--{ NUTL.."8) "..BZ["Shadowvein Point"], 10004 },
+		{ NUTL.." 8) "..BZ["Gutterville"], 10008 },
+		{ "" },
+		{ BLUE..BZ["Undermine"] },
+		{ NUTL.." 9) "..BZ["Slam Central Station"], 10009 },
+		{ NUTL.."10) "..BZ["Undermine"], 10010 },
+		{ NUTL.."11) "..BZ["The Heaps"], 10011 },
+		{ NUTL.."12) "..BZ["The Gallagio"], 10012 },
+		{ "" },
+		{ BLUE..BZ["Hallowfall"] },
+		{ NUTL.."13) "..BZ["Dunelle's Kindness"], 10013 },
+		{ NUTL.."14) "..BZ["Lightspark"], 10014 },
+		{ NUTL.."15) "..BZ["Light's Redoubt"], 10015 },
+		{ NUTL.."16) "..BZ["Mereldar"], 10016 },
+		{ NUTL.."17) "..BZ["Priory of the Sacred Flame"], 10017 },
+		{ NUTL.."18) "..BZ["Lorel's Crossing"], 10018 },
+		{ NUTL.."19) "..BZ["Hillhelm Family Farm"], 10019 },
+		{ NUTL.."20) "..BZ["The Aegis Wall"], 10020 },
+		{ "" },
+		{ BLUE..BZ["Azj-Kahet"] },
+		{ NUTL.."21) "..BZ["Weaver's Lair"], 10021 },
+		{ NUTL.."22) "..BZ["Wildcamp Or'lay"], 10022 },
+		{ NUTL.."23) "..BZ["The Burrows"], 10023 },
+		{ NUTL.."24) "..BZ["Wildcamp Ul'ar"], 10024 },
+		{ NUTL.."25) "..BZ["Faerin's Advance"], 10025 },
+		{ NUTL.."26) "..BZ["Mmarl"], 10026 },
+		{ "" },
+		{ BLUE..BZ["K'aresh"] },
+		{ NUTL.."27) "..BZ["Tazavesh"], 10027 },
+		{ NUTL.."28) "..BZ["Eco-Dome: Rhovan"], 10028 },
+		{ NUTL.."29) "..BZ["The Oasis"], 10029 },
+		{ NUTL.."30) "..BZ["Shan'dorah"], 10030 },
+		{ NUTL.."31) "..BZ["Shadow Point"], 10031 },
+		{ NUTL.."32) "..BZ["Overlook Zo'Shuul"], 10032 },
+		{ NUTL.."33) "..BZ["Hosaas Rest"], 10033 },
+	},
 }
+
+if isAlliance then
+	local belameth = {
+		{ NUTL.."39) "..BZ["Bel'ameth"] },
+		{ INDENT..GREY..HYPHEN..BZ["Stormwind City"]..COMMA..BZ["Elwynn Forest"]..COMMA..BZ["Eastern Kingdoms"] },
+		{ INDENT..GREY..HYPHEN..BZ["Darkshore"]..COMMA..BZ["Kalimdor"] },
+		{ INDENT..GREY..HYPHEN..BZ["Mount Hyjal"]..COMMA..BZ["Kalimdor"] },
+		{ INDENT..GREY..HYPHEN..BZ["Lorlathil"]..COMMA..BZ["Val'sharah"] },
+		{ "" },
+	}
+	-- 5 entries precede it: Portals header, Valdrakken, 2 portal lines, Emerald Dream
+	for i, entry in ipairs(belameth) do
+		table.insert(data.maps.TransDragonIsles, 5 + i, entry)
+	end
+end

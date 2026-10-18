@@ -7,6 +7,14 @@ Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
 = Change Log =
 ==============
 
+v1.54.03 (Oct. 18, 2026)
+------------------------
+- Mainline
+  - Eastern Kingdoms map revamped
+  - Update Shadowlands / Dragon Isles portals
+  - Update Broken Isles portals
+  - Added Khaz Algar map
+
 v1.54.02 (Oct. 16, 2026)
 ------------------------
 - Outland map revamped
