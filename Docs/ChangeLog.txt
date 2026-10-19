@@ -7,9 +7,17 @@ Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
 = Change Log =
 ==============
 
+v1.54.05 (Oct. 19, 2026)
+------------------------
+- Mainline
+  - Update Dragon Isles map:
+    - Added Portal node at Amirdrassil
+  - Added Alliance / Horde Quel'Thalas maps
+
 v1.54.04 (Oct. 19, 2026)
 ------------------------
-- Update Dragon Isles map
+- Mainline
+  - Update Dragon Isles map
 
 v1.54.03 (Oct. 18, 2026)
 ------------------------
