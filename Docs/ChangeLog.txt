@@ -7,6 +7,13 @@ Copyright 2011 ~ 2026 - Arith Hsu, Atlas Team
 = Change Log =
 ==============
 
+v1.54.06 (Oct. 19, 2026)
+------------------------
+- Mainline
+  - Added Midnight version's Eastern Kingdoms maps for Alliance / Horde, 
+    including taxi nodes and portal paths in Quel'Thalas.
+  - Dragon Isles - remove comment for Bel'ameth taxi node, the flight master actually also serves the Horde.
+
 v1.54.05 (Oct. 19, 2026)
 ------------------------
 - Mainline
