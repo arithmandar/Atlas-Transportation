@@ -13,6 +13,9 @@
   - Added new taxi nodes:
     - Mount Hyjal: Tainted Foothills, Summit of Eternity
     - Riverglades: Powderfuse Port, Farholde Keep, Rog'mar
+- Classic Era
+  - Added maps' coordinates to Eastern Kingdom and Kalimdor maps
+- Introduce run-time dynamatic lable adding and coordinates calculation
 
 ### v1.54.06 (Oct. 19, 2026)
 
