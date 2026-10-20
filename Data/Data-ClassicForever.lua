@@ -99,8 +99,8 @@ private.BuildTransportMap({
 	WorldMapID = 13,
 	Faction = "Alliance",
 	DynamicMarkers = true,
-	-- Fitted against the hand-placed coords on the 512x512 map (button TOPLEFT convention).
-	transform = { scale = 0.0239019, offsetX = 222.40, offsetY = 128.99, snap = 0.5 },
+	-- UiMap 1463 (taxi map, Eastern Kingdoms), from UiMapAssignment. anchor -6, -4 centres the marker on the node.
+	transform = { region = { -15980, -11880, 5817, 9917 }, size = 512, anchorX = -6, anchorY = -4, snap = 0.5 },
 	nodes = {
 		{ label = "A", id = 20001, kind = "Ship", name = "Auberdine", zone = "Darkshore", xy = { 13, 93 } },
 		{ label = "B", id = 20002, kind = "Ship", name = "Ratchet", zone = "The Barrens", xy = { 15, 231 } },
@@ -144,8 +144,8 @@ private.BuildTransportMap({
 	WorldMapID = 13,
 	Faction = "Horde",
 	DynamicMarkers = true,
-	-- Fitted against the hand-placed coords on the 512x512 map (button TOPLEFT convention).
-	transform = { scale = 0.0239019, offsetX = 222.40, offsetY = 128.99, snap = 0.5 },
+	-- UiMap 1463 (taxi map, Eastern Kingdoms), from UiMapAssignment. anchor -6, -4 centres the marker on the node.
+	transform = { region = { -15980, -11880, 5817, 9917 }, size = 512, anchorX = -6, anchorY = -4, snap = 0.5 },
 	nodes = {
 		{ label = "A", id = 20001, kind = "Ship", name = "Orgrimmar", zone = "Durotar", xy = { 15, 164 } },
 		{ label = "B", id = 20002, kind = "Ship", name = "Ratchet", zone = "The Barrens", xy = { 18, 277 } },
@@ -186,12 +186,12 @@ private.BuildTransportMap({
 	WorldMapID = 12,
 	Faction = "Alliance",
 	DynamicMarkers = true,
-	-- Fitted against the hand-placed coords on the 512x512 map (button TOPLEFT convention).
-	transform = { scale = 0.0207576, offsetX = 226.48, offsetY = 258.79, snap = 0.5 },
+	-- UiMap 1464 (taxi map, Kalimdor), from UiMapAssignment. anchor -6, -4 centres the marker on the node.
+	transform = { region = { -11870, -13370, 12470, 10970 }, size = 512, anchorX = -6, anchorY = -4, snap = 0.5 },
 	nodes = {
 		{ label = "A", id = 20001, kind = "Ship", name = "Auberdine", zone = "Darkshore", xy = { 488.76, 177.58 } },
-		{ label = "B", id = 20001, kind = "Ship", name = "Stormwind City", zone = "Elwynn Forest", xy = { 488.08, 266.58 } },
-		{ label = "C", id = 20001, kind = "Ship", name = "Booty Bay", zone = "Stranglethorn Vale", xy = { 488.29, 420.58 } },
+		{ label = "B", id = 20002, kind = "Ship", name = "Stormwind City", zone = "Elwynn Forest", xy = { 488.08, 266.58 } },
+		{ label = "C", id = 20003, kind = "Ship", name = "Booty Bay", zone = "Stranglethorn Vale", xy = { 488.29, 420.58 } },
 		{ label = "1", id = 10002, kind = "Alliance", name = "Auberdine", zone = "Darkshore", pos = { 6341.379883, 557.6799927 } }, -- 26
 		{ label = "2", id = 10003, kind = "Alliance", name = "Rut'theran Village", zone = "Teldrassil", pos = { 8643.589844, 841.0499878 } }, -- 27
 		{ label = "3", id = 10004, kind = "Alliance", name = "Astranaar", zone = "Ashenvale", pos = { 2827.340088, -289.2399902 } }, -- 28
@@ -226,8 +226,8 @@ private.BuildTransportMap({
 	WorldMapID = 12,
 	Faction = "Horde",
 	DynamicMarkers = true,
-	-- Fitted against the hand-placed coords on the 512x512 map (button TOPLEFT convention).
-	transform = { scale = 0.0207576, offsetX = 226.48, offsetY = 258.79, snap = 0.5 },
+	-- UiMap 1464 (taxi map, Kalimdor), from UiMapAssignment. anchor -6, -4 centres the marker on the node.
+	transform = { region = { -11870, -13370, 12470, 10970 }, size = 512, anchorX = -6, anchorY = -4, snap = 0.5 },
 	nodes = {
 		{ label = "1", id = 10002, kind = "Horde", name = "Thunder Bluff", zone = "Mulgore", pos = { -1197.209961, 29.70999908 } }, -- 22
 		{ label = "2", id = 10003, kind = "Horde", name = "Orgrimmar", zone = "Durotar", pos = { 1677.589966, -4315.709961 } }, -- 23

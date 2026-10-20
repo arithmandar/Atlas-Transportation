@@ -19,18 +19,41 @@ local function snap(value, step)
 end
 
 -- Converts a world position (TaxiNodes Pos_0 / Pos_1) into map pixels.
+--
+-- Projection from UiMapAssignment (preferred, exact):
+--   region   { Region_0, Region_1, Region_3, Region_4 } = { minX, minY, maxX, maxY } world bounds
+--   ui       optional { UiMin_0, UiMin_1, UiMax_0, UiMax_1 }, default { 0, 0, 1, 1 }
+--   size     map size in pixels, default 512
+--   anchorX, anchorY  optional shift in pixels; -6, -4 centres a 12x12 normal-map button on the node
+--
+-- Or a manual linear fit:
 --   x = offsetX - scaleX * Pos_1    (world Y grows to the west)
 --   y = offsetY - scaleY * Pos_0    (world X grows to the north)
--- transform fields:
 --   scale            uniform pixels per yard, used when scaleX / scaleY are not set
 --   scaleX, scaleY   per-axis scale (optional)
 --   offsetX, offsetY horizontal / vertical shift in map pixels
 function private.WorldToMap(pos0, pos1, transform)
-	local scaleX = transform.scaleX or transform.scale
-	local scaleY = transform.scaleY or transform.scale
-	local x = transform.offsetX - scaleX * pos1
-	local y = transform.offsetY - scaleY * pos0
-	return x, y
+	local x, y
+	local region = transform.region
+	if (region) then
+		local minX, minY, maxX, maxY = region[1], region[2], region[3], region[4]
+		local ui = transform.ui
+		local u0, v0, u1, v1 = 0, 0, 1, 1
+		if (ui) then
+			u0, v0, u1, v1 = ui[1], ui[2], ui[3], ui[4]
+		end
+		local size = transform.size or 512
+		local u = u0 + (u1 - u0) * (maxY - pos1) / (maxY - minY)
+		local v = v0 + (v1 - v0) * (maxX - pos0) / (maxX - minX)
+		x = size * u
+		y = size * v
+	else
+		local scaleX = transform.scaleX or transform.scale
+		local scaleY = transform.scaleY or transform.scale
+		x = transform.offsetX - scaleX * pos1
+		y = transform.offsetY - scaleY * pos0
+	end
+	return x + (transform.anchorX or 0), y + (transform.anchorY or 0)
 end
 
 -- nodes: list of { mark, buttonID, Pos_0, Pos_1 [, dx, dy [, colortag]] }
