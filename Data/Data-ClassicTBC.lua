@@ -117,13 +117,13 @@ alliance.maps = {
 		ZoneName = { BZ["Eastern Kingdoms"]..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN },
 		WorldMapID = 13,
 		Faction = "Alliance",
-		{ BLUE.." A) "..BZ["Auberdine"]..COMMA.._RED..BZ["Darkshore"]..COMMA..BZ["Kalimdor"] };
-		{ BLUE.." B) "..BZ["Ratchet"]..COMMA.._RED..BZ["The Barrens"]..COMMA..BZ["Kalimdor"] };
-		{ BLUE.." C) "..BZ["Theramore Isle"]..COMMA.._RED..BZ["Dustwallow Marsh"]..COMMA..BZ["Kalimdor"] };
-		{ PURP.." A) "..BZ["The Dark Portal"]..COMMA.._RED..BZ["Hellfire Peninsula"]..COMMA..BZ["Outland"] };
-		{ };
-		{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"]..COMMA.._RED..BZ["Isle of Quel'Danas"] };
-		{ WHIT.." 2) "..BZ["Hatchet Hills"]..COMMA.._RED..BZ["Ghostlands"] };
+		{ BLUE.." A) "..BZ["Auberdine"]..COMMA.._RED..BZ["Darkshore"]..COMMA..BZ["Kalimdor"] },
+		{ BLUE.." B) "..BZ["Ratchet"]..COMMA.._RED..BZ["The Barrens"]..COMMA..BZ["Kalimdor"] },
+		{ BLUE.." C) "..BZ["Theramore Isle"]..COMMA.._RED..BZ["Dustwallow Marsh"]..COMMA..BZ["Kalimdor"] },
+		{ PURP.." A) "..BZ["The Dark Portal"]..COMMA.._RED..BZ["Hellfire Peninsula"]..COMMA..BZ["Outland"] },
+		{ },
+		{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"]..COMMA.._RED..BZ["Isle of Quel'Danas"] },
+		{ WHIT.." 2) "..BZ["Hatchet Hills"]..COMMA.._RED..BZ["Ghostlands"] },
 		{ WHIT.." 3) "..BZ["Light's Hope Chapel"]..COMMA.._RED..BZ["Eastern Plaguelands"] },
 		{ WHIT.." 4) "..BZ["Chillwind Point"]..COMMA.._RED..BZ["Western Plaguelands"] },
 		{ WHIT.." 5) "..BZ["Aerie Peak"]..COMMA.._RED..BZ["The Hinterlands"] },
@@ -139,7 +139,7 @@ alliance.maps = {
 		{ WHIT.."15) "..BZ["Sentinel Hill"]..COMMA.._RED..BZ["Westfall"] },
 		{ WHIT.."16) "..BZ["Darkshire"]..COMMA.._RED..BZ["Duskwood"] },
 		{ WHIT.."17) "..BZ["Nethergarde Keep"]..COMMA.._RED..BZ["Blasted Lands"] },
-		{ WHIT.."18) "..BZ["Rebel Camp"]..COMMA.._RED..BZ["Stranglethorn Vale"] };
+		{ WHIT.."18) "..BZ["Rebel Camp"]..COMMA.._RED..BZ["Stranglethorn Vale"] },
 		{ WHIT.."19) "..BZ["Booty Bay"]..COMMA.._RED..BZ["Stranglethorn Vale"] },
 		{ "" },
 		{ _RED..L["Legend"] },
@@ -149,16 +149,16 @@ alliance.maps = {
 		ZoneName = { BZ["Kalimdor"]..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN },
 		WorldMapID = 12,
 		Faction = "Alliance",
-		{ BLUE.." A) "..BZ["Menethil Harbor"]..COMMA.._RED..BZ["Wetlands"]..COMMA..BZ["Eastern Kingdoms"] };
-		{ BLUE.." B) "..BZ["Booty Bay"]..COMMA.._RED..BZ["Stranglethorn Vale"]..COMMA..BZ["Eastern Kingdoms"] };
-		{ };
+		{ BLUE.." A) "..BZ["Menethil Harbor"]..COMMA.._RED..BZ["Wetlands"]..COMMA..BZ["Eastern Kingdoms"] },
+		{ BLUE.." B) "..BZ["Booty Bay"]..COMMA.._RED..BZ["Stranglethorn Vale"]..COMMA..BZ["Eastern Kingdoms"] },
+		{ },
 		{ WHIT.." 1) "..BZ["Rut'theran Village"]..COMMA.._RED..BZ["Teldrassil"] },
-		{ WHIT.." 2) "..BZ["Nighthaven"]..COMMA.._RED..BZ["Moonglade"]..GREN..L_PAREN..L["Druid Only"]..R_PAREN };
+		{ WHIT.." 2) "..BZ["Nighthaven"]..COMMA.._RED..BZ["Moonglade"]..GREN..L_PAREN..L["Druid Only"]..R_PAREN },
 		{ WHIT.." 3) "..BZ["Nighthaven"]..COMMA.._RED..BZ["Moonglade"] },
 		{ WHIT.." 4) "..BZ["Everlook"]..COMMA.._RED..BZ["Winterspring"] },
 		{ WHIT.." 5) "..BZ["Auberdine"]..COMMA.._RED..BZ["Darkshore"] },
 		{ WHIT.." 6) "..BZ["Talonbranch Glade"]..COMMA.._RED..BZ["Felwood"] },
-		{ WHIT.." 7) "..BZ["Emerald Sanctuary"]..COMMA.._RED..BZ["Felwood"] };
+		{ WHIT.." 7) "..BZ["Emerald Sanctuary"]..COMMA.._RED..BZ["Felwood"] },
 		{ WHIT.." 8) "..BZ["Stonetalon Peak"]..COMMA.._RED..BZ["Stonetalon Mountains"] },
 		{ WHIT.." 9) "..BZ["Astranaar"]..COMMA.._RED..BZ["Ashenvale"] },
 		{ WHIT.."10) "..BZ["Forest Song"]..COMMA.._RED..BZ["Ashenvale"] },
@@ -166,14 +166,14 @@ alliance.maps = {
 		{ WHIT.."12) "..BZ["Nijel's Point"]..COMMA.._RED..BZ["Desolace"] },
 		{ NUTL.."13) "..BZ["Ratchet"]..COMMA.._RED..BZ["The Barrens"] },
 		{ WHIT.."14) "..BZ["Theramore"]..COMMA.._RED..BZ["Dustwallow Marsh"] },
-		{ WHIT.."15) "..BZ["Theramore Isle"]..COMMA.._RED..BZ["Dustwallow Marsh"] };
+		{ WHIT.."15) "..BZ["Theramore Isle"]..COMMA.._RED..BZ["Dustwallow Marsh"] },
 		{ WHIT.."16) "..BZ["Feathermoon"]..COMMA.._RED..BZ["Feralas"] },
 		{ WHIT.."17) "..BZ["Thalanaar"]..COMMA.._RED..BZ["Feralas"] },
 		{ NUTL.."18) "..BZ["Marshal's Refuge"]..COMMA.._RED..BZ["Un'Goro Crater"] },
 		{ WHIT.."19) "..BZ["Cenarion Hold"]..COMMA.._RED..BZ["Silithus"] },
 		{ WHIT.."20) "..BZ["Gadgetzan"]..COMMA.._RED..BZ["Tanaris"] },
-		{ WHIT.."21) "..BZ["Blood Watch"]..COMMA.._RED..BZ["Bloodmyst Isle"] };
-		{ WHIT.."22) "..BZ["Valaar's Berth"]..COMMA.._RED..BZ["Azuremyst Isle"] };
+		{ WHIT.."21) "..BZ["Blood Watch"]..COMMA.._RED..BZ["Bloodmyst Isle"] },
+		{ WHIT.."22) "..BZ["Valaar's Berth"]..COMMA.._RED..BZ["Azuremyst Isle"] },
 		{ "" },
 		{ _RED..L["Legend"] },
 		{ NUTL..L["Yellow"]..COLON..L["Taxi Nodes"]..ALC["Hyphen"]..L["Nutral"] },
@@ -252,12 +252,12 @@ horde.maps = {
 		Faction = "Horde",
 		{ BLUE.." A) "..BZ["Orgrimmar"]..COMMA.._RED..BZ["Durotar"] },
 		{ BLUE.." B) "..BZ["Ratchet"]..COMMA.._RED..BZ["The Barrens"] },
-		{ PURP.." A) "..BZ["The Dark Portal"]..COMMA.._RED..BZ["Hellfire Peninsula"] };
-		{ };
-		{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"]..COMMA.._RED..BZ["Isle of Quel'Danas"] };
-		{ WHIT.." 2) "..BZ["Silvermoon City"]..COMMA.._RED..BZ["Eversong Woods"] };
-		{ WHIT.." 3) "..BZ["Tranquillien"]..COMMA.._RED..BZ["Ghostlands"] };
-		{ WHIT.." 4) "..BZ["Hatchet Hills"]..COMMA.._RED..BZ["Ghostlands"] };
+		{ PURP.." A) "..BZ["The Dark Portal"]..COMMA.._RED..BZ["Hellfire Peninsula"] },
+		{ },
+		{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"]..COMMA.._RED..BZ["Isle of Quel'Danas"] },
+		{ WHIT.." 2) "..BZ["Silvermoon City"]..COMMA.._RED..BZ["Eversong Woods"] },
+		{ WHIT.." 3) "..BZ["Tranquillien"]..COMMA.._RED..BZ["Ghostlands"] },
+		{ WHIT.." 4) "..BZ["Hatchet Hills"]..COMMA.._RED..BZ["Ghostlands"] },
 		{ WHIT.." 5) "..BZ["Light's Hope Chapel"]..COMMA.._RED..BZ["Eastern Plaguelands"] },
 		{ WHIT.." 6) "..BZ["Undercity"]..COMMA.._RED..BZ["Tirisfal Glades"] },
 		{ WHIT.." 7) "..BZ["The Sepulcher"]..COMMA.._RED..BZ["Silverpine Forest"] },
@@ -283,8 +283,8 @@ horde.maps = {
 		{ BLUE.." A) "..BZ["Undercity"]..COMMA.._RED..BZ["Tirisfal Glades"] },
 		{ BLUE.." B) "..BZ["Grom'gol"]..COMMA.._RED..BZ["Stranglethorn Vale"] },
 		{ BLUE.." C) "..BZ["Booty Bay"]..COMMA.._RED..BZ["Stranglethorn Vale"] },
-		{ };
-		{ WHIT.." 1) "..BZ["Nighthaven"]..COMMA.._RED..BZ["Moonglade"]..GREN..L_PAREN..L["Druid Only"]..R_PAREN };
+		{ },
+		{ WHIT.." 1) "..BZ["Nighthaven"]..COMMA.._RED..BZ["Moonglade"]..GREN..L_PAREN..L["Druid Only"]..R_PAREN },
 		{ WHIT.." 2) "..BZ["Shrine of Remulos"]..COMMA.._RED..BZ["Moonglade"] },
 		{ WHIT.." 3) "..BZ["Everlook"]..COMMA.._RED..BZ["Winterspring"] },
 		{ WHIT.." 4) "..BZ["Bloodvenom Post"]..COMMA.._RED..BZ["Felwood"] },

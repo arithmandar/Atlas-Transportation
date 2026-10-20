@@ -116,161 +116,161 @@ alliance.maps = {
 		{ NUTL.."15) "..BZ["Shattrath City"]..COMMA.._RED..BZ["Terokkar Forest"], 10015 },
 		{ "" },
 		{ BLUE..BZ["Northrend"] },
-		{ WHIT.."16) "..BZ["Valiance Keep"]..COMMA.._RED..BZ["Borean Tundra"] };
-		{ NUTL.."17) "..BZ["Dalaran"]..COMMA.._RED..BZ["Crystalsong Forest"] };
-		{ WHIT.."18) "..BZ["Valgarde"]..COMMA.._RED..BZ["Howling Fjord"] };
+		{ WHIT.."16) "..BZ["Valiance Keep"]..COMMA.._RED..BZ["Borean Tundra"] },
+		{ NUTL.."17) "..BZ["Dalaran"]..COMMA.._RED..BZ["Crystalsong Forest"] },
+		{ WHIT.."18) "..BZ["Valgarde"]..COMMA.._RED..BZ["Howling Fjord"] },
 		{ PURP.." A) "..BZ["Waygate"]..COMMA..BZ["Sholazar Basin"] },
 	},
 	TransAllianceEast_MoP = {
-		ZoneName = { BZ["Eastern Kingdoms"]..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN };
+		ZoneName = { BZ["Eastern Kingdoms"]..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN },
 		WorldMapID = 13,
 		Faction = "Alliance",
-		{ _RED..BZ["Docks"] };
-		{ ORNG.." A') "..BZ["Valgarde"]..COMMA..BZ["Howling Fjord"]..COMMA..BZ["Northrend"] };
-		{ ORNG.." B') "..BZ["Valiance Keep"]..COMMA..BZ["Borean Tundra"]..COMMA..BZ["Northrend"] };
-		{ ORNG.." C') "..BZ["Rut'theran Village"]..COMMA..BZ["Teldrassil"]..COMMA..BZ["Kalimdor"] };
-		{ ORNG.." D') "..BZ["Ratchet"]..COMMA..BZ["Northern Barrens"]..COMMA..BZ["Kalimdor"] };
-		{ ORNG.." E') "..BZ["Theramore"]..COMMA..BZ["Dustwallow Marsh"]..COMMA..BZ["Kalimdor"] };
-		{ WHIT.."21) "..BZ["Menethil Harbor"]..COMMA..BZ["Wetlands"] };
-		{ WHIT.."43) "..BZ["Stormwind Harbor"]..COMMA..BZ["Elwynn Forest"] };
-		{ WHIT.."60) "..BZ["Booty Bay"]..COMMA..BZ["The Cape of Stranglethorn"] };
-		{ "" };
-		{ _RED..L["Portals"]..SLASH..L["Transporter"] };
-		{ PURP.." A) "..BZ["Baradin Base Camp"]..COMMA..BZ["Tol Barad Peninsula"] };
-		{ PURP.." B) "..BZ["Baradin Hold"]..COMMA..BZ["Tol Barad"] };
-		{ PURP..INDENT.."("..L["Only available after winning the PvP battle"]..R_PAREN };
-		{ PURP.." C) "..BZ["Highbank"]..COMMA..BZ["Twilight Highlands"] };
-		{ PURP.." D) "..BZ["Fuselight-by-the-Sea"]..COMMA..BZ["Badlands"] };
-		{ PURP..INDENT.."("..L["Transporters by the sea and on the cliff"]..R_PAREN };
-		{ PURP.." E) "..BZ["The Dark Portal"]..COMMA..BZ["Blasted Lands"] };
-		{ PURP.." A') "..BZ["Nordrassil"]..COMMA..BZ["Mount Hyjal"]..COMMA..BZ["Kalimdor"] };
-		{ PURP.." B') "..BZ["Ramkahen"]..COMMA..BZ["Uldum"]..COMMA..BZ["Kalimdor"] };
-		{ PURP.." C') "..BZ["The Stair of Destiny"]..COMMA..BZ["Hellfire Peninsula"]..COMMA..BZ["Outland"] };
-		{ PURP.." D') "..BZ["Temple of Earth"]..COMMA..BZ["Deepholm"] };
-		{ PURP.." E') "..BZ["Darkmoon Island"] };
-		{ PURP.." F') "..BZ["Paw'Don Village"]..COMMA..BZ["The Jade Forest"]..COMMA..BZ["Pandaria"] };
-		{ WHIT.."29) "..BZ["The Mystic Ward"]..COMMA..BZ["Ironforge"]..COMMA..BZ["Dun Morogh"] };
-		{ WHIT.."43) "..BZ["Mage Quarter"]..COMMA..BZ["Stormwind"]..COMMA..BZ["Elwynn Forest"] };
-		{ "" };
-		{ _RED..L["Taxi Nodes"] };
-		{ BLUE..BZ["Isle of Quel'Danas"] };
-		{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"] };
-		{ "" };
-		{ BLUE..BZ["Ghostlands"] };
-		{ WHIT.." 2) "..BZ["Zul'Aman"] };
-		{ "" };
-		{ BLUE..BZ["Eastern Plaguelands"] };
-		{ GREN.." 3) "..BZ["Acherus: The Ebon Hold"]..L_PAREN..L["Death Knight Only"]..R_PAREN };
-		{ WHIT.." 4) "..BZ["Light's Hope Chapel"] };
-		{ WHIT.." 5) "..BZ["Eastwall Tower"] };
-		{ WHIT.." 6) "..BZ["Northpass Tower"] };
-		{ WHIT.." 7) "..BZ["Plaguewood Tower"] };
-		{ WHIT.." 8) "..BZ["Light's Shield Tower"] };
-		{ WHIT.." 9) "..BZ["Crown Guard Tower"] };
-		{ WHIT.."10) "..BZ["Thondroril River"] };
-		{ "" };
-		{ BLUE..BZ["Western Plaguelands"] };
-		{ WHIT.."11) "..BZ["Hearthglen"] };
-		{ WHIT.."12) "..BZ["The Menders' Stead"] };
-		{ WHIT.."13) "..BZ["Andorhal"] };
-		{ WHIT..INDENT..L_PAREN..L["Won't be available once the Battle for Andorhal chain is finished."]..R_PAREN };
-		{ WHIT.."14) "..BZ["Chillwind Camp"] };
-		{ "" };
-		{ BLUE..BZ["The Hinterlands"] };
-		{ WHIT.."15) "..BZ["Aerie Peak"] };
-		{ WHIT.."16) "..BZ["Stormfeather Outpost"] };
-		{ "" };
-		{ BLUE..BZ["Arathi Highlands"] };
-		{ WHIT.."17) "..BZ["Refuge Pointe"] };
-		{ "" };
-		{ BLUE..BZ["Wetlands"] };
-		{ WHIT.."18) "..BZ["Dun Modr"] };
-		{ WHIT.."19) "..BZ["Whelgar's Retreat"] };
-		{ WHIT.."20) "..BZ["Greenwarden's Grove"] };
-		{ WHIT.."21) "..BZ["Menethil Harbor"] };
-		{ WHIT.."22) "..BZ["Slabchisel's Survey"] };
-		{ "" };
-		{ BLUE..BZ["Twilight Highlands"] };
-		{ WHIT.."23) "..BZ["Vermillion Redoubt"] };
-		{ WHIT.."24) "..BZ["Thundermar"] };
-		{ WHIT.."25) "..BZ["Kirthaven"] };
-		{ WHIT.."26) "..BZ["Victor's Point"] };
-		{ WHIT.."27) "..BZ["Firebeard's Patrol"] };
-		{ WHIT.."28) "..BZ["Highbank"] };
-		{ "" };
-		{ BLUE..BZ["Dun Morogh"] };
-		{ WHIT.."29) "..BZ["Ironforge"] };
-		{ WHIT.."30) "..BZ["Kharanos"] };
-		{ WHIT.."31) "..BZ["Gol'Bolar Quarry"] };
-		{ "" };
-		{ BLUE..BZ["Loch Modan"] };
-		{ WHIT.."32) "..BZ["Thelsamar"] };
-		{ WHIT.."33) "..BZ["Farstrider Lodge"] };
-		{ "" };
-		{ BLUE..BZ["Searing Gorge"] };
-		{ WHIT.."34) "..BZ["Thorium Point"] };
-		{ WHIT.."35) "..BZ["Iron Summit"] };
-		{ "" };
-		{ BLUE..BZ["Badlands"] };
-		{ WHIT.."36) "..BZ["Dragon's Mouth"] };
-		{ WHIT.."37) "..BZ["Dustwind Dig"] };
-		{ WHIT.."38) "..BZ["Fuselight"] };
-		{ "" };
-		{ BLUE..BZ["Burning Steppes"] };
-		{ WHIT.."39) "..BZ["Chiselgrip"] };
-		{ WHIT.."40) "..BZ["Morgan's Vigil"] };
-		{ WHIT.."41) "..BZ["Flamestar Post"] };
-		{ WHIT.."42) "..BZ["Terror Wing Path"]..COMMA..BZ["Burning Steppes"] };
-		{ WHIT..INDENT.."("..L["The Bogpaddle Bullet"]..R_PAREN };
-		{ "" };
-		{ BLUE..BZ["Elwynn Forest"] };
-		{ WHIT.."43) "..BZ["Stormwind"] };
-		{ WHIT.."44) "..BZ["Goldshire"] };
-		{ WHIT.."45) "..BZ["Eastvale Logging Camp"] };
-		{ "" };
-		{ BLUE..BZ["Redridge Mountains"] };
-		{ WHIT.."46) "..BZ["Lakeshire"] };
-		{ WHIT.."47) "..BZ["Camp Everstill"] };
-		{ WHIT.."48) "..BZ["Shalewind Canyon"] };
-		{ "" };
-		{ BLUE..BZ["Westfall"] };
-		{ WHIT.."49) "..BZ["Furlbrow's Pumpkin Farm"] };
-		{ WHIT.."50) "..BZ["Moonbrook"] };
-		{ WHIT.."51) "..BZ["Sentinel Hill"] };
-		{ "" };
-		{ BLUE..BZ["Duskwood"] };
-		{ WHIT.."52) "..BZ["Raven Hill"] };
-		{ WHIT.."53) "..BZ["Darkshire"] };
-		{ "" };
-		{ BLUE..BZ["Swamp of Sorrows"] };
-		{ WHIT.."54) "..BZ["The Harborage"] };
-		{ WHIT.."55) "..BZ["Marshtide Watch"] };
-		{ WHIT.."56) "..BZ["Bogpaddle"] };
-		{ "" };
-		{ BLUE..BZ["Northern Stranglethorn"] };
-		{ WHIT.."57) "..BZ["Rebel Camp"] };
-		{ WHIT.."58) "..BZ["Fort Livingston"] };
-		{ "" };
-		{ BLUE..BZ["The Cape of Stranglethorn"] };
-		{ WHIT.."59) "..BZ["Explorers' League Digsite"] };
-		{ WHIT.."60) "..BZ["Booty Bay"] };
-		{ "" };
-		{ BLUE..BZ["Blasted Lands"] };
-		{ WHIT.."61) "..BZ["Nethergarde Keep"] };
-		{ WHIT.."62) "..BZ["Surwich"] };
-		{ "" };
-		{ BLUE..BZ["Vashj'ir"] };
-		{ CYAN.."63) "..BZ["Smuggler's Scar"]..L_PAREN..L["Seahorse"]..R_PAREN };
-		{ CYAN.."64) "..BZ["Sandy Beach"]..L_PAREN..L["Seahorse"]..SLASH..L["Gryphon"]..R_PAREN };
-		{ CYAN.."65) "..BZ["Silver Tide Hollow"]..L_PAREN..L["Seahorse"]..R_PAREN };
-		{ CYAN.."66) "..BZ["Tranquil Wash"]..L_PAREN..L["Seahorse"]..R_PAREN };
-		{ CYAN.."67) "..BZ["Voldrin's Hold"]..L_PAREN..L["Seahorse"]..SLASH..L["Gryphon"]..R_PAREN };
-		{ CYAN.."68) "..BZ["Darkbreak Cove"]..L_PAREN..L["Seahorse"]..R_PAREN };
-		{ "" };
-		{ _RED..L["Legend"] };
-		{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] };
-		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] };
-		{ GREN.."-- : "..BZ["Deeprun Tram"]..SLASH..L["Special transportation"] };
+		{ _RED..BZ["Docks"] },
+		{ ORNG.." A') "..BZ["Valgarde"]..COMMA..BZ["Howling Fjord"]..COMMA..BZ["Northrend"] },
+		{ ORNG.." B') "..BZ["Valiance Keep"]..COMMA..BZ["Borean Tundra"]..COMMA..BZ["Northrend"] },
+		{ ORNG.." C') "..BZ["Rut'theran Village"]..COMMA..BZ["Teldrassil"]..COMMA..BZ["Kalimdor"] },
+		{ ORNG.." D') "..BZ["Ratchet"]..COMMA..BZ["Northern Barrens"]..COMMA..BZ["Kalimdor"] },
+		{ ORNG.." E') "..BZ["Theramore"]..COMMA..BZ["Dustwallow Marsh"]..COMMA..BZ["Kalimdor"] },
+		{ WHIT.."21) "..BZ["Menethil Harbor"]..COMMA..BZ["Wetlands"] },
+		{ WHIT.."43) "..BZ["Stormwind Harbor"]..COMMA..BZ["Elwynn Forest"] },
+		{ WHIT.."60) "..BZ["Booty Bay"]..COMMA..BZ["The Cape of Stranglethorn"] },
+		{ "" },
+		{ _RED..L["Portals"]..SLASH..L["Transporter"] },
+		{ PURP.." A) "..BZ["Baradin Base Camp"]..COMMA..BZ["Tol Barad Peninsula"] },
+		{ PURP.." B) "..BZ["Baradin Hold"]..COMMA..BZ["Tol Barad"] },
+		{ PURP..INDENT.."("..L["Only available after winning the PvP battle"]..R_PAREN },
+		{ PURP.." C) "..BZ["Highbank"]..COMMA..BZ["Twilight Highlands"] },
+		{ PURP.." D) "..BZ["Fuselight-by-the-Sea"]..COMMA..BZ["Badlands"] },
+		{ PURP..INDENT.."("..L["Transporters by the sea and on the cliff"]..R_PAREN },
+		{ PURP.." E) "..BZ["The Dark Portal"]..COMMA..BZ["Blasted Lands"] },
+		{ PURP.." A') "..BZ["Nordrassil"]..COMMA..BZ["Mount Hyjal"]..COMMA..BZ["Kalimdor"] },
+		{ PURP.." B') "..BZ["Ramkahen"]..COMMA..BZ["Uldum"]..COMMA..BZ["Kalimdor"] },
+		{ PURP.." C') "..BZ["The Stair of Destiny"]..COMMA..BZ["Hellfire Peninsula"]..COMMA..BZ["Outland"] },
+		{ PURP.." D') "..BZ["Temple of Earth"]..COMMA..BZ["Deepholm"] },
+		{ PURP.." E') "..BZ["Darkmoon Island"] },
+		{ PURP.." F') "..BZ["Paw'Don Village"]..COMMA..BZ["The Jade Forest"]..COMMA..BZ["Pandaria"] },
+		{ WHIT.."29) "..BZ["The Mystic Ward"]..COMMA..BZ["Ironforge"]..COMMA..BZ["Dun Morogh"] },
+		{ WHIT.."43) "..BZ["Mage Quarter"]..COMMA..BZ["Stormwind"]..COMMA..BZ["Elwynn Forest"] },
+		{ "" },
+		{ _RED..L["Taxi Nodes"] },
+		{ BLUE..BZ["Isle of Quel'Danas"] },
+		{ WHIT.." 1) "..BZ["Shattered Sun Staging Area"] },
+		{ "" },
+		{ BLUE..BZ["Ghostlands"] },
+		{ WHIT.." 2) "..BZ["Zul'Aman"] },
+		{ "" },
+		{ BLUE..BZ["Eastern Plaguelands"] },
+		{ GREN.." 3) "..BZ["Acherus: The Ebon Hold"]..L_PAREN..L["Death Knight Only"]..R_PAREN },
+		{ WHIT.." 4) "..BZ["Light's Hope Chapel"] },
+		{ WHIT.." 5) "..BZ["Eastwall Tower"] },
+		{ WHIT.." 6) "..BZ["Northpass Tower"] },
+		{ WHIT.." 7) "..BZ["Plaguewood Tower"] },
+		{ WHIT.." 8) "..BZ["Light's Shield Tower"] },
+		{ WHIT.." 9) "..BZ["Crown Guard Tower"] },
+		{ WHIT.."10) "..BZ["Thondroril River"] },
+		{ "" },
+		{ BLUE..BZ["Western Plaguelands"] },
+		{ WHIT.."11) "..BZ["Hearthglen"] },
+		{ WHIT.."12) "..BZ["The Menders' Stead"] },
+		{ WHIT.."13) "..BZ["Andorhal"] },
+		{ WHIT..INDENT..L_PAREN..L["Won't be available once the Battle for Andorhal chain is finished."]..R_PAREN },
+		{ WHIT.."14) "..BZ["Chillwind Camp"] },
+		{ "" },
+		{ BLUE..BZ["The Hinterlands"] },
+		{ WHIT.."15) "..BZ["Aerie Peak"] },
+		{ WHIT.."16) "..BZ["Stormfeather Outpost"] },
+		{ "" },
+		{ BLUE..BZ["Arathi Highlands"] },
+		{ WHIT.."17) "..BZ["Refuge Pointe"] },
+		{ "" },
+		{ BLUE..BZ["Wetlands"] },
+		{ WHIT.."18) "..BZ["Dun Modr"] },
+		{ WHIT.."19) "..BZ["Whelgar's Retreat"] },
+		{ WHIT.."20) "..BZ["Greenwarden's Grove"] },
+		{ WHIT.."21) "..BZ["Menethil Harbor"] },
+		{ WHIT.."22) "..BZ["Slabchisel's Survey"] },
+		{ "" },
+		{ BLUE..BZ["Twilight Highlands"] },
+		{ WHIT.."23) "..BZ["Vermillion Redoubt"] },
+		{ WHIT.."24) "..BZ["Thundermar"] },
+		{ WHIT.."25) "..BZ["Kirthaven"] },
+		{ WHIT.."26) "..BZ["Victor's Point"] },
+		{ WHIT.."27) "..BZ["Firebeard's Patrol"] },
+		{ WHIT.."28) "..BZ["Highbank"] },
+		{ "" },
+		{ BLUE..BZ["Dun Morogh"] },
+		{ WHIT.."29) "..BZ["Ironforge"] },
+		{ WHIT.."30) "..BZ["Kharanos"] },
+		{ WHIT.."31) "..BZ["Gol'Bolar Quarry"] },
+		{ "" },
+		{ BLUE..BZ["Loch Modan"] },
+		{ WHIT.."32) "..BZ["Thelsamar"] },
+		{ WHIT.."33) "..BZ["Farstrider Lodge"] },
+		{ "" },
+		{ BLUE..BZ["Searing Gorge"] },
+		{ WHIT.."34) "..BZ["Thorium Point"] },
+		{ WHIT.."35) "..BZ["Iron Summit"] },
+		{ "" },
+		{ BLUE..BZ["Badlands"] },
+		{ WHIT.."36) "..BZ["Dragon's Mouth"] },
+		{ WHIT.."37) "..BZ["Dustwind Dig"] },
+		{ WHIT.."38) "..BZ["Fuselight"] },
+		{ "" },
+		{ BLUE..BZ["Burning Steppes"] },
+		{ WHIT.."39) "..BZ["Chiselgrip"] },
+		{ WHIT.."40) "..BZ["Morgan's Vigil"] },
+		{ WHIT.."41) "..BZ["Flamestar Post"] },
+		{ WHIT.."42) "..BZ["Terror Wing Path"]..COMMA..BZ["Burning Steppes"] },
+		{ WHIT..INDENT.."("..L["The Bogpaddle Bullet"]..R_PAREN },
+		{ "" },
+		{ BLUE..BZ["Elwynn Forest"] },
+		{ WHIT.."43) "..BZ["Stormwind"] },
+		{ WHIT.."44) "..BZ["Goldshire"] },
+		{ WHIT.."45) "..BZ["Eastvale Logging Camp"] },
+		{ "" },
+		{ BLUE..BZ["Redridge Mountains"] },
+		{ WHIT.."46) "..BZ["Lakeshire"] },
+		{ WHIT.."47) "..BZ["Camp Everstill"] },
+		{ WHIT.."48) "..BZ["Shalewind Canyon"] },
+		{ "" },
+		{ BLUE..BZ["Westfall"] },
+		{ WHIT.."49) "..BZ["Furlbrow's Pumpkin Farm"] },
+		{ WHIT.."50) "..BZ["Moonbrook"] },
+		{ WHIT.."51) "..BZ["Sentinel Hill"] },
+		{ "" },
+		{ BLUE..BZ["Duskwood"] },
+		{ WHIT.."52) "..BZ["Raven Hill"] },
+		{ WHIT.."53) "..BZ["Darkshire"] },
+		{ "" },
+		{ BLUE..BZ["Swamp of Sorrows"] },
+		{ WHIT.."54) "..BZ["The Harborage"] },
+		{ WHIT.."55) "..BZ["Marshtide Watch"] },
+		{ WHIT.."56) "..BZ["Bogpaddle"] },
+		{ "" },
+		{ BLUE..BZ["Northern Stranglethorn"] },
+		{ WHIT.."57) "..BZ["Rebel Camp"] },
+		{ WHIT.."58) "..BZ["Fort Livingston"] },
+		{ "" },
+		{ BLUE..BZ["The Cape of Stranglethorn"] },
+		{ WHIT.."59) "..BZ["Explorers' League Digsite"] },
+		{ WHIT.."60) "..BZ["Booty Bay"] },
+		{ "" },
+		{ BLUE..BZ["Blasted Lands"] },
+		{ WHIT.."61) "..BZ["Nethergarde Keep"] },
+		{ WHIT.."62) "..BZ["Surwich"] },
+		{ "" },
+		{ BLUE..BZ["Vashj'ir"] },
+		{ CYAN.."63) "..BZ["Smuggler's Scar"]..L_PAREN..L["Seahorse"]..R_PAREN },
+		{ CYAN.."64) "..BZ["Sandy Beach"]..L_PAREN..L["Seahorse"]..SLASH..L["Gryphon"]..R_PAREN },
+		{ CYAN.."65) "..BZ["Silver Tide Hollow"]..L_PAREN..L["Seahorse"]..R_PAREN },
+		{ CYAN.."66) "..BZ["Tranquil Wash"]..L_PAREN..L["Seahorse"]..R_PAREN },
+		{ CYAN.."67) "..BZ["Voldrin's Hold"]..L_PAREN..L["Seahorse"]..SLASH..L["Gryphon"]..R_PAREN },
+		{ CYAN.."68) "..BZ["Darkbreak Cove"]..L_PAREN..L["Seahorse"]..R_PAREN },
+		{ "" },
+		{ _RED..L["Legend"] },
+		{ PURP.."-- : "..L["Portal / Waygate Path to the destination"] },
+		{ CYAN.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
+		{ GREN.."-- : "..BZ["Deeprun Tram"]..SLASH..L["Special transportation"] },
 	},
 	TransAllianceWest_MoP = {
 		ZoneName = { BZ["Kalimdor"]..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN },
@@ -937,7 +937,7 @@ horde.maps = {
 		{ "" },
 		{ BLUE..BZ["Northrend"] },
 		{ WHIT.."13) "..BZ["Warsong Hold"]..COMMA.._RED..BZ["Borean Tundra"] },
-		{ NUTL.."14) "..BZ["Dalaran"]..COMMA.._RED..BZ["Crystalsong Forest"] };
+		{ NUTL.."14) "..BZ["Dalaran"]..COMMA.._RED..BZ["Crystalsong Forest"] },
 		{ WHIT.."15) "..BZ["Vengeance Landing"]..COMMA.._RED..BZ["Howling Fjord"] },
 		{ PURP.." A) "..BZ["Waygate"]..COMMA.._RED..BZ["Sholazar Basin"] },
 	},

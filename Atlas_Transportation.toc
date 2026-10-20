@@ -46,6 +46,7 @@
 
 Locale\Locales.xml
 Core\Constants.lua
+Core\TaxiCoords.lua
 Core\Core.lua
 Core\Config.lua
 Data\Data.xml
