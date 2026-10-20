@@ -43,11 +43,6 @@ local HRDE = labelcolors.HRDE -- Horde's taxi node
 local NUTL = labelcolors.NUTL -- Nutral taxi node
 local INDENT = "      "
 
--- Test switch: build the Eastern Kingdoms (Alliance) taxi node coords from the
--- TaxiNodes world positions, and let Atlas draw the node numbers dynamically.
--- Set to false to go back to the hand-placed coords below.
-local USE_TAXINODES_COORDS = true
-
 local CL = {
 	["HUNTER"] 		= classcolors["HUNTER"],
 	["WARLOCK"] 	= classcolors["WARLOCK"],
@@ -93,6 +88,49 @@ local CONNECTION = ALC["Connection"]
 local RARE = ALC["Rare"]
 local RANDOM = ALC["Random"]
 
+-----------------------------------------------------------------------
+-- Eastern Kingdoms (Alliance)
+-- pos = { Pos_0, Pos_1 } copied from TaxiNodes; xy = hand-placed map position
+-----------------------------------------------------------------------
+local TransAllianceEast_Forever_Map, TransAllianceEast_Forever_Coords = private.BuildTransportMap({
+	ZoneName = { BZ["Eastern Kingdoms"]..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN },
+	WorldMapID = 13,
+	Faction = "Alliance",
+	DynamicMarkers = true,
+	-- Fitted against the hand-placed coords on the 512x512 map (button TOPLEFT convention).
+	transform = { scale = 0.0239019, offsetX = 222.40, offsetY = 128.99, snap = 0.5 },
+	nodes = {
+		{ label = "A", id = 20001, kind = "Ship", name = "Auberdine", zone = "Darkshore", xy = { 13, 93 } },
+		{ label = "B", id = 20002, kind = "Ship", name = "Ratchet", zone = "The Barrens", xy = { 15, 231 } },
+		{ label = "C", id = 20003, kind = "Ship", name = "Theramore Isle", zone = "Dustwallow Marsh", xy = { 15, 303 } },
+		{ "" },
+		{ label = "1",  id = 10001, kind = "Alliance", name = "Light's Hope Chapel", zone = "Eastern Plaguelands", pos = {   2271.09, -5340.8   } }, -- TaxiNodes 67
+		{ label = "2",  id = 10002, kind = "Alliance", name = "Chillwind Camp",      zone = "Western Plaguelands", pos = {    931.32, -1430.11  } }, -- 66
+		{ label = "3",  id = 10003, kind = "Alliance", name = "Aerie Peak",          zone = "The Hinterlands",     pos = {    283.74, -2002.76  } }, -- 43
+		{ label = "4",  id = 10004, kind = "Alliance", name = "Southshore",          zone = "Hillsbrad Foothills", pos = {   -711.48,  -515.48  } }, -- 14
+		{ label = "5",  id = 10005, kind = "Alliance", name = "Refuge Pointe",       zone = "Arathi Highlands",    pos = {  -1240.53, -2515.11  } }, -- 16
+		{ label = "6",  id = 10006, kind = "Alliance", name = "Menethil Harbor",     zone = "Wetlands",            pos = {  -3792.26,  -783.29  } }, -- 7
+		{ label = "7",  id = 10007, kind = "Alliance", name = "Ironforge",           zone = "Dun Morogh",          pos = {  -4821.78, -1155.44  } }, -- 6
+		--{ label = "?", id = 10019, kind = "Alliance", name = "Tidegear Coast",     zone = "Dun Morogh",          pos = {  -4375.7,    864.778 } }, -- 3205
+		{ label = "8",  id = 10008, kind = "Alliance", name = "Thelsamar",           zone = "Loch Modan",          pos = {  -5421.91, -2930.01  } }, -- 8
+		{ label = "9",  id = 10009, kind = "Alliance", name = "Thorium Point",       zone = "Searing Gorge",       pos = {  -6552.59, -1168.27  } }, -- 74
+		{ label = "10", id = 10010, kind = "Alliance", name = "Morgan's Vigil",      zone = "Burning Steppes",     pos = {  -8364.61, -2738.35  } }, -- 71
+		{ label = "11", id = 10011, kind = "Alliance", name = "Stormwind",           zone = "Elwynn Forest",       pos = {  -8832.77,   478.623 } }, -- 2
+		{ label = "12", id = 10012, kind = "Alliance", name = "Lakeshire",           zone = "Redridge Mountains",  pos = {  -9429.1,  -2231.4   } }, -- 5
+		{ label = "13", id = 10013, kind = "Alliance", name = "Sentinel Hill",       zone = "Westfall",            pos = { -10628.9,   1036.68  } }, -- 4
+		{ label = "14", id = 10014, kind = "Alliance", name = "Darkshire",           zone = "Duskwood",            pos = { -10515.5,  -1261.65  } }, -- 12
+		{ label = "15", id = 10015, kind = "Alliance", name = "Nethergarde Keep",    zone = "Blasted Lands",       pos = { -11112.3,  -3435.74  } }, -- 45
+		{ label = "16", id = 10016, kind = "Alliance", name = "Booty Bay",           zone = "Stranglethorn Vale",  pos = { -14271.8,    299.87  } }, -- 9
+		{ label = "17", id = 10017, kind = "Alliance", name = "Farholde Keep",       zone = "Riverglades",         pos = {  -9104.1,  -4830.47  } }, -- 3276
+		{ label = "18", id = 10018, kind = "Alliance", name = "Powderfuse Port",     zone = "Riverglades",         pos = {  -8180.05, -5616.26  } }, -- 3275
+	},
+	footer = {
+		{ "" },
+		{ _RED..L["Legend"] },
+		{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
+	},
+})
+
 alliance.maps = {
 	TransAllianceCosmos_Classic = {
 		ZoneName = { WORLD..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN },
@@ -110,38 +148,7 @@ alliance.maps = {
 		{ ALAN.." 9) "..BZ["Stormwind"]..COMMA.._RED..BZ["Elwynn Forest"], 10009 },
 		{ NUTL.."10) "..BZ["Booty Bay"]..COMMA.._RED..BZ["Stranglethorn Vale"], 10010 },
 	},
-	TransAllianceEast_Forever = {
-		ZoneName = { BZ["Eastern Kingdoms"]..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN },
-		WorldMapID = 13,
-		Faction = "Alliance",
-		DynamicMarkers = USE_TAXINODES_COORDS,
-		{ ORNG.." A) "..BZ["Auberdine"]..COMMA.._RED..BZ["Darkshore"], 20001 },
-		{ ORNG.." B) "..BZ["Ratchet"]..COMMA.._RED..BZ["The Barrens"], 20002 },
-		{ ORNG.." C) "..BZ["Theramore Isle"]..COMMA.._RED..BZ["Dustwallow Marsh"], 20003 },
-		{ "" },
-		{ ALAN.." 1) "..BZ["Light's Hope Chapel"]..COMMA.._RED..BZ["Eastern Plaguelands"], 10001 },
-		{ ALAN.." 2) "..BZ["Chillwind Camp"]..COMMA.._RED..BZ["Western Plaguelands"], 10002 },
-		{ ALAN.." 3) "..BZ["Aerie Peak"]..COMMA.._RED..BZ["The Hinterlands"], 10003 },
-		{ ALAN.." 4) "..BZ["Southshore"]..COMMA.._RED..BZ["Hillsbrad Foothills"], 10004 },
-		{ ALAN.." 5) "..BZ["Refuge Pointe"]..COMMA.._RED..BZ["Arathi Highlands"], 10005 },
-		{ ALAN.." 6) "..BZ["Menethil Harbor"]..COMMA.._RED..BZ["Wetlands"], 10006 },
-		{ ALAN.." 7) "..BZ["Ironforge"]..COMMA.._RED..BZ["Dun Morogh"], 10007 },
-		-- Tidegear Coast ?
-		{ ALAN.." 8) "..BZ["Thelsamar"]..COMMA.._RED..BZ["Loch Modan"], 10008 },
-		{ ALAN.." 9) "..BZ["Thorium Point"]..COMMA.._RED..BZ["Searing Gorge"], 10009 },
-		{ ALAN.."10) "..BZ["Morgan's Vigil"]..COMMA.._RED..BZ["Burning Steppes"], 10010 },
-		{ ALAN.."11) "..BZ["Stormwind"]..COMMA.._RED..BZ["Elwynn Forest"], 10011 },
-		{ ALAN.."12) "..BZ["Lakeshire"]..COMMA.._RED..BZ["Redridge Mountains"], 10012 },
-		{ ALAN.."13) "..BZ["Sentinel Hill"]..COMMA.._RED..BZ["Westfall"], 10013 },
-		{ ALAN.."14) "..BZ["Darkshire"]..COMMA.._RED..BZ["Duskwood"], 10014 },
-		{ ALAN.."15) "..BZ["Nethergarde Keep"]..COMMA.._RED..BZ["Blasted Lands"], 10015 },
-		{ ALAN.."16) "..BZ["Booty Bay"]..COMMA.._RED..BZ["Stranglethorn Vale"], 10016 },
-		{ ALAN.."17) "..BZ["Farholde Keep"]..COMMA.._RED..BZ["Riverglades"], 10017 },
-		{ ALAN.."18) "..BZ["Powderfuse Port"]..COMMA.._RED..BZ["Riverglades"], 10018 },
-		{ "" },
-		{ _RED..L["Legend"] },
-		{ BLUE.."-- : "..L["Ship / Zeppelin sailing path to destination"] },
-	},
+	TransAllianceEast_Forever = TransAllianceEast_Forever_Map,
 	TransAllianceWest_Forever = {
 		ZoneName = { BZ["Kalimdor"]..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN },
 		WorldMapID = 12,
@@ -189,29 +196,6 @@ alliance.coords = {
 		{ 9, 10009, 385, 304 },
 		{10, 10010, 388, 373 },
 	},
-    TransAllianceEast_Forever = {
-        { "A", 20001, 13, 93 }, -- orange
-        { "B", 20002, 15, 231 }, -- orange
-        { "C", 20003, 15, 303 }, -- orange
-		{ "1", 10001, 349, 69 }, -- Light's Hope Chapel
-        { "2", 10002, 261, 103 }, -- Chillwind Point
-        { "3", 10003, 278, 124 }, -- Aerie Peak
-        { "4", 10004, 236, 151 }, -- Southshore
-        { "5", 10005, 287, 158 }, -- Refuge Pointe
-        { "6", 10006, 247, 218 }, -- enethil Harbor
-        { "7", 10007, 247, 251 }, -- Ironforge
-        { "8", 10008, 295, 257 }, -- Thelsamar
-        { "9", 10009, 259, 283 }, -- Thorium
-        { "10", 10010, 287, 333 }, -- Morgan's Vigil
-        { "11", 10011, 214, 347 }, -- Stormwind
-        { "12", 10012, 268, 349 }, -- Lakeshire
-        { "13", 10013, 194, 381 }, -- Sentinel Hill
-        { "14", 10014, 241, 379 }, -- Darkshire
-        { "15", 10015, 306, 396 }, -- Nethergarde Keep
-        { "16", 10016, 211, 468 }, -- Booty Bay
-        { "17", 10017, 338, 347 }, -- Farholde Keep
-        { "18", 10018, 349, 325 }, -- Powderfuse Port
-    },
     TransAllianceWest_Forever = {
         { "A", 10001, 488, 180 }, -- orange
         { "B", 10002, 488, 269 }, -- orange
@@ -240,53 +224,7 @@ alliance.coords = {
 }
 
 
--- Eastern Kingdoms (Alliance) taxi nodes, raw TaxiNodes world positions.
--- { mark, buttonID, Pos_0, Pos_1 [, dx, dy [, colortag]] }
-local TransAllianceEast_Forever_Nodes = {
-	{ "1",  10001,   2271.09,  -5340.8   }, -- Light's Hope Chapel (TaxiNodes 67)
-	{ "2",  10002,    931.32,  -1430.11  }, -- Chillwind Camp (66)
-	{ "3",  10003,    283.74,  -2002.76  }, -- Aerie Peak (43)
-	{ "4",  10004,   -711.48,   -515.48  }, -- Southshore (14)
-	{ "5",  10005,  -1240.53,  -2515.11  }, -- Refuge Pointe (16)
-	{ "6",  10006,  -3792.26,   -783.29  }, -- Menethil Harbor (7)
-	{ "7",  10007,  -4821.78,  -1155.44  }, -- Ironforge (6)
-	{ "19", 10019,  -4375.7,    864.778 }, -- Tidegear Coast (3205), estimated around 202, 233
-	{ "8",  10008,  -5421.91,  -2930.01  }, -- Thelsamar (8)
-	{ "9",  10009,  -6552.59,  -1168.27  }, -- Thorium Point (74)
-	{ "10", 10010,  -8364.61,  -2738.35  }, -- Morgan's Vigil (71)
-	{ "11", 10011,  -8832.77,    478.623 }, -- Stormwind (2)
-	{ "12", 10012,  -9429.1,   -2231.4   }, -- Lakeshire (5)
-	{ "13", 10013, -10628.9,    1036.68  }, -- Sentinel Hill (4)
-	{ "14", 10014, -10515.5,   -1261.65  }, -- Darkshire (12)
-	{ "15", 10015, -11112.3,   -3435.74  }, -- Nethergarde Keep (45)
-	{ "16", 10016, -14271.8,     299.87  }, -- Booty Bay (9)
-	{ "17", 10017,  -9104.1,   -4830.47  }, -- Farholde Keep (3276)
-	{ "18", 10018,  -8180.05,  -5616.26  }, -- Powderfuse Port (3275)
-}
-
--- Fitted against the hand-placed coords on the 512x512 map (button TOPLEFT convention).
---   x = offsetX - scale * Pos_1
---   y = offsetY - scale * Pos_0
-local TransAllianceEast_Forever_Transform = {
-	scale    = 0.0239019,
-	offsetX  = 222.40,
-	offsetY  = 128.99,
-	colortag = "Green", -- a contrasting colour while testing against the numbers drawn in the image
-	snap     = 0.5,
-}
-
-if (USE_TAXINODES_COORDS) then
-	-- Ship destinations are not taxi nodes, keep them hand-placed.
-	alliance.coords.TransAllianceEast_Forever = private.BuildTaxiCoords(
-		TransAllianceEast_Forever_Nodes,
-		TransAllianceEast_Forever_Transform,
-		{
-			{ "A", 20001, 13, 93 }, -- orange
-			{ "B", 20002, 15, 231 }, -- orange
-			{ "C", 20003, 15, 303 }, -- orange
-		}
-	)
-end
+alliance.coords.TransAllianceEast_Forever = TransAllianceEast_Forever_Coords
 
 horde.maps = {
 	TransHordeCosmos_Classic = {

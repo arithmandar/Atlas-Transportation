@@ -2,9 +2,11 @@
 -- TaxiCoords
 -- Builds Atlas map coordinates from raw TaxiNodes world positions.
 -----------------------------------------------------------------------
+local _G = getfenv(0)
 local _, private = ...
 
 local floor = math.floor
+local format = string.format
 
 local function snap(value, step)
 	if (not step) then
@@ -60,4 +62,110 @@ function private.BuildTaxiCoords(nodes, transform, coords)
 		coords[#coords + 1] = { mark, buttonID, x, y, largeX, largeY, colortag }
 	end
 	return coords
+end
+
+-----------------------------------------------------------------------
+-- Transport map builder
+-- One source table per map produces both the legend rows (AtlasMaps)
+-- and the button coords (AtlasMaps_NPC_DB).
+-----------------------------------------------------------------------
+
+-- How each kind of node looks.
+--   legend  colour escape used in the legend text
+--   marker  field 7 tag used on the map: a text colour ("Blue", ...) or an icon ("TaxiAlliance", ...)
+local function getDefaultStyles()
+	local Atlas = _G.LibStub("AceAddon-3.0"):GetAddon("Atlas")
+	local labels = Atlas.constants.colors.labels
+	local fonts = _G.ATLAS_FONT_COLORS or {}
+	return {
+		Alliance = { legend = labels.ALAN, marker = fonts.Alliance and "Alliance" or "Blue" },
+		Horde    = { legend = labels.HRDE, marker = fonts.Horde and "Horde" or "Red" },
+		Neutral  = { legend = labels.NUTL, marker = fonts.Neutral and "Neutral" or "Yellow" },
+		Ship     = { legend = labels.ORNG, marker = "Orange" },
+		Portal   = { legend = labels.PURP, marker = "Purple" },
+	}
+end
+
+-- def fields:
+--   ZoneName, WorldMapID, Faction, DynamicMarkers   copied to the map table
+--   transform   see private.WorldToMap; used for nodes with pos
+--   styles      optional, overrides / extends the default styles by kind
+--   nodes       list of node entries (see below) or plain legend rows such as { "" }
+--   footer      optional list of plain legend rows appended at the end
+--
+-- node entry fields:
+--   label   "1", "A", ...
+--   id      button ID, links the legend row with the map button
+--   name    BZ key of the node name
+--   zone    BZ key of the zone (optional)
+--   kind    "Alliance", "Horde", "Neutral", "Ship", "Portal", ... (key in styles)
+--   pos     { Pos_0, Pos_1 } raw TaxiNodes world position
+--   xy      { x, y } hand-placed map position, used when pos is not given
+--   nudge   { dx, dy } optional fine tuning in map pixels
+--   large   { x, y } optional large map position (fields 5 and 6)
+--   marker  optional marker tag override, e.g. "TaxiNeutral"
+--   legend  optional legend colour override
+--   suffix  optional extra text appended to the legend row
+--
+-- Returns map, coords
+function private.BuildTransportMap(def)
+	local Atlas = _G.LibStub("AceAddon-3.0"):GetAddon("Atlas")
+	local ALC = _G.LibStub("AceLocale-3.0"):GetLocale("Atlas")
+	local BZ = _G.Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
+	local RED = Atlas.constants.colors.labels._RED
+	local COMMA = ALC["Comma"]
+
+	local styles = getDefaultStyles()
+	for k, v in pairs(def.styles or {}) do
+		styles[k] = v
+	end
+
+	local map = {
+		ZoneName = def.ZoneName,
+		WorldMapID = def.WorldMapID,
+		Faction = def.Faction,
+		DynamicMarkers = def.DynamicMarkers,
+	}
+	local coords = {}
+
+	for _, e in ipairs(def.nodes) do
+		if (not e.id) then
+			-- plain legend row, e.g. { "" }
+			map[#map + 1] = e
+		else
+			local style = styles[e.kind] or {}
+			local text = (e.legend or style.legend or "")..format("%2s", e.label)..") "..BZ[e.name]
+			if (e.zone) then
+				text = text..COMMA..RED..BZ[e.zone]
+			end
+			if (e.suffix) then
+				text = text..e.suffix
+			end
+			map[#map + 1] = { text, e.id }
+
+			local x, y
+			if (e.pos and def.transform) then
+				x, y = private.WorldToMap(e.pos[1], e.pos[2], def.transform)
+			elseif (e.xy) then
+				x, y = e.xy[1], e.xy[2]
+			end
+			if (x and y) then
+				if (e.nudge) then
+					x, y = x + (e.nudge[1] or 0), y + (e.nudge[2] or 0)
+				end
+				local step = def.transform and def.transform.snap
+				local lx, ly
+				if (e.large) then
+					lx, ly = e.large[1], e.large[2]
+				end
+				coords[#coords + 1] = { e.label, e.id, snap(x, step), snap(y, step), lx, ly, e.marker or style.marker }
+			end
+		end
+	end
+
+	for _, row in ipairs(def.footer or {}) do
+		map[#map + 1] = row
+	end
+
+	return map, coords
 end
