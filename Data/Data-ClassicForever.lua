@@ -43,6 +43,11 @@ local HRDE = labelcolors.HRDE -- Horde's taxi node
 local NUTL = labelcolors.NUTL -- Nutral taxi node
 local INDENT = "      "
 
+-- Test switch: build the Eastern Kingdoms (Alliance) taxi node coords from the
+-- TaxiNodes world positions, and let Atlas draw the node numbers dynamically.
+-- Set to false to go back to the hand-placed coords below.
+local USE_TAXINODES_COORDS = true
+
 local CL = {
 	["HUNTER"] 		= classcolors["HUNTER"],
 	["WARLOCK"] 	= classcolors["WARLOCK"],
@@ -109,6 +114,7 @@ alliance.maps = {
 		ZoneName = { BZ["Eastern Kingdoms"]..ALAN..L_PAREN..FACTION_ALLIANCE..R_PAREN },
 		WorldMapID = 13,
 		Faction = "Alliance",
+		DynamicMarkers = USE_TAXINODES_COORDS,
 		{ ORNG.." A) "..BZ["Auberdine"]..COMMA.._RED..BZ["Darkshore"], 20001 },
 		{ ORNG.." B) "..BZ["Ratchet"]..COMMA.._RED..BZ["The Barrens"], 20002 },
 		{ ORNG.." C) "..BZ["Theramore Isle"]..COMMA.._RED..BZ["Dustwallow Marsh"], 20003 },
@@ -232,6 +238,55 @@ alliance.coords = {
     },
 
 }
+
+
+-- Eastern Kingdoms (Alliance) taxi nodes, raw TaxiNodes world positions.
+-- { mark, buttonID, Pos_0, Pos_1 [, dx, dy [, colortag]] }
+local TransAllianceEast_Forever_Nodes = {
+	{ "1",  10001,   2271.09,  -5340.8   }, -- Light's Hope Chapel (TaxiNodes 67)
+	{ "2",  10002,    931.32,  -1430.11  }, -- Chillwind Camp (66)
+	{ "3",  10003,    283.74,  -2002.76  }, -- Aerie Peak (43)
+	{ "4",  10004,   -711.48,   -515.48  }, -- Southshore (14)
+	{ "5",  10005,  -1240.53,  -2515.11  }, -- Refuge Pointe (16)
+	{ "6",  10006,  -3792.26,   -783.29  }, -- Menethil Harbor (7)
+	{ "7",  10007,  -4821.78,  -1155.44  }, -- Ironforge (6)
+	--{ "?", 10019,  -4375.7,    864.778 }, -- Tidegear Coast (3205), estimated around 202, 233
+	{ "8",  10008,  -5421.91,  -2930.01  }, -- Thelsamar (8)
+	{ "9",  10009,  -6552.59,  -1168.27  }, -- Thorium Point (74)
+	{ "10", 10010,  -8364.61,  -2738.35  }, -- Morgan's Vigil (71)
+	{ "11", 10011,  -8832.77,    478.623 }, -- Stormwind (2)
+	{ "12", 10012,  -9429.1,   -2231.4   }, -- Lakeshire (5)
+	{ "13", 10013, -10628.9,    1036.68  }, -- Sentinel Hill (4)
+	{ "14", 10014, -10515.5,   -1261.65  }, -- Darkshire (12)
+	{ "15", 10015, -11112.3,   -3435.74  }, -- Nethergarde Keep (45)
+	{ "16", 10016, -14271.8,     299.87  }, -- Booty Bay (9)
+	{ "17", 10017,  -9104.1,   -4830.47  }, -- Farholde Keep (3276)
+	{ "18", 10018,  -8180.05,  -5616.26  }, -- Powderfuse Port (3275)
+}
+
+-- Fitted against the hand-placed coords on the 512x512 map (button TOPLEFT convention).
+--   x = offsetX - scale * Pos_1
+--   y = offsetY - scale * Pos_0
+local TransAllianceEast_Forever_Transform = {
+	scale    = 0.0239019,
+	offsetX  = 222.40,
+	offsetY  = 128.99,
+	colortag = "Green", -- a contrasting colour while testing against the numbers drawn in the image
+	snap     = 0.5,
+}
+
+if (USE_TAXINODES_COORDS) then
+	-- Ship destinations are not taxi nodes, keep them hand-placed.
+	alliance.coords.TransAllianceEast_Forever = private.BuildTaxiCoords(
+		TransAllianceEast_Forever_Nodes,
+		TransAllianceEast_Forever_Transform,
+		{
+			{ "A", 20001, 13, 93 }, -- orange
+			{ "B", 20002, 15, 231 }, -- orange
+			{ "C", 20003, 15, 303 }, -- orange
+		}
+	)
+end
 
 horde.maps = {
 	TransHordeCosmos_Classic = {

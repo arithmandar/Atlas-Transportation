@@ -35,10 +35,11 @@ end
 --   colortag  default marker tag, e.g. "White" or "TaxiAlliance"
 --   snap      optional rounding step, e.g. 1 or 0.5
 --   large     optional transform for the large map (fields 5 and 6)
+-- coords: optional existing list (e.g. hand-placed rows); generated rows are appended to it
 -- Returns a table in the AtlasMaps_NPC_DB format:
 --   { mark, buttonID, x, y, largeX, largeY, colortag }
-function private.BuildTaxiCoords(nodes, transform)
-	local coords = {}
+function private.BuildTaxiCoords(nodes, transform, coords)
+	coords = coords or {}
 	for i = 1, #nodes do
 		local node = nodes[i]
 		local mark, buttonID, pos0, pos1 = node[1], node[2], node[3], node[4]
@@ -56,7 +57,7 @@ function private.BuildTaxiCoords(nodes, transform)
 			largeY = snap(largeY, transform.large.snap or transform.snap)
 		end
 
-		coords[i] = { mark, buttonID, x, y, largeX, largeY, colortag }
+		coords[#coords + 1] = { mark, buttonID, x, y, largeX, largeY, colortag }
 	end
 	return coords
 end
