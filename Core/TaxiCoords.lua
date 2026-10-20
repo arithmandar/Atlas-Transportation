@@ -4,6 +4,9 @@
 -----------------------------------------------------------------------
 local _G = getfenv(0)
 local _, private = ...
+local LibStub = _G.LibStub
+---@type AtlasAddon
+local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 
 local floor = math.floor
 local format = string.format
@@ -74,7 +77,6 @@ end
 --   legend  colour escape used in the legend text
 --   marker  field 7 tag used on the map: a text colour ("Blue", ...) or an icon ("TaxiAlliance", ...)
 local function getDefaultStyles()
-	local Atlas = _G.LibStub("AceAddon-3.0"):GetAddon("Atlas")
 	local labels = Atlas.constants.colors.labels
 	local fonts = _G.ATLAS_FONT_COLORS or {}
 	return {
@@ -109,10 +111,9 @@ end
 --
 -- Returns map, coords
 function private.BuildTransportMap(def)
-	local Atlas = _G.LibStub("AceAddon-3.0"):GetAddon("Atlas")
 	local ALC = _G.LibStub("AceLocale-3.0"):GetLocale("Atlas")
 	local BZ = _G.Atlas_GetLocaleLibBabble("LibBabble-SubZone-3.0")
-	local RED = Atlas.constants.colors.labels._RED
+	local zoneColor = Atlas.constants.colors.labels.LGRE
 	local COMMA = ALC["Comma"]
 
 	local styles = getDefaultStyles()
@@ -136,7 +137,7 @@ function private.BuildTransportMap(def)
 			local style = styles[e.kind] or {}
 			local text = (e.legend or style.legend or "")..format("%2s", e.label)..") "..BZ[e.name]
 			if (e.zone) then
-				text = text..COMMA..RED..BZ[e.zone]
+				text = text..COMMA..zoneColor..BZ[e.zone]
 			end
 			if (e.suffix) then
 				text = text..e.suffix
