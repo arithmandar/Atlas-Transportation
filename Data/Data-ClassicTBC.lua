@@ -9,7 +9,7 @@ local Atlas = LibStub("AceAddon-3.0"):GetAddon("Atlas")
 
 local Client = Atlas.Client
 
-if not Client.isAnniversaryTBC then
+if not Client.isTBCClassic then
 	return
 end
 

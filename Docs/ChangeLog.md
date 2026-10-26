@@ -6,6 +6,10 @@
 
 ## Change Log
 
+### v1.54.08 (Oct. 26, 2026)
+
+- Fixed issue in Classic Anniverssary that we didn't detect game version properly
+
 ### v1.54.07 (Oct. 20, 2026)
 
 - Forever
