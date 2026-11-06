@@ -6,6 +6,11 @@
 
 ## Change Log
 
+### v1.54.09 (Nov. 06, 2026)
+
+- Forever: 
+  - Added transportation between Zephras Isle and Azeroth
+
 ### v1.54.08 (Oct. 26, 2026)
 
 - Fixed issue in Classic Anniverssary that we didn't detect game version properly

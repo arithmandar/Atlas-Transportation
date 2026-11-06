@@ -57,7 +57,10 @@ end
 
 
 function addon:OnEnable()
-	Atlas:RegisterPlugin(private.addon_name, L[private.category], private.data.maps, private.data.coords)
+	local data = private.data
+	if data and data.maps and data.coords then
+		Atlas:RegisterPlugin(private.addon_name, L[private.category], data.maps, data.coords)
+	end
 end
 
 function addon:Refresh()
