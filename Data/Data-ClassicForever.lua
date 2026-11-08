@@ -128,7 +128,7 @@ private.BuildTransportMap({
 		{ label = "20", id = 10020, kind = "Neutral", name = "Eastwall Tower", zone = "Eastern Plaguelands", pos = { 2499.22998, -4742.850098 } }, -- 86
 		{ label = "21", id = 10021, kind = "Neutral", name = "Crown Guard Tower", zone = "Eastern Plaguelands", pos = { 1857.560059, -3658.469971 } }, -- 87
 		{ label = "22", id = 10022, kind = "Alliance", name = "Tidegear Coast", zone = "Dun Morogh", pos = { -4375.700195, 864.7780151 } }, -- 3205
-		{ label = "23", id = 10023, kind = "Alliance", name = "Powderfuse Port", zone = "Riverglades", pos = { -8180.049805, -5616.259766 } }, -- 3275
+		{ label = "23", id = 10023, kind = "Neutral", name = "Powderfuse Port", zone = "Riverglades", pos = { -8180.049805, -5616.259766 } }, -- 3275
 		{ label = "24", id = 10024, kind = "Alliance", name = "Farholde Keep", zone = "Riverglades", pos = { -9104.099609, -4830.470215 } }, -- 3276
 	},
 	footer = {
@@ -167,7 +167,7 @@ private.BuildTransportMap({
 		{ label = "15", id = 10015, kind = "Neutral", name = "Eastwall Tower", zone = "Eastern Plaguelands", pos = { 2499.22998, -4742.850098 } }, -- 86
 		{ label = "16", id = 10016, kind = "Neutral", name = "Crown Guard Tower", zone = "Eastern Plaguelands", pos = { 1857.560059, -3658.469971 } }, -- 87
 		{ label = "17", id = 10017, kind = "Horde", name = "Rog'mar", zone = "Riverglades", pos = { -7923.740234, -4782.959961 } }, -- 3203
-		{ label = "18", id = 10018, kind = "Horde", name = "Powderfuse Port", zone = "Riverglades", pos = { -8157.200195, -5724.669922 } }, -- 3274
+		{ label = "18", id = 10018, kind = "Neutral", name = "Powderfuse Port", zone = "Riverglades", pos = { -8157.200195, -5724.669922 } }, -- 3274
 	},
 	footer = {
 		{ "" },
@@ -279,21 +279,25 @@ alliance.maps = {
 		{ NUTL.." 5) "..BZ["Ratchet"]..COMMA..LGRE..BZ["The Barrens"], 10005 },
 		{ ALAN.." 6) "..BZ["Theramore"]..COMMA..LGRE..BZ["Dustwallow Marsh"], 10006 },
 		{ INDENT..GREY.."<-->"..BZ["Menethil Harbor"] },
+		{ NUTL.." 7) "..BZ["Steamwheedle Port"]..COMMA..LGRE..BZ["Tanaris"], 10007 },
+		{ INDENT..GREY.."<-->"..BZ["Powderfuse Port"] },
 		{ "" },
 		{ BLUE..BZ["Eastern Kingdoms"] },
-		{ ALAN.." 7) "..BZ["City of Dalaran"]..COMMA..LGRE..BZ["Alterac Mountains"], 10007 },
-		{ ALAN.." 8) "..BZ["Southshore"]..COMMA..LGRE..BZ["Hillsbrad Foothills"], 10008 },
+		{ ALAN.." 8) "..BZ["City of Dalaran"]..COMMA..LGRE..BZ["Alterac Mountains"], 10008 },
+		{ ALAN.." 9) "..BZ["Southshore"]..COMMA..LGRE..BZ["Hillsbrad Foothills"], 10009 },
 		{ INDENT..GREY.."-->"..BZ["Auberdine"] },
-		{ ALAN.." 9) "..BZ["Menethil Harbor"]..COMMA..LGRE..BZ["Wetlands"], 10009 },
+		{ ALAN.." 10) "..BZ["Menethil Harbor"]..COMMA..LGRE..BZ["Wetlands"], 10010 },
 		{ INDENT..GREY.."-->"..BZ["Southshore"] },
 		{ INDENT..GREY.."<-->"..BZ["Theramore"] },
-		{ ALAN.."10) "..BZ["Ironforge"]..COMMA..LGRE..BZ["Dun Morogh"], 10010 },
-		{ ALAN.."11) "..BZ["Stormwind"]..COMMA..LGRE..BZ["Elwynn Forest"], 10011 },
-		{ NUTL.."12) "..BZ["Booty Bay"]..COMMA..LGRE..BZ["Stranglethorn Vale"], 10012 },
-		{ NUTL.."12) "..BZ["Powderfuse Port"]..COMMA..LGRE..BZ["Riverglades"], 10013 },
+		{ ALAN.."11) "..BZ["Ironforge"]..COMMA..LGRE..BZ["Dun Morogh"], 10011 },
+		{ ALAN.."12) "..BZ["Stormwind"]..COMMA..LGRE..BZ["Elwynn Forest"], 10012 },
+		{ INDENT..GREY.."<-->"..BZ["Auberdine"] },
+		{ NUTL.."13) "..BZ["Booty Bay"]..COMMA..LGRE..BZ["Stranglethorn Vale"], 10013 },
+		{ NUTL.."14) "..BZ["Powderfuse Port"]..COMMA..LGRE..BZ["Riverglades"], 10014 },
+		{ INDENT..GREY.."<-->"..BZ["Steamwheedle Port"] },
 		{ "" },
 		{ BLUE..BZ["Zephras Isle"] },
-		{ ALAN.."13) "..BZ["Valanaar"]..COMMA..LGRE..BZ["Zephras Isle"], 10014 }
+		{ ALAN.."15) "..BZ["Valanaar"]..COMMA..LGRE..BZ["Zephras Isle"], 10015 }
 	},
 	TransAllianceEast_Forever = TransAllianceEast_Forever_Map,
 	TransAllianceWest_Forever = TransAllianceWest_Forever_Map,
@@ -306,14 +310,15 @@ alliance.coords = {
         { "4", 10004, 108, 175 }, -- yellow
         { "5", 10005, 119, 301 }, -- yellow
         { "6", 10006, 136, 342 }, -- blue
-        { "7", 10007, 389, 207 }, -- blue
-        { "8", 10008, 401, 233 }, -- blue
-        { "9", 10009, 403, 271 }, -- blue
-        { "10", 10010, 401, 292 }, -- blue
-        { "11", 10011, 384, 348 }, -- blue
-        { "12", 10012, 386, 417 }, -- yellow
-        { "13", 10013, 471, 337 }, -- yellow
-        { "14", 10014, 276, 142 }, -- blue
+        { "7", 10007, 140, 395 }, -- yellow
+        { "8", 10008, 389, 207 }, -- blue
+        { "9", 10009, 401, 233 }, -- blue
+        { "10", 10010, 400, 271 }, -- blue
+        { "11", 10011, 401, 292 }, -- blue
+        { "12", 10012, 384, 348 }, -- blue
+        { "13", 10013, 386, 417 }, -- yellow
+        { "14", 10014, 471, 337 }, -- yellow
+        { "15", 10015, 276, 142 }, -- blue
     },
 	TransAllianceEast_Forever = TransAllianceEast_Forever_Coords,
 	TransAllianceWest_Forever = TransAllianceWest_Forever_Coords,
@@ -328,15 +333,16 @@ horde.maps = {
 		{ HRDE.." 3) "..BZ["Skywatcher Plateau"]..COMMA..LGRE..BZ["Mulgore"], 10003 },
 		{ HRDE.." 4) "..BZ["Thunder Bluff"]..COMMA..LGRE..BZ["Mulgore"], 10004 },
 		{ NUTL.." 5) "..BZ["Ratchet"]..COMMA..LGRE..BZ["The Barrens"], 10005 },
+		{ NUTL.." 6) "..BZ["Steamwheedle Port"]..COMMA..LGRE..BZ["Tanaris"], 10006 },
 		{ "" },
 		{ BLUE..BZ["Eastern Kingdoms"] },
-		{ NUTL.." 6) "..BZ["Booty Bay"]..COMMA..LGRE..BZ["Stranglethorn Vale"], 10006 },
-		{ HRDE.." 7) "..BZ["Grom'gol"]..COMMA..LGRE..BZ["Stranglethorn Vale"], 10007 },
-		{ NUTL.." 8) "..BZ["Powderfuse Port"]..COMMA..LGRE..BZ["Riverglades"], 10008 },
-		{ HRDE.." 9) "..BZ["Undercity"]..COMMA..LGRE..BZ["Tirisfal Glades"], 10009 },
+		{ NUTL.." 7) "..BZ["Booty Bay"]..COMMA..LGRE..BZ["Stranglethorn Vale"], 10007 },
+		{ HRDE.." 8) "..BZ["Grom'gol"]..COMMA..LGRE..BZ["Stranglethorn Vale"], 10008 },
+		{ NUTL.." 9) "..BZ["Powderfuse Port"]..COMMA..LGRE..BZ["Riverglades"], 10009 },
+		{ HRDE.." 10) "..BZ["Undercity"]..COMMA..LGRE..BZ["Tirisfal Glades"], 10010 },
 		{ "" },
 		{ BLUE..BZ["Zephras Isle"] },
-		{ HRDE.."10) "..BZ["Valanaar"]..COMMA..LGRE..BZ["Zephras Isle"], 10010 }
+		{ HRDE.."11) "..BZ["Valanaar"]..COMMA..LGRE..BZ["Zephras Isle"], 10011 }
 	},
 	TransHordeEast_Forever = TransHordeEast_Forever_Map,
 	TransHordeWest_Forever = TransHordeWest_Forever_Map,
@@ -344,15 +350,16 @@ horde.maps = {
 horde.coords = {
     TransHordeCosmos_Forever = {
         { "1", 10001, 109, 164 }, -- yellow
-        { "2", 10002, 136, 251 }, -- white
-        { "3", 10003, 69, 281 }, -- white
-        { "4", 10004, 68, 295 }, -- white
+        { "2", 10002, 136, 251 }, -- red
+        { "3", 10003, 69, 281 }, -- red
+        { "4", 10004, 68, 295 }, -- red
         { "5", 10005, 123, 292 }, -- yellow
-        { "6", 10006, 389, 407 }, -- yellow
-        { "7", 10007, 394, 379 }, -- white
-        { "8", 10008, 474, 324 }, -- yellow
-        { "9", 10009, 391, 183 }, -- white
-        { "10", 10010, 260, 129 }, -- white
+        { "6", 10006, 142, 387 }, -- yellow
+        { "7", 10007, 389, 407 }, -- yellow
+        { "8", 10008, 394, 379 }, -- red
+        { "9", 10009, 474, 324 }, -- yellow
+        { "10", 10010, 388, 183 }, -- red
+        { "11", 10011, 260, 129 }, -- red
     },
 	TransHordeEast_Forever = TransHordeEast_Forever_Coords,
 	TransHordeWest_Forever = TransHordeWest_Forever_Coords,

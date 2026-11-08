@@ -6,11 +6,18 @@
 
 ## Change Log
 
+### v1.54.11 (Nov. 08, 2026)
+
+- Forever:
+  - Corrected the transportation routes between Ratchet and Powderfuse Port, it should be
+    between Steamwheedle Port and Powderfuse Port
+
 ### v1.54.10 (Nov. 08, 2026)
 
 - Forever:
   - Updated Alliance's shipping routes between Auberdine, Menethil Harbor, Southshore, and Stormwind
   - Added Steamwheedle Trade route between Ratchet and Powderfuse Port
+  - Changed Powderfuse Port's kind from "Alliance / Horde" to "Neutral"
 
 ### v1.54.09 (Nov. 06, 2026)
 
