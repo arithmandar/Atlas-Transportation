@@ -6,6 +6,12 @@
 
 ## Change Log
 
+### v1.54.10 (Nov. 08, 2026)
+
+- Forever:
+  - Updated Alliance's shipping routes between Auberdine, Menethil Harbor, Southshore, and Stormwind
+  - Added Steamwheedle Trade route between Ratchet and Powderfuse Port
+
 ### v1.54.09 (Nov. 06, 2026)
 
 - Forever: 
